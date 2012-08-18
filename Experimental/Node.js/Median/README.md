@@ -8,9 +8,7 @@ Procedure for Windows:
 * Download Node.js from http://nodejs.org/
 * Install it
 * Open the Node.js command prompt
-* Type node to start the node interactive prompt
 * Type npm install jasmine-node -g (To install jasmine-node unit test framework. See https://github.com/mhevery/jasmine-node)
-* Hit Control C twice to exit Node.js prompt
 * cd <Directory where you cloned OpenEpi.com repository to>\Experimental\Node.js\Median
 * Type jasmine-node Specs
 * Expect to see "2 tests, 6 assertions, 0 failured"
