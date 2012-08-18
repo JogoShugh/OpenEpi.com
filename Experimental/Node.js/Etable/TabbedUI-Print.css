@@ -1,0 +1,31 @@
+/* CSS Document --for Tabbed User Interface*/
+	.tab{
+		 display:none;
+	}
+	#divLogo {
+	     display:none;
+	}
+	
+	
+	
+/*    
+	#banner strong{
+	 color: white;
+	 background-color: #666666;
+	} 
+	#banner a:link{
+	 color: #FFFFFF;
+	 font-size: small;
+	 }
+     #banner a:hover {
+	  color: blue;
+	  }
+	  #banner a:active {
+	   color: red;
+	   }
+	 a { 
+	    color: #FFFFFF;
+		font-size:small;
+		background-color:#666666;
+	   }
+	   */

@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>OpenEpi - Toolkit Shell for Developing New Applications</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Kevin M. Sullivan, Andrew G. Dean, and Roger A. Mir">
+    <!-- --------------------- -->
+    <script language="JavaScript" type="text/JavaScript">
+        var basefilename = "CIMedian";  //The name from which other filenames are constructed in AppHelper.js
+    </script>
+    <script language="javascript" src="../jquery.js" type="text/javascript"></script>
+    <script language="JavaScript" src="../Etable/Etable_files/IncludeFiles.js" type="text/JavaScript"></script>
+</head>
+<body>
+
+    <form action="javascript:void(0)">
+    <p>
+        Sample Size:
+        <input type="text" id="SampleSize" value="100" />
+    </p>
+    <p>
+        Percentile:
+        <input type="text" id="Percentile" value="50" />
+    </p>
+    <p>
+        Confidence Level:
+        <input type="text" id="ConfidenceLevel" value="95" />
+    </p>
+
+    <button id="CommandCalculateResults" value="Calculate Results">Calculate Results</button>
+
+    </form>
+
+    <script language="JavaScript" type="text/JavaScript">
+$(document).ready(function() {
+    $("#CommandCalculateResults").click(function() {
+        var sampleSize = parseFloat($("#SampleSize").val());
+        var percentile = parseFloat($("#Percentile").val());
+        var confidenceLevel = parseFloat($("#ConfidenceLevel").val());
+        var inputs = [{}, { "E0D0": sampleSize, "E1D0": percentile, "E2D0": confidenceLevel}];
+
+        var median = new CalcCIMedian(inputs, null);
+        var ok = median.Execute();
+        if (ok) {
+            var lowerLimitIsCorrect = median.ResultData.lowerLimit == 40;
+            var medianValueIsCorrect = median.ResultData.median == 50;
+            alert((lowerLimitIsCorrect && medianValueIsCorrect) + "\n\nResult Object:\n\n[[" + median.ResultData.toSource() + "]]");
+        } else {
+            alert(median.FailureMessage);
+        }
+    });
+});
+
+
+                //median.ResultData.tableGenerationFunc();
+
+                //if (!calcOK) {
+                //    alert("Fail: " + median.FailureMessage);
+                //}
+
+
+
+        //function checkcode(r, c, entry) {
+        //    //This function, if it exists, is called by ETable after every entry into a data
+        //    //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+        //    //take some other action based upon it.  Here the function is set up to 
+        //    //insure that only numbers are put in the cells and that blank entries become 
+        //    //zeros.  Conditional statements, such as the switch statement can be used
+        //    //to write code that applies only to particular cells.
+        //    //To see what row and column entries are made in, uncomment the following line:
+        //    //alert("Row="+r+"  Col=" + c + " Value: " + entry)
+        //    var e = parseFloat(entry)
+        //    if (isNaN(e)) { e = "" }
+        //    return e
+        //}
+    </script>

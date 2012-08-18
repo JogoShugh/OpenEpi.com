@@ -1,0 +1,63 @@
+/* CSS Document --for Tabbed User Interface*/
+	.tab{
+		color: navy;
+		background-color: #ffffff;
+		border: thin solid navy;
+		position: absolute;
+		top: 2;
+		width: 14.5%;
+		text-align: center;
+		font: 10pt Verdana,sans-serif;
+		z-index: 2;
+		padding: 3;
+		cursor: pointer;
+	}
+	
+	 .noprint{
+	 }
+	 
+	.panel{
+		position: absolute;
+		top: 25;
+		left: 0;
+		width: 99%;
+		z-index: 1;
+		height: 95%;
+		visibility: hidden;
+		/*font: 12pt Verdana,sans-serif;
+		color: navy;*/
+		border: thin solid navy;
+		padding-left: 1.5%;
+		overflow: auto;
+	}
+    #divLogo {
+	position: absolute;
+	left: 2%;
+	width: 15%;
+	z-index: 0;
+	top: 0; 
+	
+	}
+	#btnEnter, #btnDemo {
+		cursor:pointer; 
+    }
+	
+	#banner strong{
+	 color: white;
+	 background-color: #666666;
+	} 
+	#banner a:link{
+	 color: #FFFFFF;
+	 font-size: small;
+	 }
+     #banner a:hover {
+	  color: blue;
+	  }
+	  #banner a:active {
+	   color: red;
+	   }
+	 a { 
+	    color: #FFFFFF;
+		font-size:small;
+		background-color:#666666;
+	   }

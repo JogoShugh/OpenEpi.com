@@ -1,0 +1,815 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Data Entry Settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META NAME="robots" CONTENT="INDEX,FOLLOW">
+<META NAME="description" CONTENT="This page allow users to save 2 x 2 table settings in a cookie.">
+<META NAME="author" CONTENT="Roger Mir and Andy Dean">
+</head>
+<link href="StdPage.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="Settings";  //The name from which other filenames are constructed in AppHelper.js
+                               //******For a new application, change "Proportion" to a new, unique name********
+</script>
+
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../etable/Etable_files/IncludeFiles.js" type="text/javascript"></SCRIPT>
+
+<script language="JavaScript" type="text/JavaScript">
+
+<!--
+//These variables will be set and stored in a cookie.  On load, the stored values, if any
+//will be retrieved from the cookie.  The retrieval routine will also be used by the data entry
+//program to obtain the settings from the cookie.
+//var ConfLevel = "95";
+//var DiseaseYes="(-)";
+//Color for exposure (none is an option)
+//Color for disease or outcome (none is an option)
+//var HighLightP=true; 
+//savewithoutaskingvar =true;
+var savedbefore=false;
+ /*
+//duplicate functions in ReadCookie.js
+function readUnescapedCookie(cookieName)
+{
+	var cookieValue = document.cookie;
+	var cookieRegExp = new RegExp("\\b" + cookieName + "=([^;]*)");
+	cookieValue = cookieRegExp.exec(cookieValue);
+	if (cookieValue != null)
+		{
+		cookieValue = cookieValue[1];
+		}
+	return cookieValue;
+}
+
+function readCookie(cookieName, multiValueName)
+{
+	var cookieValue = readUnescapedCookie(cookieName)
+	if (cookieValue == null)
+		{
+		return cookieValue;
+		}
+	var extractMultiValueCookieRegExp = new RegExp("\\b" + multiValueName + "=([^;&]*)");
+	cookieValue = extractMultiValueCookieRegExp.exec(cookieValue);
+	if (cookieValue != null)
+	{
+		cookieValue = unescape(cookieValue[1]);
+	}
+	return cookieValue;
+}
+   */
+function optionIndexFromValue(optionArray,value)
+{ var i;
+for (i=0; i<optionArray.length; i++)
+ {
+   if(optionArray[i].value==value)
+     {
+	   return i;
+	 }
+ }
+return null; 
+}
+
+function DefaultSettings()
+{
+
+var OnTop = readCookie("openepi","Dropbox0");
+var TopLeft = readCookie("openepi","TopLeft");
+var TopRight = readCookie("openepi","TopRight");
+var Dropbox1 = readCookie("openepi","Dropbox1");
+var Exposure = readCookie("openepi","Exp");
+var Top = readCookie("openepi","Top");
+var Bottom = readCookie("openepi","Bottom");
+var Dropbox2 = readCookie("openepi","Dropbox2");
+var AutoLayout = readCookie("openepi","AutoLayout");
+var ConfidenceLevel = readCookie("openepi","ConfidenceLevel");
+var Pvalues = readCookie("openepi","Pvalues");  //Do not flag “significant” p values 
+var Columnpercents = readCookie("openepi","Columnpercents");
+var RowPercents = readCookie("openepi","RowPercents");
+var Language = readCookie("openepi","Language");
+var ShowTables = readCookie("openepi","ShowTables");
+var ShowStrata = readCookie("openepi","ShowStrata");
+var aCol = new Array(4);
+var aGetSettings = new Array(17);
+
+for (i=0; i < aCol.length; i++)
+	{	
+	aCol[i] = readCookie("openepi","col" + i);
+	}
+	
+if (OnTop == null || TopLeft == null || aCol[0] == null )
+	{
+	return;
+	}
+	
+var eleForm = document.form1;	
+aGetSettings[0] = OnTop;
+aGetSettings[1] = TopLeft;
+aGetSettings[2] = TopRight;
+aGetSettings[3] = Dropbox1;
+aGetSettings[4] = Exposure;
+aGetSettings[5] = Top;
+aGetSettings[6] = Bottom;
+aGetSettings[7] = Dropbox2;
+aGetSettings[8] = AutoLayout; 
+switch (ConfidenceLevel)
+	{
+	case "90":
+		aGetSettings[9] = 0;
+    case "95":
+		aGetSettings[9] = 1;
+	case "99":
+		aGetSettings[9] = 2;
+	case "99.9":
+		aGetSettings[9] = 3;
+	case "99.99":
+		aGetSettings[9] = 4;	
+	default:
+		aGetSettings[9] = 1;
+	}	
+aGetSettings[10] = Pvalues;
+aGetSettings[11] = Columnpercents;
+aGetSettings[12] = RowPercents;
+aGetSettings[13] = aCol[0];
+aGetSettings[14] = aCol[1];
+aGetSettings[15] = aCol[2];
+aGetSettings[16] = aCol[3];
+aGetSettings[17] = optionIndexFromValue(eleForm.Language.options,Language);
+aGetSettings[18] = ShowTables;
+aGetSettings[19] = ShowStrata; 
+
+
+eleForm.Dropbox0.selectedIndex = aGetSettings[0];
+element("TopLeft").innerHTML = aGetSettings[1];
+element("TopRight").innerHTML = aGetSettings[2];
+eleForm.Dropbox1.selectedIndex = aGetSettings[3];
+element("Exp").innerHTML = aGetSettings[4];
+element("Top").innerHTML = aGetSettings[5];
+element("Bottom").innerHTML = aGetSettings[6];
+eleForm.Dropbox2.selectedIndex = aGetSettings[7];
+eleForm.AutoLayout[aGetSettings[8]].checked = true;
+eleForm.ConfidenceLevel[aGetSettings[9]].selected = true;
+eleForm.Pvalues.checked = eval(aGetSettings[10]);
+eleForm.Columnpercents.checked = eval(aGetSettings[11]);
+eleForm.RowPercents.checked = eval(aGetSettings[12]);
+element("col0").bgColor = aGetSettings[13];
+element("col1").bgColor = aGetSettings[14];
+element("col2").bgColor = aGetSettings[15];
+element("col3").bgColor = aGetSettings[16];
+eleForm.Language.selectedIndex = aGetSettings[17];
+eleForm.ShowTables.checked = eval(aGetSettings[18]);
+eleForm.ShowStrata.checked = eval (aGetSettings[19]);
+}
+
+function getLayer(id) 
+{	
+	var objTopLeft = document.getElementById ? document.getElementById(id) :
+	document.all ? document.all[id] :
+	document.layers ? document.layers[id] : null;
+	return objTopLeft;
+}
+
+function setTopRow(id,TopLeft,Ltxt) 
+{
+	//alert("I am in the setTopRow");
+	var objTopLeft = getLayer(id);
+	var objTopRight = getLayer("TopRight");
+	var TempColor = 0;
+	if ((TopLeft == "(+)") && (objTopLeft.innerHTML == "(-)") || (TopLeft == "(-)") && (objTopLeft.innerHTML == "(+)")) 
+		{
+		Temp = getLayer("col0");
+		TempColor = Temp.bgColor;				
+		Temp1 = getLayer("col1");
+		Temp.bgColor = Temp1.bgColor; 
+		Temp1.bgColor = TempColor;
+		Temp = getLayer("col2");
+		TempColor = Temp.bgColor;
+		Temp3 = getLayer("col3");
+		Temp2 = getLayer("col2");
+		Temp2.bgColor = Temp3.bgColor;
+		Temp3.bgColor = TempColor;
+		}	
+		
+	if (TopLeft == "(+)")
+		{
+		objTopRight.innerHTML = "(-)";
+		}
+	else
+		{
+		objTopRight.innerHTML = "(+)";
+		}
+	if ("Rtxt")
+		{
+		objTopRight.className = "Rtxt";
+		} 
+		else if (document.layers) 
+		{
+		objTopRight.document.write('<span '+(("Rtxt")?'class="Rtxt">':'>'),TopRight+'</span>');
+		objTopRight.document.close();
+		}
+	
+	if (document.getElementById || document.all) 
+		{
+		objTopLeft.innerHTML = TopLeft;
+		if (Ltxt) 
+			{
+			objTopLeft.className = Ltxt;
+			}
+		} 
+		else if (document.layers) 
+		{
+		objTopLeft.document.write('<span '+((Ltxt)?'class="'+Ltxt+'">':'>'),TopLeft+'</span>');
+		objTopLeft.document.close();
+		}
+}
+
+
+function setTopCol(id,Top,Toptxt) 
+{
+	var objTop = getLayer(id);
+	var objBottom = getLayer("Bottom");
+	var TempColor = 0;
+	
+	if ((Top == "(+)") && (objTop.innerHTML == "(-)") || (Top == "(-)") && (objTop.innerHTML == "(+)")) 
+		{
+		Temp0 = getLayer("col0");
+		TempColor = Temp0.bgColor;
+		Temp2 = getLayer("col2");
+		Temp0.bgColor = Temp2.bgColor;
+		Temp2.bgColor = TempColor;
+		Temp1 = getLayer("col1");
+		TempColor = Temp1.bgColor;
+		Temp3 = getLayer("col3");
+		Temp1.bgColor = Temp3.bgColor;
+		Temp3.bgColor = TempColor;
+		}	
+	
+	if (Top == "(+)")
+	{
+		objBottom.innerHTML = "(-)";
+	}
+	else
+	{
+		objBottom.innerHTML = "(+)";
+	}
+	if ("C2R4")
+	{
+		objBottom.className = "C2R4";
+	} else if (document.layers) 
+	{
+	objBottom.document.write('<span '+(("C2R4")?'class="C2R4">':'>'),Bottom+'</span>');
+	objBottom.document.close();
+	}	
+	if (document.getElementById || document.all) 
+	{
+		objTop.innerHTML = Top;
+		if (Toptxt) 
+		{
+		objTop.className = Toptxt;
+		}
+	} 
+	else if (document.layers) 
+	{
+	objTop.document.write('<span '+((Toptxt)?'class="'+Toptxt+'">':'>'),Top+'</span>');
+	objTop.document.close();
+	}
+
+}
+
+function setExp(id,content,name) 
+{
+	var objLayer = getLayer(id);
+    
+	if (content == "Disease")
+	{
+		objLayer.innerHTML = t("Exposure");
+	}
+	else
+	{
+		objLayer.innerHTML = t("Disease");
+	}
+	if (name)
+	{
+		objLayer.className = name;
+	} else if (document.layers) {
+	objLayer.document.write('<span '+((name)?'class="'+name+'">':'>'),content+'</span>');
+	objLayer.document.close();
+	}
+}
+
+function SelectDef()
+	{
+	var eleForm = document.form1;
+	if (eleForm.AutoLayout[0].checked)
+		{
+		element("col0").bgColor="#FF0000";
+		element("col1").bgColor="#FFFF00";
+		element("col2").bgColor="#FF9900";
+		element("col3").bgColor="#00FF00";						
+		element("TopLeft").innerHTML="(+)";
+		element("TopRight").innerHTML="(-)";
+		element("Top").innerHTML="(+)";
+		element("Bottom").innerHTML="(-)";
+		eleForm.Dropbox0.options[0].selected = true;
+		element("Exp").innerHTML=t("Exposure");		
+		eleForm.Dropbox2.options[0].selected = true;
+		eleForm.Dropbox1.options[0].selected = true;		
+		}	  
+	else if (eleForm.AutoLayout[1].checked)
+		{
+		eleForm.Dropbox0.options[1].selected = true;
+		element("Exp").innerHTML=t("Disease");
+		eleForm.Dropbox2.options[0].selected = true;
+		eleForm.Dropbox1.options[0].selected = true;
+		element("col0").bgColor="#FF0000";
+		element("col1").bgColor="#FF9900";  
+		element("col2").bgColor="#FFFF00";
+		element("col3").bgColor="#00FF00";						
+		element("TopLeft").innerHTML="(+)";
+		element("TopRight").innerHTML="(-)";
+		element("Top").innerHTML="(+)";
+		element("Bottom").innerHTML="(-)";
+		}
+	}
+
+function deleteCookie(cookieName)
+	{
+	var expiredDate = new Date();
+	expiredDate.setMonth(-1);
+	writeCookie(cookieName,"","",expiredDate,"/");
+	}
+
+function cookiesEnabled()
+	{
+	var cookiesEnabled = window.navigator.cookieEnabled;
+	if (!cookiesEnabled)
+		{
+		document.cookie = "cookiesEnabled=True";
+		cookiesEnabled = new Boolean(document.cookie).valueOf();
+		}
+	return cookiesEnabled;
+	}
+
+function writeCookie(cookieName, multiValueName, value, expires, path)
+{
+	var cookieValue = readUnescapedCookie(cookieName); 
+	if (cookieValue)
+	{
+		var stripAttributeRegExp = new RegExp("(^|&)" + multiValueName + "=[^&]*&?");
+		cookieValue = cookieValue.replace(stripAttributeRegExp,"$1");
+		if (cookieValue.length != 0)
+		{
+		cookieValue += "&";
+		}
+	}
+	else
+	{
+		cookieValue = "";	
+	}
+
+	value = value.toString();
+	cookieValue += multiValueName + "=" + escape(value);
+	var cookieDetails = cookieName + "=" + cookieValue;
+	cookieDetails += (expires ? "; expires=" + expires.toGMTString(): '');
+	cookieDetails += (path ? "; path=" + path: '');
+	document.cookie = cookieDetails;
+}
+
+
+var cookiemsg=t("Unable to save.  Please check that browser settings enable Cookies.");
+//setTimeout( 'cookiemsg=t("Unable to save.  Please check that browser settings enable Cookies.")',4000);
+var setsaved=t("Settings saved for this browser.");
+var savesettings=t("Save Settings(for this browser)?");
+
+function saveSettings()
+{ 
+ var topVarStr;
+ var leftVarStr="Exposure";
+ if(savedbefore) return;  //saving was done in onBeforeUnload event.
+ 
+ if(1==1|| confirm(savesettings))
+   {
+	deleteCookie("openepi");
+	var expiryDate = new Date();
+	//Add this block of code, 9/03/03, by RAM. There was a problem with Netscape 7.1
+	//Netscape 7.1 does not work with getYear() function
+	expiryDate.setDate(expiryDate.getDate()+parseInt(730));
+	expiryDate.setHours(expiryDate.getHours()+parseInt(4));
+	expiryDate.setMinutes(expiryDate.getMinutes()+parseInt(4))
+	//End of new code
+	// Old code commented out by RAM 9/03/03
+	//expiryDate.setYear(expiryDate.getYear() + 3);
+	//end of old code
+	if (!cookiesEnabled())
+		{
+		alert(cookiemsg);
+		return;
+		}
+	var _$box0 = document.form1;
+	var box0 = _$box0.Dropbox0.options[_$box0.Dropbox0.selectedIndex].index;
+	var _$box1 = _$box0;
+	var box1 = _$box1.Dropbox1.options[_$box1.Dropbox1.selectedIndex].index;
+	var _$box2 = _$box0;
+	var box2 = _$box2.Dropbox2.options[_$box2.Dropbox2.selectedIndex].index;
+	var _$box3 = _$box0;
+	var box3 = _$box3.ConfidenceLevel.options[_$box3.ConfidenceLevel.selectedIndex].value;
+	var box4 = _$box0.Language.options[_$box0.Language.selectedIndex].value;
+	//alert(_$box3.ConfidenceLevel.options[_$box3.ConfidenceLevel.selectedIndex].value);
+	writeCookie("openepi","Dropbox0", box0, expiryDate, "/");
+	writeCookie("openepi","TopLeft", element("TopLeft").innerHTML, expiryDate, "/");
+	writeCookie("openepi","TopRight", element("TopRight").innerHTML, expiryDate, "/");
+	writeCookie("openepi","Dropbox1", box1, expiryDate, "/");	
+	if(_$box0.Dropbox0.selectedIndex==1)
+	 {
+	  leftVarStr="Disease" //Otherwise  ="Exposure"
+	 }
+	writeCookie("openepi","Exp", leftVarStr, expiryDate, "/");
+	//writeCookie("openepi","Exp", element("Exp").innerHTML, expiryDate, "/"); 	
+	writeCookie("openepi","Top", element("Top").innerHTML, expiryDate, "/");
+	writeCookie("openepi","col0", element("col0").bgColor, expiryDate, "/");
+	writeCookie("openepi","col1", element("col1").bgColor, expiryDate, "/");		
+	writeCookie("openepi","col2", element("col2").bgColor, expiryDate, "/");		
+	writeCookie("openepi","col3", element("col3").bgColor, expiryDate, "/");					
+	writeCookie("openepi","Bottom", element("Bottom").innerHTML, expiryDate, "/");		
+	writeCookie("openepi","Dropbox2", box2, expiryDate, "/");
+
+	for ( var i =0; i < _$box0.AutoLayout.length; i++)
+		{
+		if ( _$box0.AutoLayout[i].checked) 
+			{
+		    writeCookie("openepi","AutoLayout", i, expiryDate, "/");
+			}
+		}
+
+	writeCookie("openepi","ConfidenceLevel", box3, expiryDate, "/");
+			
+	if (element("Pvalues").checked)
+		{	
+		writeCookie("openepi","Pvalues", 1, expiryDate, "/");
+		}	
+	else
+		{
+		writeCookie("openepi","Pvalues", 0, expiryDate, "/");	
+		}
+		
+	if (element("Columnpercents").checked)
+		{	
+		writeCookie("openepi","Columnpercents", 1, expiryDate, "/");	
+		}
+	else
+		{
+		writeCookie("openepi","Columnpercents", 0, expiryDate, "/");			
+		}
+		
+	if (element("RowPercents").checked)
+		{	
+		writeCookie("openepi","RowPercents", 1, expiryDate, "/");	
+		}
+	else
+		{
+		writeCookie("openepi","RowPercents", 0, expiryDate, "/");
+		}
+	
+	writeCookie("openepi","Language", box4, expiryDate, "/");
+		
+	if (element("ShowTables").checked)
+		{	
+		writeCookie("openepi","ShowTables", 1, expiryDate, "/");	
+		}
+	else
+		{
+		writeCookie("openepi","ShowTables", 0, expiryDate, "/");
+		}
+		
+	if (element("ShowStrata").checked)
+		{	
+		writeCookie("openepi","ShowStrata", 1, expiryDate, "/");	
+		}
+	else
+		{
+		writeCookie("openepi","ShowStrata", 0, expiryDate, "/");				
+		}
+		
+	if (!document.cookie)
+		{
+		alert(cookiemsg);
+		}
+	else
+		{	
+		ShowHide("savedmsg",true);
+		}	
+  }		
+}
+
+function ShowHide(spanname, show) 
+{
+  //var spanname;
+  if (document.all) {
+     if (show) 
+	     {eval("document.all."+spanname+".style.visibility='visible';");}
+     else 
+	     {eval("document.all."+spanname+".style.visibility='hidden';"); }}
+  else {
+    if(navigator.userAgent.indexOf("Gecko")!=-1) {// is NS6 ?
+	  
+      if (show) 
+	     {document.getElementById(spanname).style.visibility='visible';}
+      else 
+	     {document.getElementById(spanname).style.visibility='hidden'; }}
+  else {
+    if (show) 
+	     {eval("document.layers['"+spanname+"'].visibility='show';");}
+    else 
+	     {eval("document.layers['"+spanname+"'].visibility='hide';"); }}
+  }
+}
+
+var changelangmsg=t("To refresh the menu in a new language, place the cursor in the URL/Address window and press Return");
+
+function changeLanguage()
+  { var _$box0=document.form1;
+  
+    saveSettings();
+	//alert(window.top.Language)
+	alert(changelangmsg);
+	//parent.document.location.replace("../menu/OpenEpiMenu.htm");
+	//alert("value here="+_$box0.Language.options[_$box0.Language.selectedIndex].value)
+	//top.location.reload();  //Forced reload  Does not work--permission denied
+
+  }
+  
+function element(id)
+	{
+	if (document.getElementById != null)
+		{
+		return document.getElementById(id);
+		}
+	if (document.all != null)
+		{
+		return document.all[id];
+		}	
+	if (document.layers != null)
+		{
+		return document.layers[id];	
+		}
+		return null;
+	}
+
+function DropBox0()
+	{
+	var aColor = new Array(2);
+	var aColNo = new Array(2);
+	for (var i=0; i < 4; i++)
+		{
+		if ( (element("col"+i).bgColor).toUpperCase() == "#FFFF00")
+			{
+			aColor[0] = element("col"+i).bgColor; 
+			aColNo[0] = "col"+i;
+			}
+		else if ( (element("col"+i).bgColor).toUpperCase() == "#FF9900")
+			{
+			aColor[1] = element("col"+i).bgColor; 
+			aColNo[1] = "col"+i;
+			}
+		}
+	var TempColor = element(aColNo[0]).bgColor;
+	element(aColNo[0]).bgColor = element(aColNo[1]).bgColor;
+	element(aColNo[1]).bgColor = TempColor;
+	setAutoLayout();
+	}
+	
+function setAutoLayout()
+	{
+	var TopLeft = element("TopLeft");
+	var Top = element("Top");
+	var Exp = element("Exp");
+	if ((TopLeft.innerHTML == "(+)") && (Top.innerHTML == "(+)" ) && (Exp.innerHTML == t("Exposure")))
+		{
+		document.form1.AutoLayout[0].checked = true;
+		//element("col1").bgColor="#FFFF00";
+		//element("col2").bgColor="#FF9900";  		
+		}
+	else if ((TopLeft.innerHTML == "(+)") && (Top.innerHTML == "(+)" ) && (Exp.innerHTML == t("Disease")))	
+		{
+		document.form1.AutoLayout[1].checked = true;
+		//element("col1").bgColor="#FF9900";  
+		//element("col2").bgColor="#FFFF00";		
+		}
+	else if ((TopLeft.innerHTML == "(-)") && (Top.innerHTML == "(-)") && (Exp.innerHTML == t("Disease")))	
+		{
+		document.form1.AutoLayout[2].checked = true;
+		}
+	else 
+		{
+		document.form1.AutoLayout[2].checked = true;
+		}
+	}		
+		
+//-->
+</script>
+
+<body bgcolor="#FFFF99" onLoad="DefaultSettings();translateHTML();"  onBeforeUnload="saveSettings();savedbefore=true;"   onUnload="saveSettings();">
+<h3 align="center">OpenEpi Settings</h3> 
+
+<form id="form1" name="form1" method="post" action="Javascript:ShowHide('savedmsg',false);">
+
+
+<table cellspacing="10">
+<td>
+&nbsp;&nbsp;
+<script language="JavaScript" type="text/JavaScript">
+var savbtnmsg=t("Save and Exit");  //exposed for translation
+
+document.write('<input type="button"  name="SaveToCookie" value="'+savbtnmsg+'" onClick="history.go(-1);window.close();">');
+
+</script>
+<br><br>
+<span id="savedmsg" style="visibility:hidden">
+<b>Settings<br>
+Saved</b>
+</span>
+<!-- &nbsp;&nbsp;<input type="button" name="Cancel" value="Cancel" onClick="history.go(-1)"> -->
+</td>
+
+<td>
+<table width="520" border="1">
+    <tr><td colspan="5">
+    <h5 align="center">Settings for 2 x 2 Input Table</h5>
+    </td></tr>
+    <td width="20%">&nbsp;</td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%">
+	<select name="Dropbox0" id="Dropbox0"size="1" onChange="setExp('Exp',this[this.selectedIndex].value,'ExpTxt'),DropBox0()">
+      <option value="Disease" selected>Disease</option>
+      <option value="Exposure">Exposure</option>      
+    </select></td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%" align="center">Totals</td>
+  <tr>
+    <td width="20%">&nbsp;
+	</td>
+    <td>&nbsp;	  	
+	</td>
+    <td>
+      <h3>   		  	 	
+	  <div align="center" id="TopLeft" class="Ltxt" >(+)</div>	
+	  </h3>
+	</td>
+    <td>
+     <h3>
+	  	<div align="center" id="TopRight" class="Rtxt">(-)</div>
+	 </h3>
+	</td>
+    <td>
+	<select name="Dropbox1" id="DropBox1" size="1" onChange="setTopRow('TopLeft',this[this.selectedIndex].value,'Ltxt'),setAutoLayout()">
+      <option value="(+)" selected >(+) on left 
+      <option value="(-)" >(-) on left 
+    </select>
+	</td>
+  </tr>
+  <tr>
+    <td>
+	<h5> 
+    <div align="center" id="Exp" class="ExpTxt" >Exposure</div>
+	</h5>
+	</td>
+    <td>
+      <h3>
+	  <div align="center" id="Top" class="C2R3">(+)</div>	
+	  </h3>
+    </td>
+    <td id="col0" bgcolor="#FF0000">&nbsp;</td>
+    <td id="col1" bgcolor="#FFFF00">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>
+      <h3>
+	  <div align="center" id="Bottom" class="C2R4">(-)</div>	
+	  </h3>
+    </td>
+    <td id="col2" bgcolor="#FF9900">&nbsp;</td>
+    <td id="col3" bgcolor="#00FF00">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center">Totals</td>
+    <td><select name="Dropbox2" id="Dropbox2" size="1" onChange="setTopCol('Top',this[this.selectedIndex].value,'C2R3'),setAutoLayout()">
+      <option value="(+)" selected>(+) at top
+      <option value="(-)">(-) at top
+    </select></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td>&nbsp;
+
+</td>
+<td rowspan="3" align="center" bgcolor="#FFFF99">
+<h5>Language</h5>
+Select Language
+  <select name="Language" id="Language" onChange="changeLanguage();">
+    <option value="EN" selected>EN-English</option>
+    <option value="ES" >ES-Spanish</option>
+	<option value="FR" >FR-French</option>
+	<option value="IT" >IT-Italian</option>
+    <option value="PT" >PT-Portuguese</option>
+    <option value=""></option>
+  </select>
+ 
+
+<h5>Output Settings</h5>
+Confidence Level 
+  <select name="ConfidenceLevel" id="ConfidenceLevel">
+    <option value="90">90%</option>
+    <option value="95" selected>95%</option>
+    <option value="99">99%</option>
+    <option value="99.9">99.9%</option>
+    <option value="99.99">99.99%</option>
+  </select>
+ 
+<p align="left">
+  <input name="Pvalues" type="checkbox" id="Pvalues" checked>
+Do Not highlight &acute;significant&acute; p values 
+<br>
+  <input name="Columnpercents" type="checkbox" id="Columnpercents" > 
+  Show column percents 
+<br>
+  <input name="RowPercents" type="checkbox" id="RowPercents">      
+  Show row percents
+<br>
+  <input name="ShowTables" type="checkbox" id="ShowTables">      
+  Show input datatables
+  <br>
+  <input name="ShowStrata" type="checkbox" id="ShowStrata">      
+  Show stratum results
+    
+</p>
+
+
+</td>
+<tr>
+<td colspan="2" align=center>
+<span id="warning">Not all applications respond to the table configuration settings. </span>
+</td>
+</tr>
+<tr>
+<td colspan="2" align=center>
+<h5>Automatic Layouts</h5>
+<table width="326">
+  <tr>
+    <td><label>
+      <input name="AutoLayout" type="radio" value="EI" checked onclick="SelectDef()">
+      Epi Info;Schlesselman;Lilienfeld;Friis</label>
+    </td>
+  </tr>
+  <tr>
+    <td><label>
+      <input name="AutoLayout" type="radio" value="KKMBD" onClick="SelectDef()" >
+      Kleinbaum;Breslow/Day</label>
+    </td>
+  </tr>
+  <tr>
+    <td><label>
+      <input name="AutoLayout" type="radio" value="Custom" onClick="SelectDef()" >
+      Custom</label>
+    </td>
+  </tr>
+</table>
+</td>
+</table>
+
+</td>
+</tr>
+</table>
+
+</form>
+</body>
+
+
+
+
+<script language="JavaScript">
+
+// METATRAFFIC -- COPYRIGHT (C) 2002-2005, Brinkster Site Statistics Corp.
+
+var pagetitle = document.title;
+var action = "";
+var amount = "0";
+var order = ""; 
+
+var scriptlocation = "/stats/track.asp";
+
+var pagedata = 'mtpt=' + escape(pagetitle) + '&mtac=' + escape(action) + '&mta=' + amount + '&mto=' + escape(order) + '&mtr=' + escape(document.referrer) + '&mtt=2&mts=' + window.screen.width + 'x' + window.screen.height + '&mti=1&mtz=' + Math.random(); 
+document.write ('<img height=1 width=1 ');
+document.write ('src="' + scriptlocation + '?' + pagedata + '">');
+</script>
+
+
+</html>
