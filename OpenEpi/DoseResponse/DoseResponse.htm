@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>OpenEpi - Toolkit Shell for Developing New Applications</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+                                   <!-- --------------------- -->
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="DoseResponse";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<script language="JavaScript" src="../js/IncludeFiles.js" type=text/JavaScript></script>
+
+									<!-- --------------------- -->
+
+<script language="JavaScript" type="text/JavaScript">
+
+
+function configureInput()
+{//This function has been changed to return false if the table should not run.
+//Indented sections are the ones to be changed to configure a new application
+        var ccols=4;  //Just for this application
+        do 
+		 {
+		  //Note this complex but effective way of getting user input
+		  var promptstr=t("How many EXPOSURE LEVEL CATEGORIES are there (including the baseline)?")
+		  var crows=prompt(promptstr,5)
+		   if (!crows) 
+		     {
+			  //User hit cancel; bail out
+			  return false
+			 }
+		   crows=parseInt(crows) + 2;
+	      //number of rows down the table, not counting the header (title)
+		  var confirmstr=t("There must be at least 3 categories. Please try again.")
+		  if ( crows<5 || isNaN(crows) )
+		    {
+		    var choice= confirm(confirmstr);
+		     if (!choice) 
+			  {
+			    return false
+			  }
+		    }
+		  }
+         while (crows<5 || choice || isNaN(ccols) || isNaN(crows)); 
+		 //Repeat as long as result is unsatisfactory
+		 
+		var x=150;
+		//pixels from the left side of the page where table starts
+		var y=100;
+		//pixels down from top of page where table starts
+		var w=ccols * 100;
+		//width of table in pixels
+		var h=crows * 50;
+		//height of table in pixels
+
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+var c=0;
+with (intable)
+ { 
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable, generally cell by cell
+		 //rather than row by row.  
+		  newtable(crows,ccols,w,h,x,y);
+		  usetablesettings(false);
+		  allowstrata(true);      //Places "Add stratum" button on screen. If you do so,
+		                          //the statistics must be able to handle more than one stratum.
+		  title("<b>Dose Response in a Case Control Study</b>");
+		  newrow("varname:Exposure Level", "valname:Cases", "valname:Controls", "label:Total")
+		  rowcolor(0,"#aaaaaa")
+          rowcolor(crows-1,"#999999")
+		  colcolor(ccols-1,"#999999")
+		  newrow("valname:0(Baseline)","data:","data:","rowtot:")
+		  for(c=1; c<crows-2; c++)
+		    {
+			newrow("valname:"+c,"data:","data:","rowtot:")
+			}
+		  newrow("label:Total","coltot:","coltot:","grandtot:")	
+		  
+  //The following lines must be present to place the parsed commands
+  //into two arrays that are used by Etable to configure the input table.
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ 
+ }
+ return true;
+}
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  If statements can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line before
+  //running the program, then enter unique numbers so that you can see which cells they
+  //are in.
+  //alert("Row="+r+"  Col=" + c)
+  var infoStr=t("Note: Click on cells in the Exposure Level column to change the numbers to other numeric scores if desired. They are used in the calculations.");
+  if (r==1 && c==1 && currentstratum==1)
+    { 
+	  //Use the following function like an alert box.  It pops up in front of the 
+	  //entry table rather than elsewhere.
+	  infoDialog(infoStr);
+	}
+  /* 
+   The following "if" statement acts on an entry in row 1 (the numerator in this
+   case).  It muliplies the entry by 43 and sets the cell in row 1, column 2, to
+  the result.  Then, to illustrate how to retrieve a value from the input table,
+  it retrieves the value just set and displays it in an alert box.  The routine
+  is nonsense, but it illustrates how to both get and set values from cells 
+  in the input table.  Note that the user's entry in the current cell, and the
+  row and column of the current cell are passed in the parameters of this
+  function, and that the value of the current cell has not yet been set. It 
+  will be set automatically to whatever value you return from the checkcode
+  function.  Hence, you can evaluate, massage, and alter the entered value,
+  and use the results to set the current cell (as the returned value) or other
+  cells(using EntryWin.setCellValue(row,col,value)).
+  if (r==0)
+    { 
+	 //Don't forget the DOUBLE equals sign for equality
+	 EntryWin.setCellValue(1,2,parseInt(entry)*43)
+	 alert(EntryWin.getCellValue(1,2))
+    }
+  */
+	
+	//The following code returns a blank string if the user enters anything other
+	//than a number in a data field.
+     var e=parseFloat(entry)  //Convert to a number if possible
+     if (isNaN(e)) 
+	   {
+	    e=""  //If not a number than set e to blank
+	   }
+     return e  //Return the value to be placed in the cell.
+}
+
+function OECalculate(data)
+{
+appDataArray=data;
+//Called by the Calculate button in the ETable module.  The entire dataMatrix, including
+//both metadata and data is passed as the "data" array.  To see the structure of this
+//array, uncomment the following 3 lines and run the program:
+
+//EntryWin.writeTable(data)
+//alert("This is the data array, ready for programming in the statistical routine.")
+//return  //exits from OECalculate
+
+//Remove the comment from the 3 lines above to see a table of the contents of the data array
+//so that the correct correspondence between the data array and your stats routine
+//can be set up below.
+//In this section, write some code to extract the needed data from the standard
+//data array produced by the data input module.  Strata have indices starting with
+// 1, and table cells begin with the baseline (e.g., 0 or "no") values in the upper
+// left, in the "E0D0" cell.  Exposure is represented on the left margin and Disease
+// at the top, if this distinction is meaningful.  
+
+var combinedresults
+outTable=new Output(data);
+with (outTable)
+{   
+       //Define an output table.  You can include extra columns to help with the formatting,
+	   //and then use the span property to combine several cells and make a wider one.
+	   
+			 newtable(6,100);
+			 //6 columns and 100 pixels per column
+			 newrow()
+			 //blank line
+			 title("<h2>" + "Dose Response Analysis" + "</h2>");
+			 //Title goes across all cells.  Text can have HTML tags that make it
+			 //bold or give it particular styles.  These are optional.  Be sure to
+			 //include a closing tag for each one.
+			 line(6);
+			 
+		//Here is the call to the javascript routine that does the calculations
+		//passing the data array to the new routine.  The function itself can be
+		//placed in the .js file for this module.  Newrow and other commands are
+		//used inside the calculation function to add meaningful output to the
+		//HTML table.  An alterative would be to have the function return the results
+		//of calculation for formatting within this function.  Either method will do the job.
+		
+			 calcDoseResponse(data);
+
+//Tell outTable that we are done
+     		endtable();
+
+}
+
+
+//The results should be an HTML string.  The following function (found in appHelper.js)
+// will add an HTML header, the contents of the data input table, and ending tags if they are not already present.
+//It then displays the results in a new browser window, from which the user can cut and paste
+//to other programs.  
+
+			//writeResults(combinedresults,"DoseResponse",true,outTable)
+			writeResults(outTable.s,"DoseResponse",true,outTable)
+			//The first parameter is the HTML string to be displayed.
+			//The second is the short name of this program.  
+			//The third paramenter is called "saveifpossible".
+						
+writeResults(outTable.s,basefilename,true,outTable)
+}
+
+writeFrontEnd ( Title,Authors,Description,demofile);
+  //write HTML from a string.  The fourth parameter is the name of the demofile; none is intended here.
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->

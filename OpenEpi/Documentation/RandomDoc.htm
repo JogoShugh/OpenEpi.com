@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<h2 class=MsoNormal>OpenEpi Random Number Generator</h2>
+<p class=MsoNormal>Random.htm passes though to the user in a convenient form the 
+  random numbers produced by the JavaScript <span class=SpellE><span
+class=GramE>Math.random</span></span><span class=GramE>(</span>) function.<span
+style='mso-spacerun:yes'>  </span><span class=GramE>Hence</span> a completely 
+  separate analysis of their quality is not necessary.<span
+style='mso-spacerun:yes'>  </span>They <span class=GramE>are merely scaled</span> 
+  to fit the range requested and placed in the required number of columns.<o:p></o:p></p>
+<p class=MsoNormal>According to the literature on the Internet, the JavaScript 
+  random number generator is adequate for many purposes, and at least one commercial 
+  product built around it <span class=GramE>is offered</span> (http://www.randomizer.org/about.htm).<span
+style='mso-spacerun:yes'>  </span>It is, however, a “pseudorandom number generator,” 
+  and not suitable for exacting applications such as cryptography.<span
+style='mso-spacerun:yes'>  </span>I could not find any systematic summary of tests 
+  done on the JavaScript <span class=SpellE>Math.random</span> function in various 
+  browsers, which would have been important information.<span
+style='mso-spacerun:yes'>  </span></p>
+<p class=MsoNormal>The numbers produced are allowed to repeat, that is, the numbers 
+  are &quot;with replacement&quot;. It is possible that the number, 1003, may, 
+  by chance, occur more than once in the numbers generated for your purpose, for 
+  example. If you wish to have the effect of, say, 2000 UNIQUE numbers, you can 
+  do this in at least two ways. Supposing that you are using random numbers to 
+  pull hospital records for a study. If you find that one of the numbers points 
+  to a chart that has already been pulled, you can simply move on to the next 
+  number, essentially discarding the duplicate number. Another possibility is 
+  to ask for larger numbers, for example, with six digits, where the possibility 
+  of repeating is small (about 1 in a million). Of course, you could sort the 
+  numbers and discard duplicates or do a frequency, but these options require 
+  other software.</p>
+<p class=MsoNormal>Many articles are available by searching for ...<em>Random 
+  Numbers Epidemiology</em>... in Google. Most do not mention quality of random 
+  numbers as being important for ordinary studies, although it becomes so when 
+  doing computer simulations with millions of repetitions. Here are some other 
+  interesting articles on random numbers.</p>
+<p class=MsoNormal>http://en.wikipedia.org/wiki/Random_number_generator_attack</p>
+<p class=MsoNormal>http://www.fourmilab.ch/hotbits/</p>
+<p class=MsoNormal>Uner, Eric. Generating random numbers. Embedded Systems Design 
+  (05/24/04, 12:00:00 PM EDT)<br>
+  http://www.embedded.com/columns/technicalinsights/20900500?_requestid=585475</p>
+<p class=MsoNormal>&nbsp;</p>
+<p class=MsoNormal>&nbsp;</p>
+</body>
+</html>

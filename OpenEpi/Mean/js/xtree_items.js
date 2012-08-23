@@ -1,0 +1,70 @@
+/*
+	the format of the tree definition file is simple,
+	you can find specification in the Tigra Menu documentation at:
+
+	http://www.softcomplex.com/products/tigra_tree_menu/docs/index.html#hierarchy
+*/
+
+var TREE_ITEMS = [
+	['OpenEpi', 0,
+		['About OpenEpi','../Menu/OEIntro.htm'],
+		['Counts', 0,
+			['Std.Mort.Ratio','../SMR/SMR.htm'],
+			['Proportion','../Proportion/Proportion.htm'],
+			['Two by Two Table','../TwobyTwo/TwobyTwo.htm'],
+			['Dose-Response','../DoseResponse/DoseResponse.htm'],
+			['R by C Table','../RbyC/RbyC.htm'],
+			['Matched Case Control','../MatchCC/MatchCC.htm'],
+			['Screening', '../DiagnosticTest/DiagnosticTest.htm'],
+         ],
+	    ['Person Time',0,
+			['1 Rate','../PersonTime1/PersonTime1.htm'],
+            ['Compare 2 Rates','../PersonTime2/PersonTime2.htm'],
+        ],
+		['Continuous Variables', 0,
+		    ['Mean CI','../Mean/CIMean.htm'],
+			['Median/%ile CI','../Median/CIMedian.htm'],
+			['t test','../Mean/t_testMean.htm'],
+			['ANOVA','Mean/ANOVA.htm'],
+        ],
+		['Sample Size',0,
+			['Proportion','../SampleSize/SSPropor.htm'],
+			['Unmatched CC','../SampleSize/SSCC.htm'],
+			['Cohort/RCT','../SampleSize/SSCohort.htm'],
+			['Mean Difference','../SampleSize/SSMean.htm'],
+         ],
+		['Power',0,
+			['Unmatched CC','../Power/PowerCC.htm'],
+			['Cohort','../Power/PowerCohort.htm'],
+			['Clinical Trial','../Power/PowerRCT.htm'],
+			['X-Sectional','../Power/PowerCross.htm'],
+	    	['Mean Difference','../Power/PowerMean.htm'],
+         ],
+        ['Random numbers','../Random/Random.htm'],
+        ['Search',0,
+		    ['GoogleInternet','http://www.google.com'],
+			['PubMedMEDLARS','http://www.pubmed.gov'],
+        ],
+   		['Calculator','../Calculator/calculator.htm'],
+		['Info and Help',0,
+            ['About OpenEpi','../BriefDoc/About.htm'],
+            ['News','../BriefDoc/news.htm'],
+	        ['Choosing a method', '../Search/Choosing.htm'],
+            ['Using OpenEpi', '../BriefDoc/UsingOpenEpi.htm'],
+	        ['Credits', '../BriefDoc/Credits.htm'],
+	        ['Licensing/Disclaimer', '../BriefDoc/Licensing.htm'],
+            ['History','../BriefDoc/History.htm']
+        	['Net Links','../BriefDoc/OELinks.htm'],
+        ],
+        ['Download OpenEpi','../Downloads/Downloads.htm'],
+        ['Development',0,
+        	['Proposal', '../Documentation/Proposal2.htm'],
+	        ['Toolkit Description','../Documentation/ToolkitDoc.htm'],
+            ['Translations','../Documentation/Translation.htm'],
+        	['JavaScript Tips','../Documentation/JavaScriptTips.htm'],
+		],
+
+	]
+];
+
+

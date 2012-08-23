@@ -1,0 +1,662 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=Generator content="Microsoft Word 10 (filtered)">
+<title>Sampling</title>
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:Arial;}
+h2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;
+	font-style:italic;}
+h3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:20.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+h4
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;}
+h5
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;
+	font-style:italic;}
+h6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-.5in;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:11.0pt;
+	font-family:"Times New Roman";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-indent:.25in;
+	font-size:11.0pt;
+	font-family:"Times New Roman";}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+ /* Page Definitions */
+ @page Section1
+	{size:8.5in 11.0in;
+	margin:.9in 1.0in .9in 1.0in;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoNormal><span style='font-size:8.0pt'>Feb 16 2007</span></p>
+
+<p class=MsoNormal><b><span style='font-size:8.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b>Documentation for</b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt'>Sample Size for an Unmatched Case-Control Study</span></b></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt'>Kevin M. Sullivan, PhD, MPH, MHA: <a
+href="mailto:cdckms@sph.emory.edu">cdckms@sph.emory.edu</a></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:12.0pt'>Minn M. Soe, MD, MPH, MCTM: <a
+href="mailto:msoe@sph.emory.edu">msoe@sph.emory.edu</a></span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify;text-indent:.5in'><span
+style='font-size:11.0pt'>This module calculates a sample size for an unmatched
+case-control study.  The data input screen is as follows:</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=546 height=345
+src="SSCCdoc_files/image001.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='text-indent:.25in'>The four values required for a
+sample size calculation are:</p>
+
+<p class=MsoBodyText><span style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Two-sided confidence level</b> – most individuals would choose
+a 95% confidence interval, but a different confidence interval could be entered.</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Power </b>– most individuals choose a power value of 80% or
+90%, however, any power level can be entered.</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Ratio of Controls to Cases</b> – place the desired ratio of
+controls to cases.  If there are to be an equal number of controls and cases,
+then enter the value of 1.0; if there are to be twice as many controls as
+cases, enter the value of 2.0.  Any other ratio can be entered.</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Percent of controls exposed</b> – enter an estimate of the percentage
+of controls that have (or had) the exposure of interest.  For example, in a
+case-control study on cigarette smoking and lung cancer, among the controls
+(those without lung cancer), what percent would be expected to say they smoked
+cigarettes?</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText style='margin-left:.25in'>The user has the choice of
+entering an odds ratio <b><i>or</i></b> the percent of cases with the exposure
+of interest – just enter one of these, not both.  The results using the default
+values for an odds ration of 2 are below:</p>
+
+<p class=MsoBodyText style='margin-left:.25in'>&nbsp;</p>
+
+<p class=MsoBodyText style='margin-left:.25in'>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<span style='font-size:11.0pt;font-family:"Times New Roman"'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width=556
+ style='width:416.95pt'>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in'>
+  <h3 align=center style='text-align:center'><span style='font-size:14.0pt;
+  font-style:normal'>Sample Size for Unmatched Case-Control Study</span></h3>
+  </td>
+ </tr>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in'>
+  <div class=MsoNormal align=center style='text-align:center'>
+  <hr size=2 width="100%" noshade color="#aca899" align=center>
+  </div>
+  <p class=MsoNormal></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>For:</p>
+  </td>
+  <td width=78 style='width:58.55pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td colspan=2 style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=439 colspan=4 style='width:329.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Two-sided confidence level(1-alpha)</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>95</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=439 colspan=4 style='width:329.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Power(% chance of detecting)</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>80</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=439 colspan=4 style='width:329.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Ratio of Controls to Cases</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>1</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=439 colspan=4 style='width:329.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Hypothetical proportion of controls with exposure</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>40</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=439 colspan=4 style='width:329.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Hypothetical proportion of cases with exposure:</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>57.14</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=439 colspan=4 style='width:329.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Least extreme Odds Ratio to be detected:</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>2.00</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in'>
+  <div class=MsoNormal align=center style='text-align:center'>
+  <hr size=2 width="100%" noshade color="#aca899" align=center>
+  </div>
+  <p class=MsoNormal></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=112 colspan=2 style='width:84.1pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=162 style='width:121.85pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=164 style='width:123.25pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=90 style='width:67.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=138 colspan=3 style='width:103.65pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal><span style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=162 style='width:121.85pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Kelsey</b></p>
+  </td>
+  <td width=164 style='width:123.25pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Fleiss</b></p>
+  </td>
+  <td width=90 style='width:67.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'><b>Fleiss with CC</b></p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr style='height:4.05pt'>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in;
+  height:4.05pt'>
+  <div class=MsoNormal align=center style='text-align:center'>
+  <hr size=2 width="100%" noshade color="#aca899" align=center>
+  </div>
+  <p class=MsoNormal></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=138 colspan=3 style='width:103.65pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Sample Size - Cases</p>
+  </td>
+  <td width=162 style='width:121.85pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>134</p>
+  </td>
+  <td width=164 style='width:123.25pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>133</p>
+  </td>
+  <td width=90 style='width:67.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>144</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=138 colspan=3 style='width:103.65pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Sample Size - Controls</p>
+  </td>
+  <td width=162 style='width:121.85pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>134</p>
+  </td>
+  <td width=164 style='width:123.25pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>133</p>
+  </td>
+  <td width=90 style='width:67.2pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>144</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in'>
+  <div class=MsoNormal align=center style='text-align:center'>
+  <hr size=2 width="100%" noshade color="#aca899" align=center>
+  </div>
+  <p class=MsoNormal></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=104 colspan=2 style='width:78.1pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Total sample size:</p>
+  </td>
+  <td colspan=2 style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>268</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>266</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>288</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in'>
+  <div class=MsoNormal align=center style='text-align:center'>
+  <hr size=2 width="100%" noshade color="#aca899" align=center>
+  </div>
+  <p class=MsoNormal></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=78 style='width:58.55pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td colspan=2 style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;background:silver;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal align=center style='text-align:center'>References</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Kelsey et al., Methods in Observational Epidemiology 2nd
+  Edition, Table 12-15</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Fleiss, Statistical Methods for Rates and Proportions,
+  formulas 3.18 &amp;3.19</p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td width=78 style='width:58.55pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td colspan=2 style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+  <td style='padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>&nbsp;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>CC = continuity correction</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=556 colspan=7 style='width:416.95pt;padding:0in 0in 0in 0in'>
+  <p class=MsoNormal>Results are rounded up to the nearest integer.</p>
+  </td>
+ </tr>
+ <tr height=0>
+  <td width=21 style='border:none'></td>
+  <td width=81 style='border:none'></td>
+  <td width=35 style='border:none'></td>
+  <td width=163 style='border:none'></td>
+  <td width=164 style='border:none'></td>
+  <td width=90 style='border:none'></td>
+  <td width=1 style='border:none'></td>
+ </tr>
+</table>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>The sample size formula for the method described in Kelsey
+et. al. is:</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText style='text-indent:.5in'><sub><img border=0 width=177
+height=51 src="SSCCdoc_files/image002.gif"></sub></p>
+
+<p class=MsoNormal><i><span style='font-size:11.0pt'>and</span></i></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>            <sub><img
+border=0 width=63 height=23 src="SSCCdoc_files/image003.gif"></sub></span></p>
+
+<p class=MsoNormal><i><span style='font-size:11.0pt'>where</span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:11.0pt'>            <sub><img
+border=0 width=32 height=23 src="SSCCdoc_files/image004.gif"></sub></span></i><span
+style='font-size:11.0pt'>number of cases</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>            <i><sub><img
+border=0 width=33 height=23 src="SSCCdoc_files/image005.gif"></sub></i>number
+of controls</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>            <sub><img
+border=0 width=48 height=24 src="SSCCdoc_files/image006.gif"></sub>standard
+normal deviate for two-tailed test based on alpha level (relates to the confidence</span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><span
+style='font-size:11.0pt'> interval level)</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>            <sub><img
+border=0 width=37 height=25 src="SSCCdoc_files/image007.gif"></sub>standard
+normal deviate for one-tailed test based on beta level (relates to the power
+level)</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>            r = ratio of
+controls to cases</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>            p<sub>1</sub> =
+proportion of cases with exposure and q<sub>1</sub> = 1-p<sub>1</sub></span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>            p<sub>2</sub> =
+proportion of controls with exposure and q<sub>2</sub> = 1-p<sub>2</sub></span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:11.0pt'><sub><img
+border=0 width=85 height=41 src="SSCCdoc_files/image008.gif"></sub> and <sub><img
+border=0 width=59 height=21 src="SSCCdoc_files/image009.gif"></sub> </span></p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>The sample size formula <i>with<u>out</u></i>
+the correction factor by Fleiss is:</span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:11.0pt'><sub><img
+border=0 width=293 height=60 src="SSCCdoc_files/image010.gif"></sub></span></p>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>            <sub><img
+border=0 width=63 height=23 src="SSCCdoc_files/image003.gif"></sub></span></p>
+
+<p class=MsoBodyText><span style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText>For the Fleiss method <b><i>with</i></b> the correction
+factor, take the sample size from the uncorrected sample size formula and place
+into the following formula:</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText style='text-indent:.5in'><sub><img border=0 width=205
+height=56 src="SSCCdoc_files/image011.gif"></sub></p>
+
+<p class=MsoBodyText style='text-indent:.5in'><sub><img border=0 width=79
+height=24 src="SSCCdoc_files/image012.gif"></sub></p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>When the input is provided as an odds ratio (OR) rather
+than the proportion of cases exposed, the proportion of cases exposed is
+calculated as:</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText><sub><img border=0 width=131 height=47
+src="SSCCdoc_files/image013.gif"></sub></p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h1><span style='font-family:"Times New Roman"'>References</span></h1>
+
+<p class=MsoNormal><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt'>Kelsey
+JL, </span><span style='font-size:11.0pt'>Whittemore</span><span
+ style='font-size:11.0pt'> </span><span style='font-size:11.0pt'>AS</span><span
+style='font-size:11.0pt'>, Evans AS, Thompson WD.  Methods in Observational
+Epidemiology.  </span><span style='font-size:11.0pt'>Oxford</span><span
+ style='font-size:11.0pt'> </span><span style='font-size:11.0pt'>University</span><span
+style='font-size:11.0pt'> Press, 1996.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt'>Fleiss
+JL.  Statistical Methods for Rates and Proportions.  John Wiley &amp; Sons,
+1981.</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:11.0pt'>Updated
+Feb 16 2007: changed the “-“ sign in the numerator of the Fleiss formula
+without a correction factor to “+”.</span></p>
+
+</div>
+
+</body>
+
+</html>

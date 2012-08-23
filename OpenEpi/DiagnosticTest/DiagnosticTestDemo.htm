@@ -1,0 +1,825 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script language="JavaScript" type="text/JavaScript">
+function dataArray()
+{var A = new Array()
+
+   //Meta data for the dataset...
+var s0= new Array();
+s0["title"]="<b>Reference Test or Gold Standard</b>"
+s0["datacmin"]=2
+s0["datacmax"]=3
+s0["datarmin"]=1
+s0["datarmax"]=5
+s0["numD"]=2
+s0["numE"]=5
+s0["createdby"]="file://C:\_OpenEpi\Development\WebNov2003\DiagnosticTest\DiagnosticTest.htm"
+s0["cols"]=5
+s0["rows"]=7
+s0["maxatleft"]=true
+s0["maxattop"]=true
+s0["expleft"]=true
+s0["conflevel"]="95"
+s0["nohighlight"]="1"
+s0["columnpercents"]="1"
+s0["rowpercents"]="1"
+s0["usetablesettings"]=false
+s0["labels"]=4
+s0["varnames"]=4
+s0["valnames"]=9
+s0["rowtots"]=5
+s0["coltots"]=2
+s0["grandtots"]=1
+s0["varD"]=""
+s0["varE"]=""
+s0["varS"]="Stratifying Variable"
+s0["Dvals"]=new Array("Positive","Negative","Total")
+s0["Evals"]=new Array("Level 1","Level 2","Level 3","Level 4","Level 5","Total")
+s0["strata"]=1
+s0["R0"]=new Array("","","Positive","Negative","Total")
+s0["R0type"]=new Array("varname","label","valname","valname","valname")
+s0["R1"]=new Array("<b>Diagnostic</b>","Level 1","3","33","36")
+s0["R1type"]=new Array("varname","valname","data","data","rowtot")
+s0["R2"]=new Array("<b>Test</b>","Level 2","2","6","8")
+s0["R2type"]=new Array("varname","valname","data","data","rowtot")
+s0["R3"]=new Array("","Level 3","2","6","8")
+s0["R3type"]=new Array("label","valname","data","data","rowtot")
+s0["R4"]=new Array("","Level 4","11","11","22")
+s0["R4type"]=new Array("label","valname","data","data","rowtot")
+s0["R5"]=new Array("","Level 5","33","2","35")
+s0["R5type"]=new Array("label","valname","data","data","rowtot")
+s0["R6"]=new Array("","Total","51","58","109")
+s0["R6type"]=new Array("varname","valname","coltot","coltot","grandtot")
+A[0]=s0;
+
+  //Data in one or more strata...
+var s1= new Array();
+s1["E0D0"]=3
+s1["E0D1"]=33
+s1["E1D0"]=2
+s1["E1D1"]=6
+s1["E2D0"]=2
+s1["E2D1"]=6
+s1["E3D0"]=11
+s1["E3D1"]=11
+s1["E4D0"]=33
+s1["E4D1"]=2
+s1["R0C0"]=3
+s1["R1C0"]=2
+s1["R2C0"]=2
+s1["R3C0"]=11
+s1["R4C0"]=33
+s1["R0C1"]=33
+s1["R1C1"]=6
+s1["R2C1"]=6
+s1["R3C1"]=11
+s1["R4C1"]=2
+A[1]=s1;
+
+return A
+}
+function etableCmds1()
+{var A=new Array()
+A[0]='useTableSettings=false;'
+A[1]='myTable = new Stratum(150,100,450,210,7,5)'
+A[2]='myTable.bgColor = "#ffffff"'
+A[3]='myTable.setHeaderStyle("#cccccc","center","middle",6,"arial","16px")'
+A[4]='myTable.setHeaderText("<b>Reference Test or Gold Standard</b>");'
+A[5]='myTable.row[0].cell[0].type="varname"'
+A[6]='myTable.row[0].cell[0].value=""'
+A[7]='myTable.row[0].cell[1].type="label"'
+A[8]='myTable.row[0].cell[1].value=""'
+A[9]='myTable.row[0].cell[2].type="valname"'
+A[10]='myTable.row[0].cell[2].align= "center"'
+A[11]='myTable.row[0].cell[2].value="Positive"'
+A[12]='myTable.row[0].cell[3].type="valname"'
+A[13]='myTable.row[0].cell[3].align= "center"'
+A[14]='myTable.row[0].cell[3].value="Negative"'
+A[15]='myTable.row[0].cell[4].type="valname"'
+A[16]='myTable.row[0].cell[4].align= "center"'
+A[17]='myTable.row[0].cell[4].value="Total"'
+A[18]='myTable.row[1].cell[0].type="varname"'
+A[19]='myTable.row[1].cell[0].value="<b>Diagnostic</b>"'
+A[20]='myTable.row[1].cell[1].type="valname"'
+A[21]='myTable.row[1].cell[1].valign= "bottom"'
+A[22]='myTable.row[1].cell[1].value="Level 1"'
+A[23]='myTable.row[1].cell[2].type="data"'
+A[24]='myTable.row[1].cell[2].value=""'
+A[25]='myTable.row[1].cell[3].type="data"'
+A[26]='myTable.row[1].cell[3].value=""'
+A[27]='myTable.row[1].cell[4].type="rowtot"'
+A[28]='myTable.row[1].cell[4].value=""'
+A[29]='myTable.row[2].cell[0].type="varname"'
+A[30]='myTable.row[2].cell[0].value="<b>Test</b>"'
+A[31]='myTable.row[2].cell[1].type="valname"'
+A[32]='myTable.row[2].cell[1].valign= "bottom"'
+A[33]='myTable.row[2].cell[1].value="Level 2"'
+A[34]='myTable.row[2].cell[2].type="data"'
+A[35]='myTable.row[2].cell[2].value=""'
+A[36]='myTable.row[2].cell[3].type="data"'
+A[37]='myTable.row[2].cell[3].value=""'
+A[38]='myTable.row[2].cell[4].type="rowtot"'
+A[39]='myTable.row[2].cell[4].value=""'
+A[40]='myTable.row[3].cell[0].type="label"'
+A[41]='myTable.row[3].cell[0].value=""'
+A[42]='myTable.row[3].cell[1].type="valname"'
+A[43]='myTable.row[3].cell[1].valign= "bottom"'
+A[44]='myTable.row[3].cell[1].value="Level 3"'
+A[45]='myTable.row[3].cell[2].type="data"'
+A[46]='myTable.row[3].cell[2].value=""'
+A[47]='myTable.row[3].cell[3].type="data"'
+A[48]='myTable.row[3].cell[3].value=""'
+A[49]='myTable.row[3].cell[4].type="rowtot"'
+A[50]='myTable.row[3].cell[4].value=""'
+A[51]='myTable.row[4].cell[0].type="label"'
+A[52]='myTable.row[4].cell[0].value=""'
+A[53]='myTable.row[4].cell[1].type="valname"'
+A[54]='myTable.row[4].cell[1].valign= "bottom"'
+A[55]='myTable.row[4].cell[1].value="Level 4"'
+A[56]='myTable.row[4].cell[2].type="data"'
+A[57]='myTable.row[4].cell[2].value=""'
+A[58]='myTable.row[4].cell[3].type="data"'
+A[59]='myTable.row[4].cell[3].value=""'
+A[60]='myTable.row[4].cell[4].type="rowtot"'
+A[61]='myTable.row[4].cell[4].value=""'
+A[62]='myTable.row[5].cell[0].type="label"'
+A[63]='myTable.row[5].cell[0].value=""'
+A[64]='myTable.row[5].cell[1].type="valname"'
+A[65]='myTable.row[5].cell[1].valign= "bottom"'
+A[66]='myTable.row[5].cell[1].value="Level 5"'
+A[67]='myTable.row[5].cell[2].type="data"'
+A[68]='myTable.row[5].cell[2].value=""'
+A[69]='myTable.row[5].cell[3].type="data"'
+A[70]='myTable.row[5].cell[3].value=""'
+A[71]='myTable.row[5].cell[4].type="rowtot"'
+A[72]='myTable.row[5].cell[4].value=""'
+A[73]='myTable.row[6].cell[0].type="varname"'
+A[74]='myTable.row[6].cell[0].value=""'
+A[75]='myTable.row[6].cell[1].type="valname"'
+A[76]='myTable.row[6].cell[1].valign= "bottom"'
+A[77]='myTable.row[6].cell[1].value="Total"'
+A[78]='myTable.row[6].cell[2].type="coltot"'
+A[79]='myTable.row[6].cell[2].value=""'
+A[80]='myTable.row[6].cell[3].type="coltot"'
+A[81]='myTable.row[6].cell[3].value=""'
+A[82]='myTable.row[6].cell[4].type="grandtot"'
+A[83]='myTable.row[6].cell[4].value=""'
+
+return A
+}
+
+function etableCmds2()
+{var A=new Array()
+
+return A
+}
+
+function runEtable()
+{
+if (opener)
+ {
+   if (opener.useOpenEpiEntry)
+    {
+	  opener.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+ }
+ else if (parent)
+ {
+   if (parent.useOpenEpiEntry)
+    {
+	  parent.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+  }
+}
+//<body onload='JavaScript:setTimeout("runEtable()",1000)'>
+
+
+</script>
+</head>
+<body onload='runEtable()'>
+<font name="Arial"><table width="600" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="150" height="1"></td>
+<td><img src="../img/shim.gif" width="150" height="1"></td>
+<td><img src="../img/shim.gif" width="150" height="1"></td>
+<td><img src="../img/shim.gif" width="150" height="1"></td>
+</tr>
+<tr><td >&nbsp;</td></tr>
+<tr><tr><th align="center" colspan=4><h2><font name="Arial">Results</font></h2></th></tr>
+<tr><td colspan=6><hr noshade></td></tr>
+<tr><th align="center" colspan=4><h2>Diagnostic or Screening Test Evaluation</h2></th></tr>
+<tr><td colspan=6><hr noshade></td></tr>
+</tr>
+</table><table width="700" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><th align="center" colspan=7>Single Table Analysis</th></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center bgcolor=#ff9900>Positive</td><td  align=center bgcolor=#ff9900>Negative</td><td  align=center bgcolor=#ff9900>Total</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>Level 1</td><td  bgcolor=#ffffcc align=center>3</td><td  bgcolor=#ffffcc align=center>33</td><td  bgcolor=#ffffff align=center>36</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>8.3%</td><td  bgcolor=#ffff99 align=center>91.7%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>5.9%</td><td  bgcolor=#ffff66 align=center>56.9%</td><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>Level 2</td><td  bgcolor=#ffffcc align=center>2</td><td  bgcolor=#ffffcc align=center>6</td><td  bgcolor=#ffffff align=center>8</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>25%</td><td  bgcolor=#ffff99 align=center>75%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>3.9%</td><td  bgcolor=#ffff66 align=center>10.3%</td><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>Level 3</td><td  bgcolor=#ffffcc align=center>2</td><td  bgcolor=#ffffcc align=center>6</td><td  bgcolor=#ffffff align=center>8</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>25%</td><td  bgcolor=#ffff99 align=center>75%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>3.9%</td><td  bgcolor=#ffff66 align=center>10.3%</td><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>Level 4</td><td  bgcolor=#ffffcc align=center>11</td><td  bgcolor=#ffffcc align=center>11</td><td  bgcolor=#ffffff align=center>22</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>50%</td><td  bgcolor=#ffff99 align=center>50%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>21.6%</td><td  bgcolor=#ffff66 align=center>19%</td><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>Level 5</td><td  bgcolor=#ffffcc align=center>33</td><td  bgcolor=#ffffcc align=center>2</td><td  bgcolor=#ffffff align=center>35</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>94.3%</td><td  bgcolor=#ffff99 align=center>5.7%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>64.7%</td><td  bgcolor=#ffff66 align=center>3.4%</td><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffffff align=center>51</td><td  bgcolor=#ffffff align=center>58</td><td  bgcolor=#ffffff align=center>109</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>46.8%</td><td  align=center>53.2%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>100%</td><td  align=center>100%</td></tr>
+</table><table width="600" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="150" height="1"></td>
+<td><img src="../img/shim.gif" width="150" height="1"></td>
+<td><img src="../img/shim.gif" width="150" height="1"></td>
+<td><img src="../img/shim.gif" width="150" height="1"></td>
+</tr>
+<tr><td ><br></td><tr><th align="center" colspan=4><h3>Cut-off point between level 1 and 2</h3></th></tr>
+</tr>
+<tr><td  align=center><b>Parameter</b></td><td  align=center></td><td  align=center><b>Estimate</b></td><td  align=center><b>95% CI</b></td><tr><td colspan=6><hr noshade></td></tr>
+</tr>
+<tr><td  colspan=2>Sensitivity</td><td  align=center>0.9411</td><td  align=center>(0.8766 - 1.0057)</td></tr>
+<tr><td  colspan=2>Specificity</td><td  align=center>0.5689</td><td  align=center>(0.4415 - 0.6964)</td></tr>
+<tr><td  colspan=2>Positive Predictive Value</td><td  align=center>0.6575</td><td  align=center>(0.5486 - 0.7664)</td></tr>
+<tr><td  colspan=2>Negative Predictive Value</td><td  align=center>0.9166</td><td  align=center>(0.8263 - 1.0069)</td></tr>
+<tr><td  colspan=2>Diagnostic Accuracy</td><td  align=center>0.7431</td><td  align=center>(0.6611 - 0.8251)</td></tr>
+<tr><td  colspan=2>Likelihood ratio of a Positive Test</td><td  align=center>2.1835</td><td  align=center>(2.0137 - 2.3676)</td></tr>
+<tr><td  colspan=2>Likelihood ratio of a Negative Test</td><td  align=center>0.1033</td><td  align=center>(0.0514 - 0.2078)</td></tr>
+<tr><td  colspan=2>Diagnostic Odds</td><td  align=center>21.1200</td><td  align=center>(5.8899 - 75.7309)</td></tr>
+<tr><td  colspan=2>Cohen's kappa (Unweighted)</td><td  align=center>0.4972</td><td  align=center>(0.3247 - 0.6696)</td></tr>
+<tr><td  colspan=2>Entropy reduction after a Positive Test</td><td  align=center>0.0484</td></tr>
+<tr><td  colspan=2>Entropy reduction after a Negative Test</td><td  align=center>0.4042</td></tr>
+<tr><td  colspan=2>Bias Index</td><td  align=center>0.2018</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><tr><th align="center" colspan=4><h3>Cut-off point between level 2 and 3</h3></th></tr>
+<td >&nbsp;</td></tr>
+<tr><td  align=center><b>Parameter</b></td><td  align=center></td><td  align=center><b>Estimate</b></td><td  align=center><b>95% CI</b></td><tr><td colspan=6><hr noshade></td></tr>
+</tr>
+<tr><td  colspan=2>Sensitivity</td><td  align=center>0.9019</td><td  align=center>(0.8203 - 0.9835)</td></tr>
+<tr><td  colspan=2>Specificity</td><td  align=center>0.6724</td><td  align=center>(0.5516 - 0.7932)</td></tr>
+<tr><td  colspan=2>Positive Predictive Value</td><td  align=center>0.7077</td><td  align=center>(0.5971 - 0.8182)</td></tr>
+<tr><td  colspan=2>Negative Predictive Value</td><td  align=center>0.8863</td><td  align=center>(0.7925 - 0.9801)</td></tr>
+<tr><td  colspan=2>Diagnostic Accuracy</td><td  align=center>0.7798</td><td  align=center>(0.7020 - 0.8576)</td></tr>
+<tr><td  colspan=2>Likelihood ratio of a Positive Test</td><td  align=center>2.7533</td><td  align=center>(2.4720 - 3.0667)</td></tr>
+<tr><td  colspan=2>Likelihood ratio of a Negative Test</td><td  align=center>0.1458</td><td  align=center>(0.0961 - 0.2211)</td></tr>
+<tr><td  colspan=2>Diagnostic Odds</td><td  align=center>18.8842</td><td  align=center>(6.4544 - 55.2508)</td></tr>
+<tr><td  colspan=2>Cohen's kappa (Unweighted)</td><td  align=center>0.5650</td><td  align=center>(0.3834 - 0.7466)</td></tr>
+<tr><td  colspan=2>Entropy reduction after a Positive Test</td><td  align=center>0.0868</td></tr>
+<tr><td  colspan=2>Entropy reduction after a Negative Test</td><td  align=center>0.3370</td></tr>
+<tr><td  colspan=2>Bias Index</td><td  align=center>0.1284</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><tr><th align="center" colspan=4><h3>Cut-off point between level 3 and 4</h3></th></tr>
+<td >&nbsp;</td></tr>
+<tr><td  align=center><b>Parameter</b></td><td  align=center></td><td  align=center><b>Estimate</b></td><td  align=center><b>95% CI</b></td><tr><td colspan=6><hr noshade></td></tr>
+</tr>
+<tr><td  colspan=2>Sensitivity</td><td  align=center>0.8627</td><td  align=center>(0.7683 - 0.9571)</td></tr>
+<tr><td  colspan=2>Specificity</td><td  align=center>0.7758</td><td  align=center>(0.6685 - 0.8831)</td></tr>
+<tr><td  colspan=2>Positive Predictive Value</td><td  align=center>0.7719</td><td  align=center>(0.6630 - 0.8808)</td></tr>
+<tr><td  colspan=2>Negative Predictive Value</td><td  align=center>0.8653</td><td  align=center>(0.7726 - 0.9581)</td></tr>
+<tr><td  colspan=2>Diagnostic Accuracy</td><td  align=center>0.8165</td><td  align=center>(0.7438 - 0.8891)</td></tr>
+<tr><td  colspan=2>Likelihood ratio of a Positive Test</td><td  align=center>3.8491</td><td  align=center>(3.2870 - 4.5073)</td></tr>
+<tr><td  colspan=2>Likelihood ratio of a Negative Test</td><td  align=center>0.1769</td><td  align=center>(0.1320 - 0.2370)</td></tr>
+<tr><td  colspan=2>Diagnostic Odds</td><td  align=center>21.7582</td><td  align=center>(7.9370 - 59.6473)</td></tr>
+<tr><td  colspan=2>Cohen's kappa (Unweighted)</td><td  align=center>0.6341</td><td  align=center>(0.4475 - 0.8207)</td></tr>
+<tr><td  colspan=2>Entropy reduction after a Positive Test</td><td  align=center>0.1541</td></tr>
+<tr><td  colspan=2>Entropy reduction after a Negative Test</td><td  align=center>0.2960</td></tr>
+<tr><td  colspan=2>Bias Index</td><td  align=center>0.0550</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><tr><th align="center" colspan=4><h3>Cut-off point between level 4 and 5</h3></th></tr>
+<td >&nbsp;</td></tr>
+<tr><td  align=center><b>Parameter</b></td><td  align=center></td><td  align=center><b>Estimate</b></td><td  align=center><b>95% CI</b></td><tr><td colspan=6><hr noshade></td></tr>
+</tr>
+<tr><td  colspan=2>Sensitivity</td><td  align=center>0.6470</td><td  align=center>(0.5159 - 0.7782)</td></tr>
+<tr><td  colspan=2>Specificity</td><td  align=center>0.9655</td><td  align=center>(0.9185 - 1.0124)</td></tr>
+<tr><td  colspan=2>Positive Predictive Value</td><td  align=center>0.9428</td><td  align=center>(0.8659 - 1.0197)</td></tr>
+<tr><td  colspan=2>Negative Predictive Value</td><td  align=center>0.7567</td><td  align=center>(0.6590 - 0.8545)</td></tr>
+<tr><td  colspan=2>Diagnostic Accuracy</td><td  align=center>0.8165</td><td  align=center>(0.7438 - 0.8891)</td></tr>
+<tr><td  colspan=2>Likelihood ratio of a Positive Test</td><td  align=center>18.7647</td><td  align=center>(6.8181 - 51.6440)</td></tr>
+<tr><td  colspan=2>Likelihood ratio of a Negative Test</td><td  align=center>0.3655</td><td  align=center>(0.3274 - 0.4081)</td></tr>
+<tr><td  colspan=2>Diagnostic Odds</td><td  align=center>51.3333</td><td  align=center>(11.1946 - 235.3899)</td></tr>
+<tr><td  colspan=2>Cohen's kappa (Unweighted)</td><td  align=center>0.6244</td><td  align=center>(0.4453 - 0.8034)</td></tr>
+<tr><td  colspan=2>Entropy reduction after a Positive Test</td><td  align=center>0.4720</td></tr>
+<tr><td  colspan=2>Entropy reduction after a Negative Test</td><td  align=center>0.1363</td></tr>
+<tr><td  colspan=2>Bias Index</td><td  align=center>-0.1467</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><tr><th align="center" colspan=4><h3>Level-specific Likelihood Ratios</h3></th></tr>
+<td >&nbsp;</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><td  colspan=2>Level 1</td><td  align=center>0.1033</td><td >0.0389 - 0.2746</td></tr>
+<tr><td  colspan=2>Level 2</td><td  align=center>0.3790</td><td >0.0653 - 2.2000</td></tr>
+<tr><td  colspan=2>Level 3</td><td  align=center>0.3790</td><td >0.0653 - 2.2000</td></tr>
+<tr><td  colspan=2>Level 4</td><td  align=center>1.1372</td><td >0.7890 - 1.6390</td></tr>
+<tr><td  colspan=2>Level 5</td><td  align=center>18.7647</td><td >6.8181 - 51.6440</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr></tr>
+</table></font>
+<div style=" POSITION: relative; LEFT:150px;TOP:150; OVERFLOW: visible; WIDTH: 300px;  HEIGHT: 300px"> 
+  <div style="position:absolute;white-space:nowrap;left:0px;top:-60px;font-family:arial,helvetica,sans-serif;font-size:14px;color:#000000;font-weight:bold;">Receiver 
+    Operator Characteristic (ROC) Curve</div>
+  <div style="position:absolute;border-left:2px solid #000000;left:0px;top:0px;width:2px;height:302px;clip:rect(0,2px,302px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:270px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:240px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:210px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:180px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:150px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:120px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:90px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:60.00000000000003px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:30px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:5px solid #000000;left:-4px;top:5.684341886080802e-14px;width:5px;height:1px;clip:rect(0,5px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:294px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:264px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.1</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:234px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.2</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:204px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.3</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:174px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.4</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:144px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.5</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:114px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.6</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:84px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.7</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:54.00000000000003px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.8</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:24px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.9</div>
+  <div style="position:absolute;white-space:nowrap;left:-35px;top:-5.999999999999943px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">1</div>
+  <div style="position:absolute;white-space:nowrap;left:-100px;top:144px;font-family:arial,helvetica,sans-serif;font-size:14px;color:#000000;font-weight:bold;">TP</div>
+  <div style="position:absolute;border-left:302px solid #000000;left:0px;top:300px;width:302px;height:2px;clip:rect(0,302px,2px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:0px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:30px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:60px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:90.00000000000001px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:120px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:150px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:180px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:210px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:239.99999999999997px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:270px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:299.99999999999994px;top:300px;width:1px;height:5px;clip:rect(0,1px,5px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;white-space:nowrap;left:-6px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0</div>
+  <div style="position:absolute;white-space:nowrap;left:24px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.1</div>
+  <div style="position:absolute;white-space:nowrap;left:54px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.2</div>
+  <div style="position:absolute;white-space:nowrap;left:84.00000000000001px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.3</div>
+  <div style="position:absolute;white-space:nowrap;left:114px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.4</div>
+  <div style="position:absolute;white-space:nowrap;left:144px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.5</div>
+  <div style="position:absolute;white-space:nowrap;left:174px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.6</div>
+  <div style="position:absolute;white-space:nowrap;left:204px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.7</div>
+  <div style="position:absolute;white-space:nowrap;left:233.99999999999997px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.8</div>
+  <div style="position:absolute;white-space:nowrap;left:264px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">0.9</div>
+  <div style="position:absolute;white-space:nowrap;left:293.99999999999994px;top:312px;font-family:arial,helvetica,sans-serif;font-size:11px;color:#000000;font-weight:normal;">1</div>
+  <div style="position:absolute;white-space:nowrap;left:100px;top:330px;font-family:arial,helvetica,sans-serif;font-size:14px;color:#000000;font-weight:bold;">FP</div>
+  <div style="position:absolute;border-left:1px solid #000000;left:0px;top:300px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:1px;top:299px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:2px;top:298px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:3px;top:297px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:4px;top:296px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:5px;top:295px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:6px;top:294px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:7px;top:293px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:8px;top:292px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:9px;top:291px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:10px;top:290px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:11px;top:289px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:12px;top:288px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:13px;top:287px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:14px;top:286px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:15px;top:285px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:16px;top:284px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:17px;top:283px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:18px;top:282px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:19px;top:281px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:20px;top:280px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:21px;top:279px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:22px;top:278px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:23px;top:277px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:24px;top:276px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:25px;top:275px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:26px;top:274px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:27px;top:273px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:28px;top:272px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:29px;top:271px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:30px;top:270px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:31px;top:269px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:32px;top:268px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:33px;top:267px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:34px;top:266px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:35px;top:265px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:36px;top:264px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:37px;top:263px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:38px;top:262px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:39px;top:261px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:40px;top:260px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:41px;top:259px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:42px;top:258px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:43px;top:257px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:44px;top:256px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:45px;top:255px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:46px;top:254px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:47px;top:253px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:48px;top:252px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:49px;top:251px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:50px;top:250px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:51px;top:249px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:52px;top:248px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:53px;top:247px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:54px;top:246px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:55px;top:245px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:56px;top:244px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:57px;top:243px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:58px;top:242px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:59px;top:241px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:60px;top:240px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:61px;top:239px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:62px;top:238px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:63px;top:237px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:64px;top:236px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:65px;top:235px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:66px;top:234px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:67px;top:233px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:68px;top:232px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:69px;top:231px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:70px;top:230px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:71px;top:229px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:72px;top:228px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:73px;top:227px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:74px;top:226px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:75px;top:225px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:76px;top:224px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:77px;top:223px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:78px;top:222px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:79px;top:221px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:80px;top:220px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:81px;top:219px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:82px;top:218px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:83px;top:217px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:84px;top:216px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:85px;top:215px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:86px;top:214px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:87px;top:213px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:88px;top:212px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:89px;top:211px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:90px;top:210px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:91px;top:209px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:92px;top:208px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:93px;top:207px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:94px;top:206px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:95px;top:205px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:96px;top:204px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:97px;top:203px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:98px;top:202px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:99px;top:201px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:100px;top:200px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:101px;top:199px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:102px;top:198px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:103px;top:197px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:104px;top:196px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:105px;top:195px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:106px;top:194px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:107px;top:193px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:108px;top:192px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:109px;top:191px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:110px;top:190px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:111px;top:189px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:112px;top:188px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:113px;top:187px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:114px;top:186px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:115px;top:185px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:116px;top:184px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:117px;top:183px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:118px;top:182px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:119px;top:181px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:120px;top:180px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:121px;top:179px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:122px;top:178px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:123px;top:177px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:124px;top:176px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:125px;top:175px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:126px;top:174px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:127px;top:173px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:128px;top:172px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:129px;top:171px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:130px;top:170px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:131px;top:169px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:132px;top:168px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:133px;top:167px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:134px;top:166px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:135px;top:165px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:136px;top:164px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:137px;top:163px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:138px;top:162px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:139px;top:161px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:140px;top:160px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:141px;top:159px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:142px;top:158px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:143px;top:157px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:144px;top:156px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:145px;top:155px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:146px;top:154px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:147px;top:153px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:148px;top:152px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:149px;top:151px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:150px;top:150px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:151px;top:149px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:152px;top:148px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:153px;top:147px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:154px;top:146px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:155px;top:145px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:156px;top:144px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:157px;top:143px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:158px;top:142px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:159px;top:141px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:160px;top:140px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:161px;top:139px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:162px;top:138px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:163px;top:137px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:164px;top:136px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:165px;top:135px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:166px;top:134px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:167px;top:133px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:168px;top:132px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:169px;top:131px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:170px;top:130px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:171px;top:129px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:172px;top:128px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:173px;top:127px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:174px;top:126px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:175px;top:125px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:176px;top:124px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:177px;top:123px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:178px;top:122px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:179px;top:121px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:180px;top:120px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:181px;top:119px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:182px;top:118px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:183px;top:117px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:184px;top:116px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:185px;top:115px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:186px;top:114px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:187px;top:113px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:188px;top:112px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:189px;top:111px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:190px;top:110px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:191px;top:109px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:192px;top:108px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:193px;top:107px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:194px;top:106px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:195px;top:105px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:196px;top:104px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:197px;top:103px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:198px;top:102px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:199px;top:101px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:200px;top:100px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:201px;top:99px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:202px;top:98px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:203px;top:97px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:204px;top:96px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:205px;top:95px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:206px;top:94px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:207px;top:93px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:208px;top:92px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:209px;top:91px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:210px;top:90px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:211px;top:89px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:212px;top:88px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:213px;top:87px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:214px;top:86px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:215px;top:85px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:216px;top:84px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:217px;top:83px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:218px;top:82px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:219px;top:81px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:220px;top:80px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:221px;top:79px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:222px;top:78px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:223px;top:77px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:224px;top:76px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:225px;top:75px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:226px;top:74px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:227px;top:73px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:228px;top:72px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:229px;top:71px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:230px;top:70px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:231px;top:69px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:232px;top:68px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:233px;top:67px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:234px;top:66px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:235px;top:65px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:236px;top:64px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:237px;top:63px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:238px;top:62px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:239px;top:61px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:240px;top:60px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:241px;top:59px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:242px;top:58px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:243px;top:57px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:244px;top:56px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:245px;top:55px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:246px;top:54px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:247px;top:53px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:248px;top:52px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:249px;top:51px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:250px;top:50px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:251px;top:49px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:252px;top:48px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:253px;top:47px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:254px;top:46px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:255px;top:45px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:256px;top:44px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:257px;top:43px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:258px;top:42px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:259px;top:41px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:260px;top:40px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:261px;top:39px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:262px;top:38px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:263px;top:37px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:264px;top:36px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:265px;top:35px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:266px;top:34px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:267px;top:33px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:268px;top:32px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:269px;top:31px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:270px;top:30px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:271px;top:29px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:272px;top:28px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:273px;top:27px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:274px;top:26px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:275px;top:25px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:276px;top:24px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:277px;top:23px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:278px;top:22px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:279px;top:21px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:280px;top:20px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:281px;top:19px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:282px;top:18px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:283px;top:17px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:284px;top:16px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:285px;top:15px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:286px;top:14px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:287px;top:13px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:288px;top:12px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:289px;top:11px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:290px;top:10px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:291px;top:9px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:292px;top:8px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:293px;top:7px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:294px;top:6px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:295px;top:5px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:296px;top:4px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:297px;top:3px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:298px;top:2px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:299px;top:1px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:300px;top:0px;width:1px;height:1px;clip:rect(0,1px,1px,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:1px solid #000000;left:undefinedpx;top:300px;width:1px;height:NaNpx;clip:rect(0,1px,NaNpx,0);overflow:hidden;background-color:#000000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:0px;top:291px;width:2px;height:11px;clip:rect(0,2px,11px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:1px;top:271px;width:2px;height:21px;clip:rect(0,2px,21px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:2px;top:252px;width:2px;height:20px;clip:rect(0,2px,20px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:3px;top:233px;width:2px;height:20px;clip:rect(0,2px,20px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:4px;top:213px;width:2px;height:21px;clip:rect(0,2px,21px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:5px;top:194px;width:2px;height:20px;clip:rect(0,2px,20px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:6px;top:174px;width:2px;height:21px;clip:rect(0,2px,21px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:7px;top:155px;width:2px;height:20px;clip:rect(0,2px,20px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:8px;top:136px;width:2px;height:20px;clip:rect(0,2px,20px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:9px;top:116px;width:2px;height:21px;clip:rect(0,2px,21px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:10.32px;top:105.9px;width:2px;height:11.099999999999994px;clip:rect(0,2px,11.099999999999994px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:10.32px;top:105.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:11.32px;top:104.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:12.32px;top:103.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:13.32px;top:101.9px;width:2px;height:3px;clip:rect(0,2px,3px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:14.32px;top:100.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:15.32px;top:99.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:16.32px;top:98.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:17.32px;top:97.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:18.32px;top:96.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:19.32px;top:95.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:20.32px;top:93.9px;width:2px;height:3px;clip:rect(0,2px,3px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:21.32px;top:92.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:22.32px;top:91.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:23.32px;top:90.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:24.32px;top:89.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:25.32px;top:88.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:26.32px;top:87.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:27.32px;top:85.9px;width:2px;height:3px;clip:rect(0,2px,3px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:28.32px;top:84.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:29.32px;top:83.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:30.32px;top:82.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:31.32px;top:81.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:32.32px;top:80.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:33.32px;top:79.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:34.32px;top:77.9px;width:2px;height:3px;clip:rect(0,2px,3px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:35.32px;top:76.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:36.32px;top:75.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:37.32px;top:74.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:38.32px;top:73.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:39.32px;top:72.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:40.32px;top:71.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:41.32px;top:69.9px;width:2px;height:3px;clip:rect(0,2px,3px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:42.32px;top:68.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:43.32px;top:67.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:44.32px;top:66.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:45.32px;top:65.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:46.32px;top:64.9px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:47.32px;top:63.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:48.32px;top:61.900000000000006px;width:2px;height:3px;clip:rect(0,2px,3px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:49.32px;top:60.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:50.32px;top:59.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:51.32px;top:58.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:52.32px;top:57.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:53.32px;top:56.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:54.32px;top:55.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:55.32px;top:53.900000000000006px;width:2px;height:3px;clip:rect(0,2px,3px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:56.32px;top:52.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:57.32px;top:51.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:58.32px;top:50.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:59.32px;top:49.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:60.32px;top:48.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:61.32px;top:47.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:62.32px;top:45.900000000000006px;width:2px;height:3px;clip:rect(0,2px,3px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:63.32px;top:44.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:64.32px;top:43.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:65.32px;top:42.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:66.32px;top:41.900000000000006px;width:2px;height:2px;clip:rect(0,2px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:67.23px;top:41.19px;width:2px;height:1.710000000000008px;clip:rect(0,2px,1.710000000000008px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:3px solid #ff0000;left:67.23px;top:41.19px;width:3px;height:2px;clip:rect(0,3px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:69.23px;top:40.19px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:72.23px;top:39.19px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:3px solid #ff0000;left:75.23px;top:38.19px;width:3px;height:2px;clip:rect(0,3px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:77.23px;top:37.19px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:80.23px;top:36.19px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:83.23px;top:35.19px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:86.23px;top:34.19px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:3px solid #ff0000;left:89.23px;top:33.19px;width:3px;height:2px;clip:rect(0,3px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:91.23px;top:32.19px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:94.23px;top:31.189999999999997px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:3.019999999999996px solid #ff0000;left:97.23px;top:30.189999999999997px;width:3.019999999999996px;height:2px;clip:rect(0,3.019999999999996px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:3px solid #ff0000;left:98.25px;top:29.430000000000007px;width:3px;height:2px;clip:rect(0,3px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:100.25px;top:28.430000000000007px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:103.25px;top:27.430000000000007px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:3px solid #ff0000;left:106.25px;top:26.430000000000007px;width:3px;height:2px;clip:rect(0,3px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:108.25px;top:25.430000000000007px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:111.25px;top:24.430000000000007px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:114.25px;top:23.430000000000007px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:117.25px;top:22.430000000000007px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:3px solid #ff0000;left:120.25px;top:21.430000000000007px;width:3px;height:2px;clip:rect(0,3px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:122.25px;top:20.430000000000007px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:4px solid #ff0000;left:125.25px;top:19.430000000000007px;width:4px;height:2px;clip:rect(0,4px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:3.0500000000000113px solid #ff0000;left:128.25px;top:18.430000000000007px;width:3.0500000000000113px;height:2px;clip:rect(0,3.0500000000000113px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:7px solid #ff0000;left:129.3px;top:17.66999999999996px;width:7px;height:2px;clip:rect(0,7px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:135.3px;top:16.66999999999996px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:145.3px;top:15.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:155.3px;top:14.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:165.3px;top:13.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:175.3px;top:12.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:185.3px;top:11.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:195.3px;top:10.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:205.3px;top:9.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:215.3px;top:8.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:225.3px;top:7.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:235.3px;top:6.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:245.3px;top:5.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:255.3px;top:4.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:265.3px;top:3.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:275.3px;top:2.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:11px solid #ff0000;left:285.3px;top:1.669999999999959px;width:11px;height:2px;clip:rect(0,11px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:6.699999999999989px solid #ff0000;left:295.3px;top:0.6699999999999591px;width:6.699999999999989px;height:2px;clip:rect(0,6.699999999999989px,2px,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;border-left:2px solid #ff0000;left:undefinedpx;top:0px;width:2px;height:NaNpx;clip:rect(0,2px,NaNpx,0);overflow:hidden;background-color:#ff0000;"></div>
+  <div style="position:absolute;white-space:nowrap;left:0px;top:350px;font-family:arial,helvetica,sans-serif;font-size:12px;color:#0099ff;font-weight:normal;">TP 
+    - True positive rate, FP - False positive rate</div>
+  <div style="position:absolute;white-space:nowrap;left:0px;top:370px;font-family:arial,helvetica,sans-serif;font-size:12px;color:#008800;font-weight:normal;">Area 
+    under the ROC curve = <b>0.8931 (0.8304 - 0.9558)</b></div>
+</div>
+<div style="position:relative;left:0px;top:300px;align=center"> 
+  <table>
+    <tr> 
+      <td><p><br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          &nbsp;</p>
+        <p>&nbsp;</p></td>
+    </tr>
+  </table>
+</div>
+<table><tr><td><p>&nbsp;</p><p>&nbsp;</p></td></tr></table>
+<br>Print from the browser, or select all or part of the text and then copy and paste to other programs.<br>
+
+Many browsers have an optional setting to print background colors.
+</body></html>

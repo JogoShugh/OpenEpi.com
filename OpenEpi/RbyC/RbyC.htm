@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>OpenEpi - Toolkit Shell for Developing New Applications</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+
+
+                                   <!-- --------------------- -->
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="RbyC";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../js/IncludeFiles.js" type=text/JavaScript></SCRIPT>
+								
+									<!-- --------------------- -->
+    
+<script language="JavaScript" type="text/JavaScript">
+
+function configureInput()
+{//This function has been changed to return false if the table should not run.
+//Indented sections are the ones to be changed to configure a new application
+        var msg1=t("There must be at least 1 column and 1 row. Please try again.")
+		
+        do 
+		 {
+		  var choice=false;
+		  
+		  var ccols=prompt(t("How many COLUMNS of data across the screen will your table have?"),3);
+		  //number of cells or columns across the table
+		   if (!ccols) 
+		     {
+			  //User hit cancel; bail out
+			  return false
+			 }
+		   ccols=parseInt(ccols) + 3;
+		  var crows=prompt(t("How many ROWS of data down the screen are there?"),3)
+		   if (!crows) 
+		     {
+			  //User hit cancel; bail out
+			  return false
+			 }
+		   crows=parseInt(crows) + 3;
+		  if (ccols<4 || crows<4 || isNaN(ccols) || isNaN(crows) )
+		    {
+		     choice= confirm(msg1);
+		     if (!choice) {return false}
+		    }
+		  }
+         while (ccols<4||crows<4 || choice || isNaN(ccols) || isNaN(crows)); 
+		
+		var x=200;
+		//pixels from the left side of the page where table starts
+		var y=100;
+		//pixels down from top of page where table starts
+		var w=ccols * 60;
+		//width of table in pixels
+		var h=crows * 30;
+		//height of table in pixels
+
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+with (intable)
+ {        allowstrata(false); //Do not allow stratified analysis
+          usetablesettings(false);  //Do not allow rotating table 
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable, generally cell by cell
+		 //rather than row by row.  
+		  newtable(crows,ccols,w,h,x,y);
+		  title("<b>R by C Table</b>");
+		  newrow("label:", "label:", "varname:Var 2", "label:")
+		  newrow("label:", "label:Values");
+		  newrow("varname:Var 1","valname:","data:")
+		  rowcolor(0,"#aaaaaa")
+		  rowcolor(1,"#aaaaaa")
+		  colcolor(0,"#aaaaaa")
+		  colcolor(1,"#aaaaaa")
+          rowcolor(crows-1,"#999999")
+		  colcolor(ccols-1,"#999999")
+		  datarange(2,crows-2,2,ccols-2);
+		  //This command specifies all the cells within the specified area
+		  //as data cells and puts row and column totals to the right and below
+		  //with a grand total in the lower right if there is room.  The coordinates
+		  //of the last row and col of cells are crows-1 and ccol-1, so this 
+		  //crows-2 leaves room for a row total.
+		  
+  //The following lines must be present to place the parsed commands
+  //into two arrays that are used by Etable to configure the input table.
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ }
+ return true;
+}
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+  //running the program, then enter unique numbers so that you can see which cells they
+  //are in.
+  //alert("Row="+r+"  Col=" + c)
+  /* 
+   The following "if" statement acts on an entry in row 1 (the numerator in this
+   case).  It muliplies the entry by 43 and sets the cell in row 1, column 2, to
+  the result.  Then, to illustrate how to retrieve a value from the input table,
+  it retrieves the value just set and displays it in an alert box.  The routine
+  is nonsense, but it illustrates how to both get and set values from cells 
+  in the input table.  Note that the user's entry in the current cell, and the
+  row and column of the current cell are passed in the parameters of this
+  function, and that the value of the current cell has not yet been set. It 
+  will be set automatically to whatever value you return from the checkcode
+  function.  Hence, you can evaluate, massage, and alter the entered value,
+  and use the results to set the current cell (as the returned value) or other
+  cells(using EntryWin.setCellValue(row,col,value)).
+  if (r==0)
+    { 
+	 myTable.setCellValue(1,2,parseInt(entry)*43)
+	 alert(myTable.getCellValue(1,2))
+    }
+  */
+	
+	//The following code returns a blank string if the user enters anything other
+	//than a number in a data field.
+     var e=parseFloat(entry)  //Convert to a number if possible
+     if (isNaN(e)) 
+	   {
+	    e=""  //If not a number than set e to blank
+       }
+     return e  //Return the value to be placed in the cell.
+}
+
+function OECalculate(data) 
+//above changed from dataArray to data Mar 2007
+{
+//appDataArray=dataArray;   Mar 2007
+//Called by the Calculate button in the ETable module.
+//The data items entered reside in the dataMatrix variable in EntryWin.  They can be
+//retrieved here and used to populate the statistics module that is being constructed.
+var results;
+
+//EntryWin.writeTable(data)
+//alert("This is the data array, ready for programming in the statistical routine.")
+//return  //remove this to proceed
+//Comment out the three lines above to continue into the calculations...
+//Remove the comment from the 2 lines above to see a table of the contents of the dataMatrix
+//so that the correct correspondence between the dataMatrix and your stats routine
+//can be set up below.
+//In this section, write some code to extract the needed data from the standard
+//data array produced by the data input module.  Strata have indices starting with
+// 1, and table cells begin with the baseline (e.g., 0 or "no") values in the upper
+// left, in the "E0D0" cell.  Exposure is represented on the left margin and Disease
+// at the top, if this distinction is meaningful.  
+// For a simple proportion, the translation is easy:
+
+var outObj=new Output(data);  //March 2007 added var  and changed to data from dataArray
+with (outObj)
+{   
+
+var combinedresults,i
+//var tableresults=EntryWin.EntryTableAsHTML(EntryWin.myTable);
+//Produces an HTML replica of the input table
+
+       //Define an output table.  You can include extra columns to help with the formatting,
+	   //and then use the span property to combine several cells and make a wider one.
+	  /*       
+			 for ( i=1; i<data.length; i++)
+			 {  
+			   tableAsHTML(i)   //Show a table for each stratum (currently only one)
+			 }  
+			 newtable(6,90);
+			 //6 columns and 90 pixels per column
+			 newrow()
+			 //blank line
+			 newrow()
+			 //blank line
+			
+			 //Title goes across all cells.  Text can have HTML tags that make it
+			 //bold or give it particular styles.  These are optional.  Be sure to
+			 //include a closing tag for each one.
+			 
+			 title("<h3>Chi Square for R by C Table</h3>");
+			 line(6);
+		*/	 
+		//Here is the call to the javascript routine that does the calculations
+		//passing the data array to the new routine.  The function itself can be
+		//placed in the .js file for this module.  Newrow and other commands are
+		//used inside the calculation function to add meaningful output to the
+		//HTML table.  An alterative would be to have the function return the results
+		//of calculation for formatting within this function.  Either method will do the job.
+			 CalcStats(outObj);  //March 2007  Changed from data to outObj
+
+//Tell outTable that we are done
+     		endtable();
+//Retrieve the HTML string, "outTable.s".
+     		
+}
+
+//The results should be an HTML string.  The following function (found in appHelper.js)
+// will add an HTML header, the contents of the data input table, and ending tags if they are not already present.
+//It then displays the results in a new browser window, from which the user can cut and paste
+//to other programs.  
+			
+//If "saveifpossible"
+//is "true", the html output will be saved in a file on the local disk, if, and only if,
+//four other conditions are met:
+//     1. The programs are being run locally rather than from a remote server
+//     2. This application is being run from OpenEpiMenu.HTM 
+//     3. OpenEpiMenu.HTM is being run from OpenEpiSave.HTA.
+//     4. The environment is Microsoft Windows (until someone writes OpenEpiSave.HTA for
+//			other systems)
+//If any of these conditions are absent, saving will not occur, but there should
+//be no errors.  If the file is saved successfully, a message appears with the filename
+// and location.  Saved files are named using the short program name plus a sequence number.
+
+writeResults(outObj.s,basefilename,true,outObj)
+}
+
+writeFrontEnd ( Title,Authors,Description,demofile);
+  //write HTML from a string.  The fourth parameter is the name of the demofile.  If there is none, it should be set to "".  If a demofile
+  //exists, substitute the variable name,  demofile    
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->

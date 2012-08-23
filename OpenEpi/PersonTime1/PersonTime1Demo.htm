@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script language="JavaScript" type="text/JavaScript">
+function dataArray()
+{var A = new Array()
+
+   //Meta data for the dataset...
+var s0= new Array();
+s0["title"]="<b>Confidence Intervals for a Rate<b>"
+s0["datacmin"]=2
+s0["datacmax"]=2
+s0["datarmin"]=0
+s0["datarmax"]=1
+s0["numD"]=1
+s0["numE"]=2
+s0["createdby"]="file://C:\_OpenEpi\Development\NextVersion\PersonTime1\PersonTime1.htm"
+s0["cols"]=3
+s0["rows"]=2
+s0["maxatleft"]=true
+s0["maxattop"]=true
+s0["expleft"]=true
+s0["conflevel"]=95
+s0["usetablesettings"]=false
+s0["labels"]=4
+s0["varnames"]=0
+s0["valnames"]=0
+s0["rowtots"]=0
+s0["coltots"]=0
+s0["grandtots"]=0
+s0["varD"]="Disease Variable"
+s0["varE"]="Exposure Variable"
+s0["varS"]="Stratifying Variable"
+s0["strata"]=1
+s0["R0"]=new Array("Number of cases","","66")
+s0["R0type"]=new Array("label","label","data")
+s0["R1"]=new Array("Person-time","","2098")
+s0["R1type"]=new Array("label","label","data")
+A[0]=s0;
+
+  //Data in one or more strata...
+var s1= new Array();
+s1["E0D0"]=66
+s1["E1D0"]=2098
+A[1]=s1;
+
+return A
+}
+function etableCmds1()
+{var A=new Array()
+A[0]='useTableSettings=false;'
+A[1]='myTable = new Stratum(200,100,300,150,2,3)'
+A[2]='myTable.bgColor = "#ffffff"'
+A[3]='myTable.setHeaderStyle("#cccccc","center","middle",6,"arial","16px")'
+A[4]='myTable.setHeaderText("<b>Confidence Intervals for a Rate<b>");'
+A[5]='myTable.setCellSpan(0,0,2)'
+A[6]='myTable.row[0].cell[0].value="Number of cases"'
+A[7]='myTable.row[0].cell[1].type="label"'
+A[8]='myTable.setCellSpan(0,1,0)'
+A[9]='myTable.row[0].cell[1].value=""'
+A[10]='myTable.row[0].cell[2].type="data"'
+A[11]='myTable.row[0].cell[2].value=""'
+A[12]='myTable.setCellSpan(1,0,2)'
+A[13]='myTable.row[1].cell[0].value="Person-time"'
+A[14]='myTable.row[1].cell[1].type="label"'
+A[15]='myTable.setCellSpan(1,1,0)'
+A[16]='myTable.row[1].cell[1].value=""'
+A[17]='myTable.row[1].cell[2].type="data"'
+A[18]='myTable.row[1].cell[2].value=""'
+
+return A
+}
+
+function etableCmds2()
+{var A=new Array()
+A[0]='ShowHide("settings_span",true)'
+A[1]='myTable.lock("labels");'
+
+return A
+}
+
+function runEtable()
+{
+if (opener)
+ {
+   if (opener.useOpenEpiEntry)
+    {
+	  opener.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+ }
+else if (parent)
+ { 
+   if (parent.useOpenEpiEntry)
+    {
+	  parent.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+ }
+}
+//<body onload='setTimeout("runEtable()",100)'>
+
+</script>
+</head>
+<body onload="runEtable()">
+<table width="540" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+</tr>
+<table width="540" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+<td><img src="../img/shim.gif" width="90" height="1"></td>
+</tr>
+<tr><th align="center" colspan=6><h3>Person-Time Rate and 95% Confidence Intervals</h3></th></tr>
+<tr><td  colspan=6 align=center bgcolor=#ff9933><b>Per 100 Person-Time Units</b></td><tr><td colspan=6><hr noshade></td></tr>
+</tr>
+<tr><td  colspan=2></td><td  align=right colspan=2>Number of cases:</td><td  align=center>66</td><td  align=center></td></tr>
+<tr><td  colspan=2></td><td  align=right colspan=2>Person-Time:</td><td  align=center>2098</td><td  align=center></td><tr><td colspan=6><hr noshade></td></tr>
+</tr>
+<tr><td ><br></td></tr>
+<tr><td  colspan=2></td><td  align=center><b>Lower CL</b></td><td  align=center><b>Rate</b></td><td  align=center><b>Upper CL</b></td><tr><td colspan=6><hr noshade></td></tr>
+</tr>
+<tr><td  colspan=2>Normal approximation</td><td  align=center>2.387</td><td  align=center>3.146</td><td  align=center>3.905</td></tr>
+<tr><td  colspan=2>Byar approx. Poisson</td><td  align=center>2.433</td><td  align=center></td><td  align=center>4.002</td></tr>
+<tr><td  colspan=2>Rothman/Greenland</td><td  align=center>2.472</td><td  align=center></td><td  align=center>4.004</td><tr><td colspan=6><hr noshade></td></tr>
+</tr>
+<tr><td >&nbsp;</td></tr>
+<tr><td  colspan=6>&quot;Normal approximation&quot; to the Poisson distribution as described by Rosner, Fundamentals of Biostatistics (5th Ed)</td></tr>
+<tr><td  colspan=6>&quot;Byar approximation to the Poisson&quot; as described in Rothman and Boice, Epidemiologic Analysis with a Programmable Calculator</td></tr>
+<tr><td  colspan=6>&quot;Rothman/Greenland&quot; as described in Rothman and Greenland, Modern Epidemiology (2nd Ed)</td></tr>
+<tr><td  colspan=6>Note The Rothman/Greenland results have not been validated against other sources.</td></tr>
+</table>
+<br>Print from the browser, or select all or part of the text and then copy and paste to other programs.<br>
+
+Many browsers have an optional setting to print background colors.
+</body></html>

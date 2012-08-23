@@ -1,0 +1,174 @@
+﻿<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<link rel=Edit-Time-Data href="News_files/editdata.mso">
+<title>OpenEpi News</title>
+<style><!--
+.Section1
+	{page:Section1;}
+-->
+</style>
+<script type="text/javascript" src="../js/readcookie.js"></script>
+<script type="text/javascript" src="../js/translate.js"></script>
+
+<script language="JavaScript" type="text/JavaScript">
+function translate()
+{
+if (typeof translateHTML == 'function')
+  {
+    translateHTML(document);
+  }
+}
+</script>
+</head>
+<body bgcolor=#FFFFFF link="#009999" vlink="#66CCCC" alink="#00FFFF" class="Normal" lang=EN-US onload="translate();">
+<div class=Section1> 
+  <table border=0 cellspacing=0 cellpadding=0 width="100%">
+    <tr> 
+      <td rowspan=2 bgcolor="#336666" class="Normal"> <p><img width=184 height=51 id="_x0000_i1025"
+  src="../img/OpenEpi1.gif" alt="OpenEpi Logo" name=image></p></td>
+      <td width="100%" bgcolor="#336666" class="Normal"> <h1><span style='color:#EEEEEE'>News 
+          </span></h1></td>
+      <td width=0 class="Normal">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td
+  width=576 class="Normal">&nbsp; </td>
+      <td width=0 height=19 class="Normal"></td>
+    </tr>
+  </table>
+  <h1>What´s New in This Version?</h1>
+  <p><strong>September 2010 --Version 2.4 </strong></p>
+  <p>This version of OpenEpi will detect "smartphones", such as Android phones and the iPhone,
+  and adjust its activities to work with small screens.  You will note that the menu appears on a single screen
+  and then brings up the applications as requested so that they also occupy an entire screen.  Because
+  OpenEpi uses a large amount of Javascript for calculation of the statistics, it may take a while to
+  download all the code for a particular module.  If you get tired of waiting, click the "Menu" tab to return
+  to the menu, and then try again.</p>
+  <p>Not all smartphones support the level of Javascript that is required for OpenEpi, and the authors do
+  not have examples of many phones for testing purposes.  Please accept that you are on your own to determine
+  whether OpenEpi functions correctly on your brand of smartphone, and do some testing of relevent modules
+  to see if they give the same answers obtained in OpenEpi on a laptop, Epi Info, or other statistical programs,
+  before departing for remote statistical missions carrying only your cell phone.</p>
+  <p></p> The statistical code Sis the same for smartphones and laptops in OpenEpi, but there could be differences in rounding, formatting,
+  and the completion of procedures that are problematic. So far, we have not discovered a way to download
+  and install OpenEpi on a smartphone for off-line use, so you need to have a Web connection to use OpenEpi
+  on a smartphone.  Since the connection is not the same as the one used by laptops, however, cell phones can provide
+  service in areas where wi-fi is not available.</p>
+
+  <p><strong>September 2010 --Version 2.3.1 </strong></p>
+  <p>This is a version only slightly updated, to be included with the distribution
+  of Epi Info 3.5.2.  A statistical error in the ANOVA module that produced slightly
+  incorrect values for the Chi Square and p value of Bartlett's test for Equality of
+  Variance has been corrected, so that the result now agrees closely with the one obtained
+  in Epi Info.  Small statistical problems in the SMR and ANOVA modules have been corrected.
+  <p>The download files have been produced again so that the latest
+  changes are present in the downloaded zip or msi file for local use.<p>
+
+
+  <p><strong>May 2009 --Version 2.3 </strong></p>
+  <p>Fixes:
+    <p>Thanks to Viju Moses,the Fisher Exact test in Two by Two tables can no longer amuse R-language fans
+    by producing a p value greater than 1.0.</p>
+    <p>Damien Jolley wrote from Melbourne to suggest formatting and usability changes in the t-test module, and
+    these have been made. No more p values with 28 zeroes, and the order of the two series being compared is now
+    fixed to facilitate comparison among multiple tests.</p>
+    <p>Enrique Acosta, Cienfuegos, Cuba, discovered and provided fixes for a bug in the code of AppHelper.js that
+    named the file, EpiTable.htm, with a lower-case "t", a problem in some systems but ignored by others.</p>
+    <p>Manuel Luis Ribeiro pointed to a problem with the Exact p value calculation in the SMR module, when the
+    observed value is less than the expected.</p>
+    <p>Rubén Leta Petracca, with an email address based in Spain, reported an ugly bug that crashed the Macintosh
+    Safari browser.  This is no longer present.</p>
+    <p>Dr. David Looney pointed out that Linux does not recognize AnovaIn.GIF as being the same as AnoveIn.gif.
+    All the .GIF files have been renamed to .gif.</p>
+    <p>Difficulties with overzealous security in Firefox 3.x browsers have been addressed with a message
+    telling how to configure Firefox if necessary.  This is only a problem when running OpenEpi from local
+    disk in Firefox 3. Thanks to Hans Reider, Switzerland, for pointing to the problem.</p>
+    <p>Visiting all these contributors would require a broad and fascinating tour of the world.
+    Isn't the Internet wonderful!!</p>
+    <p>We have ambitious plans and some crude prototypes of a text input module that will allow entering or
+    pasting data.  We also hope to offer reading of data from files and saving it with Google Gears.</p>
+  <p><strong>March 6, 2008 --Version 2.2.1 </strong></p>
+  <p>Fixes an error in the ANOVA code where the t-value for
+    confidence intervals used ni rather than ni-1 for the degrees of freedom.
+    The difference is not great except with small numbers, but now the results
+    match those of SAS and SPSS.</p>
+  <p><strong>March 6, 2008 --Version 2.2.1 </strong></p>
+  <p>Fixes an error in the ANOVA code where the t-value for
+    confidence intervals used ni rather than ni-1 for the degrees of freedom.
+    The difference is not great except with small numbers, but now the results
+    match those of SAS and SPSS.</p>
+  <p>The Matched Case-Control study module (MatchCC.HTM) no longer
+    responds to the table configuration settings in Language/Options/Settings;
+    it never should have done so.</p>
+  <p>The Javascript for tracking usage on the (Brinkster) website
+    has been cleaned up somewhat. It collects information that is available to
+    any website, but it allows aggregation of the statistics in useful ways: for
+    example, which programs are most used, and which countries the users are in
+    (approximately). </p>
+  <p>As of March 3, the OpenEpi site had been accessed 1,000,000  times by users in 155 countries.</p>
+  <h4>September 24, 2007</h4>
+  <p>You can set OpenEpi for ENGLISH, SPANISH, FRENCH or ITALIAN, in Language/Options/Settings.  Everything except the validation and background documents has been translated.  Demo data files still have English headings, but the results will be in the desired language.</p>
+  <h4>August 24, 2007</h4>
+  <p>You can now use OpenEpi in SPANISH, by choosing ES in Language/Options/Settings. Many small changes have been made to facilitate future translations. Please send comments and suggestions on the translation.</p>
+  <h4>July 17, 2007</h4>
+  <p>Cleaned up the English translation file to eliminate words from previous
+    versions. Fixed a problem with the OELinker that occurred when OpenEpi was
+    installed under Program Files, by inserting quotation marks around the
+    file path. </p>
+  <h4>April 24, 2007</h4>
+  <p>The underlying software framework was changed to provide a tabbed interface
+    and eliminate popup windows except to display help files. All the previous
+    modules work in the new framework without alteration. For more details, see
+    the developer documentation.</p>
+  <p>There is now an installation program for Windows computers that can be downloaded
+	 as an MSI (Microsoft Windows Install) file.  It places several icons on the desktop to allow
+	 running the standard version of OpenEpi, the version that saves output to the OpenEpi/results folder,
+	 and, if you have Epi Info installed on the same computer, a program to insert links to OpenEpi in the
+	 Epi Info menu.  The link will be placed on the Utilities menu, just below the one for Statcalc, if you
+	 chose to use this option.</p>                                                    News.htm
+  <h4>September 30, 2005</h4>
+  <p>Two additional modules (t test and ANOVA) related to continuous variables 
+    were added. t test is for comparison of means from two independent sample. 
+    One-way ANOVA is to compare two and more independent sample means. </p>
+  <h4>July 20, 2005</h4>
+  <p>A scientific calculator was added in the main menu, and the introduction 
+    to 'ActiveEpi' website (more details available in CD-ROM and text) has been 
+    linked for those interested.</p>
+  <h4>July 13, 2005</h4>
+  <p>Modules for calculation of power for Unmatched Case-Control studies, Cohort 
+    studies, Cross-Sectional studies, Randomized Clinical Trials as well as studies 
+    that compare two sample means were added. An additional module for sample 
+    size estimation comparing two means, was appended under the Sample Size section.</p>
+  <h4>April 15, 2005</h4>
+  <p>New modules that calculate desired confidence intervals for sample mean as well as for sample median and other percentiles, have been added. Users can download the new version of the OpenEpi package at 'Download OpenEpi' from the Menu bar on the left. </p>
+  <h4>January 14 , 2005</h4>
+  <p>Small changes in Sample Size for Proportion (allow absolute precision up 
+    to 50%) and Matched Case Control (does not add 0.5 if A and/or D cells are 
+    zero). Menu updated. </p>
+  <p>Previous NEWS items have been moved to a History file, accessed through a 
+    separate menu item.</p>
+</div>
+</body>
+
+
+
+
+<script language="JavaScript">
+
+// METATRAFFIC -- COPYRIGHT (C) 2002-2005, Brinkster Site Statistics Corp.
+
+var pagetitle = document.title;
+var action = "";
+var amount = "0";
+var order = ""; 
+
+var scriptlocation = "/stats/track.asp";
+
+var pagedata = 'mtpt=' + escape(pagetitle) + '&mtac=' + escape(action) + '&mta=' + amount + '&mto=' + escape(order) + '&mtr=' + escape(document.referrer) + '&mtt=2&mts=' + window.screen.width + 'x' + window.screen.height + '&mti=1&mtz=' + Math.random(); 
+document.write ('<img height=1 width=1 ');
+document.write ('src="' + scriptlocation + '?' + pagedata + '">');
+</script>
+
+
+</html>

@@ -1,0 +1,1607 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Choosing Statistical and Epidemiologic Methods</title>
+<script type="text/javascript" src="../js/readcookie.js"></script>
+<script type="text/javascript" src="../js/translate.js"></script>
+
+<script type="text/javascript">
+//Thanks to: http://www.faqts.com/knowledge_base/view.phtml/aid/2034/fid/192
+//for this function
+
+function getCellValue (cellOrId) {
+  var cell = 
+    typeof cellOrId == 'string' ? 
+      (document.all ? document.all[cellOrId] : document.getElementById
+(cellOrId)) :
+      cellOrId;
+  if (document.all)
+    return cell.innerText;
+  else {
+    cell.normalize();
+    if (cell.firstChild.nodeType == 3)
+      return cell.textContent;       //Revised June 2010
+    else
+      return '';
+  }
+}
+
+function find(cellval)
+{
+document.location.href="http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=" +getCellValue(cellval);
+}
+
+function translate()
+{
+  if (translateHTML)
+	     {
+	       translateHTML(document);
+	     }
+  /*
+if (opener) 
+   {
+      if (opener.translateHTML)
+	     {
+           opener.translateHTML(document);
+	     }
+	}
+else if (parent) 
+    { 
+	 if ( parent.translateHTML) 
+        {
+		   parent.translateHTML(document);
+		}
+	 }
+  */
+}
+
+</script>
+
+</head>
+
+<body onLoad="translate();" bgcolor="#FFFFFF" text="#336666" link="#009999" vlink="#66CCCC" alink="#00FFFF" >
+<table width="100%" border="0" cellspacing="0" cellpadding="4">
+  <tr>
+    <td rowspan="2" bgcolor="#336666">
+      <img src="../img/OpenEpi1.gif" alt="OpenEpi Logo" name="image" width="184" height="51"></td>
+    <td width="100%" bgcolor="#336666"><font color="#eeeeee"><h1>
+	Choosing
+	</h1> </font></td>
+  </tr>
+</table>
+
+
+<div class=Section1>
+  <p class=MsoNormal align=center style='text-align:center'><b><span 
+         style='font-size:26.0pt;font-family:Arial'>Choosing a Statistical Method, with Automatic Internet Searching</span></b></p>
+  <p class=MsoNormal>Taken from ‘Outline for the Proposed JavaScript Open Source
+    Version of StatCalc’</p>
+  <p class=MsoNormal><b>By </b><b>Hemant Kulkarni</b><b>, <i>San Antonio</i>               </b>November
+    18, 2002  Searching revised, June 2010</p>
+  <p class=MsoNormal>The following tables outline the suggested matrix. Please
+    remember that the suggested options are the ones that CAN be chosen in a
+    given situation. These options do NOT HAVE to be chosen.</p>
+  <p class=MsoNormal>To do a search, if you have an Internet
+    connection, click on an item within a table cell. In some browsers, a choice of search will appear as a funny little icon; in others,
+    the search may happen automatically, and may include ALL the items in the cell. After
+    you see the results, you may want to add a word like &acute;method,&acute; &acute;calculator,&acute;  &acute;equation,&acute;  or
+    &acute;tutorial&acute; to narrow the search. To return from the search, use the browser's BACK button or close the browser window.</p>
+  <ol start=1 type=1>
+    <li class=MsoNormal style='color:blue;text-align:center;     tab-stops:list .5in' ONCLICK="find(this);">
+    DESCRIPTIVE STUDIES
+    </li>
+  </ol>
+  <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Situation </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Epidemiologic results </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Statistical methods </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Time description </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Scatter plots  </span></p>
+        <p class=MsoNormal><span style='color:blue'>Scatter plots with trend
+            lines  </span></p>
+        <p class=MsoNormal><span style='color:blue'>Scatter plots with spline
+            smoothing </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Seasonality index </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Place description </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Spot maps </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Clustering methods like k-means </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Person description </span></p>
+      </td>
+      
+        <td width=246 valign=top ONCLICK="find(this);" >
+      <p class=MsoNormal><span style='color:blue'>Bar charts </span></p>
+      <p class=MsoNormal><span style='color:blue'>Pie charts </span></p>
+      <p class=MsoNormal><span style='color:blue'>Histograms </span></p>
+      <p class=MsoNormal><span style='color:blue'>Box plots </span></p>
+      <p class=MsoNormal><span style='color:blue'>Box and whisker plots </span></p>
+      <p class=MsoNormal><span style='color:blue'>Stem and leaf diagrams </span></p>
+      <p class=MsoNormal><span style='color:blue'>Hierarchical trees </span></p>
+      <p class=MsoNormal><span style='color:blue'>Scatter plots </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Mean </span></p>
+        <p class=MsoNormal><span style='color:blue'>Proportion </span></p>
+        <p class=MsoNormal><span style='color:blue'>Standard deviation </span></p>
+        <p class=MsoNormal><span style='color:blue'>Standard errors </span></p>
+        <p class=MsoNormal><span style='color:blue'>Median </span></p>
+        <p class=MsoNormal><span style='color:blue'>Percentiles </span></p>
+        <p class=MsoNormal><span style='color:blue'>Mode </span></p>
+      </td>
+    </tr>
+  </table>
+  <ol start=2 type=1>
+    <li class=MsoNormal style='color:blue;text-align:center;     ' ONCLICK="find(this);">CROSS-SECTIONAL
+      STUDIES</li>
+  </ol>
+  <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0>
+    <tr>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Situation </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Epidemiologic results </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Statistical methods </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Group comparison </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Risk
+            reduction with 95% confidence intervals</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Odds
+            ratios with 95% confidence intervals</li>
+        </ul>
+      </td>
+      <td width=246 valign=top>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cramer’s
+            V</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test for linear trend</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Student’s
+            T test (unpaired)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mann-Whitney
+            U test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mantel-Haenszel chi square
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Bonferroni’s
+            corrections</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <ol start=3 type=1>
+    <li class=MsoNormal style='color:blue;text-align:center;     '>CASE-CONTROL
+      STUDIES</li>
+  </ol>
+  <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0>
+    <tr>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Situation </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Epidemiologic results </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Statistical methods </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study  </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            exposure variable expressed as Yes/No</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio with 95% confidence
+            interval </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            exposure variable expressed as multiple, ordered categories</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cramer’s
+            V</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test for linear trend</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            continuous variable</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>- </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Student’s
+            T test (unpaired)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mann-Whitney
+            U test</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study  </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            exposure variables expressed as Yes/No</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio with 95% confidence
+            interval for each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+        <p class=MsoNormal><span
+  style='color:blue'>Adjusted ORs for combinations of variables </span></p>
+        <p class=MsoNormal><span
+  style='color:blue'>Stratified and summary OR with 95% confidence interval </span></p>
+      </td>
+      <td width=246 valign=top>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mantel-Haenszel chi square
+            test</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            exposure variables expressed as two or more, ordered categories</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top>
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval for
+            each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Adjusted ORs for combinations
+            of variable categories </span></p>
+      </td>
+      <td width=246 valign=top>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cramer’s
+            V</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test for linear trend</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            continuous variables</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>- </span></p>
+      </td>
+      <td width=246 valign=top>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Student’s
+            T test (unpaired)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mann-Whitney
+            U test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Combinations
+            of variable types</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top>
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval for
+            each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Adjusted ORs for combinations
+            of variable categories </span></p>
+        <p class=MsoNormal><span style='color:blue'>Stratified and summary OR
+            with 95% confidence interval </span></p>
+      </td>
+      <td width=246 valign=top>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cramer’s
+            V</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test for linear trend</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Student’s
+            T test (unpaired)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mann-Whitney
+            U test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mantel-Haenszel chi square
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study  </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            exposure variable expressed as Yes/No </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio with 95% confidence
+            interval </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Stratified and summary OR
+            with 95% confidence interval </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mantel-Haenszel chi square
+            test</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            exposure variable expressed as multiple, ordered categories</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>For each set of controls
+            separately </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cramer’s
+            V</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test for linear trend</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Bonferroni’s
+            correction for multiple comparisons</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            continuous variable</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>- </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Analysis
+            of variance with Tukey’s pairwise comparison tests</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kruskal-Wallis
+            test with Mann-Whitney test for pairwise comparisons after Bonferroni
+            correction</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study  </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            exposure variables expressed as Yes/No</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio with 95% confidence
+            interval for each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+        <p class=MsoNormal><span
+  style='color:blue'>Adjusted ORs for combinations of variables </span></p>
+        <p class=MsoNormal><span
+  style='color:blue'>Stratified and summary OR with 95% confidence interval </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mantel-Haenszel
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            exposure variables expressed as two or more, ordered categories</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval for
+            each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Adjusted ORs for combinations
+            of variable categories </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of heterogeneity</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cramer’s
+            V</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test for linear trend</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            continuous variables</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>- </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Analysis
+            of variance with Tukey’s pairwise comparison tests</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kruskal-Wallis
+            test with Mann-Whitney test for pairwise comparisons after Bonferroni
+            correction</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Polytomous
+            multiple logistic regression</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Unmatched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Combinations
+            of variable types</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval for
+            each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cornfield’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Woolf’s
+            method</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Exact
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Adjusted ORs for combinations
+            of variable categories </span></p>
+        <p class=MsoNormal><span style='color:blue'>Stratified and summary ORs </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cramer’s
+            V</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test for linear trend</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Student’s
+            T test (unpaired)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mann-Whitney
+            U test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Analysis
+            of variance and Tukey’s pairwise comparisons</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kruskal-Wallis
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study  </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            exposure variable expressed as Yes/No</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio with 95% confidence
+            interval </span></p>
+        <p class=MsoNormal><span style='font-family:
+  Symbol;color:blue'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span> </span><span style='color:blue'>McNemar’s
+            method </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s chi square
+            test of association</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            exposure variable expressed as multiple, ordered categories</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval by
+            collapsing into 2X2 tables </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s
+            method</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Breslow-Day
+            test</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            continuous variable</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>- </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Student’s
+            T test (paired)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Wilcoxon
+            signed-rank test</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study  </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            exposure variables expressed as Yes/No</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio with 95% confidence
+            interval for each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s
+            Method</li>
+        </ul>
+        <p class=MsoNormal><span
+  style='color:blue'>Adjusted ORs for combinations of variables </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Conditional
+            multiple logistic regression</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            exposure variables expressed as two or more, ordered categories</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval for
+            each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Adjusted ORs for combinations
+            of variable categories </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Breslow-Day
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Conditional
+            multiple logistic regression </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            continuous variables</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>- </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Student’s
+            T test (paired)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Wilcoxon
+            signed- rank test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Conditional
+            multiple logistic regression</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Combinations
+            of variable types</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">One set
+            of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval for
+            each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Adjusted ORs for combinations
+            of variable categories </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Breslow-Day
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Student’s
+            T test (paired)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Wilcoxon
+            signed-rank test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Conditional
+            multiple logistic regression </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study  </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            exposure variable expressed as Yes/No</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio with 95% confidence
+            interval </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Stratified and summary OR
+            with 95% confidence interval </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mantel-Haenszel chi square
+            test</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            exposure variable expressed as multiple, ordered categories</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval by
+            collapsing into 2X2 tables </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>For each set of controls
+            separately </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Breslow-Day
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Bonferroni’s
+            correction for multiple comparisons</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Single
+            continuous variable</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            set of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>- </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Friedman’s
+            Analysis of variance </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kruskal-Wallis
+            test with Mann-Whitney test for pairwise comparisons after Bonferroni
+            correction</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study  </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            exposure variables expressed as Yes/No</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio with 95% confidence
+            interval for each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s
+            method</li>
+        </ul>
+        <p class=MsoNormal><span
+  style='color:blue'>Adjusted ORs for combinations of variables </span></p>
+        <p class=MsoNormal><span
+  style='color:blue'>Stratified and summary OR with 95% confidence interval </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mantel-Haenszel
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Conditional
+            multiple logistic regression</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            exposure variables expressed as two or more, ordered categories</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval for
+            each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Adjusted ORs for combinations
+            of variable categories </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of heterogeneity</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Breslow-Day
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Conditional
+            multiple logistic regression </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            continuous variables</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>- </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Friedman’s
+            Analysis of variance </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kruskal-Wallis
+            test with Mann-Whitney test for pairwise comparisons after Bonferroni
+            correction</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Polytomous
+            multiple logistic regression</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Matched case-control study </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Combinations
+            of variable types</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Multiple
+            sets of controls</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Odds ratio for each category
+            compared to the reference category with 95% confidence interval for
+            each variable separately </span></p>
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s
+            method</li>
+        </ul>
+        <p class=MsoNormal><span style='color:blue'>Adjusted ORs for combinations
+            of variable categories </span></p>
+        <p class=MsoNormal><span style='color:blue'>Stratified and summary ORs </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">McNemar’s chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Breslow-Day
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Student’s
+            T test (paired)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Wilcoxon’s
+            signed-rank test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Conditional
+            multiple logistic regression </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Friedman’s
+            Analysis of variance </li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kruskal-Wallis
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Mantel-Haenszel
+            test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <p class=MsoNormal><span style='color:blue'>4. COHORT STUDIES </span></p>
+  <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0>
+    <tr>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Situation  </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Epidemiologic results </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Statistical methods </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Outcome is number of events
+            in the exposed and unexposed groups where the event can occur only
+            once in a single individual </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Relative
+            risk with 95% confidence interval</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Excess
+            fraction (also called as risk reduction)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Etiologic
+            fraction (also called attributable risk)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Population
+            attributable risk</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Population
+            attributable risk proportion</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of linear trend for multiple ordered categorical variables</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Outcome is number of events
+            in the exposed and unexposed groups where the event can occur multiple
+            times in a single individual </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Relative
+            hazards and their 95% confidence interval</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kaplan-Meier
+            survival curves</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Log-rank
+            test OR Wilcoxon test based on the violation of proportional hazards
+            assumption</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cox proportional
+            hazards model</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Poisson’s
+            multiple regression</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Outcome is time to events
+            in the exposed and unexposed groups </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Relative
+            hazards and their 95% confidence intervals</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kaplan-Meier
+            survival curves</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Log-rank
+            test OR Wilcoxon test based on the violation of proportional hazards
+            assumption</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cox proportional
+            hazards model</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Outcome is a continuous variable
+            for the exposed and unexposed groups </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Relative
+            risks and their 95% confidence intervals using clinically meaningful
+            cut-offs</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of linear trend for multiple ordered categorical variables</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Time
+            series analyses</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <p class=MsoNormal><span style='color:blue'>5. CLINICAL AND PREVENTIVE TRIALS </span></p>
+  <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0>
+    <tr>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Situation  </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Epidemiologic results </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Statistical methods </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Outcome is number of events
+            in the exposed and unexposed groups where the event can occur only
+            once in a single individual </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Relative
+            risk with 95% confidence interval</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Excess
+            fraction (also called as risk reduction)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Etiologic
+            fraction (also called attributable risk)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Number
+            needed to treat (NNT)</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Vaccine
+            efficacy with its 95% confidence interval</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of linear trend for multiple ordered categorical variables</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Outcome is number of events
+            in the exposed and unexposed groups where the event can occur multiple
+            times in a single individual </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Relative
+            hazards and their 95% confidence interval</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Vaccine
+            efficacy with 95% confidence interval</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kaplan-Meier
+            survival curves</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Log-rank
+            test OR Wilcoxon test based on the violation of proportional hazards
+            assumption</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cox proportional
+            hazards model</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Poisson’s
+            multiple regression</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Sequential
+            trial with interim analyses using the alpha-spending function</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Outcome is time to events
+            in the exposed and unexposed groups </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Relative
+            hazards and their 95% confidence intervals</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Vaccine
+            efficacy and its 95% confidence interval</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Kaplan-Meier
+            survival curves</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Log-rank
+            test OR Wilcoxon test based on the violation of proportional hazards
+            assumption</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cox proportional
+            hazards model</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Outcome is a continuous variable
+            for the exposed and unexposed groups </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Relative
+            risks and their 95% confidence intervals using clinically meaningful
+            cut-offs</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">chi square
+            test of linear trend for multiple ordered categorical variables</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Unconditional
+            multiple logistic regression</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Generalized
+            linear models</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Time
+            series analyses</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <ol start=6 type=1>
+    <li class=MsoNormal style='color:blue;text-align:center;     ' ONCLICK="find(this);">SCREENING
+      TEST PERFORMANCE EVALUATION</li>
+  </ol>
+  <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0>
+    <tr>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Situation </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Epidemiologic results </span></p>
+      </td>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Statistical methods </span></p>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Dichotomous (Positive/Negative)
+            result compared with a reference standard </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Sensitivity</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Specificity</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Positive
+            predictivity</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Negative
+            predictivity</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Accuracy</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Likelihood
+            ratio of a positive test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Likelihood
+            ratio of a negative test</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cohen’s
+            kappa</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Entropy</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Bias
+            index</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;       ' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;       ' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;       ' ONCLICK="find(this);">&#934; coefficient</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Multiple categorical test
+            outcome compared with a reference standard </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Likelihood
+            ratios for each categorical test outcome</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Receiver-operating
+            characteristic curve</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;       ' ONCLICK="find(this);">chi square
+            test of association</li>
+          <li class=MsoNormal style='color:blue;       ' ONCLICK="find(this);">Fisher’s
+            exact test</li>
+          <li class=MsoNormal style='color:blue;       ' ONCLICK="find(this);">&#934; coefficient</li>
+          <li class=MsoNormal style='color:blue;       ' ONCLICK="find(this);">chi square
+            test of linear trend</li>
+          <li class=MsoNormal style='color:blue;       ' ONCLICK="find(this);">Area
+            under the ROC curve and its 95% confidence interval by Wilcoxon’s
+            method</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td width=246 valign=top ONCLICK="find(this);">
+        <p class=MsoNormal><span style='color:blue'>Continuous test outcome compared
+            with a reference standard </span></p>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Likelihood
+            ratios for pre-defined categories of the outcome</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Receiver
+            operating characteristic curve</li>
+        </ul>
+      </td>
+      <td width=246 valign=top
+  ONCLICK="find(this);">
+        <ul type=disc>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Area
+            under the ROC curve and its 95% confidence interval</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Optimum
+            operating point (OOP) choosing</li>
+          <li class=MsoNormal style='color:blue;' ONCLICK="find(this);">Cost-of-error
+            comparisons</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+<script language="JavaScript">
+// METATRAFFIC -- COPYRIGHT (C) 2002-2005, Brinkster Site Statistics Corp.
+var pagetitle = document.title;
+var action = "";
+var amount = "0";
+var order = ""; 
+var scriptlocation = "/stats/track.asp";
+var pagedata = 'mtpt=' + escape(pagetitle) + '&mtac=' + escape(action) + '&mta=' + amount + '&mto=' + escape(order) + '&mtr=' + escape(document.referrer) + '&mtt=2&mts=' + window.screen.width + 'x' + window.screen.height + '&mti=1&mtz=' + Math.random(); 
+document.write ('<img height=1 width=1 ');
+document.write ('src="' + scriptlocation + '?' + pagedata + '">');
+</script>
+</html>

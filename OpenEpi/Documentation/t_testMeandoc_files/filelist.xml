@@ -1,0 +1,16 @@
+<xml xmlns:o="urn:schemas-microsoft-com:office:office">
+ <o:MainFile HRef="../t_testMeandoc.htm"/>
+ <o:File HRef="image001.png"/>
+ <o:File HRef="image002.jpg"/>
+ <o:File HRef="image003.png"/>
+ <o:File HRef="image004.gif"/>
+ <o:File HRef="image005.wmz"/>
+ <o:File HRef="oledata.mso"/>
+ <o:File HRef="image006.gif"/>
+ <o:File HRef="image007.wmz"/>
+ <o:File HRef="image008.gif"/>
+ <o:File HRef="image009.wmz"/>
+ <o:File HRef="image010.gif"/>
+ <o:File HRef="image011.gif"/>
+ <o:File HRef="filelist.xml"/>
+</xml>

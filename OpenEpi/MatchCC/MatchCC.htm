@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Pair-Matched Case-Control Table</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META NAME="author" CONTENT="Kevin M. Sullivan, Roger A. Mir, and Andrew G. Dean">
+<META NAME="description" CONTENT="Pair-Matched Case-Control Table, Version 3.03.21">
+<META http-equiv=PICS-Label 
+content='(PICS-1.0 "http://www.classify.org/safesurf/" l on "1996.08.22T13:37+0000 r (SS~~000 1)'>
+
+                                   <!-- --------------------- -->
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="MatchCC";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../js/IncludeFiles.js" type=text/JavaScript></SCRIPT>
+<!-- For this module, add Martin's exact statistics for two by two tables -->
+<SCRIPT language="JavaScript" src="../js/MartinStats.js" type=text/JavaScript></SCRIPT>
+									<!-- --------------------- -->
+
+<script language="JavaScript" type="text/JavaScript">
+
+function configureInput()
+{//Indented sections are the ones to be changed to configure a new application
+		var crows=5; 
+		//number of rows down the table, not counting the header (title)
+		var ccols=5;
+		//number of cells or columns across the table
+		var x=200;
+		//pixels from the left side of the page where table starts
+		var y=100;
+		//pixels down from top of page where table starts
+		var w=400;
+		//width of table in pixels
+		var h=250;
+		//height of table in pixels
+
+
+	//Special section to get settings from cookie via ETable and find correct values for cell labels 
+		var toplabel="Controls";
+		var leftlabel="Cases";
+		var topleft="(+)";
+		var topright="(-)" ;
+		var lefttop="(+)";
+		var leftbottom="(-)";
+		/* if (!ExposureLeft)     //removed Dec 2007
+		 {
+		   toplabel="Cases";
+		   leftlabel="Controls";
+		  // alert(toplabel)
+		 }
+		 if (!MaxValueAtLeft) 
+		 {
+		 topleft="(-)";
+		 topright="(+)";
+		 }
+		 if (!MaxValueAtTop) 
+		 {
+		 lefttop="(-)";
+		 leftbottom="(+)";
+		 }	  
+  		 */
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+	 
+with (intable)
+ { 
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable, generally cell by cell
+		 //rather than row by row.  
+		  usetablesettings(false); //Nov 2007 Do not allow table rotation.  Must be accompanied by changes in .js
+		  
+		  allowstrata(false);
+		  //Sets up buttons to add, access, and delete strata, allowing stratified
+		  //tables to be entered. 
+		  settingslink(true); 
+          //When true, shows an anchor with an href to the settings.htm program 
+		  //and displays the current confidence level.
+	      
+		  lock("labels");
+		  newtable(crows,ccols,w,h,x,y);		  
+		  title("<b>Pair-Matched Case-Control Study<b>");
+		  newrow("label:","label:","varname:span2:"+toplabel,"label:Totals")
+		  newrow("label:","label:", "valname:"+topleft,"valname:"+topright,"label:")
+		  newrow("varname:"+leftlabel,"valname:"+lefttop,"data:","data:","rowtot:")
+		  newrow("label:","valname:"+leftbottom,"data:","data:","rowtot:")
+		  newrow("label:Totals","label:","coltot:","coltot:","grandtot:")
+		  
+		  
+var hcoordoff = 2;
+var vcoordoff=2;
+var maxmax="#ff0000";
+var minmin="#00ff00";
+var disnoexp="#FFFF00";
+var expnodis="#ff9900";
+
+  colcolor(4,"#aaaaaa");
+  rowcolor(4,"#aaaaaa");
+  //find maxmax cell
+ 
+  cellcolor(1-MaxValueAtTop + hcoordoff,1-MaxValueAtLeft + vcoordoff,"#ff0000");
+  
+  cellcolor(MaxValueAtTop + hcoordoff, MaxValueAtLeft +vcoordoff,"#00ff00");   
+  
+  if (ExposureLeft) 
+  { 
+    cellcolor(1-MaxValueAtTop + hcoordoff, MaxValueAtLeft +vcoordoff,"#ffff00");
+	
+    cellcolor(MaxValueAtTop + hcoordoff, 1-MaxValueAtLeft +vcoordoff,"#ff9900");
+	//alert(MaxValueAtTop + hcoordoff) 
+  //alert(1-MaxValueAtTop + vcoordoff)   
+  }
+  else
+  { 
+    cellcolor(MaxValueAtTop + hcoordoff, 1- MaxValueAtLeft +vcoordoff,"#ffff00");
+	//alert(1+MaxValueAtTop + hcoordoff) 
+  //alert(1-MaxValueAtTop + vcoordoff)   
+    cellcolor(1-MaxValueAtTop + hcoordoff, MaxValueAtLeft +vcoordoff,"#ff9900");
+  }
+ 
+		  
+  //The following lines must be present to place the parsed commands
+  //into two arrays that are used by Etable to configure the input table.
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ 
+ }
+}
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+  //alert("Row="+r+"  Col=" + c)
+  /* The following is a useless bit of code, but it illustrates how you might
+  set a value of a cell in the table and also how to get the value of another cell.
+  The value entered by the user is passed in as "entry".  Hence, you can act on the
+  information in "entry" and place a different value in another cell using the 
+  .setCellValue function, and also modify the entry to return the modified value
+  in the "return" line below.  Uncomment the following several lines to see
+  what they do in the Proportion application.
+  if (r==0)
+    {
+	 EntryWin.setCellValue(1,2,parseInt(entry)*43)
+	 alert(EntryWin.getCellValue(1,2))
+	}
+	*/
+	//The following code returns a blank string if the user enters anything other
+	//than a number in a data field.
+     var e=parseFloat(entry)
+     if (isNaN(e)) {e=""}
+     return e
+}
+
+
+function OECalculate(data)
+{
+//get data
+
+//this.window.resizeTo(1000,800);
+//To see the data format, uncomment the following line:
+
+//EntryWin.writeTable(EntryWin.dataMatrix)
+
+
+
+var outObj=new Output(data);  //Create a new Output object, passing it the data array
+                              //so that both the commands (methods) for constructing
+							  //output and the data and metadata are available to the 
+							  //statistical functions
+var combinedresults
+//var tableresults=EntryWin.EntryTableAsHTML(EntryWin.myTable);
+
+
+CalcStats(outObj);
+//Giving the Output object instead of the form for output causes CalcStats (revised) to
+//send output to the output object.
+
+
+//The results should be an HTML string.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, IF THIS PROGRAM is
+//RUNNING UNDER THE OpenEpiMenu AND OpenEpiMenu is being run from OpenEpiSave.HTA.
+//If any of these conditions are not present, saving will not occur, but there should
+//be no errors.  If the file is saved successfully, a message appears with the filename
+// and location.  
+
+writeResults(outObj.s,basefilename,true,outObj)
+}
+
+writeFrontEnd ( Title,Authors,Description,demofile);
+  //write HTML from a string.  The fourth parameter is the name of the demofile.
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->

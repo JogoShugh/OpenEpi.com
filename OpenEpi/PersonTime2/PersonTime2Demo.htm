@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script language="JavaScript" type="text/JavaScript">
+function dataArray()
+{var A = new Array()
+
+   //Meta data for the dataset...
+var s0= new Array();
+s0["title"]="<b>Compare Two Rates<b>"
+s0["datacmin"]=2
+s0["datacmax"]=3
+s0["datarmin"]=2
+s0["datarmax"]=3
+s0["numD"]=2
+s0["numE"]=2
+s0["createdby"]="file://C:\_OpenEpi\Development\WebNov2003\Compare2Rates\Compare2Rates.htm"
+s0["cols"]=5
+s0["rows"]=4
+s0["maxatleft"]=true
+s0["maxattop"]=true
+s0["expleft"]=true
+s0["conflevel"]="95"
+s0["nohighlight"]="0"
+s0["columnpercents"]=0
+s0["rowpercents"]=0
+s0["usetablesettings"]=false
+s0["labels"]=8
+s0["varnames"]=2
+s0["valnames"]=4
+s0["varD"]="Exposure"
+s0["varE"]="Disease"
+s0["varS"]="Stratifying Variable"
+s0["Dvals"]=new Array("Exposed","Not Exposed")
+s0["Evals"]=new Array("Cases","Person-Time")
+s0["Svals"]=new Array("Stratum 1","Stratum 2")
+s0["strata"]=2
+s0["R0"]=new Array("","","Exposure","","Totals")
+s0["R0type"]=new Array("label","label","varname","label","label")
+s0["R1"]=new Array("","","Exposed","Not Exposed","")
+s0["R1type"]=new Array("label","label","valname","valname","label")
+s0["R2"]=new Array("Disease","Cases","8","1","9")
+s0["R2type"]=new Array("varname","valname","data","data","rowtot")
+s0["R3"]=new Array("","Person-Time","78531","77932","156463")
+s0["R3type"]=new Array("label","valname","data","data","rowtot")
+A[0]=s0;
+
+  //Data in one or more strata...
+var s1= new Array();
+s1["E0D0"]=17
+s1["E0D1"]=3
+s1["E1D0"]=100025
+s1["E1D1"]=122268
+s1["R0C0"]=17
+s1["R1C0"]=100025
+s1["R0C1"]=3
+s1["R1C1"]=122268
+A[1]=s1;
+var s2= new Array();
+s2["E0D0"]=8
+s2["E0D1"]=1
+s2["E1D0"]=78531
+s2["E1D1"]=77932
+s2["R0C0"]=8
+s2["R1C0"]=78531
+s2["R0C1"]=1
+s2["R1C1"]=77932
+A[2]=s2;
+
+return A
+}
+function etableCmds1()
+{var A=new Array()
+A[0]='useTableSettings=false;'
+A[1]='myTable = new Stratum(200,100,400,250,4,5)'
+A[2]='myTable.bgColor = "#ffffff"'
+A[3]='myTable.setHeaderStyle("#cccccc","center","middle",6,"arial","16px")'
+A[4]='myTable.setHeaderText("<b>Compare Two Rates<b>");'
+A[5]='myTable.row[0].cell[0].type="label"'
+A[6]='myTable.row[0].cell[0].value=""'
+A[7]='myTable.row[0].cell[1].type="label"'
+A[8]='myTable.row[0].cell[1].value=""'
+A[9]='myTable.row[0].cell[2].type="varname"'
+A[10]='myTable.setCellSpan(0,2,2)'
+A[11]='myTable.row[0].cell[2].value="Exposure"'
+A[12]='myTable.row[0].cell[3].type="label"'
+A[13]='myTable.setCellSpan(0,3,0)'
+A[14]='myTable.row[0].cell[3].value=""'
+A[15]='myTable.row[0].cell[4].type="label"'
+A[16]='myTable.row[0].cell[4].value="Totals"'
+A[17]='myTable.row[1].cell[0].type="label"'
+A[18]='myTable.row[1].cell[0].value=""'
+A[19]='myTable.row[1].cell[1].type="label"'
+A[20]='myTable.row[1].cell[1].value=""'
+A[21]='myTable.row[1].cell[2].type="valname"'
+A[22]='myTable.row[1].cell[2].value="Exposed"'
+A[23]='myTable.row[1].cell[3].type="valname"'
+A[24]='myTable.row[1].cell[3].value="Not Exposed"'
+A[25]='myTable.row[1].cell[4].type="label"'
+A[26]='myTable.row[1].cell[4].value=""'
+A[27]='myTable.row[2].cell[0].type="varname"'
+A[28]='myTable.row[2].cell[0].value="Disease"'
+A[29]='myTable.row[2].cell[1].type="valname"'
+A[30]='myTable.row[2].cell[1].value="Cases"'
+A[31]='myTable.row[2].cell[2].type="data"'
+A[32]='myTable.row[2].cell[2].value=""'
+A[33]='myTable.row[2].cell[3].type="data"'
+A[34]='myTable.row[2].cell[3].value=""'
+A[35]='myTable.row[2].cell[4].type="rowtot"'
+A[36]='myTable.row[2].cell[4].value=""'
+A[37]='myTable.row[3].cell[0].type="label"'
+A[38]='myTable.row[3].cell[0].value=""'
+A[39]='myTable.row[3].cell[1].type="valname"'
+A[40]='myTable.row[3].cell[1].value="Person-Time"'
+A[41]='myTable.row[3].cell[2].type="data"'
+A[42]='myTable.row[3].cell[2].value=""'
+A[43]='myTable.row[3].cell[3].type="data"'
+A[44]='myTable.row[3].cell[3].value=""'
+A[45]='myTable.row[3].cell[4].type="rowtot"'
+A[46]='myTable.row[3].cell[4].value=""'
+
+return A
+}
+
+function etableCmds2()
+{var A=new Array()
+A[0]='ShowHide("scontrols_span",true)'
+A[1]='ShowHide("settings_span",true)'
+A[2]='myTable.lock("labels");'
+
+return A
+}
+
+function runEtable()
+{
+if (opener)
+ {
+   if (opener.useOpenEpiEntry)
+    {
+	  opener.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+ }
+ else if (parent)
+ {
+   if (parent.useOpenEpiEntry)
+    {
+	  parent.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+  }
+}
+//<body onload='setTimeout("runEtable()",100)'>
+
+
+</script>
+</head>
+<body onload="runEtable()">
+<table width="700" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><th align="center" colspan=7><h2>Comparing 2 Person-Time Rates</h2></th></tr>
+<tr><td colspan=7><hr noshade></td></tr>
+<table width="500" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><th align="center" colspan=5>Values for Stratum 1</th></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>Exposure</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center bgcolor=#ff9900>Exposed</td><td  align=center bgcolor=#ff9900>Not Exposed</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>Cases</td><td  bgcolor=#ffffcc align=center>17</td><td  bgcolor=#ffffcc align=center>3</td><td  bgcolor=#ffffff align=center>20</td></tr>
+<tr><td  align=center>Disease</td><td  align=center bgcolor=#99eeee>Person-Time</td><td  bgcolor=#ffffcc align=center>100025</td><td  bgcolor=#ffffcc align=center>122268</td><td  bgcolor=#ffffff align=center>222293</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffffff align=center>100042</td><td  bgcolor=#ffffff align=center>122271</td><td  bgcolor=#ffffff align=center>222313</td></tr>
+</table><tr><td ><br></td><table width="500" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><th align="center" colspan=5>Values for Stratum 2</th></tr>
+</tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>Exposure</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center bgcolor=#ff9900>Exposed</td><td  align=center bgcolor=#ff9900>Not Exposed</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>Cases</td><td  bgcolor=#ffffcc align=center>8</td><td  bgcolor=#ffffcc align=center>1</td><td  bgcolor=#ffffff align=center>9</td></tr>
+<tr><td  align=center>Disease</td><td  align=center bgcolor=#99eeee>Person-Time</td><td  bgcolor=#ffffcc align=center>78531</td><td  bgcolor=#ffffcc align=center>77932</td><td  bgcolor=#ffffff align=center>156463</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffffff align=center>78539</td><td  bgcolor=#ffffff align=center>77933</td><td  bgcolor=#ffffff align=center>156472</td></tr>
+</table><tr><td ><br></td><table width="500" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><th align="center" colspan=5>Unstratified (Crude) Values</th></tr>
+</tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>Exposure</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center bgcolor=#ff9900>Exposed</td><td  align=center bgcolor=#ff9900>Not Exposed</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>Cases</td><td  bgcolor=#ffffcc align=center>25</td><td  bgcolor=#ffffcc align=center>4</td><td  bgcolor=#ffffff align=center>29</td></tr>
+<tr><td  align=center>Disease</td><td  align=center bgcolor=#99eeee>Person-Time</td><td  bgcolor=#ffffcc align=center>178556</td><td  bgcolor=#ffffcc align=center>200200</td><td  bgcolor=#ffffff align=center>378756</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffffff align=center>178581</td><td  bgcolor=#ffffff align=center>200204</td><td  bgcolor=#ffffff align=center>378785</td></tr>
+</table><tr><td ><br></td><table width="700" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+</tr>
+<tr><td ><br></td><tr><th align="center" colspan=7>z-Score and Exact Measures of Association</th></tr>
+<tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center><b>Stratum</b></td><td  align=center colspan=2><b>Test</b></td><td  align=center><b>Value</b></td><td  align=center colspan=2><b>p-value(1-tail)</b></td><td  align=center><b>p-value(2-tail)</b></td><tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>1</td><td  colspan=2>z-score</td><td  align=center>3.596</td><td  colspan=2><img src=../Etable/img/redpin.gif>0.0001616</td><td ><img src=../Etable/img/redpin.gif>0.0003231</td></tr>
+<tr><td  align=center></td><td  colspan=2>Fisher exact</td><td  align=center></td><td  align=left colspan=2>lower=1.00<br>upper=<img src=../Etable/img/redpin.gif>0.0002769</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>0.0005538</td></tr>
+<tr><td  align=center></td><td  colspan=2>Mid-P exact</td><td  align=center></td><td  align=left colspan=2>lower=0.9998<br>upper=<img src=../Etable/img/redpin.gif>0.0001564</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>0.0003127</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>2</td><td  colspan=2>z-score</td><td  align=center>2.322</td><td  colspan=2><img src=../Etable/img/redpin.gif>0.01012</td><td ><img src=../Etable/img/redpin.gif>0.02024</td></tr>
+<tr><td  align=center></td><td  colspan=2>Fisher exact</td><td  align=center></td><td  align=left colspan=2>lower=0.9980<br>upper=<img src=../Etable/img/redpin.gif>0.02008</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>0.04015</td></tr>
+<tr><td  align=center></td><td  colspan=2>Mid-P exact</td><td  align=center></td><td  align=left colspan=2>lower=0.9890<br>upper=<img src=../Etable/img/redpin.gif>0.01105</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>0.02210</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>Crude</td><td  colspan=2>z-score</td><td  align=center>4.214</td><td  colspan=2><img src=../Etable/img/redpin.gif>0.00001253</td><td ><img src=../Etable/img/redpin.gif>0.00002506</td></tr>
+<tr><td  align=center></td><td  colspan=2>Fisher exact</td><td  align=center></td><td  align=left colspan=2>lower=1.00<br>upper=<img src=../Etable/img/redpin.gif>0.00001462</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>0.00002923</td></tr>
+<tr><td  align=center></td><td  colspan=2>Mid-P exact</td><td  align=center></td><td  align=left colspan=2>lower=1.00<br>upper=<img src=../Etable/img/redpin.gif>0.000008270</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>0.00001654</td></tr>
+<tr><td >Adjusted</td><td  colspan=2>z-score statistic</td><td  align=center>4.28</td><td  colspan=2><img src=../Etable/img/redpin.gif>0.000009360</td><td ><img src=../Etable/img/redpin.gif>0.00001872</td></tr>
+<tr><td  align=center></td><td  colspan=2>Fisher exact</td><td  align=center></td><td  align=left colspan=2>lower=1.00<br>upper=<img src=../Etable/img/redpin.gif>0.00001118</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>0.00002235</td></tr>
+<tr><td  align=center></td><td  colspan=2>Mid-P exact</td><td  align=center></td><td  align=left colspan=2>lower=1.00<br>upper=<img src=../Etable/img/redpin.gif>0.000006306</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>0.00001261</td></tr>
+<tr><td ><br></td></tr>
+<tr><td ><br></td></tr>
+</table><table width="800" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><td ><br></td><tr><th align="center" colspan=8>Exact Rate Ratio Estimates and Confidence Limits</th></tr>
+<tr><th align="center" colspan=8>Per 100000 Person-Time Units</th></tr>
+<tr><th align="center" colspan=8>Rate-Based* Estimates and 95% Confidence Intervals</th></tr>
+<tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center></td><td  align=center colspan=2><b>Point Estimates</b></td><td  align=center></td><td  align=center colspan=2><b>Confidence Limits</b></td><tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center><b>Stratum</b></td><td  align=center colspan=2><b>Type</b></td><td  align=center><b>Value</b></td><td  align=center colspan=2><b>Lower, Upper</b></td><td  align=center><b>Type</b></td><tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>1</td><td  colspan=2>Rate in the <i>exposed</i></td><td  align=center>17</td><td  align=center colspan=2>9.895,  27.21</td></tr>
+<tr><td  align=center></td><td  colspan=2>Rate in the <i>unexposed</i></td><td  align=center>2.454</td><td  align=center colspan=2>0.4932,  7.169</td></tr>
+<tr><td  align=center></td><td  colspan=2>Overall Rate</td><td  align=center>8.997</td><td  align=center colspan=2>5.494,  13.9</td></tr>
+<tr><td  align=center>1</td><td  colspan=2>RateRatio</td><td  align=center>6.927</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.03,  23.63</td></tr>
+<tr><td  align=center>1</td><td  colspan=2>RateDifference</td><td  align=center>14.54</td><td  align=center colspan=2>6,  23.08</td></tr>
+<tr><td  align=center>1</td><td  colspan=2>CMLE Rate Ratio*</td><td  align=center>6.927</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.21,  29.63</td><td >Mid-P Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2></td><td  align=center></td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.004,  36.89</td><td >Fisher Exact</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>2</td><td  colspan=2>Rate in the <i>exposed</i></td><td  align=center>10.19</td><td  align=center colspan=2>4.387,  20.07</td></tr>
+<tr><td  align=center></td><td  colspan=2>Rate in the <i>unexposed</i></td><td  align=center>1.283</td><td  align=center colspan=2>'?',  7.139</td></tr>
+<tr><td  align=center></td><td  colspan=2>Overall Rate</td><td  align=center>5.752</td><td  align=center colspan=2>2.625,  10.92</td></tr>
+<tr><td  align=center>2</td><td  colspan=2>RateRatio</td><td  align=center>7.939</td><td  align=center colspan=2>0.9931,  63.47</td></tr>
+<tr><td  align=center>2</td><td  colspan=2>RateDifference</td><td  align=center>8.904</td><td  align=center colspan=2>1.411,  16.4</td></tr>
+<tr><td  align=center>2</td><td  colspan=2>CMLE Rate Ratio*</td><td  align=center>7.939</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>1.27,  177.6</td><td >Mid-P Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2></td><td  align=center></td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>1.064,  352.3</td><td >Fisher Exact</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td >Crude</td><td  colspan=2>CMLE Rate Ratio*</td><td  align=center>7.008</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.616,  23.57</td><td >Mid-P Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2></td><td  align=center></td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.42,  27.71</td><td >Fisher Exact</td></tr>
+<tr><td  align=center>Crude</td><td  colspan=2>Rate in the <i>exposed</i></td><td  align=center>14</td><td  align=center colspan=2>9.059,  20.67</td></tr>
+<tr><td  align=center></td><td  colspan=2>Rate in the <i>unexposed</i></td><td  align=center>1.998</td><td  align=center colspan=2>0.5376,  5.115</td></tr>
+<tr><td  align=center></td><td  colspan=2>Overall Rate</td><td  align=center>7.657</td><td  align=center colspan=2>5.127,  11</td></tr>
+<tr><td  align=center>Crude</td><td  colspan=2>RateRatio</td><td  align=center>7.008</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.439,  20.13</td></tr>
+<tr><td  align=center>Crude</td><td  colspan=2>RateDifference</td><td  align=center>12</td><td  align=center colspan=2>6.176,  17.83</td></tr>
+<tr><td  align=center>Crude</td><td  colspan=2>Etiologic fraction in pop.(EFp)</td><td >73.9%</td><td  align=center colspan=2>40.42%,  90.02%</td></tr>
+<tr><td  align=center></td><td  colspan=2>Etiologic fraction in exposed(EFe)</td><td >85.73%</td><td  align=center colspan=2>59%,  95.03%</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td >Adjusted</td><td  colspan=2>CMLE Rate Ratio*</td><td  align=center>7.185</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.681,  24.18</td><td >Mid-P Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2></td><td  align=center></td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.479,  28.42</td><td >Fisher Exact</td></tr>
+<tr><td >Adjusted</td><td  colspan=2>Directly Adjusted RR</td><td  align=center>7.175</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.494,  20.65</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>MH Adjusted RR</td><td  align=center>7.201</td><td  align=center colspan=2><img src=../Etable/img/redpin.gif>2.499,  20.75</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Directly Adjusted RD</td><td  align=center>11.36</td><td  align=center colspan=2>5.723,  16.99</td><td  colspan=2>Taylor series</td></tr>
+<tr><td ><br></td></tr>
+<tr><td  colspan=6> Breslow-Day test for interaction of Risk Ratio over strata: chi square=0.01226</td><td >p=0.9118</td></tr>
+<tr><td  colspan=6> p greater than 0.05 does not suggest interaction. Adjusted RR can be used.</td></tr>
+<tr><td ><br></td></tr>
+<tr><td ><br></td></tr>
+<tr><td  colspan=6> Breslow-Day test for interaction of Risk Difference over strata: chi square=0.9456</td><td > p=0.3308</td></tr>
+<tr><td  colspan=6> p greater than 0.05 does not suggest interaction. Adjusted RD can be used.</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  colspan=6>*Conditional maximum likelihood estimate of Rate Ratio</td></tr>
+<tr><td  colspan=6>Martin,D; Austin,H (1991) An efficient program for computing conditional maximum likelihood estimates and exact confidence limits for a common odds ratio. Epidemiology 2, 359-362.</td></tr>
+<tr><td  colspan=6>Martin,DO; Austin,H (1996) Exact estimates for a rate ratio.Epidemiology 7, 29-33.</td></tr>
+<tr><td  colspan=6>1=Byar method; 2=Taylor series; 3=as described in Abramson and Gahlinger, PEPI software</td></tr>
+<tr><td ><br></td></tr>
+<tr><td ><br></td></tr>
+</table>
+<br>Print from the browser, or select all or part of the text and then copy and paste to other programs.
+</body></html>

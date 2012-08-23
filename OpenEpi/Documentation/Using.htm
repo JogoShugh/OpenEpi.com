@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Using OpenEpi</title>
+	<link href="../Etable/StdPage.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>Using OpenEpi</h1>
+<br>
+OpenEpi includes calculators as local files and also links to calculators and 
+other information on the Internet.  If you have a constant Internet connection
+on this machine, you may not notice the difference.  If, however, you are operating
+without an Internet connection, some menu entries may return with a message that
+the page cannot be found.<br><br>
+
+The calculators are arranged so that you can choose an epidemiologic purpose, a
+data description, or a particular statistical procedure.  Hence, there may be 
+several ways to reach the same calculator.  If you are unsure what procedure is
+appropriate, there is a menu choice under HELP that will do a Google search for
+any of a large number of procedures recommended for different purposes. <br><br> 
+
+OpenEpi is evolving, and you will see gaps, missing pages, and very spotty coverage
+until things are further along.  The JavaScript statistical portal under STATISTICS
+is quite mature, however, and will provide almost any kind of calculator if you are on line.
+
+
+</body>
+
+
+
+
+<script language="JavaScript">
+
+// METATRAFFIC -- COPYRIGHT (C) 2002-2005, Brinkster Site Statistics Corp.
+
+var pagetitle = document.title;
+var action = "";
+var amount = "0";
+var order = ""; 
+
+var scriptlocation = "/stats/track.asp";
+
+var pagedata = 'mtpt=' + escape(pagetitle) + '&mtac=' + escape(action) + '&mta=' + amount + '&mto=' + escape(order) + '&mtr=' + escape(document.referrer) + '&mtt=2&mts=' + window.screen.width + 'x' + window.screen.height + '&mti=1&mtz=' + Math.random(); 
+document.write ('<img height=1 width=1 ');
+document.write ('src="' + scriptlocation + '?' + pagedata + '">');
+</script>
+
+
+</html>

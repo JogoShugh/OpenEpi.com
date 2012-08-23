@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script language="JavaScript" type="text/JavaScript">
+function dataArray()
+{var A = new Array()
+
+   //Meta data for the dataset...
+var s0= new Array();
+s0["title"]="<b>Open Epi 2 x 2 Table<b>"
+s0["datacmin"]=2
+s0["datacmax"]=3
+s0["datarmin"]=2
+s0["datarmax"]=3
+s0["numD"]=2
+s0["numE"]=2
+s0["createdby"]="file://C:\_OpenEpi\Development\WebNov2003\TwobyTwo\TwobyTwo.htm"
+s0["cols"]=5
+s0["rows"]=5
+s0["maxatleft"]=true
+s0["maxattop"]=true
+s0["expleft"]=true
+s0["conflevel"]="95"
+s0["nohighlight"]="0"
+s0["columnpercents"]="1"
+s0["rowpercents"]="1"
+s0["usetablesettings"]=true
+s0["labels"]=10
+s0["varnames"]=2
+s0["valnames"]=4
+s0["rowtots"]=2
+s0["coltots"]=2
+s0["grandtots"]=1
+s0["varD"]="'Disease'"
+s0["varE"]="'Exposure'"
+s0["varS"]="Stratifying Variable"
+s0["Dvals"]=new Array("(-)","(+)")
+s0["Evals"]=new Array("(-)","(+)")
+s0["Svals"]=new Array("Stratum 1","Stratum 2")
+s0["strata"]=2
+s0["R0"]=new Array("","","'Disease'","","Totals")
+s0["R0type"]=new Array("label","label","varname","label","label")
+s0["R1"]=new Array("","","(+)","(-)","")
+s0["R1type"]=new Array("label","label","valname","valname","label")
+s0["R2"]=new Array("'Exposure'","(+)","66","28","94")
+s0["R2type"]=new Array("varname","valname","data","data","rowtot")
+s0["R3"]=new Array("","(-)","36","32","68")
+s0["R3type"]=new Array("label","valname","data","data","rowtot")
+s0["R4"]=new Array("Totals","","102","60","162")
+s0["R4type"]=new Array("label","label","coltot","coltot","grandtot")
+A[0]=s0;
+
+  //Data in one or more strata...
+var s1= new Array();
+s1["E1D1"]=66
+s1["E1D0"]=28
+s1["E0D1"]=36
+s1["E0D0"]=32
+s1["R1C1"]=32
+s1["R0C1"]=28
+s1["R1C0"]=36
+s1["R0C0"]=66
+A[1]=s1;
+var s2= new Array();
+s2["E1D1"]=139
+s2["E1D0"]=61
+s2["E0D1"]=93
+s2["E0D0"]=54
+s2["R1C1"]=54
+s2["R0C1"]=61
+s2["R1C0"]=93
+s2["R0C0"]=139
+A[2]=s2;
+
+return A
+}
+function etableCmds1()
+{var A=new Array()
+A[0]='useTableSettings=true;'
+A[1]='myTable = new Stratum(200,100,400,250,5,5)'
+A[2]='myTable.bgColor = "#ffffff"'
+A[3]='myTable.setHeaderStyle("#cccccc","center","middle",6,"arial","16px")'
+A[4]='myTable.cellFont="tahoma"'
+A[5]='myTable.cellFontSize="14px"'
+A[6]='myTable.setHeaderText("<b>Open Epi 2 x 2 Table<b>");'
+A[7]='myTable.row[0].cell[0].type="label"'
+A[8]='myTable.row[0].cell[0].value=""'
+A[9]='myTable.row[0].cell[1].type="label"'
+A[10]='myTable.row[0].cell[1].value=""'
+A[11]='myTable.row[0].cell[2].type="varname"'
+A[12]='myTable.setCellSpan(0,2,2)'
+A[13]='myTable.row[0].cell[2].value="Exposure"'
+A[14]='myTable.row[0].cell[3].type="label"'
+A[15]='myTable.row[0].cell[3].value=""'
+A[16]='myTable.row[0].cell[4].type="label"'
+A[17]='myTable.row[0].cell[4].value="Totals"'
+A[18]='myTable.row[1].cell[0].type="label"'
+A[19]='myTable.row[1].cell[0].value=""'
+A[20]='myTable.row[1].cell[1].type="label"'
+A[21]='myTable.row[1].cell[1].value=""'
+A[22]='myTable.row[1].cell[2].type="valname"'
+A[23]='myTable.row[1].cell[2].value="(+)"'
+A[24]='myTable.row[1].cell[3].type="valname"'
+A[25]='myTable.row[1].cell[3].value="(-)"'
+A[26]='myTable.row[1].cell[4].type="label"'
+A[27]='myTable.row[1].cell[4].value=""'
+A[28]='myTable.row[2].cell[0].type="varname"'
+A[29]='myTable.row[2].cell[0].value="Disease"'
+A[30]='myTable.row[2].cell[1].type="valname"'
+A[31]='myTable.row[2].cell[1].value="(+)"'
+A[32]='myTable.row[2].cell[2].type="data"'
+A[33]='myTable.row[2].cell[2].value=""'
+A[34]='myTable.row[2].cell[3].type="data"'
+A[35]='myTable.row[2].cell[3].value=""'
+A[36]='myTable.row[2].cell[4].type="rowtot"'
+A[37]='myTable.row[2].cell[4].value=""'
+A[38]='myTable.row[3].cell[0].type="label"'
+A[39]='myTable.row[3].cell[0].value=""'
+A[40]='myTable.row[3].cell[1].type="valname"'
+A[41]='myTable.row[3].cell[1].value="(-)"'
+A[42]='myTable.row[3].cell[2].type="data"'
+A[43]='myTable.row[3].cell[2].value=""'
+A[44]='myTable.row[3].cell[3].type="data"'
+A[45]='myTable.row[3].cell[3].value=""'
+A[46]='myTable.row[3].cell[4].type="rowtot"'
+A[47]='myTable.row[3].cell[4].value=""'
+A[48]='myTable.row[4].cell[0].type="label"'
+A[49]='myTable.row[4].cell[0].value="Totals"'
+A[50]='myTable.row[4].cell[1].type="label"'
+A[51]='myTable.row[4].cell[1].value=""'
+A[52]='myTable.row[4].cell[2].type="coltot"'
+A[53]='myTable.row[4].cell[2].value=""'
+A[54]='myTable.row[4].cell[3].type="coltot"'
+A[55]='myTable.row[4].cell[3].value=""'
+A[56]='myTable.row[4].cell[4].type="grandtot"'
+A[57]='myTable.row[4].cell[4].value=""'
+
+return A
+}
+
+function etableCmds2()
+{var A=new Array()
+A[0]='ShowHide("scontrols_span",true)'
+A[1]='ShowHide("settings_span",true)'
+A[2]='myTable.lock("labels");'
+A[3]='myTable.unlock("valname");'
+A[4]='myTable.unlock("varname");'
+A[5]='myTable.setColColor(4,"#aaaaaa")'
+A[6]='myTable.setRowColor(4,"#aaaaaa")'
+A[7]='myTable.setCellColor(2,2,"#ff0000")'
+A[8]='myTable.setCellColor(3,3,"#00ff00")'
+A[9]='myTable.setCellColor(3,2,"#ffff00")'
+A[10]='myTable.setCellColor(2,3,"#ff9900")'
+
+return A
+}
+
+function runEtable()
+{
+if (opener)
+ {
+   if (opener.useOpenEpiEntry)
+    {
+	  opener.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+ }
+ else if (parent)
+ {
+   if (parent.useOpenEpiEntry)
+    {
+	  //alert("174 There is a parent.useOpenEpiEntry");
+	 // alert(etableCmds1());
+	  parent.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+  }
+}
+
+
+
+</script></head><body onload="runEtable()">
+<table width="700" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><th align="center" colspan=7><h2>2 x 2 Table Statistics</h2></th></tr>
+<tr><td colspan=7><hr noshade></td></tr>
+<table width="500" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><th align="center" colspan=5>Values for Stratum 1</th></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>'Disease'</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center bgcolor=#ff9900>(+)</td><td  align=center bgcolor=#ff9900>(-)</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>(+)</td><td  bgcolor=#ffffcc align=center>66</td><td  bgcolor=#ffffcc align=center>28</td><td  bgcolor=#ffffff align=center>94</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>70.2%</td><td  bgcolor=#ffff99 align=center>29.8%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>64.7%</td><td  bgcolor=#ffff66 align=center>46.7%</td><td >&nbsp;</td></tr>
+<tr><td  align=center>'Exposure'</td><td  align=center bgcolor=#99eeee>(-)</td><td  bgcolor=#ffffcc align=center>36</td><td  bgcolor=#ffffcc align=center>32</td><td  bgcolor=#ffffff align=center>68</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>52.9%</td><td  bgcolor=#ffff99 align=center>47.1%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>35.3%</td><td  bgcolor=#ffff66 align=center>53.3%</td><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffffff align=center>102</td><td  bgcolor=#ffffff align=center>60</td><td  bgcolor=#ffffff align=center>162</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>63%</td><td  align=center>37%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>100%</td><td  align=center>100%</td></tr>
+</table><tr><td ><br></td><table width="500" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><th align="center" colspan=5>Values for Stratum 2</th></tr>
+</tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>'Disease'</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center bgcolor=#ff9900>(+)</td><td  align=center bgcolor=#ff9900>(-)</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>(+)</td><td  bgcolor=#ffffcc align=center>139</td><td  bgcolor=#ffffcc align=center>61</td><td  bgcolor=#ffffff align=center>200</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>69.5%</td><td  bgcolor=#ffff99 align=center>30.5%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>59.9%</td><td  bgcolor=#ffff66 align=center>53%</td><td >&nbsp;</td></tr>
+<tr><td  align=center>'Exposure'</td><td  align=center bgcolor=#99eeee>(-)</td><td  bgcolor=#ffffcc align=center>93</td><td  bgcolor=#ffffcc align=center>54</td><td  bgcolor=#ffffff align=center>147</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>63.3%</td><td  bgcolor=#ffff99 align=center>36.7%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>40.1%</td><td  bgcolor=#ffff66 align=center>47%</td><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffffff align=center>232</td><td  bgcolor=#ffffff align=center>115</td><td  bgcolor=#ffffff align=center>347</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>66.9%</td><td  align=center>33.1%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>100%</td><td  align=center>100%</td></tr>
+</table><tr><td ><br></td><table width="500" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><th align="center" colspan=5>Unstratified (Crude) Values</th></tr>
+</tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>'Disease'</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center bgcolor=#ff9900>(+)</td><td  align=center bgcolor=#ff9900>(-)</td></tr>
+<tr><td  align=center></td><td  align=center bgcolor=#99eeee>(+)</td><td  bgcolor=#ffffcc align=center>205</td><td  bgcolor=#ffffcc align=center>89</td><td  bgcolor=#ffffff align=center>294</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>69.7%</td><td  bgcolor=#ffff99 align=center>30.3%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>61.4%</td><td  bgcolor=#ffff66 align=center>50.9%</td><td >&nbsp;</td></tr>
+<tr><td  align=center>'Exposure'</td><td  align=center bgcolor=#99eeee>(-)</td><td  bgcolor=#ffffcc align=center>129</td><td  bgcolor=#ffffcc align=center>86</td><td  bgcolor=#ffffff align=center>215</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff99 align=center>60%</td><td  bgcolor=#ffff99 align=center>40%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffff66 align=center>38.6%</td><td  bgcolor=#ffff66 align=center>49.1%</td><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  bgcolor=#ffffff align=center>334</td><td  bgcolor=#ffffff align=center>175</td><td  bgcolor=#ffffff align=center>509</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>65.6%</td><td  align=center>34.4%</td><td  align=center>100%</td></tr>
+<tr><td  align=center></td><td  align=center></td><td  align=center>100%</td><td  align=center>100%</td></tr>
+</table><tr><td ><br></td><table width="700" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+</tr>
+<tr><td ><br></td><tr><th align="center" colspan=7>Chi Square and Exact Measures of Association</th></tr>
+<tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center><b>Stratum</b></td><td  align=center colspan=2><b>Test</b></td><td  align=center><b>Value</b></td><td  align=center colspan=2><b>p-value(1-tail)</b></td><td  align=center><b>p-value(2-tail)</b></td><tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>1</td><td  colspan=2>Uncorrected chi square</td><td  align=center>5.047</td><td  align=center colspan=2><font color=#3300FF>0.01233</font></td><td  align=center><font color=#3300FF>0.02466</font></td></tr>
+<tr><td  align=center></td><td  colspan=2>Yates corrected chi square</td><td  align=center>4.334</td><td  align=center colspan=2><font color=#3300FF>0.01868</font></td><td  align=center><font color=#3300FF>0.03736</font></td></tr>
+<tr><td  align=center></td><td  colspan=2>Mantel-Haenszel chi square</td><td  align=center>5.016</td><td  align=center colspan=2><font color=#3300FF>0.01256</font></td><td  align=center><font color=#3300FF>0.02511</font></td></tr>
+<tr><td  align=center></td><td  colspan=2>Fisher exact</td><td  align=center></td><td  align=left colspan=2>0.9920(lower)<br><font color=#3300FF>0.01881</font>(upper)</td><td  align=center colspan=2><font color=#3300FF>0.03762</font></td></tr>
+<tr><td  align=center></td><td  colspan=2>Mid-P exact</td><td  align=center></td><td  align=left colspan=2>lower=0.9866<br>upper=<font color=#3300FF>0.01341</font></td><td  align=center colspan=2><font color=#3300FF>0.02682</font></td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>2</td><td  colspan=2>Uncorrected chi square</td><td  align=center>1.486</td><td  align=center colspan=2>0.1116</td><td  align=center>0.2233</td></tr>
+<tr><td  align=center></td><td  colspan=2>Yates corrected chi square</td><td  align=center>1.218</td><td  align=center colspan=2>0.1354</td><td  align=center>0.2708</td></tr>
+<tr><td  align=center></td><td  colspan=2>Mantel-Haenszel chi square</td><td  align=center>1.482</td><td  align=center colspan=2>0.1120</td><td  align=center>0.2239</td></tr>
+<tr><td  align=center></td><td  colspan=2>Fisher exact</td><td  align=center></td><td  align=left colspan=2>0.9088(lower)<br>0.1349(upper)</td><td  align=center colspan=2>0.2698</td></tr>
+<tr><td  align=center></td><td  colspan=2>Mid-P exact</td><td  align=center></td><td  align=left colspan=2>lower=0.8869<br>upper=0.1131</td><td  align=center colspan=2>0.2261</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>Crude</td><td  colspan=2>Uncorrected chi square</td><td  align=center>5.209</td><td  align=center colspan=2><font color=#3300FF>0.01124</font></td><td  align=center><font color=#3300FF>0.02247</font></td></tr>
+<tr><td  align=center></td><td  colspan=2>Yates corrected chi square</td><td  align=center>4.787</td><td  align=center colspan=2><font color=#3300FF>0.01434</font></td><td  align=center><font color=#3300FF>0.02868</font></td></tr>
+<tr><td  align=center></td><td  colspan=2>Mantel-Haenszel chi square</td><td  align=center>5.199</td><td  align=center colspan=2><font color=#3300FF>0.01130</font></td><td  align=center><font color=#3300FF>0.02260</font></td></tr>
+<tr><td  align=center></td><td  colspan=2>Fisher exact</td><td  align=center></td><td  align=left colspan=2>0.9912(lower)<br><font color=#3300FF>0.01448</font>(upper)</td><td  align=center colspan=2><font color=#3300FF>0.02895</font></td></tr>
+<tr><td  align=center></td><td  colspan=2 bgcolor=#33EEFF>Mid-P exact</td><td  align=center></td><td  align=left colspan=2>lower=0.9883<br>upper=<font color=#3300FF>0.01166</font></td><td  align=center colspan=2><font color=#3300FF>0.02331</font></td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td >Adjusted</td><td  colspan=2>Mantel-Haenszel Summary Chi Sqr</td><td  align=center>5.211</td><td ><font color=#3300FF>0.02245</font></td></tr>
+<tr><td  align=center></td><td  colspan=2>Fisher exact</td><td  align=center></td><td  align=left colspan=2>0.9912(lower)<br><font color=#3300FF>0.01438</font>(upper)</td><td  align=center colspan=2><font color=#3300FF>0.02876</font></td></tr>
+<tr><td  align=center></td><td  colspan=2 bgcolor=#33EEFF>Mid-P exact</td><td  align=center></td><td  align=left colspan=2>lower=0.9884<br>upper=<font color=#3300FF>0.01158</font></td><td  align=center colspan=2><font color=#3300FF>0.02316</font></td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td ><br></td></tr>
+<tr><td  align=center colspan=6>All expected values (row total*column total/grand total) are >=5</td></tr>
+<tr><td  align=center colspan=6>OK to use chi square.</td></tr>
+<tr><td ><br></td></tr>
+</table><table width="800" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><td ><br></td><tr><th align="center" colspan=8>Risk-Based* Estimates and 95% Confidence Intervals</th></tr>
+</tr>
+<tr><td  align=center colspan=7>(Not valid for Case-Control studies)</td><tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center></td><td  align=center colspan=2><b>Point Estimates</b></td><td  align=center></td><td  align=center colspan=2><b>Confidence Limits</b></td><tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center><b>Stratum</b></td><td  align=center colspan=2><b>Type</b></td><td  align=center><b>Value</b></td><td  align=center colspan=2><b>Lower, Upper</b></td><td  align=center><b>Type</b></td><tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>1</td><td  colspan=2>Risk in Exposed</td><td  align=center>70.21</td><td  align=center colspan=2>60.29,   78.55</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Risk in Unexposed</td><td  align=center>52.94</td><td  align=center colspan=2>41.24,   64.33</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Overall Risk</td><td  align=center>62.96</td><td  align=center colspan=2>55.3,   70.02</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Risk Ratio</td><td  align=center>1.326</td><td  align=center colspan=2><font color=#3300FF>1.023,   1.72&sup1; </font></td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Risk Difference</td><td  align=center>17.27</td><td  align=center colspan=2><font color=#3300FF>2.232,   32.31&deg; </font></td><td  colspan=2>Taylor series</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>2</td><td  colspan=2>Risk in Exposed</td><td  align=center>69.5</td><td  align=center colspan=2>62.79,   75.47</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Risk in Unexposed</td><td  align=center>63.27</td><td  align=center colspan=2>55.22,   70.63</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Overall Risk</td><td  align=center>66.86</td><td  align=center colspan=2>61.74,   71.61</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Risk Ratio</td><td  align=center>1.099</td><td  align=center colspan=2>0.9421,   1.281&sup1; </td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Risk Difference</td><td  align=center>6.235</td><td  align=center colspan=2>-3.837,   16.31&deg; </td><td  colspan=2>Taylor series</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>Crude</td><td  colspan=2>Risk in Exposed</td><td  align=center>69.73</td><td  align=center colspan=2>64.24,   74.7</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Risk in Unexposed</td><td  align=center>60</td><td  align=center colspan=2>53.33,   66.32</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Overall Risk</td><td  align=center>65.62</td><td  align=center colspan=2>61.39,   69.62</td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Risk Ratio</td><td  align=center>1.162</td><td  align=center colspan=2><font color=#3300FF>1.018,   1.327&sup1; </font></td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Risk Difference</td><td  align=center>9.728</td><td  align=center colspan=2><font color=#3300FF>1.334,   18.12&deg; </font></td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Etiologic fraction in pop.(EFp)</td><td  align=center>8.563</td><td  align=center colspan=2>1.099,   16.03</td></tr>
+<tr><td  align=center></td><td  colspan=2>Etiologic fraction in exposed(EFe)</td><td  align=center>13.95</td><td  align=center colspan=2>1.75,   24.64</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td >Adjusted</td><td  colspan=2>Directly Adjusted RR</td><td  align=center>1.153</td><td  align=center colspan=2><font color=#3300FF>1.011,   1.317&sup1; </font></td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>MH Adjusted RR</td><td  align=center>1.162</td><td  align=center colspan=2><font color=#3300FF>1.018,   1.327&sup1; </font></td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Directly Adjusted RD</td><td  align=center>9.652</td><td  align=center colspan=2><font color=#3300FF>1.283,   18.02&deg; </font></td><td  colspan=2>Taylor series</td></tr>
+<tr><td ><br></td></tr>
+<tr><td  colspan=6> Breslow-Day test for interaction of Risk Ratio over strata: chi square=1.495</td><td >p=0.2219</td></tr>
+<tr><td  colspan=6> p greater than 0.05 does not suggest interaction. Adjusted RR can be used.</td></tr>
+<tr><td ><br></td></tr>
+<tr><td ><br></td></tr>
+<tr><td  colspan=6> Breslow-Day test for interaction of Risk Difference over strata: chi square=1.428</td><td > p=0.2326</td></tr>
+<tr><td  colspan=6> p greater than 0.05 does not suggest interaction. Adjusted RD can be used.</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td ><br></td></tr>
+</table><table width="800" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><td ><br></td><tr><th align="center" colspan=8>Odds-Based Estimates and Confidence Limits</th></tr>
+<tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center></td><td  align=center colspan=2><b>Point Estimates</b></td><td  align=center></td><td  align=center colspan=2><b>Confidence Limits</b></td><tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center><b>Stratum</b></td><td  align=center colspan=2><b>Type</b></td><td  align=center><b>Value</b></td><td  align=center colspan=2><b>Lower, Upper</b></td><td  align=center><b>Type</b></td><tr><td colspan=7><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>1</td><td  colspan=2>CMLE Odds Ratio*</td><td  align=center>2.085</td><td  align=center colspan=2><font color=#3300FF>1.088,   4.028&sup1; </font></td><td >Mid-P Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2></td><td  align=center></td><td  align=center colspan=2><font color=#3300FF>1.04,   4.223&sup1; </font></td><td >Fisher Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2>Odds Ratio</td><td  align=center>2.095</td><td  align=center colspan=2><font color=#3300FF>1.094,   4.012&sup1; </font></td><td  colspan=2>Taylor series</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  align=center>2</td><td  colspan=2>CMLE Odds Ratio*</td><td  align=center>1.322</td><td  align=center colspan=2>0.8409,   2.078&sup1; </td><td >Mid-P Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2></td><td  align=center></td><td  align=center colspan=2>0.8213,   2.127&sup1; </td><td >Fisher Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2>Odds Ratio</td><td  align=center>1.323</td><td  align=center colspan=2>0.8432,   2.076&sup1; </td><td  colspan=2>Taylor series</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td >Crude</td><td  colspan=2>CMLE Odds Ratio*</td><td  align=center>1.534</td><td  align=center colspan=2><font color=#3300FF>1.06,   2.222&sup1; </font></td><td  bgcolor=#33EEFF>Mid-P Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2></td><td  align=center></td><td  align=center colspan=2><font color=#3300FF>1.043,   2.259&sup1; </font></td><td >Fisher Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2>Odds Ratio</td><td  align=center>1.536</td><td  align=center colspan=2><font color=#3300FF>1.061,   2.221&sup1; </font></td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Etiologic fraction in pop.(EFp|OR)</td><td  align=center>21.41</td><td  align=center colspan=2>5.495,   37.32</td></tr>
+<tr><td  align=center></td><td  colspan=2>Etiologic fraction in exposed(EFe|OR)</td><td  align=center>34.88</td><td  align=center colspan=2>5.793,   54.98</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td >Adjusted</td><td  colspan=2>CMLE Odds Ratio*</td><td  align=center>1.535</td><td  align=center colspan=2><font color=#3300FF>1.06,   2.223&sup1; </font></td><td  bgcolor=#33EEFF>Mid-P Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2></td><td  align=center></td><td  align=center colspan=2><font color=#3300FF>1.044,   2.259&sup1; </font></td><td >Fisher Exact</td></tr>
+<tr><td  align=center></td><td  colspan=2>Directly Adjusted OR</td><td  align=center>1.536</td><td  align=center colspan=2><font color=#3300FF>1.061,   2.225&sup1; </font></td><td  colspan=2>Taylor series</td></tr>
+<tr><td  align=center></td><td  colspan=2>Mantel-Haenszel OR</td><td  align=center>1.536</td><td  align=center colspan=2><font color=#3300FF>1.062,   2.222&sup1; </font></td><td  colspan=2>Robins,Greenland,Breslow</td></tr>
+<tr><td ><br></td></tr>
+<tr><td  colspan=6> Breslow-Day test for interaction of Odds Ratio over strata: chi square=1.298</td><td > p=0.2554</td></tr>
+<tr><td  colspan=6> p greater than 0.05 does not suggest interaction. Adjusted OR can be used.</td><tr><td colspan=1></td><td colspan=5><hr noshade></td></tr>
+</tr>
+<tr><td  colspan=6>*Conditional maximum likelihood estimate of Odds Ratio</td></tr>
+<tr><td  colspan=6>Martin,D; Austin,H (1991) An efficient program for computing conditional maximum likelihood estimates and exact confidence limits for a common odds ratio. Epidemiology 2, 359-362.</td></tr>
+<tr><td  colspan=6>&deg; &sup1; 95% confidence limits testing exclusion of 0 or 1, as indicated</td></tr>
+<tr><td  colspan=6><font color=#3300FF>P-values < 0.05 and confidence limits excluding null values (0,1, or [n]) are highlighted.</font></td></tr>
+<tr><td  colspan=6 bgcolor=#33EEFF>LookFirst items: Editor's choice of items to examine first.</td></tr>
+<tr><td ><br></td></tr>
+</table>
+<br>Print from the browser, or select all or part of the text and then copy and paste to other programs.<br>
+
+Many browsers have an optional setting to print background colors.
+</body></html>

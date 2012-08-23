@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<TITLE>OpenEpi - Confidence intervals for a proportion</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+
+                                   <!-- --------------------- -->
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+
+<!--<link rel="styleSheet" href="../CSS/StdPage.css" type="text/css" >    -->
+
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="Proportion";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+<SCRIPT language="JavaScript" src="../js/IncludeFiles.js" type="text/JavaScript"></SCRIPT>
+
+
+
+									<!-- --------------------- -->
+
+<script language="JavaScript" type="text/JavaScript">
+function configureInput()
+{
+  //Indented sections are the ones to be changed to configure a new application
+		var crows=5;
+		//number of rows down the table, not counting the header (title)
+		var ccols=4;
+		//number of cells or columns across the table
+		var x=120;
+		//pixels from the left side of the page where table starts
+		var y=80;
+		//pixels down from top of page where table starts
+		var w=400;
+		//width of table in pixels
+		var h=200;
+        //height of table in pixels
+     /*   if (device=="smartphone")
+        {
+          x=5;
+          w=240;
+          y=100;
+          h=125;
+         }
+         */
+		//height of table in pixels
+
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+var intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+with (intable)
+ {
+ 
+       //allowstrata(true);
+		  //When true, sets up buttons to add, access, and delete strata, allowing stratified
+		  //tables to be entered. It should only be set to true if the statistical functions
+		  //in the js file are ready to handle stratified data.  Otherwise, it may be omitted
+		  //or set to false.
+		  
+		//  usetablesettings(true);
+		  //If this function is is given the value “true” (without quotes), the table 
+		  //configuration features of Settings.htm will be used by Etable.  
+		  //Tables can be set by the user to have exposure at the left (default) or 
+		  //at the top, and disease in the opposite location.  The marginal value labels 
+		  //can be set to ascending or descending (maxvalueattop and maxvalueatleft) from 
+		  //the upper left corner.  
+		  
+          //If usetablesettings is given the value “false” (without quotes) or is absent, 
+		  //the table configuration will be ignored and the creation of arrays and 
+		  //repopulation of the table will assume that exposure is on the left and that 
+		  //value labels ascend from the upper left corner (baseline values at top and left).
+          //This is the usual configuration for tables larger than 2 by 2 in epidemiologic textbooks.
+          //Usetablesettings will allow any desired configuration for a table, and should
+          //generally be used for 2-by-2 tables.  It should only be used for tables that
+          //allow exchanging disease and exposure and ascending or descending marginal values.
+
+         settingslink(true); 
+
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable, generally one for each
+		 //cell rather than row by row. 
+		  newtable(crows,ccols,w,h,x,y);
+		  
+		  //The next four commands are not really necessary, but are placed here as 
+		  //examples of how details of the table can be changed.
+		  lock("labels"); //locks all cells except data and rowtot and coltot totals
+		  unlock("valname","varname"); //unlocks varname and valname cells
+		  tablecmd('myTable.cellFont="tahoma"')
+          tablecmd('myTable.cellFontSize="12px"')
+		 
+		  //The rest of the commands set up the table itself, including default
+		  //text or values in some of the cells.
+		  title("Simple Proportion");
+		  newrow("varname:Sample","valname:b:Numerator",  "data:10");
+		  newrow("label:","valname:b:Denominator",  "data:11");
+          newrow("label:span2:Multiply results by",  "data:100","label:eg, 100 for %");
+          newrow("label:span2:Population size", "data:1000000", "label:if large,leave as 1000000");
+          newrow("label:span2:Compare to %", "data:50.0", "label:for optional statistics");
+  
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ }
+
+}
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+  //alert("Row="+r+"  Col=" + c)
+  /* The following is a useless bit of code, but it illustrates how you might
+  set a value of a cell in the table and also how to get the value of another cell.
+  The value entered by the user is passed in as "entry".  Hence, you can act on the
+  information in "entry" and place a different value in another cell using the 
+  .setCellValue function, and also modify the entry to return the modified value
+  in the "return" line below.  Uncomment the following several lines to see
+  what they do in the Proportion application.
+  if (r==0)
+    {
+	 EntryWin.setCellValue(1,2,parseInt(entry)*43)
+	 alert(EntryWin.getCellValue(1,2))
+	}
+	*/
+	//The following code returns a blank string if the user enters anything other
+	//than a number in a data field. Text is otherwise allowed.
+     var e=parseFloat(entry)
+      if (isNaN(e) )
+       {e=""}
+       return e
+
+}
+
+									<!-- --------------------- -->
+	
+function OECalculate(data)
+{
+ //OECalculate is called by the Calculate button in the ETable module.  The entire dataMatrix, including
+ //metadata and data, is passed as the "data" array.
+ 
+
+var outObj=new Output(data);  //Create a new Output object, passing it the data array
+                              //so that both commands (methods) for constructing
+							  //output and the data and metadata are available to the 
+							  //statistical functions
+
+// Parameters are the Output data array, showTables, showStrata, and casecontrol.  The latter 3 are true/false,
+// and (all three or the last ones) may be omitted if false. 
+
+doStatistics(outObj)   //Pass the output command object containing data
+	                              
+
+//The results should be an HTML string called outObj.s, within outObj.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, if all of the following
+//are true:
+//               1. The program is running under the OpenEpiMenu 
+//               2. OpenEpiMenu is being run from OpenEpiSave.HTA.
+//               3. The operating system is Microsoft Windows
+//If any of these conditions is absent, saving will not occur, but there should
+//be no errors.  If the file is saved, a message appears with the filename and location.  
+
+writeResults(outObj.s,basefilename,true,outObj)
+}
+</script>
+<script language="JavaScript" type="text/JavaScript">
+writeFrontEnd(Title,Authors,Description,"");
+  //write HTML from a string.  The fourth parameter is the name of the demofile.  If there is none, it should be set to "".  If a demofile
+  //exists, substitute the variable name,  demofile
+ </script>
+
+<!--// This is the end of the HTML page, believe it or not.
+All the tags are written dynamically by writeFrontEnd// -->
+

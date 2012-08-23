@@ -1,0 +1,191 @@
+<html><head><title>Preview</title>
+<style type="text/css"><!--
+/* CSS Document --for Tabbed User Interface*/
+.tab{
+	color: navy;
+	background-color: #ffffff;
+	border: thin solid navy;
+    top: 0px;
+    float: left;
+    height: 27px;
+    width: 100px;
+	text-align: center;
+	font: 10pt Verdana,sans-serif;
+    font-weight:bold;
+    margin-bottom:0px;
+    padding:0px;
+	cursor: pointer;
+    display: inline;
+    overflow:hidden;
+	}
+
+.noprint{
+	 }
+	 
+.panel{
+       /* float: left;*/
+        position: relative;
+        /*top:30px; */
+        /*bottom: 30px; */
+        /*right:5 px; */
+        /*left:25%; */
+		z-index: 1;
+		visibility: hidden;
+		border: thin solid navy;
+	    padding-left: 5px;
+		overflow: auto;
+        text-align: justify;
+        width:99%;
+        height:95%;
+        /*text-decoration: underline  */
+}
+  div#panel2 {
+    height: 98%;
+    width: 100%;
+  }
+
+  #toMenu{
+    float:left;
+  }
+
+    #divLogo {
+	position:absolute;
+	left: 2%;
+	width: 15%;
+	z-index: 0;
+	top: 0;
+
+	}
+	#btnEnter, #btnDemo {
+		cursor:pointer;
+    }
+
+	#banner strong{
+	 color: white;
+	 background-color: #666666;
+	}
+	#banner a:link{
+	 color: #FFFFFF;
+	 font-size: small;
+	 }
+     #banner a:hover {
+	  color: blue;
+	  }
+	  #banner a:active {
+	   color: red;
+	   }
+	 a {
+	    color: #FFFFFF;
+		font-size:small;
+		background-color:#666666;
+	   }
+
+  /*Much of what follows is from "stylin' with CSS" by Charles Wyke-Smith, 2nd ed., New Riders, 2008, Ch 5*/
+  #body{
+    text-align:center; /*IE6 needs this to center the layout in the browser window*/
+  }
+
+  #mainDiv{
+    width:99%;
+    height:99%;
+    margin-left:auto; /*centers layout in browser*/
+    margin-right:auto; /*centers layout in browser*/
+    text-align:left; /* resets the centering hack for IE6 on the body tag*/
+  }
+
+  #menuDiv{
+    float:left;
+    width:22%;
+  }
+
+  #appDiv{
+    float:left;
+    top:0;
+    width:78%;
+    height: auto;
+    min-height: 95%;
+  }
+
+  #appDivInner {
+    border: green solid 2px;
+    height: auto;
+  }
+
+  #menuDivInner, #appDivInner {
+    /* overflow:hidden;Clips oversize elements that would otherwise expand divs and break the layout*/
+  }
+
+  .column {
+    position:relative;
+    overflow:hidden;
+    float:left;
+    top:0;
+    width:50%;
+    text-decoration: none;
+  }
+  .colHeading{
+    margin-top:6px;
+    margin-left:10px;
+    margin-right:10px;
+    background:#CCCCCC;
+    text-align:center;
+    font-family:arial;
+    font-weight:bold;
+    font-size:12pt;
+  }
+  p {
+    text-decoration: none;
+  }
+
+  #Panel1Col1{
+    text-align:center;
+  }
+  #Panel1Col2{
+    text-align:left;
+  }
+  #FooterPanel1{
+    position:relative;
+    clear:both;
+    width: 100%;
+    border="1";
+    background: #CCCCCC;
+    text-align: center;
+  }
+
+
+--></style>
+</head>
+<body>
+<a name="0"></a><div class="tab">Class tab</div>
+<br>
+<a name="1"></a><div class="noprint">Class noprint</div>
+<br>
+<a name="2"></a><div class="panel">Class panel</div>
+<br>
+<a name="3"></a><div id="panel2">ID panel2</div>
+<a name="4"></a><div id="toMenu">ID toMenu</div>
+<a name="5"></a><div id="divLogo">ID divLogo</div>
+<a name="6"></a><div id="btnEnter">ID btnEnter</div>
+<a name="7"></a><div id="btnDemo">ID btnDemo</div>
+<a name="8"></a><div id="banner strong">ID banner strong</div>
+<a name="9"></a><div id="banner a:link">ID banner a:link</div>
+<a name="10"></a><div id="banner a:hover">ID banner a:hover</div>
+<a name="11"></a><div id="banner a:active">ID banner a:active</div>
+<a name="12"></a><a href="http://www.blumentals.net" target="_blank">Link</a><br>
+<a name="13"></a><div id="body">ID body</div>
+<a name="14"></a><div id="mainDiv">ID mainDiv</div>
+<a name="15"></a><div id="menuDiv">ID menuDiv</div>
+<a name="16"></a><div id="appDiv">ID appDiv</div>
+<a name="17"></a><div id="appDivInner">ID appDivInner</div>
+<a name="18"></a><div id="menuDivInner">ID menuDivInner</div>
+<a name="19"></a><div id="appDivInner">ID appDivInner</div>
+<a name="20"></a><div class="column">Class column</div>
+<br>
+<a name="21"></a><div class="colHeading">Class colHeading</div>
+<br>
+<a name="22"></a><p>Element p</p><br>
+<a name="23"></a><div id="Panel1Col1">ID Panel1Col1</div>
+<a name="24"></a><div id="Panel1Col2">ID Panel1Col2</div>
+<a name="25"></a><div id="FooterPanel1">ID FooterPanel1</div>
+
+</body></html>

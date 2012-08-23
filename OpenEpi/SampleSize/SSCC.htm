@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>OpenEpi - Sample Size for Unmatched Case-Control Studies</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META NAME="author" CONTENT="Kevin M. Sullivan, Roger A. Mir, and Andrew G. Dean">
+<META NAME="description" CONTENT="Sample Size for Unmatched Case-Control Studies, Version 3.04.04">
+                                   <!-- --------------------- -->
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="SSCC";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../js/IncludeFiles.js" type=text/JavaScript></SCRIPT>
+								
+									<!-- --------------------- -->
+    
+<script language="JavaScript" type="text/JavaScript">
+
+demofile="";   //no demo file
+
+//Some global variables 
+var v11 = 0;
+var v22 = 0;
+var vorr = 0;
+
+function configureInput()
+{//Indented sections are the ones to be changed to configure a new application
+		var crows=7; 
+		//number of rows down the table, not counting the header (title)
+		var ccols=6;
+		//number of cells or columns across the table
+		var x=150;
+		//pixels from the left side of the page where table starts
+		var y=50;
+		//pixels down from top of page where table starts
+		var w=600;
+		//width of table in pixels
+		var h=450;
+		//height of table in pixels
+
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+with (intable)
+ { 
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable, generally one for each
+		 //cell rather than row by row. 
+		  lock("labels"); 
+		  newtable(crows,ccols,w,h,x,y);
+		  title("<b>Sample Size for Unmatched Case Control Study</b>");
+		  newrow("label:span3:l:Two-sided confidence level",  "data:95","span2:label:l:(1-alpha) usually 95%");
+		  newrow("label:l:span3:Power(% chance of detecting)",  "data:80","span2:label:l:Usually 80%");
+		  newrow("label:l:span3:Ratio of Controls to Cases",  "data:1.0","span2:label:l:For equal samples, use 1.0");		  
+		  newrow("label:l:span3:Percent of controls exposed",  "data:40","span2:label:l:Between 0.0 and 99.99");
+  		  newrow("label:c:span6:color#ffffaa:Please fill in one of the following. The other will be calculated.");		  		  
+		  newrow("l:label:span3:Odds ratio",  "data:","span2:label:");
+		  newrow("label:l:span3:Percent of cases with exposure",  "data:","span2:label:l:Between 0.0 and 99.99");
+
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ 
+ }
+}
+
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+   
+   var temp;
+   var e=parseFloat(entry)
+   //The leftmost cell is column 0, and the span3 value of the first cell puts the 
+   //data in column 3.
+   if (isNaN(e)) 
+     {
+	   return ("")
+	 }
+   //alert("e2="+e+"r="+r)
+   if (r==3 && c==3 && e !=0)
+      { 
+	   // New value for percent outcome in unexposed
+	   // Clear rows below
+		  EntryWin.setCellValue(r+2, 3, "");  
+		  EntryWin.setCellValue(r+3, 3, "");  
+	  } 
+	 v22 = parseFloat(EntryWin.getCellValue(3,3))/100;
+	//alert("V11:" +v11+ " v22: " + v22 + " vorr: "+vorr)
+	 if ((r == 5 ) && ( c == 3) && ( e != 0) )
+	 	{
+		//Odds ratio entered. Calculate % exposure in cases. 
+		vorr = e;
+		v11 = 0;
+  		//alert("Row= "+ r +"  Col= " + c + " Value= " + e)	
+	   if (vorr != 0)
+		   	{
+			//alert("Vorr:" + vorr);
+	    	v11 = 100*v22 * vorr / (1 + v22 * (vorr - 1));
+			}
+			//alert("R3: " + v22 + " R5: " + vorr + " R6: " + v11)
+			temp = Math.round(100000 * v11) / 100000;	
+			EntryWin.setCellValue(r+1, c, temp.toFixed(2));
+					
+		}	
+	 if ((r == 6 ) && ( c == 3) &&	(e != 0))
+	 	{
+		//%Exposure in Cases entered.  Calculate Odds Ratio.
+		vorr = 0;
+		v11 = e/100;
+ 	       //alert("Row= "+ r +"  Col= " + c + " Value= " + e)
+			temp = Math.round(100000 * (v11 * (1 - v22)) / (v22 * (1 - v11))) / 100000;		
+			//alert("Calculated Value: " + temp);
+	        //alert("R3: " + v22 + " R5: " + vorr + " R6: " + v11)				
+	  		EntryWin.setCellValue(r-1, c, temp.toFixed(2));
+			EntryWin.myTable.moveUp=true;
+		}
+			
+     if (e=="NaN") {e=0}
+     return e
+}
+
+function OECalculate(dataArray)
+{
+//Called by the Calculate button in the ETable module.  
+//The data items entered reside in the dataMatrix variable in EntryWin.  They can be
+//retrieved here and used to populate the statistics module that is being constructed. 
+var results;
+outTable=new Output(dataArray);
+with (outTable)
+{
+//EntryWin.writeTable(EntryWin.dataMatrix[1])
+//Remove the comment from the line above to see a table of the contents of the dataMatrix
+//so that the correct correspondence between the dataMatrix and your stats routine
+//can be set up below.
+//In this section, write some code to extract the needed data from the standard
+//data array produced by the data input module.  Strata have indices starting with
+// 1, and table cells begin with the baseline (e.g., 0 or "no") values in the upper
+// left, in the "E0D0" cell.  Exposure is represented on the left margin and Disease
+// at the top, if this distinction is meaningful.  
+// For a simple proportion, the translation is easy:
+
+		//Calc() //Function in the ssizecc.js file for output calculation
+		//parseFloat(data[1]["E5D0"]);
+		//alert(parseFloat(data[1]["E0D0"]));
+		//vx is the numerator
+		
+		//vN = parseFloat(data[1]["E6D1"]);
+		
+		//vN is the denominator
+var msg1=t( "The percentage with exposure among the cases cannot be less than zero.");
+var msg2=t("The percentage with exposure among the cases cannot be greater than 99.99.");
+var msg3=t("The percent with exposure among controls cannot be less than zero.");
+var msg4=t("The percent with exposure among controls cannot be greater than 99.99.");
+var msg5=t("The percentage exposed cannot be the same for cases and controls.");
+var msg6=t("The ratio of controls to cases cannot be less than or equal to zero.");
+var msg7=t("The odds ratio cannot be equal to one.");
+var msg8=t("The odds ratio cannot be less than or equal to zero.");
+var msg9=t("Please provide either the percent of cases with exposure or an odds ratio.");
+
+
+var msg		
+var v1;
+var v2;
+var vr;
+var vor;
+vr=parseFloat(data[1]["E2D0"]);
+v2=parseFloat(data[1]["E3D0"]);
+vor=parseFloat(data[1]["E5D0"]);
+v1=parseFloat(data[1]["E6D0"]);	
+//Do some error checking;
+if (v1 < 0) {
+  EntryWin.infoDialog (msg1);
+  return;
+  }
+if (v1 > 99.99) {
+  EntryWin.infoDialog (msg2);
+  return;
+  }
+  
+if (v2 < 0) {
+  EntryWin.infoDialog (msg3);
+  return;
+  }
+if (v2 > 99.99) {
+  EntryWin.infoDialog (msg4);
+  return;
+  }
+if (v1 == v2) {
+  EntryWin.infoDialog (msg5);
+  return;
+  }
+if (vr <= 0) {
+  EntryWin.infoDialog (msg6);
+  return;
+  }
+if (vor == 1) {
+  EntryWin.infoDialog (msg7);
+  return;
+  } 
+if (vor <= 0) {
+  EntryWin.infoDialog (msg8);
+  return;
+  }
+if (vor == 0 && v1 == 0) {
+  EntryWin.infoDialog (msg9);
+  return;
+  }		
+v1=v1/100
+v2=v2/100
+//Turn v1 and v2 into proportions
+		
+var combinedresults
+
+		//Here is the call to the javascript routine that does the calculations
+		//In this case, the commands to write the table are embedded in the js file.
+
+		Calc(data);
+
+//Tell output that we are done
+     		endtable();
+  
+}
+
+//The results should be an HTML string.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, IF THIS PROGRAM is
+//RUNNING UNDER THE OpenEpiMenu AND OpenEpiMenu is being run from OpenEpiSave.HTA.
+//If any of these conditions are not present, saving will not occur, but there should
+//be no errors.  If the file is saved successfully, a message appears with the filename
+// and location.  
+
+writeResults(outTable.s,basefilename,true,outTable)
+}
+
+writeFrontEnd(Title,Authors,Description,"");
+  //write HTML from a string.  The fourth parameter is the name of the demofile.  If there is none, it should be set to "".  If a demofile
+  //exists, substitute the variable name,  demofile    
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->

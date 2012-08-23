@@ -1,0 +1,937 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="JavaScriptTips_files/filelist.xml">
+<title>Writing JavaScript</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="country-region"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Andrew G. Dean</o:Author>
+  <o:LastAuthor>Andrew G. Dean</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>373</o:TotalTime>
+  <o:Created>2003-07-28T04:55:00Z</o:Created>
+  <o:LastSaved>2003-07-28T04:55:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2568</o:Words>
+  <o:Characters>14644</o:Characters>
+  <o:Company>EpiInformatics</o:Company>
+  <o:Lines>122</o:Lines>
+  <o:Paragraphs>34</o:Paragraphs>
+  <o:CharactersWithSpaces>17178</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:TargetScreenSize>1024x768</o:TargetScreenSize>
+ </o:OfficeDocumentSettings>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;}
+h6
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:11.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:-132;
+	mso-list-type:simple;
+	mso-list-template-ids:117349824;}
+@list l0:level1
+	{mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:-131;
+	mso-list-type:simple;
+	mso-list-template-ids:-1014199278;}
+@list l1:level1
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:-130;
+	mso-list-type:simple;
+	mso-list-template-ids:976117776;}
+@list l2:level1
+	{mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:-129;
+	mso-list-type:simple;
+	mso-list-template-ids:-1615036334;}
+@list l3:level1
+	{mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:-128;
+	mso-list-type:simple;
+	mso-list-template-ids:1882908250;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:-127;
+	mso-list-type:simple;
+	mso-list-template-ids:2015499262;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6
+	{mso-list-id:-126;
+	mso-list-type:simple;
+	mso-list-template-ids:-1390248520;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:-125;
+	mso-list-type:simple;
+	mso-list-template-ids:741229152;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:-120;
+	mso-list-type:simple;
+	mso-list-template-ids:1807368906;}
+@list l8:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l9
+	{mso-list-id:-119;
+	mso-list-type:simple;
+	mso-list-template-ids:1920376234;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3 align=center style='text-align:center'>Draft--Comments Welcome and Needed</h3>
+<h1 align=center style='text-align:center'>Writing JavaScript</h1>
+<h2 align=center style='text-align:center'>Views of a Fellow Student</h2>
+
+<h3 align=center style='text-align:center'>Andy Dean</h3>
+
+<h3 align=center style='text-align:center'>www.openepi.com<o:p></o:p></h3>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>What is it?</h2>
+
+<p class=MsoNormal>JavaScript is a text-based computer language commonly used
+within HTML pages, where it must lie <span class=GramE>between<span
+style='mso-spacerun:yes'>  </span>&lt;</span>script&gt;<span
+style='mso-spacerun:yes'>  </span>and &lt;/script&gt;<span
+style='mso-spacerun:yes'>  </span>tags.<span style='mso-spacerun:yes'> 
+</span>More than one set of script tags can be on a single page.<span
+style='mso-spacerun:yes'>  </span>The usual practice is to place functions that
+will be called in the &lt;header<span class=GramE>&gt;<span
+style='mso-spacerun:yes'>  </span>portion</span> of the page and code to be run
+when the page is loaded in the &lt;body&gt; of the page.<span
+style='mso-spacerun:yes'>  </span>Despite the name, <span class=SpellE>Javascript</span>
+<span class=GramE>is only distantly related</span> to Java, a compiled language
+that was meant to be the universal web language, but whose universality has
+been seriously compromised by a battle between Sun Microsystems and Microsoft
+over ownership. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>JavaScript is defined <span class=GramE>by<span
+style='mso-spacerun:yes'>  </span>a</span> set of specifications (<span
+class=SpellE>ECMAScript</span>) that is partially implemented by major
+browsers.<span style='mso-spacerun:yes'>  </span>Although there were
+substantial differences in its implementation by version 4 of both Netscape
+(NS) and Internet Explorer (IE) browsers, the differences have been largely
+removed in versions 7 of NS and IE 6, making JavaScript a reasonably universal
+language (if your universe is IE, NS, Opera, and <span class=SpellE>Mozilla</span>).<span
+style='mso-spacerun:yes'>    </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>For a definition of JavaScript, see, for example:</p>
+
+<p class=MsoNormal><a
+href="http://www.marketingterms.com/dictionary/javascript/">http://www.marketingterms.com/dictionary/javascript/</a></p>
+
+<p class=MsoNormal>In general, for information on anything covered here, a
+great deal more is available by searching the web.<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Pros</h2>
+
+<p class=MsoNormal>JavaScript is an interpreted language, meaning that changes
+made in the code are executed the next time the code is run and that (barring
+tricks) the code is generally available to see with the “<span class=SpellE>View:Source</span>”
+feature of a browser (although it may be copyrighted).<span
+style='mso-spacerun:yes'>  </span>It is easy to copy and modify.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>What is called “client-side” JavaScript is embedded in HTML
+pages for use in browsers on individual <span class=GramE>computers.</span><span
+style='mso-spacerun:yes'>  </span>Since running it requires only a browser
+(with JavaScript turned on), JavaScript for the browser is essentially
+operating system independent.<span style='mso-spacerun:yes'>  </span>The same
+JavaScript program (with some testing and tweaking) can be written to run in
+popular browsers under Microsoft Windows, in Linux, <span class=GramE>Unix</span>,
+and the Macintosh.<span style='mso-spacerun:yes'>  </span>Although JavaScript
+can also be written for Internet servers, a server is not required to run
+“client-side” JavaScript—not even a local <span class=SpellE>webserver</span>
+such as IIS or Personal Web Server.<span style='mso-spacerun:yes'>  </span>An
+HTML page stored on a local computer’s hard disk <span class=GramE>can be run</span>
+locally in a browser, executing the JavaScript that may be contained in the
+page.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Cons</h2>
+
+<p class=MsoNormal>JavaScript (and Java) <span class=GramE>are bound</span>
+hand and foot by security provisions that prevent access to the operating
+system outside the browser.<span style='mso-spacerun:yes'>  </span>There is no
+straightforward and universal way in HTML/JavaScript to do a directory of the
+client computer, or write a file to the hard disk.<span
+style='mso-spacerun:yes'>  </span>The Internet <span class=GramE>is designed</span>
+so that storage of data occurs on servers, which would be fine if everyone had
+constant Internet access, but is a definite drag when doing a survey on a
+laptop in a village without Internet (or electricity, perhaps).<span
+style='mso-spacerun:yes'>   </span><span class=SpellE>OpenEpi</span> programs (<a
+href="http://www.openepi.com/">www.openepi.com</a>) are able to use some tricks
+to write files to Microsoft Windows (Windows) systems, which include the
+majority of public health computers.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>As an interpreted language, JavaScript should be somewhat
+slower than compiled languages.<span style='mso-spacerun:yes'>  </span>This
+will only be apparent in computer-intensive mathematical routines, and the fast
+processors and abundant Random Access Memory (RAM) in modern computers tend to
+remove this problem from practical discussion.<span style='mso-spacerun:yes'> 
+</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Learning all aspects of JavaScript programming is not a
+trivial task, but learning to write mathematical or statistical programs
+requires a much more limited investment, particularly when modifying programs
+written by others.<span style='mso-spacerun:yes'>  </span>The curly brackets
+and unique syntax of “if” and “for” statements and some of the operators (+=)
+turn out after a few days to be assets for efficient programming.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Choosing Tools</h2>
+
+<h3>Books and Reference Cards</h3>
+
+<p class=MsoNormal><span class=GramE>I’ve</span> tried a number of books, but
+the ones I use are:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Flanagan, David.<span style='mso-spacerun:yes'> 
+</span>JavaScript, <span class=GramE>The</span> Definitive Guide.<span
+style='mso-spacerun:yes'>  </span>O’Reilly &amp; Associates, Inc., <st1:place><st1:City>Sebastopol</st1:City>,
+ <st1:State>CA</st1:State>, <st1:country-region>USA</st1:country-region></st1:place>.<span
+style='mso-spacerun:yes'>  </span>2002.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><st1:City><st1:place>Wilton</st1:place></st1:City>, Paul,
+Williams, Stephen, and Li, Sing.<span style='mso-spacerun:yes'>  </span><span
+class=GramE>Practical JavaScript for the Usable Web.</span><span
+style='mso-spacerun:yes'>  </span><span class=SpellE><span class=GramE>Glasshaus</span></span><span
+class=GramE> Ltd, </span><st1:place><st1:City><span class=GramE>Birmingham</span></st1:City><span
+ class=GramE>, </span><st1:country-region><span class=GramE>UK</span></st1:country-region></st1:place><span
+class=GramE>, 2002.</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=SpellE><span class=GramE>Musciano</span></span><span
+class=GramE>, Chuck and Kennedy, Bill.</span><span style='mso-spacerun:yes'> 
+</span>HTML, <span class=GramE>The</span> Definitive Guide. O’Reilly &amp;
+Associates, Inc., <st1:place><st1:City>Sebastopol</st1:City>, <st1:State>CA</st1:State>,
+ <st1:country-region>USA</st1:country-region></st1:place>.<span
+style='mso-spacerun:yes'>  </span>1998.</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span></p>
+
+<p class=MsoNormal>A handy series of <span class=GramE>6</span> reference cards
+for HTML and JavaScript is available from:<span style='mso-spacerun:yes'>   
+</span></p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>                     </span><span
+style='mso-spacerun:yes'> </span><span
+style='mso-spacerun:yes'> </span>javascript.visibone.com</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>I keep them in my laptop case.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h3><span style='mso-tab-count:1'>          </span><span class=SpellE>Google</span></h3>
+
+<p class=MsoNormal>I could not have used JavaScript without <a
+href="http://www.google.com/">www.google.com</a>.<span
+style='mso-spacerun:yes'>  </span>Every time I have a question, I type
+something like:<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h6><span style='mso-spacerun:yes'> </span><span style='mso-tab-count:1'>           </span><span
+class=SpellE>Javascript</span> popup window tutorial<span
+style='mso-spacerun:yes'>  </span><o:p></o:p></h6>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE>into</span> <span class=SpellE>Google</span>,
+and often find a clearly written tutorial on exactly what I need.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h3><span style='mso-tab-count:1'>          </span><span class=SpellE>Dreamweaver</span>
+</h3>
+
+<p class=MsoNormal>You can write HTML and <span class=SpellE>Javascript</span>
+in Notepad or <span class=SpellE>Wordpad</span> and run it in a browser.<span
+style='mso-spacerun:yes'>  </span>Once you have multiple files to manage, it is
+helpful to have a programming environment that displays several files,
+highlights JavaScript syntax, constructs HTML pages, and runs IE and NS on demand
+for testing.<span style='mso-spacerun:yes'>  </span>Microsoft FrontPage is a
+good HTML editor, but it does not cater to JavaScript.<span
+style='mso-spacerun:yes'>  </span><span class=SpellE>Dreamweaver</span> MX is
+the program I use.<span style='mso-spacerun:yes'>  </span>It works well for
+making HTML pages and writing JavaScript files. <span
+style='mso-spacerun:yes'> </span>There are other HTML and <span class=SpellE>Javascript</span>
+editors, <span class=GramE>both free</span> and commercial, available via web
+search.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Writing </h2>
+
+<h3><span style='mso-tab-count:1'>          </span>Sources of code</h3>
+
+<p class=MsoNormal>The Internet <span class=GramE>is filled</span> with useful
+JavaScript code, much of which is available for use and modification in your
+application.<span style='mso-spacerun:yes'>  </span>Searching in <span
+class=SpellE>Google</span> will usually turn up what you want, including the
+fine collection of hundreds <span class=GramE>of<span
+style='mso-spacerun:yes'>  </span><span class=SpellE>javascript</span></span>
+statistical calculators assembled by John C. <span class=SpellE>Pezzullo</span>
+(choose “Statistical Portal” in <a href="http://www.openepi.com/">www.openepi.com</a>,
+or search <span class=SpellE>Google</span> for JavaScript statistics).<span
+style='mso-spacerun:yes'>  </span>Searching for<span
+style='mso-spacerun:yes'>   </span></p>
+
+<p class=MsoNormal><span class=SpellE>Javascript</span> matrix math</p>
+
+<p class=MsoNormal>For example, turns up more than 10,000 references in <span
+class=SpellE>Google</span>. Luckily, not all are relevant, but there are some
+real pearls among the <span class=GramE>flotsam and jetsam</span>.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h3><span style='mso-tab-count:1'>          </span>Licenses</h3>
+
+<p class=MsoNormal>JavaScript code may be copyrighted and commercial (for sale,
+usually with distribution and modification rights), copyrighted with rights
+reserved, not copyrighted, or copyrighted with an open source license such as
+GNU, BSD, or MIT.<span style='mso-spacerun:yes'>  </span>Open source
+programming and licensing is a relatively new phenomenon best explained <span
+class=GramE>at</span>:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial;color:green'><a
+href="http://www.opensource.org/licenses/index.php">www.opensource.org/licenses/index.php</a><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Arial;color:green'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal>Many of the open source licenses retain ownership of the
+original code but permit others to modify and distribute the code as long as a
+copy of the license is included and credit is given.<span
+style='mso-spacerun:yes'>  </span>They usually include a disclaimer to ward off
+lawsuits if the code injures a favorite pet or launches Saturn 5 prematurely.<o:p></o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h3><span style='mso-tab-count:1'>          </span>Giving credit</h3>
+
+<p class=MsoNormal>In the huge, fluctuating mass that comprises the Web, it is
+probably best to develop habits that satisfy both legal and scientific
+conventions for use of intellectual property of others.<span
+style='mso-spacerun:yes'>  </span>In other words, check the license and
+copyright, if any, and, where doubt exists, contact the author for permission
+(sometimes refused).<span style='mso-spacerun:yes'>  </span>As in scientific
+research papers, it is courteous and ethical to cite sources of code being
+used, even though modified.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>  </span></p>
+
+<h3><span style='mso-tab-count:1'>          </span>Style</h3>
+
+<p class=MsoNormal>There are many styles of programming, even in JavaScript,
+and many articles on how to document and comment code.<span
+style='mso-spacerun:yes'>  </span>Obviously statistical code is more useful if
+others can tell what is going on through meaningful variable names and embedded
+comments.<span style='mso-spacerun:yes'>  </span>In the 1960’s, it was
+important to make code run faster by using single-letter variable names, but
+this is rarely helpful now except in an inner loop of a highly iterative
+routine (and even there, subject to confirmation by experiment).<span
+style='mso-spacerun:yes'>  </span>There are many styles for variable names,
+including:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h6 style='margin-left:.5in'><span class=SpellE>MHChiSquare</span></h6>
+
+<h6 style='margin-left:.5in'><span class=SpellE><span class=GramE>mhchisquare</span></span></h6>
+
+<h6 style='margin-left:.5in'><span class=SpellE><span class=GramE>mhChiSquare</span></span></h6>
+
+<h6 style='margin-left:.5in'><span class=SpellE>mh_chi_square</span></h6>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>JavaScript variable names cannot contain spaces and they are
+<span class=GramE>absolutely case</span>-sensitive, so these are all different
+variables.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>It is important to adopt a convention so that when you
+remember the name of a variable next week or 30 lines down, you automatically
+write it with the correct case and word-separation convention.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Curly bracket hygiene is another place for individual
+styles.<span style='mso-spacerun:yes'>  </span>Those who are used to begin and
+end statements in other languages will need a few days to get used to enclosing
+the bodies of functions, the consequences of if statements, and the contents of
+for loops in curly brackets.<span style='mso-spacerun:yes'>  </span>They are so
+compact that it is tempting to write:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE><b style='mso-bidi-font-weight:normal'>if</b></span><b
+style='mso-bidi-font-weight:normal'> (a&gt;0){v=a}else{a=0}<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>When I first saw something like:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE><b style='mso-bidi-font-weight:normal'>if</b></span><b
+style='mso-bidi-font-weight:normal'> (a&gt;0)<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>  </span><span style='mso-spacerun:yes'> </span>{<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>    </span>v=a<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>   </span>}<o:p></o:p></b></p>
+
+<p class=MsoNormal><span class=GramE><b style='mso-bidi-font-weight:normal'>else</b></span><b
+style='mso-bidi-font-weight:normal'><o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>  </span><span style='mso-spacerun:yes'> </span>{<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>    </span>a=0<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>   </span>}<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>I thought to myself, “How silly and pedantic!”<span
+style='mso-spacerun:yes'>  </span>Since than, I have come to like the second
+style.<span style='mso-spacerun:yes'>  </span>First, I realized that JavaScript
+ignores white space; there is no (or minimal) extra charge for extending down
+the page.<span style='mso-spacerun:yes'>  </span>Then I found that, when an if
+statement is inside a couple of nested loops inside a function and something is
+wrong, you can line up all the brackets up so that the pairs are in the same
+column; you don’t have to count and recount left brackets and right brackets to
+find the problem.<span style='mso-spacerun:yes'>  </span><span class=GramE>So</span>
+I am a fan of indenting and having brackets on lines by themselves.<span
+style='mso-spacerun:yes'>  </span>The latter also prevents commenting out a
+bracket by mistake when you are removing an alert box or making a comment.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Pascal programmers spend their first year learning to end
+each line with a semicolon.<span style='mso-spacerun:yes'>  </span>JavaScript
+accepts, but does not require, a semicolon at the end of a line, leading to the
+conclusion by one web wag that “Inserting semicolons does nothing, but it
+builds character.”<span style='mso-spacerun:yes'>  </span>The only time they
+are needed is when putting more than one statement on a line—not a great idea
+in any case.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Debugging</h2>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Other
+languages, such as Visual Basic, Pascal, and C++, have useful debuggers,
+programs that display the code and allow you to run it one line at a time,
+while detecting errors and seeing what is happening.<span
+style='mso-spacerun:yes'>  </span>Unfortunately, I have not found such a
+program for JavaScript, although I have <span class=GramE>tried <span
+style='mso-spacerun:yes'> </span>to</span> use the debugger that comes with <span
+class=SpellE>Dreamweaver</span> and the massive debuggers that are supplied
+with Microsoft Visual Studio .NET.<span style='mso-spacerun:yes'>  </span>I
+have given up debating whether this is my fault or the vendors’ and have
+settled on the following tools:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>1) Microsoft Internet Explorer (IE 6.xx) with debugging
+messages turned on:</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoNormal>Go to <span class=SpellE><b style='mso-bidi-font-weight:
+normal'>Tools|Internet</b></span><b style='mso-bidi-font-weight:normal'> <span
+class=SpellE>Options|Advanced</span></b><span class=GramE>| <span
+style='mso-spacerun:yes'> </span>and</span> place check marks in both of the
+following options:</p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'> </span>[<span style='mso-spacerun:yes'>  </span>]
+Disable script debugging<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'> </span>[<span style='mso-spacerun:yes'>  </span>]
+Display a notification about every script error<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>IE seems to detect errors quite well, but may have no clue
+about the line where the error occurred or even what file it occurred <span
+class=GramE>in</span>.<span style='mso-spacerun:yes'>  </span>It pretends to
+provide both, but they are often in some unknown ballpark when the error <span
+class=GramE>is finally found</span>.<span style='mso-spacerun:yes'> 
+</span>Hence, when an error occurs, particularly a syntax error, I run the HTM
+file in Netscape (by pressing ctrl-F12 rather than F12 in <span class=SpellE>Dreamweaver</span>).</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>2. Netscape (NS 7.xx) is good at detecting bugs and their
+location and gives descriptive error messages, but it runs merrily on, ignoring
+the problem, unless you know how to find the debugger.<span
+style='mso-spacerun:yes'>  </span>When I get an error message in IE, I get none
+in Netscape, although the application may not do what it <span class=GramE>is
+supposed</span> to.<span style='mso-spacerun:yes'>  </span>When this happens, I
+choose <span class=SpellE>Tools|Web</span> <span class=SpellE>Development|JavaScript</span>
+Console from the Netscape 7 menu, and an error window pops up displaying one or
+more errors with the line number, the name of the file with the error, and a
+descriptive message.<span style='mso-spacerun:yes'>  </span>There is probably a
+more efficient way to get to this facility, but I have not had time to discover
+it!<span style='mso-spacerun:yes'>  </span>It is particularly good for syntax
+errors.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE>3.<span style='mso-spacerun:yes'> 
+</span>Visual inspection.</span><span style='mso-spacerun:yes'>  </span>Apart
+from errors in logic, there are several common causes of bugs that pop up <span
+class=GramE>again and again</span>.<span style='mso-spacerun:yes'>  </span>Some
+of these <span class=GramE>are listed</span> below.</p>
+
+<h3>The Usual Causes of Bugs</h3>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+class=GramE>1) Unmatched curly brackets.</span><span style='mso-spacerun:yes'> 
+</span>Too few and the entire program is disabled by the sound of one bracket
+clapping (or failing to clap).<span style='mso-spacerun:yes'>  </span>Too many
+and a function ends prematurely with code hanging out in the breeze after the
+extra bracket.<span style='mso-spacerun:yes'>  </span>Lining up the brackets as
+described above allows a quick visual check to see if they line up in matched
+pairs.</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+class=GramE>2) Upper/Lower case problems.</span><span
+style='mso-spacerun:yes'>  </span>JavaScript, unlike Visual Basic, is <span
+class=GramE>absolutely fussy</span> about case.<span style='mso-spacerun:yes'> 
+</span>Capitalize the “if” or “for” command, and you get an “object expected”
+error because If and <span class=GramE>For</span> are not JavaScript commands
+(and the browser’s diagnosis is limited to, “huh?”).<span
+style='mso-spacerun:yes'>  </span>Create a function called <span class=SpellE>mhChiSquare</span>
+and call it as <span class=SpellE><span class=GramE>mhchiSquare</span></span><span
+class=GramE>(</span>) and it is never called because of the lower case
+“c”.<span style='mso-spacerun:yes'>  </span>Leave off the parentheses in the
+call, and JavaScript thinks you are referring to a variable and not a function.</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>3) The
+^&amp;*^%$<span class=GramE>#<span style='mso-spacerun:yes'>  </span>“</span>==”
+operator.<span style='mso-spacerun:yes'>  </span><span class=GramE>Once in a
+while</span>, you do an if statement with a test to see if two things are
+equal.<span style='mso-spacerun:yes'>  </span>JavaScript takes “=” as an
+assignment rather than a test.<span style='mso-spacerun:yes'>  </span>In other
+words, “t=1” sets t to <span class=GramE>1</span> as in other languages.<span
+style='mso-spacerun:yes'>  </span><span class=GramE>But</span> “<b
+style='mso-bidi-font-weight:normal'>if (t==1)</b>” is required to test whether
+t is indeed equal (or should I say, “equal <span class=SpellE>equal</span>”) to
+1.<span style='mso-spacerun:yes'>  </span>About once a week, I find a bug
+caused by writing “<span class=GramE>if(</span>t=1)” rather than “if(t==1)”,
+and the next time I use such an expression is just far enough away so that I
+forget and make the mistake again.<span style='mso-spacerun:yes'>  </span>The
+problem is made worse by the fact that “&lt;” and “&lt;=” both work as expected
+and are more frequently used than the test for equality.<span
+style='mso-spacerun:yes'>  </span>Maybe some genius will write a browser that
+knows you <span class=GramE>can’t</span> use a single “=” inside an <b
+style='mso-bidi-font-weight:normal'>if</b> condition and shares this
+information with the programmer at the right time. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h3>Alert Boxes </h3>
+
+<p class=MsoNormal>When I need to trace what is happening line by line or <span
+class=GramE>can’t</span> figure out whether a particular function is being
+called, I use the <span class=SpellE>barehands</span> technique of inserting
+alert boxes in the code.<span style='mso-spacerun:yes'>  </span>The command, <span
+class=GramE>alert(</span>212), inserted on line 212, for example will pop up
+the message “212” and wait for you to press the OK button.<span
+style='mso-spacerun:yes'>  </span>If you run the program and the message box
+comes up, you know your program executed line 212.<span
+style='mso-spacerun:yes'>  </span>By inserting several such lines in the
+program, you can localize where an error is occurring because the alert box
+stops everything until you press OK.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Alert boxes can also show you the value of any variable or
+expression.<span style='mso-spacerun:yes'>  </span>For example,</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE>alert(</span>“<span class=SpellE>chisq</span>=”+<span
+class=SpellE>chisq</span>)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE>displays</span> the value of<span
+style='mso-spacerun:yes'>  </span><span class=SpellE>chisq</span> at the point
+in the program where the alert is placed.<span style='mso-spacerun:yes'> 
+</span>Note the initial quoted string, “<span class=SpellE>chisq</span>=”,
+which is simply a message to indicate what is being shown.<span
+style='mso-spacerun:yes'>  </span>It is joined to the value of <span
+class=SpellE>chisq</span> by the + sign, which (unlike the = sign) is versatile
+enough to do concatenation of strings but switches to addition when dealing
+with numbers.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>When writing statistical code, it may be helpful to confirm
+values after every calculation by including an alert box in the code.<span
+style='mso-spacerun:yes'>  </span>When the program functions correctly, the
+alerts can be commented out by inserting // in front of the line.<span
+style='mso-spacerun:yes'>  </span>With this technique, the alerts can be
+reactivated merely by removing the //, in case there is a need for more
+debugging.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Handling Errors</h2>
+
+<p class=MsoNormal>Primitive error handling <span class=GramE>can be done</span>
+with if statements, such as:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE><b style='mso-bidi-font-weight:normal'>if</b></span><b
+style='mso-bidi-font-weight:normal'> (b==0 || c==0)<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>  </span>{<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>    </span><span class=GramE>alert(</span>“Neither a
+nor b can be zero; please try again”)<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>    </span><span class=GramE>return</span><o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-spacerun:yes'>   </span>}<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>This will stop the program with the “modal” alert box.<span
+style='mso-spacerun:yes'>  </span>After the user clicks OK, the “return” exits
+from the current function.<span style='mso-spacerun:yes'>  </span>You can also
+use “return false” so that the function returns a value of “false” when the
+calculation <span class=GramE>is not performed</span>.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>More capable error handling makes use of the <b
+style='mso-bidi-font-weight:normal'>try…catch….finally</b> statement in
+JavaScript, for which there are many tutorials on the Internet.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Testing</h2>
+
+<p class=MsoNormal>Testing can take many forms, but should at least include the
+major browsers and datasets with extreme values, negative values, zeroes, and <span
+class=SpellE>missings</span>, as well as numbers for which results are
+available from other sources.<span style='mso-spacerun:yes'>  </span>The
+results <span class=GramE>should be recorded</span> so that others can know
+what has been tested (and what has not.)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Writing Programs Using the Open <span class=SpellE>Epi</span> Toolkit</h2>
+
+<p class=MsoNormal>Open <span class=SpellE>Epi</span> (<a
+href="http://www.openepi.com/">www.openepi.com</a>) is an open source website
+promoting the writing and distribution of epidemiologic software in
+JavaScript.<span style='mso-spacerun:yes'>  </span>It contains a toolkit that <span
+class=GramE>can be downloaded and adapted to create new programs</span>.<span
+style='mso-spacerun:yes'>  </span>The most difficult parts of the programming <span
+class=GramE>are already done</span>—providing the input and output tables and
+allowing the user to enter data without having to take special precautions with
+the Enter key.<span style='mso-spacerun:yes'>  </span>Open <span class=SpellE>Epi</span>
+authors provide instructions to format the input table, write a statistical
+JavaScript (.<span class=SpellE>js</span>) file, and send the output to an HTML
+table using the commands provided in the <span class=SpellE>OpenEpi</span>
+Toolkit.<span style='mso-spacerun:yes'>  </span>A menu is provided for the
+application that allows uniform access to documentation, pictures of the input
+and output screens, and, if desired, demonstration data to give an example of
+how the application is used.<span style='mso-spacerun:yes'> 
+</span>Instructions for use of the Toolkit <span class=GramE>are provided</span>
+as a separate document available from the Open <span class=SpellE>Epi</span>
+website.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Please send comments and suggestions to:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span class=GramE>agdean9</span><span
+style='mso-spacerun:yes'>   </span>at<span style='mso-spacerun:yes'> 
+</span>Hotmail.com</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>(Replace <span class=GramE>“ at</span> ” with @.<span
+style='mso-spacerun:yes'>  </span><span class=GramE>Don’t</span> put email
+addresses on a website with the @ intact, as they will be grabbed by “spiders”
+for advertising mailing lists.<span style='mso-spacerun:yes'>  </span>Use a
+JavaScript program to dynamically construct the address from unrecognizable
+parts, or otherwise obscure it as above.<span style='mso-spacerun:yes'> 
+</span>Thanks to Jens Lauritsen for this tip.)</p>
+
+</div>
+
+</body>
+
+
+
+
+
+<script language="JavaScript">
+
+// METATRAFFIC -- COPYRIGHT (C) 2002-2005, Brinkster Site Statistics Corp.
+
+var pagetitle = document.title;
+var action = "";
+var amount = "0";
+var order = ""; 
+
+var scriptlocation = "/stats/track.asp";
+
+var pagedata = 'mtpt=' + escape(pagetitle) + '&mtac=' + escape(action) + '&mta=' + amount + '&mto=' + escape(order) + '&mtr=' + escape(document.referrer) + '&mtt=2&mts=' + window.screen.width + 'x' + window.screen.height + '&mti=1&mtz=' + Math.random(); 
+document.write ('<img height=1 width=1 ');
+document.write ('src="' + scriptlocation + '?' + pagedata + '">');
+</script>
+
+
+</html>

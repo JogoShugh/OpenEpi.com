@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Results</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script language="JavaScript" type="text/JavaScript">
+function dataArray()
+{var A = new Array()
+
+   //Meta data for the dataset...
+var s0= new Array();
+s0["title"]="<b>R by C Table</b>"
+s0["datacmin"]=2
+s0["datacmax"]=4
+s0["datarmin"]=2
+s0["datarmax"]=4
+s0["numD"]=3
+s0["numE"]=3
+s0["createdby"]="file://C:\_OpenEpi\Development\RbyC\RbyC.htm"
+s0["cols"]=6
+s0["rows"]=6
+s0["maxatleft"]=true
+s0["maxattop"]=true
+s0["expleft"]=true
+s0["conflevel"]="95"
+s0["nohighlight"]="0"
+s0["columnpercents"]="1"
+s0["rowpercents"]="1"
+s0["usetablesettings"]=false
+s0["labels"]=10
+s0["varnames"]=2
+s0["valnames"]=8
+s0["varD"]="Disease"
+s0["varE"]="Blood"
+s0["varS"]="Stratifying Variable"
+s0["Dvals"]=new Array("Ulcer","Cancer","Control","")
+s0["Evals"]=new Array("O","A","B","")
+s0["Svals"]=
+s0["strata"]=1
+s0["label1"]=""
+s0["label2"]=""
+s0["varname1"]="Disease"
+s0["label3"]=""
+s0["label4"]=""
+s0["label5"]=""
+s0["label6"]=""
+s0["label7"]="Values"
+s0["valname1"]="Ulcer"
+s0["valname2"]="Cancer"
+s0["valname3"]="Control"
+s0["valname4"]=""
+s0["varname2"]="Blood"
+s0["valname5"]="O"
+s0["label8"]=""
+s0["valname6"]="A"
+s0["label9"]=""
+s0["valname7"]="B"
+s0["label10"]=""
+s0["valname8"]=""
+A[0]=s0;
+
+  //Data in one or more strata...
+var s1= new Array();
+s1["E0D0"]=983
+s1["E0D1"]=383
+s1["E0D2"]=2892
+s1["E1D0"]=679
+s1["E1D1"]=416
+s1["E1D2"]=2625
+s1["E2D0"]=134
+s1["E2D1"]=84
+s1["E2D2"]=570
+A[1]=s1;
+
+return A
+}
+function etableCmds1()
+{var A=new Array()
+A[0]='useTableSettings=false;'
+A[1]='myTable = new Stratum(200,100,360,180,6,6)'
+A[2]='myTable.bgColor = "#ffffff"'
+A[3]='myTable.setHeaderStyle("#cccccc","center","middle",6,"arial","16px")'
+A[4]='myTable.setHeaderText("<b>R by C Table</b>");'
+A[5]='myTable.row[0].cell[0].type="label"'
+A[6]='myTable.row[0].cell[0].value=""'
+A[7]='myTable.row[0].cell[1].type="label"'
+A[8]='myTable.row[0].cell[1].value=""'
+A[9]='myTable.row[0].cell[2].type="varname"'
+A[10]='myTable.row[0].cell[2].value="Var 2"'
+A[11]='myTable.row[0].cell[3].type="label"'
+A[12]='myTable.row[0].cell[3].value=""'
+A[13]='myTable.row[1].cell[0].type="label"'
+A[14]='myTable.row[1].cell[0].value=""'
+A[15]='myTable.row[1].cell[1].type="label"'
+A[16]='myTable.row[1].cell[1].value="Values"'
+A[17]='myTable.row[2].cell[0].type="varname"'
+A[18]='myTable.row[2].cell[0].value="Var 1"'
+A[19]='myTable.row[2].cell[1].type="valname"'
+A[20]='myTable.row[2].cell[1].value=""'
+A[21]='myTable.row[2].cell[2].type="data"'
+A[22]='myTable.row[2].cell[2].value=""'
+
+return A
+}
+
+function etableCmds2()
+{var A=new Array()
+A[0]='ShowHide("scontrols_span",false)'
+A[1]='myTable.setRowColor(0,"#aaaaaa")'
+A[2]='myTable.setRowColor(1,"#aaaaaa")'
+A[3]='myTable.setColColor(0,"#aaaaaa")'
+A[4]='myTable.setColColor(1,"#aaaaaa")'
+A[5]='myTable.setRowColor(5,"#999999")'
+A[6]='myTable.setColColor(5,"#999999")'
+A[7]='myTable.row[0].cell[0].type ="label"'
+A[8]='myTable.row[0].cell[1].type ="label"'
+A[9]='myTable.row[0].cell[2].type ="varname"'
+A[10]='myTable.row[0].cell[3].type ="label"'
+A[11]='myTable.row[0].cell[4].type ="label"'
+A[12]='myTable.row[0].cell[5].type ="label"'
+A[13]='myTable.row[1].cell[0].type ="label"'
+A[14]='myTable.row[1].cell[1].type ="label"'
+A[15]='myTable.row[1].cell[2].type ="valname"'
+A[16]='myTable.row[1].cell[3].type ="valname"'
+A[17]='myTable.row[1].cell[4].type ="valname"'
+A[18]='myTable.row[1].cell[5].type ="valname"'
+A[19]='myTable.row[2].cell[0].type ="varname"'
+A[20]='myTable.row[2].cell[1].type ="valname"'
+A[21]='myTable.row[2].cell[2].type ="data"'
+A[22]='myTable.row[2].cell[3].type ="data"'
+A[23]='myTable.row[2].cell[4].type ="data"'
+A[24]='myTable.row[2].cell[5].type ="rowtot"'
+A[25]='myTable.row[3].cell[0].type ="label"'
+A[26]='myTable.row[3].cell[1].type ="valname"'
+A[27]='myTable.row[3].cell[2].type ="data"'
+A[28]='myTable.row[3].cell[3].type ="data"'
+A[29]='myTable.row[3].cell[4].type ="data"'
+A[30]='myTable.row[3].cell[5].type ="rowtot"'
+A[31]='myTable.row[4].cell[0].type ="label"'
+A[32]='myTable.row[4].cell[1].type ="valname"'
+A[33]='myTable.row[4].cell[2].type ="data"'
+A[34]='myTable.row[4].cell[3].type ="data"'
+A[35]='myTable.row[4].cell[4].type ="data"'
+A[36]='myTable.row[4].cell[5].type ="rowtot"'
+A[37]='myTable.row[5].cell[0].type ="label"'
+A[38]='myTable.row[5].cell[1].type ="valname"'
+A[39]='myTable.row[5].cell[2].type ="coltot"'
+A[40]='myTable.row[5].cell[3].type ="coltot"'
+A[41]='myTable.row[5].cell[4].type ="coltot"'
+A[42]='myTable.row[5].cell[5].type ="grandtot"'
+A[43]='setColors()'
+
+return A
+}
+
+function runEtable()
+{
+if (opener)
+ {
+   if (opener.useOpenEpiEntry)
+    {
+	  opener.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+ }
+ 
+ 
+ 
+ 
+ else if (parent)
+ {
+   if (parent.useOpenEpiEntry)
+    {
+	  parent.useOpenEpiEntry(etableCmds1(),etableCmds2(),dataArray());
+	}
+  }
+}
+
+
+</script></head><body onload="runEtable()">
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+<td><img src="../img/shim.gif" width="100" height="1"></td>
+</tr>
+<tr><td >&nbsp;</td></tr>
+<tr><tr><th align="center" colspan=6><h3>Chi Square for R by C Table</h3></th></tr>
+<tr><td colspan=6><hr noshade></td></tr>
+<td >&nbsp;</td></tr>
+<tr><td  colspan=4 align=right>Chi Square=</td><td  align=left>40.54</td></tr>
+<tr><td  colspan=4 align=right>Degrees of Freedom=</td><td  align=left>4</td></tr>
+<tr><td  colspan=3 align=right>p-value=</td><td  align=left><img src="../img/redpin.gif" >0.00000003341</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  colspan=5>Cochran recommends accepting the chi square if:</td></tr>
+<tr><td  align=center></td><td  colspan=4>1. No more than 20% of cells have expected < 5.</td></tr>
+<tr><td  align=center></td><td  colspan=4>2. No cell has an expected value < 1.</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><td  colspan=2 align=right>In this table:</td></tr>
+<tr><td  align=center></td><td  colspan=4>None of 9 cells  have expected values < 5.</td></tr>
+<tr><td  align=center></td><td  colspan=4>No cells have expected values < 1.</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  colspan=5>Using these criteria, this chi square can be accepted.</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  colspan=6>Expected value = row total*column total/grand total</td></tr>
+<tr><td >&nbsp;</td></tr>
+<tr><td  align=center></td><td  colspan=6>Rosner, B. Fundamentals of Biostatistics. 5th ed. Duxbury Thompson Learning. 2000; p. 395</td></tr>
+</table>
+<br>Print from the browser, or select all or part of the text and then copy and paste to other programs.
+</body></html>

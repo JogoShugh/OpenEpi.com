@@ -1,0 +1,2625 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="ToolkitDoc_files/filelist.xml">
+<link rel=Edit-Time-Data href="ToolkitDoc_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Output Commands</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="State"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="country-region"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="City"/>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PersonName"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Andrew G. Dean</o:Author>
+  <o:LastAuthor> </o:LastAuthor>
+  <o:Revision>4</o:Revision>
+  <o:TotalTime>482</o:TotalTime>
+  <o:LastPrinted>2003-04-16T02:07:00Z</o:LastPrinted>
+  <o:Created>2004-02-01T03:27:00Z</o:Created>
+  <o:LastSaved>2004-02-23T23:28:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>6472</o:Words>
+  <o:Characters>36897</o:Characters>
+  <o:Company>EpiInformatics</o:Company>
+  <o:Lines>307</o:Lines>
+  <o:Paragraphs>86</o:Paragraphs>
+  <o:CharactersWithSpaces>43283</o:CharactersWithSpaces>
+  <o:Version>11.5606</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:TargetScreenSize>1024x768</o:TargetScreenSize>
+ </o:OfficeDocumentSettings>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:ActiveWritingStyle Lang="EN-US" VendorID="64" DLLVersion="131078"
+   NLCheck="1">0</w:ActiveWritingStyle>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:UseWord2002TableStyleRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;}
+h2
+	{mso-style-link:"Char Char";
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+h3
+	{mso-style-name:"Heading 3\,Heading 3 Char Char Char";
+	mso-style-link:"Heading 3 Char Char Char Char Char";
+	mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	font-weight:normal;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:center 3.0in right 6.0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+span.CharChar
+	{mso-style-name:"Char Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;
+	mso-bidi-language:AR-SA;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading3CharCharCharCharChar
+	{mso-style-name:"Heading 3 Char Char Char Char Char";
+	mso-style-locked:yes;
+	mso-style-link:"Heading 3\,Heading 3 Char Char Char";
+	mso-ansi-font-size:13.0pt;
+	mso-bidi-font-size:13.0pt;
+	font-family:Arial;
+	mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;
+	mso-bidi-language:AR-SA;
+	font-weight:bold;}
+ /* Page Definitions */
+ @page
+	{mso-footnote-separator:url("ToolkitDoc_files/header.htm") fs;
+	mso-footnote-continuation-separator:url("ToolkitDoc_files/header.htm") fcs;
+	mso-endnote-separator:url("ToolkitDoc_files/header.htm") es;
+	mso-endnote-continuation-separator:url("ToolkitDoc_files/header.htm") ecs;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-even-footer:url("ToolkitDoc_files/header.htm") ef1;
+	mso-footer:url("ToolkitDoc_files/header.htm") f1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:121389373;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-136406724 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:408428864;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2077342400 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:491485508;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-638702640 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:793792216;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-419690160 67698689 67698703 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:1125003594;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1545103024 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="3074"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1 align=center style='text-align:center'><a name="_Toc63350911">The OpenEpi
+Toolkit</a></h1>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'>Open Source Input and
+Output Tools for Developing Statistical Calculators</p>
+
+<p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'>Written entirely in
+JavaScript and HTML for Cross-Platform Compatibility</p>
+
+<p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'>“Go ahead.<span
+style='mso-spacerun:yes'>  </span>Write a calculator.”</p>
+
+  <p class=MsoNormal><o:p>&nbsp;</o:p><o:p></o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'>Developed by</p>
+
+<p class=MsoNormal align=center style='text-align:center'>The OpenEpi Project</p>
+
+  <p class=MsoNormal align=center style='text-align:center'><o:p>Supported in 
+    part by a grant from the Bill and Melinda Gates Foundation&nbsp;</o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'>Andrew G. Dean, Kevin
+M. Sullivan, and Roger Mir</p>
+
+<p class=MsoNormal align=center style='text-align:center'><st1:place w:st="on"><st1:City
+ w:st="on">Atlanta</st1:City>, <st1:country-region w:st="on">Georgia</st1:country-region></st1:place></p>
+
+  <p class=MsoNormal align=center style='text-align:center'>Updated February, 
+    2007</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoToc1 style='tab-stops:right dotted 431.5pt'><!--[if supportFields]><span
+style='mso-element:field-begin'></span><span
+style='mso-spacerun:yes'> </span>TOC \o &quot;1-3&quot; \h \z \u <span
+style='mso-element:field-separator'></span><![endif]--><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350911">The
+OpenEpi Toolkit<span style='color:windowtext;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350911 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>1<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900310031000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350912">Types
+of Computer Software Calculators<span style='color:windowtext;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350912 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>3<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900310032000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350913">OpenEpi
+and Open Source Licensing<span style='color:windowtext;display:none;mso-hide:
+screen;text-decoration:none;text-underline:none'><span style='mso-tab-count:
+1 dotted'>. </span></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-begin'></span> PAGEREF _Toc63350913 \h </span><span
+style='color:windowtext;text-decoration:none;text-underline:none'><span
+style='display:none;mso-hide:screen'><span style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>5<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900310033000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350914">Setting
+Up a New Application in OpenEpi<span style='color:windowtext;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350914 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>6<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900310034000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350915">Input
+Commands<span style='color:windowtext;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350915 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>7<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900310035000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350916">newtable<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350916 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>7<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900310036000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350917">title<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350917 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>7<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900310037000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350918">newrow<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>.. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350918 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>7<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900310038000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350919">Data
+Types<span style='color:windowtext;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350919 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>8<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900310039000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350920">Special
+Cell Characteristics<span style='color:windowtext;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350920 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>9<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320030000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350921">allowstrata<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350921 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>9<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320031000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350922">lock<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350922 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>10<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320032000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350923">unlock<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350923 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320033000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350924">Color
+Commands<span style='color:windowtext;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350924 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320034000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350925">The
+Datarange Command<span style='color:windowtext;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350925 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320035000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350926">Input
+Table Example<span style='color:windowtext;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350926 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>11<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320036000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350927">Checkcode<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350927 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>12<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320037000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350928">Retrieving
+and Working With Entered Data<span style='color:windowtext;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350928 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>12<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320038000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350929">Producing
+Output<span style='color:windowtext;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'> </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350929 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>14<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900320039000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350930">Output
+Commands<span style='color:windowtext;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350930 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>14<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900330030000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350931">Example
+of Output Commands (From Shell.htm or Proportion.htm)<span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350931 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>15<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900330031000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350932">Conclusion<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350932 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>17<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900330032000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350933">Stratified
+Data<span style='color:windowtext;display:none;mso-hide:screen;text-decoration:
+none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350933 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>18<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900330033000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350936">Saving
+and Retrieving Data<span style='color:windowtext;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350936 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>18<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900330036000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350937">Analysis
+of Stratified Data<span style='color:windowtext;display:none;mso-hide:screen;
+text-decoration:none;text-underline:none'><span style='mso-tab-count:1 dotted'>. </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350937 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>21<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900330037000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 431.5pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc63350938">Features
+Not Yet Implemented (the Wish List)<span style='color:windowtext;display:none;
+mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-tab-count:1 dotted'> </span></span><!--[if supportFields]><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><span style='mso-element:field-begin'></span> PAGEREF
+_Toc63350938 \h </span><span style='color:windowtext;text-decoration:none;
+text-underline:none'><span style='display:none;mso-hide:screen'><span
+style='mso-element:field-separator'></span></span></span><![endif]--><span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'>22<!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000D0000005F0054006F006300360033003300350030003900330038000000</w:data>
+</xml><![endif]--></span><!--[if supportFields]><span style='color:windowtext;
+display:none;mso-hide:screen;text-decoration:none;text-underline:none'><span
+style='mso-element:field-end'></span></span><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+  <h2>Update--February 
+    2007</h2>
+  <p class=MsoNormal>The 
+    supporting programs in the framework, particularly AppHelper.js and Estratum.js, 
+    have been changed to implement a tabbed interface and do away with the popup 
+    windows that formerly caused trouble with popup prevention software. Now you 
+    can move smoothly among Div's or iFrames within the same window. Help files 
+    are still displayed in separate windows, but this should not cause problems. 
+    From the developer's point of view, the instructions below are still valid 
+    and none of the previous application programs had to be updated (whew!). 
+    </p>
+  <h2><a name="_Toc63350912">Types of Computer Software Calculators</a></h2>
+
+<p class=MsoNormal>A software calculator is a computer program that produces
+mathematical or statistical output from data entered on the screen.<span
+style='mso-spacerun:yes'>  </span>Many calculators will print results, but
+most, in contrast to database and statistical programs, do not save or retrieve
+data.<span style='mso-spacerun:yes'>  </span>The thousands of calculators
+available on the Internet and elsewhere are designed for a wide range of
+purposes—counting calories, construction, engineering, astrology, mathematics,
+and statistics.<span style='mso-spacerun:yes'>  </span>Those of most interest
+in public health and epidemiology are statistical calculators and those for
+nutrition statistics.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Free calculators available on the Internet vary in quality
+and level of validation, based on authorship, level of maintenance, and other
+factors.<span style='mso-spacerun:yes'>  </span>Most do not have special
+facilities for translation into multiple languages.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>From the software point of view, there are several main types
+of calculators:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'>Windows,
+     Macintosh, Linux, or palmtop calculators developed for a specific desktop,
+     and generally running only on that platform. They are developed in Visual
+     Basic, C++, <st1:place w:st="on">Delphi</st1:place> (Pascal), and other
+     desktop languages.</li>
+ <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list .5in'>Internet
+     calculators that can be viewed from common browsers (Internet Explorer or
+     IE, Netscape or NS) on any major desktop platform when running on an
+     Internet Server.<span style='mso-spacerun:yes'>  </span>They are of three
+     major varieties:</li>
+</ul>
+
+<ul style='margin-top:0in' type=disc>
+ <ol style='margin-top:0in' start=1 type=1>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo2;tab-stops:list 1.0in'>Those
+      that run only with the aid of a server, whether the server is on the
+      local machine (Personal Web Server or IIS for Windows) or on the
+      Internet.<span style='mso-spacerun:yes'>  </span>Languages available for
+      development include Active Server Pages (ASP), ASP.NET, PHP, JSP, and
+      others.<span style='mso-spacerun:yes'>  </span>Although it may be
+      possible to download the applications and run them from a computer that
+      is not currently connected to the Internet (say, during a field
+      investigation), running and maintaining Personal Web Server or IIS on the
+      local machine represents a significant barrier to convenient access to
+      the calculator when the computer is not connected to the Internet.</li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo2;tab-stops:list 1.0in'>Those
+      that run from an Internet server, but also from a local hard disk without
+      requiring a server.<span style='mso-spacerun:yes'>  </span>These include
+      applications developed in HTML and JavaScript.<span
+      style='mso-spacerun:yes'>  </span>Since both IE and NS contain JavaScript
+      interpreters they are more or less platform independent. This kind of
+      application might be called “browserware.”<span
+      style='mso-spacerun:yes'>  </span>Browserware has to contend with
+      differences between browsers, but is not limited to any particular
+      operating system and does not require a server—only a browser—to
+      run.<span style='mso-spacerun:yes'>  </span>OpenEpi is based on the
+      browserware concept, so that it will run in Windows, Linux, the
+      Macintosh, and future Internet-based palmtops, as long as a modern
+      version of either IE (5+)<span style='mso-spacerun:yes'>  </span>or NS
+      (7+) is used, and will run either from a hard disk without a server, or a
+      local or remote Internet server.</li>
+  <li class=MsoNormal style='mso-list:l3 level2 lfo2;tab-stops:list 1.0in'>Some
+      ‘browserware” applications require additional programs that are accessed
+      from the browser to provide additional features.<span
+      style='mso-spacerun:yes'>  </span>They use Perl, Java, Python, and other languages
+      to provide additional features, but still function in any operating
+      system that has the relevant run-time module.<span
+      style='mso-spacerun:yes'>  </span>An Internet server will automatically
+      download the necessary software the first time the application is run or
+      warn that it must be obtained.<span style='mso-spacerun:yes'>  </span>The
+      well-known Java language and its Java Beans and Java Applets were
+      designed to be the totally cross-platform solution, with a Java run-time
+      module to be included in every browser.<span style='mso-spacerun:yes'> 
+      </span>However, disputes between Microsoft and Sun Systems have largely
+      removed the advantage of the design, and left JavaScript and HTML as the
+      only practical cross-platform and cross-browser solutions that do not
+      require additional software to be present on the local computer.<span
+      style='mso-spacerun:yes'>  </span></li>
+ </ol>
+</ul>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The OpenEpi concept is to use HTML and JavaScript to the
+maximum limit of their capabilities, and to produce applications that run both
+on the Internet and also from the local hard disk (choice #2 in the list
+above).<span style='mso-spacerun:yes'>  </span>In the current implementation,
+this has the following advantages and disadvantages:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Advantages:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'>HTML
+     and JavaScript are both text-based languages and are interpreted, not
+     compiled, so the source code is immediately accessible to users who
+     download the programs and can be read with Notepad or any text-based
+     editor—the ideal situation for an Open Source project.<span
+     style='mso-spacerun:yes'>  </span></li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'>No
+     extra programs beyond a browser are required to run the applications. </li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'>Programs
+     are small, on the order of 100 or 1000 times smaller than Windows programs</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'>Programs
+     run in Windows, Mac, Linux and other systems with mainline browsers</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'>Can be
+     run with or without a server and with or without an Internet connection</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'>JavaScript
+     is many useful features, such as associative (‘retrieve-by-name”) arrays,
+     easy to understand object programming, and (not so easy to understand but
+     powerful) pattern matching with regular expressions.<span
+     style='mso-spacerun:yes'>  </span>A reasonable library of Math functions
+     is included.</li>
+ <li class=MsoNormal style='mso-list:l2 level1 lfo3;tab-stops:list .5in'>We
+     have been able to develop non-English language translation features that
+     allow the translator to work on a single file listing all the phrases in
+     the programs and the basic documentation.</li>
+</ul>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Disadvantages </p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'>There
+     is no completely cross-platform solution to saving data on a local
+     computer without running a server, although we do so in Windows systems by
+     using HTA files.</li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'>JavaScript
+     is fussy about a number of things, like upper and lower case function
+     names, and the use of “==” for testing equality, and very relaxed about
+     other things, like data types.<span style='mso-spacerun:yes'> 
+     </span>Passing data between browser windows is tricky and dependent on
+     timing, the alignment of the planets, and good luck.<span
+     style='mso-spacerun:yes'>  </span>(Like making an information “drop” in
+     the park in a cold-war spy novel.)</li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'>Calculation-intensive
+     operations may be less efficient because of the interpreted nature of
+     JavaScript, although there are some impressive applications on the
+     net.<span style='mso-spacerun:yes'>  </span>This has not been a problem so
+     far.</li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo4;tab-stops:list .5in'><st1:City
+     w:st="on"><st1:place w:st="on">Reading</st1:place></st1:City> and writing
+     databases is currently limited to server-side operations, but, as mentioned
+     above, we have developed methods to overcome this in particular operating
+     systems so that future calculators can save and retrieve data locally on
+     the hard disk.</li>
+</ul>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2><a name="_Toc63350913">OpenEpi and Open Source Licensing</a></h2>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>OpenEpi is an Open Source project, supported in part by a
+grant from the Bill and Melinda Gates Foundation to <st1:PlaceName w:st="on">Emory</st1:PlaceName>
+<st1:PlaceType w:st="on">University</st1:PlaceType> to enhance the statistical
+capabilities of Epi Info, a public domain software package produced by the
+Centers for Disease Control and Prevention (CDC), <st1:City w:st="on">Atlanta</st1:City>,
+<st1:country-region w:st="on">Georgia</st1:country-region>, <st1:country-region
+w:st="on"><st1:place w:st="on">USA</st1:place></st1:country-region>.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The Open Source movement is based on providing free access
+to source code so that it can be understood, criticized, and improved by a wide
+audience.<span style='mso-spacerun:yes'>  </span>We would prefer to develop our
+own license along the lines of:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>“OpenEpi source code, documentation, and concepts are
+available to all to use as they wish.<span style='mso-spacerun:yes'> 
+</span>Please help improve the code by sending suggestions or new code back to
+the authors.<span style='mso-spacerun:yes'>   </span>We suggest citation to
+acknowledge contributing authors’ works as with any scientific
+publication.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The user assumes responsibility for determining appropriate
+use of the software, for consequences of its use, and for checking results
+against other reliable sources.<span style='mso-spacerun:yes'>  </span>No
+warrantee of any kind is given. ”<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Since the wording above does not constitute an approved Open
+Source license, we have also chosen to apply the “MIT License” chosen from the <a
+href="http://www.opensource.org/">www.opensource.org</a> site.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The MIT License (from www.opensource.org)</p>
+
+<p class=MsoNormal>Copyright (C), 2003, 2004 by Andrew G. Dean, Kevin Sullivan, and <st1:PersonName
+w:st="on">Roger Mir</st1:PersonName>, <st1:place w:st="on"><st1:City w:st="on">Atlanta</st1:City></st1:place>,</p>
+
+<p class=MsoNormal><st1:place w:st="on"><st1:country-region w:st="on">Georgia</st1:country-region></st1:place></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>&quot;Permission is hereby granted, free of charge, to any
+person obtaining a copy </p>
+
+<p class=MsoNormal>of this software and associated documentation files (the
+&quot;Software&quot;), to deal</p>
+
+<p class=MsoNormal>in the Software without restriction, including without
+limitation the rights </p>
+
+<p class=MsoNormal>to use, copy, modify, merge, publish, distribute,
+sublicense, and/or sell </p>
+
+<p class=MsoNormal>copies of the Software, and to permit persons to whom the
+Software is </p>
+
+<p class=MsoNormal>furnished to do so, subject to the following conditions:</p>
+
+<p class=MsoNormal>The above copyright notice and this permission notice shall
+be included in </p>
+
+<p class=MsoNormal>all copies or substantial portions of the Software.”</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>“The software is provided &quot;as is&quot;, without
+warranty of any kind, express </p>
+
+<p class=MsoNormal>or implied, including but not limited to the warranties of
+merchantability, </p>
+
+<p class=MsoNormal>fitness for a particular purpose and noninfringement. in no
+event shall the </p>
+
+<p class=MsoNormal>authors or copyright holders be liable for any claim,
+damages or other </p>
+
+<p class=MsoNormal>liability, whether in an action of contract, tort or
+otherwise, arising from, </p>
+
+<p class=MsoNormal>out of or in connection with the software or the use or
+other dealings in the </p>
+
+<p class=MsoNormal>software.&quot;<span style='mso-tab-count:2'>                    </span></p>
+
+<h2><a name="_Toc63350914">Setting Up a New Application in OpenEpi</a></h2>
+
+<p class=MsoNormal>The OpenEpi Toolkit provides methods for configuring a data
+entry page and for constructing HTML output to display statistical results.
+This leaves the author of a new program free to do statistical programming in
+one or more javascript (.js) files that are linked to the shell program
+provided to make an application.<span style='mso-spacerun:yes'>  </span>If programming
+is done in JavaScript and tested in both Netscape and Internet Explorer, the
+application should run in Windows, the Mac, and Linux, and in either
+browser.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The OpenEpi Toolkit provides a sample HTM file
+(Proportion.htm) and a javascript file (Proportion.js) that contains a<span
+style='mso-spacerun:yes'>  </span>sample of statistical programming that can be
+altered to produce a new program.<span style='mso-spacerun:yes'>  </span>The
+rest of the Toolkit consists of Etable.htm and its associated directory of
+ETable_Files.<span style='mso-spacerun:yes'>  </span>These files provide the
+input and output functions that can be configured using a set of commands
+provided for this purpose.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To begin programming a new application, you set up a new
+subdirectory, named for your application, and at the same level in the
+directory tree as the ETable subdirectory.<span style='mso-spacerun:yes'> 
+</span>In the discussion that follows, the new application is referred to as
+“NEWAPP,” for which you would substitute your own name to indicate the kind of
+statistics being offered.<span style='mso-spacerun:yes'>  </span>“Proportion”
+and “TwobyTwo” are examples.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>NewApp is developed by copying the Toolkit directory at the
+same level in the directory hierarchy (Copying and then Pasting the directory
+will result in “Copy of Toolkit” which can be renamed to match your intended
+application; let’s call it NewApp.<span style='mso-spacerun:yes'>  </span>Inside
+the new directory, change the sample files, Proportion.htm and Proportion.js,
+to NewApp.htm and NewApp.js (actually to the name you choose for your new
+application).<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If you now run NewApp.htm, it should behave exactly as does
+Proportion.htm in the toolkit directory.<span style='mso-spacerun:yes'> 
+</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Then the Input and Output functions can be used from within
+the configureInput() and calculateOEResults() functions in NewApp.htm.<span
+style='mso-spacerun:yes'>  </span>The statistical functions that you write are
+contained in a file called NewApp.js, although other configurations are
+possible.<span style='mso-spacerun:yes'>  </span>Since a shell program
+completely without code would not function or be very informative,
+Proportion.htm, Proportion.js,<span style='mso-spacerun:yes'>  </span>and now,
+NewApp.htm and NewApp.js, contain the code for statistics for a simple binary
+proportion, to be replaced by your own code.<span style='mso-spacerun:yes'> 
+</span>The images are those for the Proportion application, to be replaced with
+images appropriate for your application. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The directory structure should be as follows:</p>
+
+<p class=MsoNormal>ETable</p>
+
+<p class=MsoNormal style='margin-left:.5in'>ETable_Files<span
+style='mso-spacerun:yes'>  </span>directory (DataStore.js, dynchart.js,
+dynlayer.js, EStratum.js, OECommands.js, ReadCookie.js, StatFunctions1.js)</p>
+
+<p class=MsoNormal style='margin-left:.5in'>Image directory (images used by
+Etable: e.g., shim.gif, redpin.gif, greenpin.gif)</p>
+
+<p class=MsoNormal>NewApp</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>NewApp.htm,
+NewApp.js</p>
+
+<p class=MsoNormal style='margin-left:.5in'>In the SCREENS folder, images of
+input and output screens, named NewAppIn.gif and NewAppOut.gif.</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span></p>
+
+<h2><a name="_Toc63350915">Input Commands</a></h2>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Etable.htm, the data input page, is opened in a popup window
+from NewApp.htm.<span style='mso-spacerun:yes'>  </span>It is configured by the
+commands in the “configureInput” function.<span style='mso-spacerun:yes'> 
+</span>ETable input tables offer input features normally associated with
+desktop applications, such as the use of either Tab or Enter keys to move from
+field to field, the up and down arrow keys to control the direction of cursor
+movement, and <span style='mso-spacerun:yes'> </span>the possibility of writing
+JavaScript “check code” to validate or transform input in any specified cell of
+the input table.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>When the Calculate button is clicked by the user, the items
+entered are placed in a standard array, from which they can be retrieved by
+your application to perform the calculations.<span style='mso-spacerun:yes'> 
+</span>ETable then calls the OECalculate function in its “opener” window—that
+is, your application, known here as NewApp.htm.<span style='mso-spacerun:yes'> 
+</span>The code you have placed in OECalculate and in a statistical function
+called from it in NewApp.js retrieves the appropriate items from the input
+array, does the calculations, and then uses the Output object commands to
+deliver HTML output to the user.<span style='mso-spacerun:yes'>  </span>The
+results pop up in a separate window and can be cut and pasted to Microsoft Word
+or other programs for editing and saving.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>After creating an Input object with a variable assignment,
+as in the NewApp.htm function configureInput(), the methods of the Input object
+become available to be used as commands. The commands currently implemented are
+(note lower case must be used, or they will not work; JavaScript is case
+sensitive):</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="_Toc63350916"><span
+class=Heading3CharCharCharCharChar><span style='font-size:13.0pt'>newtable</span></span></a><b
+style='mso-bidi-font-weight:normal'>(numRows, numCols, widthinpixels,
+heightinpixels, leftmargininpixels, topmargininpixels)<o:p></o:p></b></p>
+
+<p class=MsoNormal>This command constructs a new table object in ETable.htm of
+the dimensions specified.<span style='mso-spacerun:yes'>  </span>Further
+commands are used to better define the table, although newtable is sufficient
+to construct a blank table.</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><a name="_Toc63350917"><span
+class=Heading3CharCharCharCharChar><span style='font-size:13.0pt'>title</span></span></a><b
+style='mso-bidi-font-weight:normal'>(“textoftitle”)<o:p></o:p></b></p>
+
+<p class=MsoNormal>The specified text will be placed in the header or title row
+at the top of the input table.<span style='mso-spacerun:yes'>  </span>HTML tags
+can be included with the text as long as they are inside the quotation
+marks.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="_Toc63350918"><span
+class=Heading3CharCharCharCharChar><span style='font-size:13.0pt'>newrow</span></span></a><b
+style='mso-bidi-font-weight:normal'>(&lt;list of items&gt;)<o:p></o:p></b></p>
+
+<p class=MsoNormal>This allows specifying an entire row of cells.<span
+style='mso-spacerun:yes'>  </span>Specifications for cells are separated by
+commas.<span style='mso-spacerun:yes'>  </span>Each one can contain a cell type
+and any number of special characteristics ending in a colon “:”.<span
+style='mso-spacerun:yes'>  </span>A text item or number that does NOT end in a
+colon can also be included. (To include a colon as part of the text, use a
+double colon “::”.) The entire cell specification must be enclosed in double
+quotes (or, if it contains double quotes internally, in single quotes).<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h3><a name="_Toc63350919"><b>Data Types</b></a><b><o:p></o:p></b></h3>
+
+<p class=MsoNormal style='margin-left:.5in'>The data type for the cell should
+be specified as one of the following:</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b style='mso-bidi-font-weight:
+normal'>data:<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>The cell will receive data from
+the user and place it in the standard output data matrix for statistical
+calculations.</p>
+
+<p class=MsoNormal style='margin-left:.5in'><b style='mso-bidi-font-weight:
+normal'>rowtot:<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>The cell will automatically
+maintain row totals for any data cells in the same horizontal row.<span
+style='mso-spacerun:yes'>  </span>A value can be entered by clicking on the
+cell and affirming the desire to enter a value.<span style='mso-spacerun:yes'> 
+</span>If the total is entered, and only one other cell is blank, the value of
+the missing cell is calculated automatically.<span style='mso-spacerun:yes'> 
+</span>Thus, if the user knows that 379 of 1280 persons had a disease, entering
+374 under Disease=(+) and 1280 for the row total is sufficient to complete the
+row.<span style='mso-spacerun:yes'>  </span>ETable will place 901 in the column
+for Disease=(-) in a 2 by 2 table.</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b style='mso-bidi-font-weight:
+normal'>coltot:<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>The cell will automatically
+maintain column totals for any data cells in the same vertical column. As with
+row totals, a single empty cell will be filled in automatically if the column
+total and other cells are entered.</p>
+
+<p class=MsoNormal style='margin-left:.5in'><span
+style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b style='mso-bidi-font-weight:
+normal'>grandtot:<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>The cell will automatically
+maintain the grand total by adding the values of the column totals.</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b style='mso-bidi-font-weight:
+normal'>varname:<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>The cell can receive text that is
+intended to represent a variable name, such as “<st1:place w:st="on"><st1:State
+ w:st="on">Ill</st1:State></st1:place>?”<span style='mso-spacerun:yes'> 
+</span>At present the data type has no special function other than to require
+confirmation when the user wants to enter text, but, in future versions, it is
+anticipated that identifying a variable name as such will be useful.</p>
+
+<p class=MsoNormal style='margin-left:1.0in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b style='mso-bidi-font-weight:
+normal'>valname:<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>The cell can receive text that
+represents a value of a variable, the most common being “yes” and “no” or (+)
+and (-).<span style='mso-spacerun:yes'>  </span>Future versions may make use of
+this identification, although the current version treats cells of type
+varname:, valname:, and label: identically.</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'><b style='mso-bidi-font-weight:
+normal'>label:<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:1.0in'>The cell contains text for display
+or instructions.<span style='mso-spacerun:yes'>  </span>The user can edit or
+enter text after confirmation.</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<h3 style='margin-left:.5in'><a name="_Toc63350920"><b>Special Cell
+Characteristics</b></a><b><o:p></o:p></b></h3>
+
+<p class=MsoNormal style='margin-left:.5in'>The special characteristics that can
+be included in a cell item are:</p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-tab-count:2'>                        </span><span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Spanx:where x is the number of columns to be
+occupied by this cell</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>hx: where x is a number from 1 to 6, indicating
+the HTML header style to be applied</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>bold:<span style='mso-spacerun:yes'>   
+</span>for bold type</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>b:<span style='mso-tab-count:1'>         </span>left
+justify</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>c:<span style='mso-tab-count:1'>         </span>center</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>r:<span style='mso-tab-count:1'>          </span>right
+justify</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>t:<span style='mso-tab-count:1'>          </span>vertically
+align to Top</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>m:<span style='mso-tab-count:1'>        </span>vertically
+align to Middle</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>b:<span style='mso-tab-count:1'>         </span>vertically
+align to Bottom</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>color#rrggbb: where #rrggbb is a color indicator
+in hexadecimal. #000000 is black.<span style='mso-spacerun:yes'> 
+</span>#ffffff (or #FFFFFF) is white, and #FF0000 is pure red.<span
+style='mso-spacerun:yes'>  </span>Charts of colors are available on the
+Internet.</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>nowrap: text will be kept on the same line,
+without wrapping</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l1 level1 lfo5;
+tab-stops:list 1.0in'><![if !supportLists]><span style='font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'><span
+style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>(Not Yet Implemented) pattern#####<span
+style='mso-spacerun:yes'>     </span>where #### can be any “regular expression”
+or mask specifying what the user is allowed to enter.<span
+style='mso-spacerun:yes'>  </span>If the data item entered does not match the
+pattern, a message appears and the item must be corrected or cleared.<span
+style='mso-spacerun:yes'>  </span>Useful regular expressions are:</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>A study of the examples below
+should clarify how cell specifications are built up within the newrow command
+function.</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoNormal><span class=Heading3CharCharCharCharChar><span
+style='font-size:13.0pt'>usetablesettings</span></span><b style='mso-bidi-font-weight:
+normal'>(true) </b>and<b style='mso-bidi-font-weight:normal'> usetablesettings(false)<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If true, “Exposure” (or its equivalent) is assumed to be on
+the left of the table and “Disease” at the top. The settings for table
+configuration in the Settings.htm (Options/Settings on the menu) page do not
+affect table orientation. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="_Toc63350921"><span
+class=Heading3CharCharCharCharChar><span style='font-size:13.0pt'>allowstrata</span></span></a><b
+style='mso-bidi-font-weight:normal'>(true) </b>and<b style='mso-bidi-font-weight:
+normal'> allowstrata(false)<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal>If true, presents an AddStratum button at the top of the
+table.<span style='mso-spacerun:yes'>  </span>The user can create additional
+strata with the button.<span style='mso-spacerun:yes'>  </span>After the first
+stratum, a button also appears to delete the current stratum.<span
+style='mso-spacerun:yes'>  </span>A dropdown selection box allows moving to
+another stratum.<span style='mso-spacerun:yes'>  </span>Data entered in strata
+are stored in the variable dataMatrix[n] where n is the number of a stratum,
+beginning with 1 (not 0).<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b><span style='font-size:13.0pt;font-family:Arial'>settingslink</span></b><b
+style='mso-bidi-font-weight:normal'>(true)</b> and <b style='mso-bidi-font-weight:
+normal'>settingslink(false)</b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If true, a link to the settings page for two by two tables is
+provided to the left of the table.<span style='mso-spacerun:yes'>  </span>Below
+the link is a text item indicating the current setting for Confidence Level.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b><span style='font-size:13.0pt;font-family:Arial'>tablecmd</span></b><b
+style='mso-bidi-font-weight:normal'>(”myTable.<span style='mso-spacerun:yes'> 
+</span>……..”)<o:p></o:p></b></p>
+
+<p class=MsoNormal>This command provides access to a number of commands
+contained in the myTable object.<span style='mso-spacerun:yes'>  </span>To see
+what these are, examine the file called EStratum.js.<span
+style='mso-spacerun:yes'>  </span>All the properties and methods listed in the
+Stratum object can be reached as myTable objects.<span
+style='mso-spacerun:yes'>  </span>For example, the following default values for
+the table are listed.</p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>this.cellFont =
+'arial'<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>this.cellFontSize =
+'16px'<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>In the input object in your application, the following
+commands may be used to set different properties for the font and font size.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>tablecmd(“myTable.cellFont=’times new roman’”)</p>
+
+<p class=MsoNormal>tablecmd(“myTable.cellFontSize=’10px’”)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Note that every detail of case and single and double
+quotation marks must be exactly right.<span style='mso-spacerun:yes'> 
+</span>You can swap single and double quotation marks, but not “nest” two sets
+of double or single marks.<span style='mso-spacerun:yes'>  </span>Nesting a set
+of singles inside a pair of doubles is OK, and vice versa.<span
+style='mso-spacerun:yes'>  </span>The name of the object is “myTable” with a
+small “m” and capital “T”.<span style='mso-spacerun:yes'>  </span>These
+commands are made available for special tinkering, and will not be used
+often.<span style='mso-spacerun:yes'>  </span>It is safest to put these and
+other commands <u>after</u> the newtable command that creates the myTable
+object.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="_Toc63350922"><span
+class=Heading3CharCharCharCharChar><span style='font-size:13.0pt'>lock</span></span></a><b
+style='mso-bidi-font-weight:normal'>(</b>what<b style='mso-bidi-font-weight:
+normal'>)<o:p></o:p></b></p>
+
+<p class=MsoNormal>By default, cells in a table of type, “data,” are available
+for data entry.<span style='mso-spacerun:yes'>  </span>The cursor visits each
+data cell in turn or as a mouseclick places the cursor in a data cell.<span
+style='mso-spacerun:yes'>  </span>Cells of other data types are available for
+entry by mouse click after the user responds affirmatively to a question about
+wanting to enter data in this type of cell.<span style='mso-spacerun:yes'> 
+</span>The lock command locks the designated cell(s) so that the color does not
+change when the mouse cursor hovers over the cell, and entry is prevented.<span
+style='mso-spacerun:yes'>  </span>Values of “what” must be in quotation marks,
+and can include:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>“labels”</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>  </span>Locks all cells
+except “data”, “rowtot”, and “coltot.”<span style='mso-spacerun:yes'> 
+</span>(“grandtot” is always locked).</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Names of cell types.<span style='mso-spacerun:yes'> 
+</span>All cells of the designated type will be locked.</p>
+
+<p class=MsoNormal>“label”</p>
+
+<p class=MsoNormal>“data”</p>
+
+<p class=MsoNormal>“varname”</p>
+
+<p class=MsoNormal>“valname”</p>
+
+<p class=MsoNormal>“rowtot”</p>
+
+<p class=MsoNormal>“coltot”</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>More than one value can be given, separated by commas, as
+in:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>lock(“rowtot”, “coltot”)<span style='mso-spacerun:yes'> 
+</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Individual cells can be locked by using cell designators
+such as “E0D0” for the cell with minimum values for both Exposure and Disease
+(absence of both, for example).<span style='mso-spacerun:yes'>  </span>A little
+experimentation should identify whether you have named the intended cell for
+locking, as locked cell do not change color when the mouse cursor hovers over
+them.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="_Toc63350923"><span
+class=Heading3CharCharCharCharChar><span style='font-size:13.0pt'>unlock</span></span></a><b
+style='mso-bidi-font-weight:normal'>(</b>what<b style='mso-bidi-font-weight:
+normal'>)<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The unlock function accepts the same parameters as the lock
+function, but serves to unlock cells that have been locked.<span
+style='mso-spacerun:yes'>  </span>Hence, if lock(“labels”) has been issued,
+unlock(“varname”) will insure that the user can enter in cells of type,
+“varname”, but not in those with type “label” or “valname.”<span
+style='mso-spacerun:yes'>  </span></p>
+
+<h3><a name="_Toc63350924"><b>Color Commands</b></a><b><o:p></o:p></b></h3>
+
+<p class=MsoNormal>Color commands are cell, row, or column specific, as
+follows:</p>
+
+<p class=MsoNormal style='margin-left:.5in'>cellcolor(row, column, “#rrggbb”)</p>
+
+<p class=MsoNormal style='margin-left:.5in'>rowcolor(row, “#rrggbb”)</p>
+
+<p class=MsoNormal style='margin-left:.5in'>colcolor(col, “#rrggbb”)</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Column and row numbers start with 0 at the upper left and
+top of the table.<span style='mso-spacerun:yes'>  </span>The last row and
+column numbers are therefore rows-1 and cols-1</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h3><a name="_Toc63350925"><b>The Datarange Command</b></a><b><o:p></o:p></b></h3>
+
+<p class=MsoNormal>The datarange command sets up default cell types in a table
+automatically merely by giving the coordinates of the upper left and bottom
+right cells in a rectangular area.<span style='mso-spacerun:yes'>  </span>If
+the area does not include the last row and column, these are automatically set
+up as row and column totals and a grand total is calculated in the lower
+rightmost cell. If columns and rows are available to the left and top of the
+data range, these are automatically designated as varname and valname cells
+from the outside in.<span style='mso-spacerun:yes'>  </span>Other cells are
+assigned to the “label:” type.<span style='mso-spacerun:yes'>  </span>For an R
+x C table, for example, this command allows setting up the entire table with very
+few commands.</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>datarange(rowmin, rowmax, colmin,
+colmax)</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>Example:</p>
+
+<p class=MsoNormal style='margin-left:.5in'>In a table of 8 columns and 13
+rows, the following command within the configureInput function will set up 5
+columns and 10 rows of data cells, with row, column, and grand totals, 2 rows
+above, and 2 columns to the left for variable names and values:</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>datarange(2,2,rows-2, cols-2)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The upper left corner of the table is row 0, column 0, (not
+1,1).<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><b><i><span style='font-size:14.0pt;font-family:Arial'><o:p>&nbsp;</o:p></span></i></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><a name="_Toc63350926"><span
+class=Heading3CharCharCharCharChar><span style='font-size:13.0pt'>Input Table
+Example</span></span></a><span style='mso-bookmark:_Toc63350926'></span><span
+class=CharChar><span style='font-size:14.0pt'> </span></span>(from the
+Proportion application)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in'>newtable(crows,ccols,w,h,x,y);</p>
+
+<p class=MsoNormal style='margin-left:1.0in'>In the program values have
+previously been assigned to the parameters for greater clarity.<span
+style='mso-spacerun:yes'>  </span>You might choose to put the actual numbers in
+the newtable command, as in newtable(2,3,200,100,400,100).</p>
+
+<p class=MsoNormal style='margin-left:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>title(&quot;&lt;b&gt;Simple
+Proportion&lt;/b&gt;&quot;);</p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Place the words “Simple
+Proportion” in the title or header at the top of the table.<span
+style='mso-spacerun:yes'>  </span>The “b” tags are standard HTML tags for
+“bold”.<span style='mso-spacerun:yes'>  </span>These or other tags can be
+included within the quoted string.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>newrow(&quot;varname:&lt;b&gt;Proportion&lt;/b&gt;&quot;,<span
+style='mso-spacerun:yes'>  </span>&quot;valname:b:Numerator&quot;,<span
+style='mso-spacerun:yes'>  </span>&quot;data:&quot;)</p>
+
+<p class=MsoNormal style='margin-left:1.0in'>Constructs a row of three
+cells.<span style='mso-spacerun:yes'>  </span>The first is of type “varname:”
+and contains the word “Proportion” with an Internet tag for “bold”.<span
+style='mso-spacerun:yes'>  </span>The second cell is given the type “valname:”
+and the text “Numerator”.<span style='mso-spacerun:yes'>  </span>The third cell
+is of type “data:”, for entry of the numerator.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>newrow(&quot;label:&quot;,&quot;valname:b:Denominator&quot;,<span
+style='mso-spacerun:yes'>  </span>&quot;data:&quot;);</p>
+
+<p class=MsoNormal style='margin-left:1.0in'>The second row has three cells
+also, since it must match the first row, and these are of types “label:”,
+“valname:”, and “data:”, with the word “Denominator in the second cell.</p>
+
+<h2><o:p>&nbsp;</o:p></h2>
+
+<h2><a name="_Toc63350927">Checkcode</a></h2>
+
+<p class=MsoNormal>A function called checkcode in the Shell.htm program can be
+used to evaluate each entry the user makes and to take appropriate action if
+necessary.<span style='mso-spacerun:yes'>  </span>In the current Shell.htm, the
+function is set up to guarantee that only numbers are entered in cells of type
+“data:”, but the row and column numbers of the current cell are passed to the
+function so that conditions can be set up only for certain rows, columns, or
+cells.<span style='mso-spacerun:yes'>  </span>Values of other cells can be
+obtained using functions of the myTable object within ETable.htm, and their
+values can also be set with the myTable<span style='mso-spacerun:yes'> 
+</span>insert function.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The Checkcode function places a great deal of power in the
+hands of the statistical programmer to control and manipulate data during
+entry, but current programming may require quite a bit of study of the
+Javascript in the myTable object and trial-and-error.<span
+style='mso-spacerun:yes'>  </span>Future development can extend and simplify
+how checkcode works if this is a popular feature.</p>
+
+<h2><a name="_Toc63350928">Retrieving and Working With Entered Data</a></h2>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>When the user clicks the Calculate button in ETable, values
+in the cells of type “data” are placed in a one-dimensional array, with each
+item identified by a text string as follows:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>“E0D0” –The baseline levels for both Exposure(E) and
+Disease(D), i.e., the absence of both</p>
+
+<p class=MsoNormal>“E0D1”—No exposure and the next level of Disease (“yes” or
+(+) in a 2x2 table</p>
+
+<p class=MsoNormal>“E1D0”—Exposure present<span style='mso-spacerun:yes'> 
+</span>but no disease</p>
+
+<p class=MsoNormal>“E1D1”—Both Exposure and Disease present, or next level up
+from zero E and D, if<span style='mso-spacerun:yes'>  </span>the table is
+larger than 2 x 2.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Tables can be as large as the screen will accommodate, for
+example “E10D5”.<span style='mso-spacerun:yes'>  </span>If the concepts of
+Disease and Exposure are not important, the E and D can be taken as arbitrary
+identifiers. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>“Why use these complicated identifiers, and what happened to
+a, b, c, and d?” you ask.<span style='mso-spacerun:yes'>  </span>The advantage
+of this scheme is that ETable keeps track of changes in settings for the 2 x 2
+table (mainly), and will always deliver the same numbers for E0D0 no matter
+where on the screen the cell for minimal exposure and minimal disease is
+configured by the user.<span style='mso-spacerun:yes'>  </span>Thus it is
+possible to set up the data entry table rotated 90 degrees or with minimal
+values on the left instead of the right and top instead of bottom, and the
+statistical programmer does not have to worry about how the table is
+configured.<span style='mso-spacerun:yes'>  </span>Of course the cells must be
+properly labeled on the screen and the user must read the labels when entering
+data, but, within these limits, the system is independent of screen layout.<span
+style='mso-spacerun:yes'>  </span>If usetablesettings(false) appears in the configureInput
+function, E will always be on the left, representing rows and D will be at the
+top, with values in columns.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>So much for a single table.<span style='mso-spacerun:yes'> 
+</span>Each of the one-dimensional arrays describing a table is placed inside
+the “data” array passed to the OECalculate function.<span
+style='mso-spacerun:yes'>  </span>Stratum number 1 becomes data[1] and stratum
+n will be data[n].<span style='mso-spacerun:yes'>   </span>Hence to retrieve
+the value for E0D0 from the first stratum and set it equal to “A” for your
+calculations, the JavaScript command assignment is:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>A=parseFloat(data[1][&quot;E0D0&quot;])</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The standard JavaScript function, parseFloat(), is used to
+convert the cell contents to a number and also to remove any stray text that
+might be present.<span style='mso-spacerun:yes'>  </span>It yields a floating
+point number, or, if no valid number is found, “<st1:place w:st="on">NaN</st1:place>”
+for “Not a Number”.<span style='mso-spacerun:yes'>  </span>Your statistical
+routine should check for this eventuality and do something appropriate (give a
+friendly alert box, assign a zero, etc.).<span style='mso-spacerun:yes'> 
+</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>If you have configured an input table you can see the array
+it produces by uncommenting (removing the “//”) from the line:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>//EntryWin.writeTable(EntryWin.dataMatrix[1])</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>in the OECalculate function.<span style='mso-spacerun:yes'> 
+</span>Then run the application and enter some distinctive numbers (like
+1,2,3…) in the input table before clicking the Calculate button in ETable.</p>
+
+<p class=MsoNormal>You should see the data array displayed with appropriate
+labels so that you can figure out how to convert it to a format useful for your
+calculations.<span style='mso-spacerun:yes'>  </span>If the table is large or
+there are many strata, you may ave to use the .length properties of the arrays
+to see how big they are and write “for” loops to retrieve all the data.<span
+style='mso-spacerun:yes'>  </span>Remember that JavaScript arrays are 0 based,
+although we have chosen to leave data[0] empty for future use and so that
+data[1] corresponds to Stratum 1, or to the unstratified condition.<span
+style='mso-spacerun:yes'>  </span>In any case, when you have hooked up the
+assignments correctly, perhaps with the aid of some temporary alert boxes, the
+application should give the same results no matter how the table is configured
+by the user in the Settings.htm page. <span style='mso-tab-count:2'>                </span><span
+style='mso-spacerun:yes'>  </span></p>
+
+<h2><a name="_Toc63350929">Producing Output</a></h2>
+
+<p class=MsoNormal>Output is best produced by passing the output data object
+(in NewApp, known as cmdObj) to the statistical routine.<span
+style='mso-spacerun:yes'>  </span>The elements of the array called
+cmdObj.data[1] contain the data in Stratum 1 as described above, and those of
+cmdObj.data[0], are named array elements (<span style='mso-spacerun:yes'> 
+</span>e.g., &quot;numD&quot;, &quot;numE&quot;, &quot;cols&quot;,
+&quot;rows&quot;, &quot;conflevel&quot; ) that are the “metadata” or
+description of the data.<span style='mso-spacerun:yes'>  </span>Of course, this
+is all rather ponderous for managing a single numerator and denominator, as in
+Proportion.js.<span style='mso-spacerun:yes'>  </span>You can see a more
+complex example by examining the TwobyTwo files, which implement single and
+stratified two by two tables that can be rotated or flipped through user
+preference and still maintain the same array labels to indicate disease and exposure
+variables in cmdObj.data[1] and, if present, other strata.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The NewApp.js statistical function (we recommend calling it
+“doStatistics”) does its calculations and then uses the output table commands
+to configure one or more tables for the output page.<span
+style='mso-spacerun:yes'>  </span>The html page is constructed automatically
+and placed in the cmdObj object as cmdObj.s<span style='mso-spacerun:yes'> 
+</span>(s for “string”).<span style='mso-spacerun:yes'>  </span>The page is
+configured, displayed, and possibly saved as a file, by the writeResults
+function in NewApp.htm. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Saving pages occurs if the special program OpenEpiSave.hta
+is run on a local disk (after gritting your teeth and telling the security
+system that you really want to run it).<span style='mso-spacerun:yes'> 
+</span>OpenEpiSave.hta runs the OpenEpi menu, from which you can run the other
+programs.<span style='mso-spacerun:yes'>  </span>When this is the case, you
+will see a message after pressing the Calculate button, indicating that the
+output has been saved and showing the name of the saved file.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2><a name="_Toc63350930">Output Commands</a></h2>
+
+<p class=MsoNormal>After creating an Output object with a variable assignment,
+as in:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Var Out = new Output;</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The following methods and properties are available:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>newtable(cols,
+colwidth)<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in'>Starts a new HTML table for output,
+specifying the number of columns and their width in pixels.<span
+style='mso-spacerun:yes'>  </span>Although all the columns are the same width,
+extra columns can be allotted for formatting purposes.<span
+style='mso-spacerun:yes'>  </span>For example, if you want a space to the left
+of the table and need the width of two columns for the first item, followed by
+two normal-width data coluns, you could specify 5 columns.<span
+style='mso-spacerun:yes'>  </span>To make horizontal lines that extend to the
+right of the last column, you might prefer to specify 6 columns.<span
+style='mso-spacerun:yes'>  </span>Since a lower resolution screen is 800 pixels
+wide, 6 columns of 100 pixels each would be practical.</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>newrow()<o:p></o:p></b></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>Inserts a
+blank row, to skip a line.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>newrow(&lt;list of
+items&gt;)<o:p></o:p></b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Items in the list must be valid strings separated by
+commas.<span style='mso-spacerun:yes'>  </span>Thus, “Enter population size” is
+a valid cell item, as are “2003” and Fmt(x), if Fmt is a function in the local
+environment.<span style='mso-spacerun:yes'>  </span>The plus sign can be used
+to concatenate strings so that “OR=”+Fmt(OR) becomes a single string.<span
+style='mso-spacerun:yes'>  </span>Except for the image item, the order of items
+does not matter.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Each item can have one or more of the following commands,
+followed by a colon, and then the item to place in the row.<span
+style='mso-spacerun:yes'>  </span><i style='mso-bidi-font-style:normal'>Note
+that there is no Data Type in output tables</i>.</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>image =
+     “imagepathandname”:<span style='mso-spacerun:yes'>   </span>An image to be
+     placed in the cell.<span style='mso-spacerun:yes'>  </span>The path should
+     be relative to the location of the application, as in<span
+     style='mso-spacerun:yes'>   </span>image/myimage.gif, for example. If the
+     image and pathname, followed by a colon, appear to the left of the text,
+     the image is placed on the left side of the cell.<span
+     style='mso-spacerun:yes'>  </span>If the text appears first, then the
+     image will be placed to the right of the text.<span
+     style='mso-spacerun:yes'>  </span>Thus you can place a red pin image to
+     the left of a number to point out statistically interesting results, by
+     using “image=redpin.gif:”+myNumber.<span style='mso-spacerun:yes'> 
+     </span>Swapping the order of the two items will place the pin on the
+     right.</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>Spanx:where
+     x is the number of columns to be occupied by this cell</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>hx:
+     where x is a number from 1 to 6, indicating the HTML header style to be
+     applied</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>bold:<span
+     style='mso-spacerun:yes'>    </span>for bold type</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>b:<span
+     style='mso-tab-count:1'>         </span>left justify</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>c:<span
+     style='mso-tab-count:1'>         </span>center</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>r:<span
+     style='mso-tab-count:1'>          </span>right justify</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>t:<span
+     style='mso-tab-count:1'>          </span>vertically align to Top</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>m:<span
+     style='mso-tab-count:1'>        </span>vertically align to Middle</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>b:<span
+     style='mso-tab-count:1'>         </span>vertically align to Bottom</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>color#rrggbb:
+     where #rrggbb is a color indicator in hexadecimal. #000000 is black.<span
+     style='mso-spacerun:yes'>  </span>#ffffff (or #FFFFFF) is white, and #FF0000
+     is pure red.<span style='mso-spacerun:yes'>  </span>Charts of colors are
+     available on the Internet.</li>
+ <li class=MsoNormal style='mso-list:l1 level1 lfo5;tab-stops:list .5in'>nowrap:
+     text will be kept on the same line, without wrapping</li>
+</ul>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h3><a name="_Toc63350931"><b>Example of Output Commands (From Proportion.htm)</b></a><b><o:p></o:p></b></h3>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Within the OECalculate Function</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>//6 columns and 100 pixels per column</p>
+
+<p class=MsoNormal>newrow()</p>
+
+<p class=MsoNormal>//blank line</p>
+
+<p class=MsoNormal>newrow()</p>
+
+<p class=MsoNormal>//blank line</p>
+
+<p class=MsoNormal>title(&quot;&lt;h2&gt;&quot; + &quot;Results&quot; +
+&quot;&lt;/h2&gt;&quot;);</p>
+
+<p class=MsoNormal>//Title goes across all cells.<span
+style='mso-spacerun:yes'>  </span>Text can have HTML tags that make it</p>
+
+<p class=MsoNormal>//bold or give it particular styles.<span
+style='mso-spacerun:yes'>  </span>These are optional.<span
+style='mso-spacerun:yes'>  </span>Be sure to</p>
+
+<p class=MsoNormal>//include a closing tag for each one.</p>
+
+<p class=MsoNormal>line(6);</p>
+
+<p class=MsoNormal>title(&quot;&lt;h2&gt;Confidence Limits for Proportion
+&quot;+ vx + &quot;/&quot; + vN + &quot;&lt;/h2&gt;&quot;);</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span>line(6);</p>
+
+<p class=MsoNormal>//Here is the call to the javascript routine that does the
+calculations</p>
+
+<p class=MsoNormal>//Note that it also writes results to the output.s object,
+and is therefore not</p>
+
+<p class=MsoNormal>//a cleanly defined module, although this could be fixed by
+putting the results</p>
+
+<p class=MsoNormal>//in an array and then writing to the res object from here
+after retrieving the</p>
+
+<p class=MsoNormal>//array from the calculation module.</p>
+
+<p class=MsoNormal><span style='mso-tab-count:2'>                        </span></p>
+
+<p class=MsoNormal><span style='mso-tab-count:3'>                                    </span><span
+style='mso-spacerun:yes'> </span>CalcBin();</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Within the CalcBin() function in Proportion.js or Shell.js.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The statistics are performed and the results accumulated in
+global variables like vP and vPU.<span style='mso-spacerun:yes'>  </span>They
+are then collected into an HTML output table using the following commands:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>with (outTable)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>{</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>newrow(&quot;span3:&quot;,&quot;bold:c:Lower
+CL&quot;, &quot;bold:c:Proportion&quot;, &quot;bold:c:Upper CL&quot;)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>newrow(&quot;span3:Exact&quot;,DL,Fmt(vP),DU)</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>newrow(&quot;span3:Wald
+(Normal Approximation)&quot;,Fmt(vPL),&quot;&quot;,Fmt(vPU))</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>newrow(&quot;span3:Modified
+Wald&quot;,Fmt(vWL),&quot;&quot;,Fmt(vWU))</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>    </span><span
+style='mso-tab-count:1'>        </span>newrow(&quot;span3:Score(<st1:place
+w:st="on"><st1:City w:st="on">Wilson</st1:City></st1:place>)&quot;,Fmt(vSL),&quot;&quot;,Fmt(vSU));</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>newrow(&quot;span3:Score
+with Continuity Correction (Fleiss
+Quadratic)&quot;,Fmt(vSCL),&quot;&quot;,Fmt(vSCU));</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>    </span></p>
+
+<p class=MsoNormal>//The following is a conditional statement that puts a
+footnote at the bottom of the table only if npq is less than 5.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>if (npq
+&lt; 5) </p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+style='mso-spacerun:yes'>  </span>{</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+style='mso-spacerun:yes'>  </span>newrow();</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span><span
+style='mso-spacerun:yes'>  </span>newrow(&quot;span6:npq=&quot; + Fmt(npq) +
+&quot;.<span style='mso-spacerun:yes'>  </span>The Wald method (Normal
+Approximation) is not recommended when npq &lt; 5.&quot;);</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>      </span>}</p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>}<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span>}</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Back in the OECalculate function the HTML string constructed
+by the commands above in the output object is retrieved and written to a new
+popup window for the user to see.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>//Tell output that we are done</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>     </span><span
+style='mso-tab-count:2'>                   </span>endtable();<span
+style='mso-spacerun:yes'>  </span>//This puts closing tags for the last row and
+the table.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>//Retrieve the HTML string, &quot;outTable.s&quot;, and make
+it valid HTML by adding a header</p>
+
+<p class=MsoNormal>//and ending tags.<span style='mso-spacerun:yes'>  </span>In
+most cases you would also include a replica of the input</p>
+
+<p class=MsoNormal>//table, but Proportion is so simple that the input figures
+are just included</p>
+
+<p class=MsoNormal>//in the title.</p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'>     </span><span
+style='mso-tab-count:2'>                   </span>combinedresults = htmlheader+
+outTable.s+&quot;&lt;/body&gt;&lt;/html&gt;&quot;</p>
+
+<p class=MsoNormal>}</p>
+
+<p class=MsoNormal>//Now open a window and use document.write to display the
+contents of the HTML</p>
+
+<p class=MsoNormal>//output from the statistical module, in this case,
+CalcBin();</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>var
+resultwin=window.open(&quot;result.htm&quot;,&quot;resultwin&quot;);</p>
+
+<p class=MsoNormal>resultwin.document.open();</p>
+
+<p class=MsoNormal>resultwin.document.write(combinedresults);</p>
+
+<p class=MsoNormal>resultwin.document.close();</p>
+
+<p class=MsoNormal>resultwin.resizeTo(800,600);</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2><a name="_Toc63350932">Making HTML the Easy Way</a></h2>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'>If you copied the
+Proportion.htm and Proportion.js files to start constructing your application,
+you may have noticed the variables at the top of Proportion.js, and perhaps
+even experimented with changing the text to fit your own needs.<span
+style='mso-spacerun:yes'>  </span>The variables are:</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'>Title</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'>Authors</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'>Description</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'>Demo</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'>Exercises</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'>The first three are
+all that are needed to construct the main HTML page for the application itself,
+and the next two contain instructions for a Demo and one or more Exercises that
+will show users how to use the application.<span style='mso-spacerun:yes'> 
+</span>If you stick with the prescribed variable names and use care to avoid
+embedded double quotes, to be sure that every line has a beginning and ending
+quote, and that continuations of lines either use the + sign or repeat the
+variable name on the next line as in Authors+=”<span style='mso-spacerun:yes'> 
+</span>Anonymous”.</span></p>
+
+<p class=MsoNormal><span style='mso-bookmark:_Toc63350932'><o:p>&nbsp;</o:p></span></p>
+
+<h2><span style='mso-bookmark:_Toc63350932'><o:p>&nbsp;</o:p></span></h2>
+
+<h2><span style='mso-bookmark:_Toc63350932'>Conclusion</span></h2>
+
+<p class=MsoNormal>That’s all there is to constructing the Input, data
+retrieval, and Output for a new module.<span style='mso-spacerun:yes'> 
+</span>Additions to the commands will, no doubt, arise with future
+versions.<span style='mso-spacerun:yes'>  </span>Meanwhile, it is quite
+possible to use additional JavaScript programming to achieve the look and feel
+you want by studying the code and experimenting with modifications.<span
+style='mso-spacerun:yes'>  </span>If you have ideas for improvements or have
+made modifications to Etable or the shell yourself, please send them to us with
+documentation so that all can benefit.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'>Andy Dean<span
+style='mso-spacerun:yes'>   </span><st1:PersonName w:st="on">agdean9@hotmail.com</st1:PersonName>
+<br clear=all style='mso-special-character:line-break;page-break-before:always'>
+</p>
+
+<h2><a name="_Toc63350933">Stratified Data</a></h2>
+
+<h2><a name="_Toc63350934"><span style='font-size:12.0pt;font-family:"Times New Roman";
+font-weight:normal;font-style:normal'>There is an input command to allow
+entering stratified data.<span style='mso-spacerun:yes'>  </span>See
+“allowStrata” under Input Commands for more details.</span></a><span
+style='font-size:12.0pt;font-family:"Times New Roman";font-weight:normal;
+font-style:normal'> <o:p></o:p></span></h2>
+
+<h2><a name="_Toc63350935"><span style='font-size:12.0pt;font-family:"Times New Roman";
+font-weight:normal;font-style:normal'>If<span style='mso-spacerun:yes'> 
+</span>allowStrata(true) appears in the “with input” section of the
+application, clicking the “Add Stratum” button on the screen adds another
+stratum and also saves data from the current stratum to memory.</span></a><span
+style='font-size:12.0pt;font-family:"Times New Roman";font-weight:normal;
+font-style:normal'> <o:p></o:p></span></h2>
+
+<h2><a name="_Toc63350936">Saving and Retrieving Data</a></h2>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The data manipulation functions in ETable and its submodule
+DataStore.js save entered data to memory when the “Calculate” or “Add Stratum”
+buttons are clicked on the input screen.<span style='mso-spacerun:yes'> 
+</span>They resulting global array, called “dataMatrix”, can be further
+processed in the jsStringFromArray function to produce a string of JavaScript
+that can be read in directly from a file or evaluated with the “eval” function
+to recreate the dataMatrix array.<span style='mso-spacerun:yes'>  </span>The
+array is named “A” rather than “dataMatrix” for economy in storage and so that
+it will not overwrite an existing dataMatrix unless the programmer intends that
+it should.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>After entering a single stratum in a TwobyTwo table, the
+javascript string version of the data looks like this (displayed with a
+temporary alert box): </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:305.25pt;
+ height:225pt'>
+ <v:imagedata src="ToolkitDoc_files/image001.png" o:title="" croptop="6827f"
+  cropbottom="16043f" cropleft="18553f"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=407 height=300
+src="ToolkitDoc_files/image002.jpg" v:shapes="_x0000_i1025"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>After entering two strata, the result is:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75"
+ style='width:385.5pt;height:564pt'>
+ <v:imagedata src="ToolkitDoc_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=514 height=752
+src="ToolkitDoc_files/image004.jpg" v:shapes="_x0000_i1026"><![endif]></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:.5in'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Note that level 0 of the array always contains the meta
+data.<span style='mso-spacerun:yes'>  </span>The items within a particular
+stratum are in no particular order, but they are retrieved by their string
+keys, not their numeric indices, and JavaScript takes care of the
+retrieval.<span style='mso-spacerun:yes'>  </span>Those expressed as plurals of
+field types, (“valnames”, “varnames”, “labels”) and “cols” and “rows” are
+numbers recording how many items are contained in the metadata for that
+type.<span style='mso-spacerun:yes'>  </span>Thus, we find out there are two
+“varnames” since A[0][“varnames”]=2<span style='mso-spacerun:yes'>   
+</span>(well, actually “==2” because of the dark side of JavaScript, but you
+know what I mean.).<span style='mso-spacerun:yes'>  </span>Examining the list,
+you can find that varname1 is “Disease” and varname2 is “Exposure”.<span
+style='mso-spacerun:yes'>  </span>This will be true no matter how the user has
+decided to orient the table.<span style='mso-spacerun:yes'>  </span>Similarly,
+for a TwobyTwo table, if the order of values of the variables is reversed on
+the screen (+ and + on the upper left, as usual), they will appear in the array
+string in the standard order, with “-“ coming before “+”.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The JavaScript string is automatically saved in the output
+file on the disk when OpenEpi is being run from the OpenEpiSave.hta on a
+Windows computer.<span style='mso-spacerun:yes'>   </span></p>
+
+<span style='font-size:14.0pt;font-family:Arial;mso-fareast-font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<h2><a name="_Toc63350937">Analysis of Stratified Data</a></h2>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The data entry table can be configured to enter more than a
+single stratum by giving the command allowstrata(true) to the inputTable
+object.<span style='mso-spacerun:yes'>  </span>This places an “Add Stratum”
+button on the screen, and the user can then add as many strata as desired.<span
+style='mso-spacerun:yes'>  </span>The data are delivered to the application in
+the form of the data array, with each stratum represented by a single value of
+the array index.<span style='mso-spacerun:yes'>  </span>Hence data[1] is the
+first stratum.<span style='mso-spacerun:yes'>  </span>Data[0] contains metadata
+for the entire dataset. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>TwobyTwo, PersonTime2, and MatchCC all make use of the
+MartinStats.js module for exact statistics as well as performing their own
+calculations.<span style='mso-spacerun:yes'>  </span>In order to have
+flexibility in presenting the results from both sources, these three programs
+use the device of constructing commands for output and storing these in memory
+as arrays until they are needed for output, after which they are retrieved with
+the “eval” JavaScript function.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal>To see how this works, you might follow the use of the array
+called “oddsBased” through the various parts of TwobyTwo.js.<span
+style='mso-spacerun:yes'>  </span>The headings for columns presenting odds
+based data are placed in a newrow command in oddsBased[0], with results for the
+first stratum in oddsBased[1].<span style='mso-spacerun:yes'>  </span>If there
+are n strata, oddsBased[n+1] contains a newrow command showing the data for the
+crude table and oddsBased[n+2] contains adjusted results for all strata.<span
+style='mso-spacerun:yes'>  </span>Presenting data for all strata, including the
+crude and adjusted results then simply requires using the eval command
+successively with oddsBased[0] through oddsBased[n+2].<span
+style='mso-spacerun:yes'>  </span>This sends a series of newrow commands to the
+cmdObj that build the HTML string, cmdObj.s, that is later retrieved and sent
+to the writeResults function.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>In order to allow a choice between full display of tables
+for each stratum or merely showing summary results for all strata, the output
+for TwobyTwo, PersonTime, and MatchCC is presented in the order:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Stratum 1 table</p>
+
+<p class=MsoNormal>Stratum 1 analysis</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Stratum n table</p>
+
+<p class=MsoNormal>Stratum n analysis</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Summary stratified analysis</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Crude (Total) table</p>
+
+<p class=MsoNormal>Crude table analysis</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2><a name="_Toc63350938">Features Not Yet Implemented (the Wish List)</a></h2>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>In the Input module, it would be nice to be able to specify
+column widths.<span style='mso-spacerun:yes'>  </span>This need is somewhat met
+by the fact that the “span” specification now works within newrow.<span
+style='mso-spacerun:yes'>  </span>It removes the lines between cells so that
+they appear to span, but, since every cell is a separate table (for now), text items
+do not flow into the next cell as in an HTML table.<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Anyway, for now, let’s leave the following input command on
+the wishlist:</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>columnwidths(list of columnwidths in pixels, separated by
+commas)</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>A graphing module is partially complete and is used in the
+Diagnostic Test Evaluation module.<span style='mso-spacerun:yes'>  </span>It
+produces line graphs, but we hope to have it doing bars and grouped bars in a
+later release.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

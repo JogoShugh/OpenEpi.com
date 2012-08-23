@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Compare Two Rates</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META NAME="author" CONTENT="Kevin M. Sullivan, Roger A. Mir, and Andrew G. Dean">
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+                                   <!-- --------------------- -->
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="PersonTime2";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../js/IncludeFiles.js" type=text/JavaScript></SCRIPT>
+<!-- For this module, add Martin's exact statistics for two by two tables -->
+<SCRIPT language="JavaScript" src="../js/MartinStats.js" type=text/JavaScript></SCRIPT>
+							
+									<!-- --------------------- -->
+
+<script language="JavaScript" type="text/JavaScript">
+
+function configureInput()
+{//Indented sections are the ones to be changed to configure a new application
+		var crows=4; 
+		//number of rows down the table, not counting the header (title)
+		var ccols=5;
+		//number of cells or columns across the table
+		var x=200;
+		//pixels from the left side of the page where table starts
+		var y=100;
+		//pixels down from top of page where table starts
+		var w=400;
+		//width of table in pixels
+		var h=250;
+		//height of table in pixels
+
+
+		 
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+	 
+with (intable)
+ { 
+		  allowstrata(true);
+		  //When true, sets up buttons to add, access, and delete strata, allowing stratified
+		  //tables to be entered. 
+		  usetablesettings(false);
+		  //If this function is is given the value “true” (without quotes), the table 
+		  //configuration features of Settings.htm will be used by Etable.  
+		  //Tables can be set by the user to 
+		  //have exposure at the left (default) or at the top, and disease in the opposite 
+		  //location.  The marginal value labels can be set to ascending or descending (
+		  //maxvalueattop and maxvalueatleft) from the upper left corner.  
+          //If usetablesettings is given the value “false” (without quotes) or is absent, 
+		  //the table configuration will be ignored and the creation of arrays and 
+		  //repopulation of the table will assume that exposure is on the left and that 
+		  //value labels ascend from the upper left corner (baseline values at top and left).  This is the usual configuration for tables larger than 2 by 2 in epidemiologic textbooks.  Usetablesettings will allow any desired configuration for a table, and should generally be used for 2-by-2 tables.  It should only be used for tables that allow exchanging disease and exposure and ascending or descending marginal values. 
+
+          settingslink(true); 
+          //When true, shows an anchor with an href to the settings.htm program 
+		  //and displays the current confidence level.
+		  
+		  lock("labels");
+		  newtable(crows,ccols,w,h,x,y);		  
+		  title("<b>Compare Two Rates<b>");
+		  newrow("label:","label:","varname:span2:Exposure","label:Totals")
+		  newrow("label:","label:", "valname:Exposed","valname:Not Exposed","label:")
+		  newrow("varname:Disease","valname:Cases","data:","data:","rowtot:")
+		  newrow("label:","valname:Person-Time","data:","data:","rowtot:")
+		  
+   
+		  
+  //The following lines must be present to place the parsed commands
+  //into two arrays that are used by Etable to configure the input table.
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ 
+ }
+}
+
+function checkcode(r,c,entry)
+{
+  RowPercents=1;  //Turn off column percents in output tables.
+  Columnpercents=0;
+
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+  //alert("Row="+r+"  Col=" + c)
+  /* The following is a useless bit of code, but it illustrates how you might
+  set a value of a cell in the table and also how to get the value of another cell.
+  The value entered by the user is passed in as "entry".  Hence, you can act on the
+  information in "entry" and place a different value in another cell using the 
+  .setCellValue function, and also modify the entry to return the modified value
+  in the "return" line below.  Uncomment the following several lines to see
+  what they do in the Proportion application.
+  if (r==0)
+    {
+	 EntryWin.setCellValue(1,2,parseInt(entry)*43)
+	 alert(EntryWin.getCellValue(1,2))
+	}
+	*/
+	//The following code returns a blank string if the user enters anything other
+	//than a number in a data field.
+     var e=parseFloat(entry)
+     if (isNaN(e)) {e=""}
+     return e
+}
+
+
+function OECalculate(data)
+{
+appDataArray=data   //Set a global variable in case statistical routines need parameters
+
+//OECalculate is called by the Calculate button in the ETable module.  The entire dataMatrix, including
+//both metadata and data is passed as the "data" array.  To see the structure of this
+//array, uncomment the following 3 lines and run the program:
+
+//EntryWin.writeTable(data)
+//alert("This is the data array, ready for programming in the statistical routine.")
+//return  //exits from OECalculate
+
+//Remove the comment from the 3 lines above to see a table of the contents of the data array
+//so that the correct correspondence between the data array and your stats routine
+//can be set up below.
+//In this section, write some code to extract the needed data from the standard
+//data array produced by the data input module.  Strata have indices starting with
+// 1, and table cells begin with the baseline (e.g., 0 or "no") values in the upper
+// left, in the "E0D0" cell.  Exposure is represented on the left margin and Disease
+// at the top, if this distinction is meaningful.  
+
+var results;
+
+//var tableresults=EntryWin.EntryTableAsHTML(EntryWin.myTable);
+//Produces an HTML replica of the input table
+
+outObj=new Output(data);
+
+calcPersonTime(outObj,true, true)   //Pass the output command object containing data
+	                                     //and set showTables and showStrata booleans	
+ 
+
+//The results should be an HTML string called outObj.s, within outObj.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, if all of the following
+//are true:
+//               1. The program is running under the OpenEpiMenu 
+//               2. OpenEpiMenu is being run from OpenEpiSave.HTA.
+//               3. The operating system is Microsoft Windows
+//If any of these conditions is absent, saving will not occur, but there should
+//be no errors.  If the file is saved, a message appears with the filename and location.  
+
+writeResults(outObj.s,basefilename,true,outObj)
+}
+
+writeFrontEnd ( Title,Authors,Description,demofile);
+  //write HTML from a string.  The fourth parameter is the name of the demofile.
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->

@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+
+<HEAD>
+<TITLE>Open Epi Shell for Creating and Updating Translation Files</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META NAME="author" CONTENT="Andrew G. Dean and Roger A. Mir">
+ <HTA:APPLICATION
+ ID="HTAEx"
+ APPLICATIONNAME="HTAEx" 
+ SINGLEINSTANCE = "yes"
+ MAXIMIZEBUTTON="yes"
+ SYSMENU = "yes"
+ SHOWINTASKBAR = "yes"
+ WINDOWSTATE  = "Maximize"
+ VERSION = "5.3" >
+
+<script  type="text/javascript">
+<!--  
+// JavaScript functions for saving a string as an HTM file
+
+
+var writelang="EN"; //Default setting for a variable that also serves to indicate to applications that they are running under UpdateTranslation
+var fso;  //Will be set to the Windows file system object
+var currfolder="";
+//alert("currfolder defined as "+currfolder);
+
+var TFile;
+function setupTranslation()
+{
+ var languageCode=prompt("Two-character Internet standard code for language desired, e.g., ES for Spanish, EN for English.\n"+
+ "This determines the name of the language file to be opened or created in the TRANSLATION directory.","ZZ").toUpperCase();
+ //Ask the user to confirm
+ if (confirm("Running programs from the menu will place their phrases in the file, "+languageCode+".js. You must be running Microsoft Internet Explorer in Windows.  Choose 'OK' to continue or 'Cancel' to exit."))
+ {
+ //See if the file exists; 
+ //If the file does not exist, create it, insert the definition for the T array, advise the user to choose the option from the Settings application.
+ 
+ writelang=languageCode;
+ 
+ //writeData("\\-----------",writelang);  //Write a spacer line to the file
+ 
+ }
+else
+ {
+  window.close();
+ }
+}
+
+function updateTranslation(phrase)
+{
+//Called by application to add a new phrase to the translation file.  If this function exists, the application 
+//knows that it is running under UpdateTranslation
+
+if(arguments.length>1 && arguments[1]!=null)
+{
+ writeData('\n\/\/'+arguments[1] );  //This is a little strange, but avoids breaking previous apps.  The second argument remains optional.
+}
+if (phrase.length<40 )
+{
+writeData( 'T["'+phrase+'"]='+'"";' );
+}
+else
+{
+writeData('T["'+phrase+'"]='+'\n  "";');  //Put phrase on one line and translation on the next, indenting by two spaces.
+}
+}
+
+var storedpath=new String("");    //Global variable is a workaround for not being able to use window.location.pathname with the Settings.htm
+					//Can't figure out why not, but it gives "Permission denied" error, hour after hour
+
+function findTranslationPath(fso)
+{
+var bFolder;
+var sFoldPath;
+var foldername;
+
+if (storedpath=="")
+   {
+     storedpath= String(window.location)  
+	 //March 2007   IE 7 will not do window.location.pathname.  The following is a workaround.
+     storedpath=storedpath.replace(/\//g,"\\");  //Converts forward slashes to backslashes
+	
+     storedpath=storedpath.replace(/file\:\\\\\\/,"");  //Takes out      'file:\\\' 
+
+   };
+ //alert(91+"storedpath="+ storedpath)  
+var fs=fso.GetFile(storedpath);
+
+
+var foldername=fs.Parentfolder.Path;
+
+//The statement below is used to find the parent of the current directory. 
+//At this time, we are looking for and perhaps creating a directory called TRANSLATIONS, in the same directory where UpdateTranslation.hta resides.
+
+    sFoldPath=foldername;
+
+	sFoldPath=sFoldPath+"\\Translations\\"
+
+	bFolder = fso.FolderExists(sFoldPath);
+	
+	if (!bFolder)
+		{
+		var f=fso.CreateFolder(sFoldPath);	//If the Translation folder does not exist, create it
+		}
+	//alert(110 + sFoldPath)
+	return sFoldPath;	 //Return the path name (with the filename).
+}
+
+
+		
+function writeData(caldata,langname)
+{
+var alternative="\nCheck the file or directory in which you are writing to be sure it is not set to read-only. \nAlso check security options in browser to be sure they are set to LOW for local files(only).\nIf you run OpenEpiMenu.htm directly you will not get this message (but cannot save output)."
+try 
+  {
+		fso=new ActiveXObject("Scripting.FileSystemObject"); 
+		
+		var sFile;
+		var ts;
+		var nWriting = 2;
+		var nReading = 1;
+		var nAppending=8;
+		var systemDefaultFormat=-2;
+		var bFileExist;
+		//fName=fname;
+		
+		if (currfolder.length>0)
+		  {
+		   sFile=currfolder
+		//   alert("currfolder="+currfolder);
+		  }
+		 else
+		  {
+		 
+		   sFile = findTranslationPath(fso)+writelang+".js"; //Returns the path name, creating Translation directory if necessary
+		 //  alert(143 + sFile)
+		   currfolder=sFile; //March 2007
+          
+		  }
+		
+		
+		bFileExist = fso.FileExists(sFile);
+		
+		 if (bFileExist)
+			 {
+				  ts = fso.OpenTextFile(sFile, nAppending, true);
+			 } 
+			 else
+			 {
+				ts = fso.CreateTextFile(sFile, true);
+				ts.WriteLine("var T=new Array();");
+				ts.WriteLine('\/\/T["English Text"]="Translated Text"');
+			 }
+		
+		 ts.WriteLine(caldata)
+		 ts.Close();
+		 return(sFile);
+  }
+catch(e)
+ {
+		if (e.message=="Automation server can't create object")
+		{
+		 alert("Problem with: "+ caldata )
+		 alert("Unable to save output with the Windows Scripting.FileSystemObject. \nIf the OpenEpiSave.HTA module and all OpenEpi files have been downloaded and are being run from your hard disk,\n a file called SCRRUN.DLL may not be registered in your system.\n Try searching for it.  If you find it, \nyou can right click and use SEND TO to call Regsvr32 to register it."+alternative)
+		}
+		else
+		{
+		 if (sFile==null){sFile="undefined file name"}
+		 alert("Problem in saving to "+sFile+"." +alternative + "\nThe error message is:\n"+e.message)
+		}
+		return false;
+ }
+
+}
+
+
+
+function loadMessage()
+{
+  alert("This program, OpenEpiSave.HTA, is a special module for saving OpenEpi output if you are running OpenEpi from\n a local hard disk in a Microsoft Windows environment. \n\nIf this is not the case, run OpenEpiMenu.htm directly.  No files will be saved, but everything else should work.")
+}
+
+var EpiInfoName ='\\Epi_Info\\EpiInfo.exe'
+
+function execute(filename)
+{
+try {
+	if (document.all) 
+	{
+	var oShell = new ActiveXObject("Shell.Application");
+	if (oShell) oShell.ShellExecute(filename);
+	}
+	else if ((navigator.appName.indexOf("Netscape")!=-1) && navigator.javaEnabled()) 
+	{
+	netscape.security.PrivilegeManager.enablePrivilege('UniversalExecAccess');
+	java.lang.Runtime.getRuntime().execute(filename);
+	}
+   }
+catch(e)
+   {
+   alert(e)
+   }
+}
+
+function loadIframe(iframename,filetoload)
+ {  
+   //alert("iframename="+iframename + " filetoload="+filetoload)
+	  window.frames[iframename].location.href=filetoload;   
+ }
+
+//-->
+</script>
+</HEAD>
+<body onLoad="setupTranslation();loadIframe('ProgramFrame','menu/OpenEpiMenu.htm')">
+<iframe application="yes" frameborder="no" name="ProgramFrame" id="ProgramFrame" style="height:expression(document.body.clientHeight);width:expression(document.body.clientWidth)"></iframe>
+</body>
+</html>
+

@@ -1,0 +1,241 @@
+<html>
+<head>
+<title>OpenEpi Menu</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=UTF-8">
+<link rel="StyleSheet" href="../css/dtree.css" type="text/css" >
+<!--<script language="JavaScript" src="../js/IncludeFiles.js" type=text/JavaScript></script>  -->
+<script type="text/javascript" src="../js/ReadCookie.js"></script>
+<script type="text/javascript" src="../js/Translate.js"></script>
+<script type="text/javascript" src="../js/jQuery.js"></script>
+<script type="text/javascript" src="../js/dTree.js"></script>
+<script type="text/javascript" src="../js/menuItems.js"></script>
+</head>
+
+<body onLoad="writeIntro();">
+ <noscript><h2>OpenEpi requires Javascript--not available or turned off in this browser.</h2></noscript>
+
+<!--<div id="menuDiv" name="menuDiv" style="float:left;width:240;" class="dtree"> -->
+<!--<div id="menuDiv" name="menuDiv" style="position:absolute;left:0;top:0; width:20%;" class="dtree">   -->
+<div id="menuDiv" name="menuDiv" style="float:left;top:0;">
+
+<script type="text/javascript" >
+   //Writes menu
+   document.write(ExpColl+ d);
+</script>
+</div>
+<SCRIPT TYPE ="text/javascript">
+<!--
+var headtitle="Open Source Epidemiologic Statistics for Public Health";
+
+//var modDate = new Date(document.lastModified);
+function dateLastModified() {
+//var out = document.getElementById('lastModified');
+var d = new Date();
+if (d.toLocaleDateString)
+  {
+    d= d.toLocaleDateString(document.lastModified);
+  }
+else
+  {
+    d= document.lastModified;
+  }
+return d;
+}
+
+
+var modDate = dateLastModified();
+if (modDate == null)
+   {modDate="2010/09/08" ;}
+   //NOTE: THIS DATE IS TO  BE INSERTED MANUALLY TO SATISFY BROWSERS that do not produce
+   //it automatically, but it appears that they may now do so.
+
+
+function fixDate(theDate)
+{
+   var day =theDate.getDate();
+   var month = theDate.getMonth() + 1;
+   var year = theDate.getYear();
+   if (day < 10) day = "0" + day;
+   if (month < 10) month = "0" + month;
+   if (year < 2000) year += 1900;
+   return year + "/"+month + "/"+day;
+}
+//alert("modDate="+modDate)
+//modDate=fixDate(modDate);
+//alert("modDate="+modDate)
+var dateToday=fixDate(new Date());
+var heading =fe
+var updated="Updated " ;
+var lcupdated="updated ";
+var version="Version"
+var versionNum="3.0"
+var banner ="Now in English, French, Spanish, Italian, and Portuguese";
+var accessed ="accessed";
+var citation="Suggested citation";
+var and="and";
+var menuname="Menu";
+
+if (t)
+    {
+	 updated=t(updated)
+	 lcupdated=t(lcupdated);
+	 version=t(version)
+	 banner=t(banner)
+	 headtitle=t(headtitle)
+	 accessed=t(accessed)
+	 citation=t(citation)
+	 and=t(and);
+     menuname=t(menuname);
+    }
+
+var fe ='<table width="100%" border="3" cellspacing="0" cellpadding="5" style="background-color:#008899;color:#ffffff">';
+fe+='  <tr colspan="2" width="100%"> '
+//fe+='    <td rowspan="2">';
+fe+='<td>'
+//Inset a Menu button if this program is not in a frame
+//if (self.name=="menu")
+fe+='<button id="toMenu" onClick="jQuery(\'div#menuDiv\').show();jQuery(\'div#appDiv\').hide()">Menu</button>';
+//fe+='<img src="../img/OpenEpi1.gif" name="logo" align="left" width="130" >';
+fe+='<span style="font-size:1.3em"><strong>'+ version+" "+versionNum+'</strong></span>';
+
+fe+='<span style=font-size:0.2em>&nbsp;<br/></span>';
+fe+='<span style=font-size:1.7em;font-weight:bold;text-align:left;>';
+fe+=headtitle+'</span><br/><br/>';
+fe +='<span style = "color:yellow;font-size:1.3em;">'+'<i>'+banner+'<i>'+ '</span>';
+
+var heading = fe;
+heading +='</td></tr>';
+heading +='<tr align="left">';
+
+heading+='<td width="100%" color="#ffffff">';
+heading+= "<strong>"+updated+" "+ modDate+ "&nbsp;&nbsp;Caution: this is an ALPHA version, for testing only.&nbsp;&nbsp;</strong>" ;
+heading +='</td></tr> </table>';
+
+
+var intro = new Array();
+
+
+intro[0]="<p>OpenEpi provides statistics for counts and measurements in descriptive and analytic studies, "+
+"stratified analysis with exact confidence limits, matched pair and person-time analysis, sample size and power calculations, random numbers, "+
+"sensitivity, specificity and other evaluation statistics, R x C tables, chi-square for dose-response, "+
+"and links to other useful sites.</p>";
+
+intro[1]="<p>OpenEpi is free and "+
+"<b>open source</b> software for epidemiologic statistics. It can "+
+"be run from a web server or downloaded and run "+
+"without a web connection.  A server is not required. "+
+"The programs are written in JavaScript and HTML, and should "+
+"be compatible with recent Linux, Mac, and PC browsers, regardless of operating system. "+
+"(If you are seeing this, your browser settings are allowing JavaScript.) "+
+"A new tabbed interface avoids popup windows except for help files.</p>"
+
+intro[2]="<p>Test results are provided for each module so "+
+"that you can judge reliability, although it "+
+"is always a good idea to check important results with software from more than one "+
+"source. Links to hundreds of Internet calculators are provided.</p> ";
+
+intro[3]="<p>The programs have an open source license "+
+"and can be downloaded, distributed, or translated. Some of the "+
+"components from other sources have licensing statements "+
+"in the source code files. Licenses referred "+
+"to are available in full text at  "+
+"<a href='http://OpenSource.org/licenses'>OpenSource.org/licenses</a>.  "+
+"OpenEpi development was supported in part by a grant from the "+
+"<a href='http://www.gatesfoundation.org'>Bill and Melinda Gates Foundation "+
+"</a>to Emory University, <a href='http://www.sph.emory.edu'>Rollins School of Public Health</a>.</p>";
+
+intro[4]="A toolkit for creating new modules and for translation is "+
+"included. Please let us know if you would like to collaborate in this way. "+
+"Suggestions, comments, and expressions of interest in contributing to this "+
+"effort should be sent by email to: ";
+
+function writeIntro()
+{ var s=""
+  var c=0;
+  var i;
+  var phrase;
+   s+= heading+'<div class=Section1>'+
+      '<img width=30% src="img/OpenArch.jpg" align=left hspace=12 v:shapes="_x0000_s1026">'+
+      '<span style="color:#003366">';
+
+ // while ((parent.heading.t==null) && (c<20000))
+ //  {c++}
+  for ( i=0; i<intro.length; i++)
+  {
+  // alert("length="+intro[i].length);
+ //  if (typeof(t)=="function")
+     if(t)
+      {
+	  s+=t(intro[i])
+	  }
+    else
+	  {
+	   s+=intro[i]
+	  }
+   }
+
+   s+="</span><span style='color:#003366;text-align:center;'>";
+ //  s+="Andy Dean, Kevin Sullivan and Minn M. Soe";
+   var username = "andy.dean";
+   var hostname = "gmail.com";
+   var linktext = username + "@" + hostname;
+   s+=" <a href=" + "mail" + "to:" + username +
+      "@" + hostname + ">" + linktext + "</a>"
+
+   var username = "cdckms";
+   var hostname = "sph.emory.edu";
+   var linktext = username + "@" + hostname;
+   s+=", <a href=" + "mail" + "to:" + username +
+      "@" + hostname + ">" + linktext + "</a>"
+
+
+   var username = "msoe";
+   var hostname = "sph.emory.edu";
+   var linktext = username + "@" + hostname;
+   s+=", " +and + " <a href=" + "mail" + "to:" + username +
+      "@" + hostname + ">" + linktext + "</a>"
+
+// s+= "<br>Atlanta, Georgia, USA</p>";
+/*   var myDate= new Date()
+   var theYear=myDate.getFullYear()
+   var theMonth=myDate.getMonth()+1
+   var theDay=myDate.getDate()
+   if (theDay < 10) {theDay = "0" + theDay;}
+   if (month < 10) month = "0" + month;
+   if (year < 2000) year += 1900;
+   var dateToday=theYear+"/" +theMonth+"/" +theDay
+*/
+   s+= " <p style='text-align:center;font-size:0.8em'>"+citation + ": "
+   s+="<strong> Dean AG, Sullivan KM, Soe MM. "
+   s+="OpenEpi:  Open Source Epidemiologic Statistics for Public Health, " + version+". "
+   s+= "www.OpenEpi.com, "+ lcupdated +" "+modDate+ ", "+ accessed + " "+ dateToday+".</strong></p></span>"
+   //alert(s);
+  document.getElementById("appDiv").innerHTML = s;
+  if((ScreenConfig=='smartphone') || ((ScreenConfig=='auto') && (device=='smartphone')))
+   {
+     jQuery('div#menuDiv').hide();
+     jQuery('button#toMenu').show();
+   }
+   else
+   {
+
+     jQuery('button#toMenu').hide();
+   }
+}
+//-->
+</script>
+
+
+<script type="text/javascript">
+
+
+</script>
+
+
+<!--<div name="appDiv" id="appDiv" style="position:absolute; top:0;left:25%;"> -->
+<div name="appDiv" id="appDiv" style="float:left; top:0;width:70%">
+
+</div>
+</body>
+
+</html>

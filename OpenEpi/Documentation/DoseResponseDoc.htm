@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Dose Response Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body bgcolor="#CCCCCC" text="#000066">
+<h2>Dose Response: Chi Square for Trend
+</h2>
+<p>The test for trend is often used for dose-response studies and can also be
+  used to test for trends with age, passage of time, or any ordered variable.
+  The data can be stratified on other variables like age and sex to eliminate
+  confounding from these variables.</p>
+<p>The Extended Mantel-Haenszel chi square that is calculated reflects the departure
+  of a linear trend from horizontal (i.e., no trend). If the associated p value
+  is less than .05, there is 95% probability that a trend exists in the underlying
+  population.</p>
+<p>For each level of &quot;exposure,&quot; an odds ratio is calculated to compare it with
+  the baseline level. For level 1, for example, the odds ratio represents a two-by-two
+  table with level 0 being unexposed and level 1 being the &quot;exposed&quot; group. Similar
+  odds ratios are calculated to compare level 2 with level 0, level 3 with level
+  0, etc. If the tables are stratified, Mantel-Haenszel summary odds ratios
+  for stratified two-by-two tables are calculated rather than simple odds ratios.
+  If a trend exists, the odds ratios will increase (or decrease) with increasing
+  exposure.</p>
+<p>In doing a stratified test for trend, both Mantel-Haenszel summary odds ratios
+  and crude odds ratios are calculated for each level of exposure. If the two
+  are the same or nearly the same, then confounding by the stratifying variable
+  was minimal or absent, and the unstratified results can be used. The TwobyTwo
+  module can be used to find confidence limits for the odds ratios if desired.</p>
+<p>Levels of exposure for analysis of trend by this method must be grouped according
+  to an ordered numerical sequence. The simplest groups are arbitrary ones of
+  0, 1, 2, 3, etc.. These are the &quot;observations&quot; or &quot;scores.&quot; Other
+  scores might be the mid-points of groups, such as 0 for 0 glasses of water,
+  2 for 1-3 glasses, 4 for 3-5, etc.. These are the groups over which the presence
+  of trend will be measured. Strata are determined by the confounding variables;
+common strata would be age or age-sex groups.<br>
+</p>
+<p>The following table may be used as an example.</p>
+<p> <strong>Frequency of Cigarette Smoking Among Women with Myocardial Infarction<br>
+(MI) and Controls (C), Stratified by Age</strong></p>
+<table width="25%" border="1" cellspacing="0">
+  <tr>
+    <td> Age</td>
+    <td>25-29</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Smoke</td>
+    <td>MI</td>
+    <td>Control</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>131</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>104</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>4</td>
+    <td>51</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="25%" border="1" cellspacing="0">
+  <tr>
+    <td> Age</td>
+    <td>30-34</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Smoke</td>
+    <td>MI</td>
+    <td>Control</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>188</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>6</td>
+    <td>152</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>15</td>
+    <td>83</td>
+  </tr>
+</table>
+<p></p>
+<table width="25%" border="1" cellspacing="0">
+  <tr>
+    <td> Age</td>
+    <td>35-39</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Smoke</td>
+    <td>MI</td>
+    <td>Control</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>3</td>
+    <td>161</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>12</td>
+    <td>130</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>22</td>
+    <td>65</td>
+  </tr>
+</table>
+<p></p>
+<table width="25%" border="1" cellspacing="0">
+  <tr>
+    <td> Age</td>
+    <td>40-44</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Smoke</td>
+    <td>MI</td>
+    <td>Control</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>11</td>
+    <td>169</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>21</td>
+    <td>134</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>39</td>
+    <td>68</td>
+  </tr>
+</table>
+<p></p>
+<table width="25%" border="1" cellspacing="0">
+  <tr>
+    <td> Age</td>
+    <td>45-49</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Smoke</td>
+    <td>MI</td>
+    <td>Control</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>23</td>
+    <td>157</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>42</td>
+    <td>97</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>34</td>
+    <td>52</td>
+  </tr>
+</table>
+<p>From Schlesselman, JJ. Case-Control Studies. Oxford Univ. Press, NY,<br>
+  1982, p. 205.</p>
+<p>To try this example enter Stratum 1 on the first screen, then click on the
+  Add Stratum button, and enter Stratum 2. After entering all five strata in
+  this way, click  Calculate to see the results.<br>
+</p>
+</body>
+
+
+
+
+<script language="JavaScript">
+
+// METATRAFFIC -- COPYRIGHT (C) 2002-2005, Brinkster Site Statistics Corp.
+
+var pagetitle = document.title;
+var action = "";
+var amount = "0";
+var order = ""; 
+
+var scriptlocation = "/stats/track.asp";
+
+var pagedata = 'mtpt=' + escape(pagetitle) + '&mtac=' + escape(action) + '&mta=' + amount + '&mto=' + escape(order) + '&mtr=' + escape(document.referrer) + '&mtt=2&mts=' + window.screen.width + 'x' + window.screen.height + '&mti=1&mtz=' + Math.random(); 
+document.write ('<img height=1 width=1 ');
+document.write ('src="' + scriptlocation + '?' + pagedata + '">');
+</script>
+
+
+</html>

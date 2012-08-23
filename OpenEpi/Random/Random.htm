@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>OpenEpi - Toolkit Shell for Developing New Applications</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+                                   <!-- --------------------- -->
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="Random";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../js/IncludeFiles.js" type=text/JavaScript></SCRIPT>
+								
+									<!-- --------------------- -->
+
+
+<script language="JavaScript" type="text/JavaScript">
+demofile="";  //To remove demofile button, after demofile is defined in AppHelper.js	    
+
+function configureInput()
+{//Indented sections are the ones to be changed to configure a new application
+		var crows=5; 
+		//number of rows down the table, not counting the header (title)
+		var ccols=3;
+		//number of cells or columns across the table
+		var x=200;
+		//pixels from the left side of the page where table starts
+		var y=100;
+		//pixels down from top of page where table starts
+		var w=400;
+		//width of table in pixels
+		var h=200;
+		//height of table in pixels
+
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+with (intable)
+ { 
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable, generally cell by cell
+		 //rather than row by row. 
+		  lock("labels"); 
+		  newtable(crows,ccols,w,h,x,y);
+		  title("<b>Random Number Generator</b>");
+		  newrow("label:bold:Range",  "label:Lowest value",  "data:");
+		  newrow("label:","label:Highest value","data:");
+		  newrow("label:c:span2:How many would you like?","data:");
+		  newrow("label:c:span2:Format into how many columns?","data:5");
+		  newrow("label:c:span2:Omit text from output?","data:No");
+		  
+
+
+  //The following lines must be present to place the parsed commands
+  //into two arrays that are used by Etable to configure the input table.
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ 
+ }
+}
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+  //alert("Row="+r+"  Col=" + c)
+  /* 
+   The following "if" statement acts on an entry in row 1 (the numerator in this
+   case).  It muliplies the entry by 43 and sets the cell in row 1, column 2, to
+  the result.  Then, to illustrate how to retrieve a value from the input table,
+  it retrieves the value just set and displays it in an alert box.  The routine
+  is nonsense, but it illustrates how to both get and set values from cells 
+  in the input table.  Note that the user's entry in the current cell, and the
+  row and column of the current cell are passed in the parameters of this
+  function, and that the value of the current cell has not yet been set. It 
+  will be set automatically to whatever value you return from the checkcode
+  function.  Hence, you can evaluate, massage, and alter the entered value,
+  and use the results to set the current cell (as the returned value) or other
+  cells(using EntryWin.setCellValue(row,col,value)).
+  if (r==0)
+    { 
+	 EntryWin.setCellValue(1,2,parseInt(entry)*43)
+	 alert(EntryWin.getCellValue(1,2))
+    }
+  */
+	
+	//The following code returns a blank string if the user enters anything other
+	//than a number in a data field.
+	if (r<4)
+	 {
+       var e=parseFloat(entry)
+       if (isNaN(e)) {e=""}
+       return e
+	 }
+	 else
+	 {
+	   return entry;
+	 }
+}
+
+function OECalculate(data)
+{
+//Called by the Calculate button in the ETable module.  
+//The data items entered reside in the dataMatrix variable in EntryWin.  They can be
+//retrieved here and used to populate the statistics module that is being constructed. 
+
+//EntryWin.writeTable(EntryWin.dataMatrix[1])
+
+//Remove the comment from the line above to see a table of the contents of the dataMatrix
+//so that the correct correspondence between the dataMatrix and your stats routine
+//can be set up below.
+//In this section, write some code to extract the needed data from the standard
+//data array produced by the data input module.  Strata have indices starting with
+// 1, and table cells begin with the baseline (e.g., 0 or "no") values in the upper
+// left, in the "E0D0" cell.  Exposure is represented on the left margin and Disease
+// at the top, if this distinction is meaningful.  
+// For a simple proportion, the translation is easy:
+
+		var first=parseInt(data[1]["E0D0"]);
+		
+		var last = parseInt(data[1]["E1D0"]);
+		
+		var howmany=parseInt(data[1]["E2D0"]);
+		
+		var outputcols=parseInt(data[1]["E3D0"]);
+		
+		var omittext=data[1]["E4D0"].toUpperCase();
+		
+		omittext=(omittext.indexOf("YES")>=0);
+
+var combinedresults
+outTable=new Output;
+
+with (outTable)
+{   
+       //Define a table.  You can included extra columns to help with the formatting
+	   //and then use the span property to combine several cells and make a wider one.
+	   if (!omittext)
+	        {
+			 newtable(6,90);
+			 //6 columns and 100 pixels per column
+			 newrow()
+			 //blank line
+			 newrow()
+			 //blank line
+			 var rstr=t(" Random Numbers from ")
+			 var tostr = t(" to ")    //Translate title strings
+			 
+			 title("<h2>" + howmany+" "+ rstr +" "+first +" "+ tostr +" "+ last+ "</h2>");
+			 title("<h3>Generated by the OpenEpi Random Program</h3>")
+			 title("<h3>www.openepi.com</h3>")
+			 
+			 //Title goes across all cells.  Text can have HTML tags that make it
+			 //bold or give it particular styles.  These are optional.  Be sure to
+			 //include a closing tag for each one.
+			 line(6);
+			 newrow();
+			}
+			else
+			{
+			 //omitting text
+			 newtable(outputcols,50);
+			}  
+			 
+		//Here is the call to the javascript routine that does the calculations
+		
+		for (i=0; i<howmany;i++)
+		{
+		   if (i%outputcols==0)   //The % sign is the modulo operator
+		     {
+			 newrow()
+			 }
+		   cell(randomInt(first,last),Math.floor(i/5),i%5)
+		}
+			if (!omittext)
+			{
+			newrow();
+			line(6);
+			title("Print the numbers from the browser File menu, or copy and paste them")
+			title("to word processors, Excel, and other programs.")
+			newrow();
+			title("The numbers are generated by the JavaScript Math.random() function.")
+			title("Although these are pseudorandom numbers, the Math.random function")
+			title("in common browsers has been tested by many and found to generate")
+			title("high quality 'random' numbers.  For more information, search")
+			title("the internet for 'random number quality' and related topics.") 
+			} 
+//Tell output that we are done
+     		endtable();
+
+} //end of with outTable
+
+//Make a complete page with the input table and the results by combining several strings;
+
+//The results should be an HTML string.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, IF THIS PROGRAM is
+//RUNNING UNDER THE OpenEpiMenu AND OpenEpiMenu is being run from OpenEpiSave.HTA.
+//If any of these conditions are not present, saving will not occur, but there should
+//be no errors.  If the file is saved successfully, a message appears with the filename
+// and location.  
+
+writeResults(outTable.s,basefilename,true,null,omittext)
+}
+
+writeFrontEnd ( Title,Authors,Description,"");
+  //write HTML from a string.  The fourth parameter is the name of the demofile.  If there is none, it should be set to "".  If a demofile
+  //exists, substitute the variable name,  demofile    
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->

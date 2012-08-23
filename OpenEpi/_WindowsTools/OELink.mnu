@@ -1,0 +1,122 @@
+MENU OELink.MNU--Add Link(s) to the Epi Info Menu or Windows Desktop
+BEGIN
+  POPUP "&Functions"
+  BEGIN
+     MENUITEM "Copy Shortcut Icons to Windows Desktop", CopyShortcuts 
+     MENUITEM "Add OpenEpi WEBSITE to Epi Info Menu", AddOEWebSite
+     MENUITEM "Add OpenEpi ON DISK to Epi Info Menu", AddOEDisk  
+     MENUITEM "E&xit", Exit
+  END
+  POPUP "&Edit"
+  BEGIN
+     MENUITEM "&Picture", PictureSetting
+     MENUITEM "&Edit This Menu", EditThisMenu
+  END
+  POPUP "&Help"
+  BEGIN
+     MENUITEM "&Contents...", Contents
+     MENUITEM "&How To Edit the Menu", MenuHowTo
+     MENUITEM "&About Epi Info", About
+  END
+
+ * BUTTON "Copy Shortcut Icons to Windows Desktop", CopyShortcuts, 2,55,30,12, "Copy icons to the desktop for running Open Epi" 
+  BUTTON "Add OpenEpi WEBSITE link to Epi Info Menu", AddOEWebSite, 2,7,30,12, "Modify the Epi Info Menu to run OpenEpi or link to the web version."
+  BUTTON "Add OpenEpi ON DISK link to Epi Info Menu", AddOEDisk, 2,25,30,12, "Modify the Epi Info Menu to run OpenEpi or link to the web version."
+          
+  BUTTON "E&xit", Exit, 98, 30, "Leave the current menu"
+  
+  BUTTON "CDC Epi Info Site",CDCEpiInfo, 98, 86,23,12, "Web installation site for Epi Info if you do not already have it."
+  Picture "@@menudir\OELink.jpg"
+  ScreenText "OpenEpi", 56,38,36, white, Arial Black, Italic 
+  ScreenText "Open Source Epidemiologic Statistics", 56, 60, 18, white, Arial, Bold
+  ScreenText "Menu for Creating Links from Epi Info",50, 75, 18, yellow, Arial, Bold
+  ScreenText "(This is NOT the main OpenEpi menu)",50, 80,16,yellow,Arial,Bold
+END
+
+* The following command blocks contain functions to perform
+* when an item is chosen.
+* Every function MUST have a BEGIN and END.  If they are not
+* paired exactly, the results will be strange.  Commands can be
+* those you would use in a DOS batch file or menu commands like
+* VIEW or HELP.
+
+ StartUp
+ begin
+   Define TextofItem
+   Define NameofBlock
+   Define Commands
+ end
+ 
+ CopyShortcuts
+ Begin
+   Dialog "This choice puts several icons for Local OpenEpi, the OpenEpi Website, and running OpenEpi in SAVE mode so that output goes to the OpenEpi\Results directory. You can delete any icons you don't want. Do you want to proceed?", response,buttons="Yes"
+   Copy @@MenuDir\*.lnk  "%SystemDrive%\documents and Settings\All Users\Desktop\"
+   Copy @@MenuDir\*.url  "%SystemDrive%\documents and Settings\All Users\Desktop\"
+  pause
+ End
+
+ AddMenuItemToEpiInfo
+ Begin
+   *The following menu variables MUST be given values before this block is called:  
+   *    TextofItem               example TextofItem="OpenEpi Website"
+   *    NameofBlock              example NameofBlock="AddOEWeb"
+   *    Commands                 example Commands="Execute http://www.openepi.com"   
+   *                             If there is more than one command, separate them by "[CR]", as in
+   *                                 Commands="Execute http://www.openepi.com[CR]Dialog 'Done'"         
+   If not exists("@@installdir\OriginalEpiInfo.mnu") Then
+      Copy @@installdir\EpiInfo.mnu @@installdir\OriginalEpiInfo.mnu
+   EndIf
+   FIND /C /I  "@@TextofItem " @@InstallDir\EpiInfo.mnu>>@@InstallDir \FoundIt.txt
+   *Note this errorlevel test is really for 0, meaning that FIND has found the string being sought.  Ask an early DOS person why errorlevel 1 really means 
+   *errorlevel>=1.  If phrase is not found, delete FoundIt.txt
+   IF errorlevel 1 del @@InstallDir \FoundIt.txt
+   IF exists(@@InstallDir \FoundIt.txt) then 
+     dialog "Epi Info menu already has a(n) '@@TextofItem ' link.  Please run Epi Info and check the Utilities menu."
+   else
+     Replace MENUITEM "&StatCalc",MENUITEM "@@TextOfItem ",@@NameofBlock [CR]     MENUITEM "&StatCalc";"*End of Menu","@@NameofBlock [CR]Begin[CR]   @@Commands [CR]End[CR][CR]*End of Menu"; FROM @@installdir \EpiInfo.mnu TO @@installdir \newEpiInfo.mnu
+     Dialog "Inserted a menuitem called @@TextofItem  in the Epi Info menu.",result,buttons="OK"
+     copy "@@installdir\epiinfo.mnu" "@@installDir\lastEpiInfo.mnu"
+     copy "@@installdir\NewEpiInfo.mnu" "@@installDir\EpiInfo.mnu"
+     Dialog "EpiInfo.mnu is ready for use from the Epi Info icon. Run Epi Info and look for the @@TextofItem  entry under Utilities. If anything went wrong, just replace EpiInfo.mnu with OriginalEpiInfo.mnu or lastEpiInfo.mnu"
+   endif
+ End
+
+ AddOEWebsite
+ Begin
+   Assign TextofItem="OpenEpi Website"
+   Assign NameofBlock="AddOEWeb"
+   Assign Commands="Execute http://www.openepi.com/"
+   Call AddMenuItemToEpiInfo
+ end
+ 
+AddOEDisk
+begin
+   Assign TextofItem="OpenEpi on Disk"
+   Assign NameofBlock="AddOEDisk"
+   Assign Commands="Execute @@menudir\..\menu\OpenEpiMenu.htm"
+   Call AddMenuItemToEpiInfo
+end
+
+CDCEpiInfo
+begin
+  execute http://www.cdc.gov/epiinfo/
+end
+
+EditThisMenu
+Begin
+   Execute wordpad.exe "@@ThisMenu"
+End
+ 
+PictureSetting
+Begin
+  SETPICTURE
+End
+
+Exit
+ Begin
+   Exit
+ End
+
+
+*End of Menu
+*ToolTips are included with the Buttons

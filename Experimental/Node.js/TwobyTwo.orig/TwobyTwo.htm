@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>OpenEpi--2 x 2 Table Statistics</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8"> 
+
+                                   <!-- --------------------- -->
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="TwobyTwo";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../Etable/Etable_files/IncludeFiles.js" type=text/JavaScript></SCRIPT>
+<!-- For this module, add Martin's exact statistics for two by two tables -->
+<SCRIPT language="JavaScript" src="../Etable/Etable_files/MartinStats.js" type=text/JavaScript></SCRIPT>							
+									
+									<!-- --------------------- -->
+
+<script language="JavaScript" type="text/JavaScript">
+ 
+//initTranslation();	
+function configureInput()
+{//Indented sections are the ones to be changed to configure a new application
+		var crows=5; 
+		//number of rows down the table, not counting the header (title)
+		var ccols=5;
+		//number of cells or columns across the table
+		var x=200;
+		//pixels from the left side of the page where table starts
+		var y=100;
+		//pixels down from top of page where table starts
+		var w=400;
+		//width of table in pixels
+		var h=250;
+		//height of table in pixels
+        readSettings();  //Needed in case settings have been recently changed.  This calls
+		//the function in ReadCookie.js that reads the cookie containing the settings.		
+
+	//Special section to label the input table accoring to the settings stored in the
+	//settings cookie. 
+	
+		var toplabel="Disease";
+		var leftlabel="Exposure";
+		var topleft="(+)";
+		var topright="(-)" ;
+		var lefttop="(+)";
+		var leftbottom="(-)";
+		//alert("ExposureLeft="+ExposureLeft);
+		 if (!ExposureLeft) 
+		 {
+		   //switch disease and exposure
+		   toplabel="Exposure";
+		   leftlabel="Disease";
+		 }
+		 if (!MaxValueAtLeft) 
+		 {
+		   topleft="(-)";
+		   topright="(+)";
+		 }
+		 if (!MaxValueAtTop) 
+		 {
+		   lefttop="(-)";
+		   leftbottom="(+)";
+		 }	  
+  		 
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+
+//First create a new Input object called intable.
+var intable=new Input;
+//Then using intable commands, define the input table.  The results of the commands will be 
+//stored in two arrays, and later executed in the right order before and after creation
+//of the input table. 
+	 
+with (intable)
+ { 
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable
+		  
+		  allowstrata(true);
+		  //When true, sets up buttons to add, access, and delete strata, allowing stratified
+		  //tables to be entered. It should only be set to true if the statistical functions
+		  //in the js file are ready to handle stratified data.  Otherwise, it may be omitted
+		  //or set to false.
+		  
+		  usetablesettings(true);
+		  //If this function is is given the value “true” (without quotes), the table 
+		  //configuration features of Settings.htm will be used by Etable.  
+		  //Tables can be set by the user to have exposure at the left (default) or 
+		  //at the top, and disease in the opposite location.  The marginal value labels 
+		  //can be set to ascending or descending (maxvalueattop and maxvalueatleft) from 
+		  //the upper left corner.  
+		  
+          //If usetablesettings is given the value “false” (without quotes) or is absent, 
+		  //the table configuration will be ignored and the creation of arrays and 
+		  //repopulation of the table will assume that exposure is on the left and that 
+		  //value labels ascend from the upper left corner (baseline values at top and left).  This is the usual configuration for tables larger than 2 by 2 in epidemiologic textbooks.  Usetablesettings will allow any desired configuration for a table, and should generally be used for 2-by-2 tables.  It should only be used for tables that allow exchanging disease and exposure and ascending or descending marginal values. 
+
+          settingslink(true); 
+          //When true, shows a link to the settings.htm program to the left of the input table
+		  //and displays the current confidence level.
+		  
+		  //The newtable command (actually intable.newtable(...)) sets the dimensions 
+		  //of the input table.  For convenience, these are contained in variables 
+		  //defined at the beginning of the configureInput() function above.
+	      newtable(crows,ccols,w,h,x,y);
+		  
+		  lock("labels"); //locks all cells except data and rowtot and coltot totals
+		  unlock("valname","varname"); //unlocks varname and valname cells so that they
+		                               //can be changed by the user.
+		  
+		  //tablecmds are passed though to a lower level for fine control of
+		  //myTable, the input table.  For a list of possible commands or variables
+		  //that can be set, see the source code for EStratum.js and ETable.htm.
+		  tablecmd('myTable.cellFont="tahoma"')
+          tablecmd('myTable.cellFontSize="14px"')
+		  		  
+		  title("<b>Open Epi 2 x 2 Table<b>");
+		  newrow("label:","varname:span2:"+toplabel,"label:","label:Totals")
+		  newrow("label:","label:", "valname:"+topleft,"valname:"+topright,"label:")
+		  newrow("varname:"+leftlabel,"valname:"+lefttop,"data:","data:","rowtot:")
+		  newrow("label:","valname:"+leftbottom,"data:","data:","rowtot:")
+		  newrow("label:Totals","label:","coltot:","coltot:","grandtot:")
+		  
+//Setting colors for special configuration capabilities of the two by two table.
+//This section looks complicated, but merely sets the color of the four data input 
+//cells according to the table configuration specified by the user in settings.htm.
+//These statements can be omitted for most applications.		  
+var hcoordoff = 2;
+var vcoordoff=2;
+var maxmax="#ff0000";
+var minmin="#00ff00";
+var disnoexp="#FFFF00";
+var expnodis="#ff9900";
+
+  colcolor(4,"#aaaaaa");
+  rowcolor(4,"#aaaaaa");
+  //find maxmax cell
+ 
+  cellcolor(1-MaxValueAtTop + hcoordoff,1-MaxValueAtLeft + vcoordoff,"#ff0000");
+  cellcolor(MaxValueAtTop + hcoordoff, MaxValueAtLeft +vcoordoff,"#00ff00");   
+  
+  if (ExposureLeft) 
+  { 
+    cellcolor(1-MaxValueAtTop + hcoordoff, MaxValueAtLeft +vcoordoff,"#ffff00");
+    cellcolor(MaxValueAtTop + hcoordoff, 1-MaxValueAtLeft +vcoordoff,"#ff9900");
+  }
+  else
+  { 
+    cellcolor(MaxValueAtTop + hcoordoff, 1- MaxValueAtLeft +vcoordoff,"#ffff00");
+    cellcolor(1-MaxValueAtTop + hcoordoff, MaxValueAtLeft +vcoordoff,"#ff9900");
+  }
+		  
+//The following lines must be present to place the parsed commands
+//into two arrays that are used by Etable to configure the input table.
+etablecmds1=precmds;
+etablecmds2=postcmds;
+ 
+ }
+return true 
+}
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+  //alert("Row="+r+"  Col=" + c)
+  /* The following is a useless bit of code, but it illustrates how you might
+  set a value of a cell in the table and also how to get the value of another cell.
+  The value entered by the user is passed in as "entry".  Hence, you can act on the
+  information in "entry" and place a different value in another cell using the 
+  .setCellValue function, and also modify the entry to return the modified value
+  in the "return" line below.  Uncomment the following several lines to see
+  what they do.
+  if (r==2 && c==2)
+    { 
+	 //If we are in row 2, column 2, multiply the entry by 43 and place it in 
+	 //row 2, column 3. 
+	 EntryWin.setCellValue(2,3,parseInt(entry)*43)  //Here's how you set a cell value
+	                                                //other than the one being entered.
+	 alert(EntryWin.getCellValue(2,2))              //Here's how you get a cell value
+	                                                //from another cell.
+	}
+	*/
+	
+	//The following code returns a blank string if the user enters anything other
+	//than a number in a data field.
+     var e=parseFloat(entry)
+     if (isNaN(e)) {e=""}  //If e is not a number, set it to an empty string
+	 
+     return e              //Return the value of e: either the original number or the 
+	                       //blank string.  This value is put in the current entry cell 
+						   //of the table by the EvalEntry function in Etable.  If checkcode 
+						   //does not return a value, the original value entered by the user
+						   //is retained.
+}
+
+var keepdata;
+
+function OECalculate(data)
+{
+ var casecontrol= false;  //Jan 2007
+//   was  !(EntryWin.okCancelDialog("Show all results?\n(Cancel to limit to case-control study.)"));
+ 
+ // var casecontrol=confirm("Limit results to Case-Control study?\nCancel for other study designs.")
+ 
+ 
+//  EntryWin.timerStart();  //Restart the processing timer, since modal dialog above takes time.
+
+
+
+//OECalculate is called by the Calculate button in the ETable module.  The entire dataMatrix, including
+//both metadata and data, is passed as the "data" array.  To see the structure of this
+//array, uncomment the following 3 lines and run the program:
+
+//window.panel2.writeTable(data)
+//alert("This is the data array, ready for programming in the statistical routine.")
+//return  //exits from OECalculate
+
+//Remove the comment from the 3 lines above to see a table of the contents of the data array
+//so that the correct correspondence between the data array and your stats routine
+//can be set up below.
+//In this section, write some code to extract the needed data from the standard
+//data array produced by the data input module.  Strata have indices starting with
+// 1, and table cells begin with the baseline (e.g., 0 or "no") values in the upper
+// left, in the "E0D0" cell.  Exposure is represented on the left margin and Disease
+// at the top, if this distinction is meaningful.  
+
+
+var outObj=new Output(data);  //Create a new Output object, passing it the data array
+                              //so that both the commands (methods) for constructing
+							  //output and the data and metadata are available to the 
+							  //statistical functions
+
+
+// Parameters are the Output data array, showTables, showStrata, and casecontrol.  The latter 3 are true/false,
+// and (all three or the last ones) may be omitted if false. 
+
+doStatistics(outObj,true, true, casecontrol)   //Pass the output command object containing data
+	                              //and set showTables and showStrata booleans. In this
+								  //case the tables will be shown automatically and results
+								  //for each stratum will be displayed.
+ 
+                                  //The results are contained in the string called "s"
+                                  //within outObj.  The string is an HTML representation
+								  //of the output. 
+
+
+//The results should be an HTML string.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, if all of the following
+//are true:
+//               1. The program is running under the OpenEpiMenu 
+//               2. OpenEpiMenu is being run from OpenEpiSave.HTA.
+//               3. The operating system is Microsoft Windows
+//If any of these conditions is absent, saving will not occur, but there should
+//be no errors.  If the file is saved, a message appears with the filename and location.  
+
+writeResults(outObj.s,"TwobyTwo",true,outObj)
+}
+
+
+writeFrontEnd ( Title,Authors,Description,demofile);
+  //write HTML from a string.  The fourth parameter is the name of the demofile; none is intended here.
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->

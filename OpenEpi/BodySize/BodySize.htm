@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<TITLE>Size--WHO/CDC Anthropometry</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+
+                                   <!-- --------------------- -->
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+
+<link rel="stylesheet" href="../css/themes/base/jquery.ui.all.css">
+
+<link rel="stylesheet" href="../css/demos.css">
+
+<!--<link rel="styleSheet" href="../CSS/StdPage.css" type="text/css" >    -->
+
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="BodySize";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+<SCRIPT language="JavaScript" src="../js/IncludeFiles.js" type="text/JavaScript"></SCRIPT>
+ <script src="../js/jquery-ui-1.8.18.custom.min.js"></script>
+ <script src="../js/dates.js"></script>
+ <script src="../js/WHOzTo5yr.js"></script>
+ <script src="../js/CDC2000.js"></script>
+									<!-- --------------------- -->
+
+<script language="JavaScript" type="text/JavaScript">
+jQuery.noConflict();  //Prevents confusion with jQuery if $ is used to represent prototype
+function configureInput()
+{
+  //Indented sections are the ones to be changed to configure a new application
+		var crows=10;
+		//number of rows down the table, not counting the header (title)
+		var ccols=4;
+		//number of cells or columns across the table
+		var x=100;
+		//pixels from the left side of the page where table starts
+		var y=40;
+		//pixels down from top of page where table starts
+		var w=340;
+		//width of table in pixels
+		var h=280;
+        //height of table in pixels
+     /*   if (device=="smartphone")
+        {
+          x=5;
+          w=240;
+          y=100;
+          h=125;
+         }
+         */
+		//height of table in pixels
+
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+var intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+with (intable)
+ {
+
+
+         settingslink(true); 
+
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable, generally one for each
+		 //cell rather than row by row. 
+		  newtable(crows,ccols,w,h,x,y);
+
+          lock("varname"); //locks varname cells
+        
+
+		  //The rest of the commands set up the table itself, including default
+		  //text or values in some of the cells.
+		  title("SIZE--WHO/CDC Reference Statistics");
+		  newrow("span2:varname:b:l:Name or ID (Optional)","span2:data:");
+		  newrow("span3:varname:b:l:Date of MEASUREMENT", "calendar:");
+          newrow("span3:varname:b:Date of BIRTH", "calendar:");
+          newrow("span3:varname:b:Age in Days", "valname:");
+          newrow("span3:varname:b:Sex (1=Male; 2=Female)", "data:");
+          newrow("span3:varname:b:Weight in KG",  "data:");
+          newrow("span3:varname:b:Standing Height in CM","data:")
+          newrow("span3:varname:b:or Recumbent Length in CM","data:")
+          newrow("span3:varname:b:(optional) Head Circumference CM","data:")
+          newrow("span3:varname:b:(optional) Middle Upper Arm CM","data:")
+          tablecmd("myTable.cellFontSize='12px'");
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ }
+
+}
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to
+  //insure that only numbers are put in the cells and that blank entries become
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+ //alert("Row="+r+"  Col=" + c + " value="+entry )
+
+ // if (r==3)
+ //   {
+   //  setCellValue(3,3,"999")
+   //	 alert("1,3 value is"+ getCellValue(1,3))
+ //	}
+   var today=new Date();
+   var futureDateMsg=t("Date cannot be later than today. Check dates and computer date.");
+
+   removeCalendar();
+   if (r >= 2)
+     {
+      setCellValue(3,3, daysBetween(getCellValue(2,3),getCellValue(1,3)))
+     }
+   if ((r==1) || (r==2))
+     {
+      if (daysBetween(getCellValue(r,3), today)<0)
+        {
+          alert(r+futureDateMsg)
+ //         moveInputTo(r,3);
+        }
+     }
+
+	//The following code returns a blank string if the user enters anything other
+	//than a number in a data field.
+   // alert ("entry is "+entry )  ;
+     // var e=parseFloat(entry)
+      //if (isNaN(e))
+     // {e=""}
+    //  if (r>2) {return e}
+
+}
+
+									<!-- --------------------- -->
+	
+function OECalculate(data)
+{
+ //OECalculate is called by the Calculate button in the ETable module.  The entire dataMatrix, including
+ //metadata and data, is passed as the "data" array.
+ 
+
+var outObj=new Output(data);  //Create a new Output object, passing it the data array
+                              //so that both commands (methods) for constructing
+							  //output and the data and metadata are available to the 
+							  //statistical functions
+
+// Parameters are the Output data array, showTables, showStrata, and casecontrol.  The latter 3 are true/false,
+// and (all three or the last ones) may be omitted if false. 
+
+doStatistics(outObj)   //Pass the output command object containing data
+
+
+//The results should be an HTML string called outObj.s, within outObj.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, if all of the following
+//are true:
+//               1. The program is running under the OpenEpiMenu 
+//               2. OpenEpiMenu is being run from OpenEpiSave.HTA.
+//               3. The operating system is Microsoft Windows
+//If any of these conditions is absent, saving will not occur, but there should
+//be no errors.  If the file is saved, a message appears with the filename and location.  
+
+writeResults(outObj.s,basefilename,true,outObj)
+
+}
+</script>
+<script language="JavaScript" type="text/JavaScript">
+writeFrontEnd(Title,Authors,Description,"");
+  //write HTML from a string.  The fourth parameter is the name of the demofile.  If there is none, it should be set to "".  If a demofile
+  //exists, substitute the variable name,  demofile
+ </script>
+
+<!--// This is the end of the HTML page, believe it or not.
+All the tags are written dynamically by writeFrontEnd// -->
+

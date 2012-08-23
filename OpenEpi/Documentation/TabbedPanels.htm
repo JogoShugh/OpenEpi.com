@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.0  (Win32)">
+	<META NAME="CREATED" CONTENT="20070124;12562325">
+	<META NAME="CHANGED" CONTENT="20070124;13565187">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in; margin: 0.79in }
+		P { margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0in">How the tabbed dialog works</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">As previously, the main application
+page, for example,  TwoByTwo.HTM, is partly an HTM file that the user
+customizes to specify the shape of the data entry table, etc, and is
+partly written dynamically by the program when  writeFrontEnd in
+AppHelper.js is called.  Let\'s call the combined page, APP.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">APP contains either DIVs or Iframes
+called Panel1-Panel5 that are made visible or invisible when one of
+the tabs at the top of the page is clicked.  Clicking the tab turns
+on the panel for that tab and turns off the others.  If the panel is
+loaded from an HTML text string, it is a DIV.  If an HTM file is
+loaded, the panel is an Iframe.  The panels contain the following: 
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Panel1 &ndash; The visible part of APP,
+the Start screen.</P>
+<P STYLE="margin-bottom: 0in">Panel2 &ndash; The data entry table,
+constructed dynamically by loading Etable.htm</P>
+<P STYLE="margin-bottom: 0in">Panel3 &ndash; Results, output as an
+HTML string by the statistics contained in the application.js
+file(e.g., TwoByTwo.HTM), formatted by the other programs in
+Etable_Files.  
+</P>
+<P STYLE="margin-bottom: 0in">Panel4 &ndash; Help as a file called
+OpenEpiHelp.htm</P>
+<P STYLE="margin-bottom: 0in">DemoData &ndash; Demo, as a file
+containing data saved from the Application.  This file also contains
+results that are currently hidden.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Important points for developers of
+previous and future applications:</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">None of the Application.js
+	required changing for the new application; all of the statistical
+	JavaScript files are unchanged.  
+	</P>
+	<P STYLE="margin-bottom: 0in"></P>
+	<LI><P STYLE="margin-bottom: 0in">Only two Application.htm files
+	required changing to correct minor incompatibilities (     and     
+	).  There are no changes in the commands to generate data entry or
+	output tables.</P>
+	<P STYLE="margin-bottom: 0in"></P>
+	<LI><P STYLE="margin-bottom: 0in">The language translation mechanism
+	remains intact, although we will run update translation to catch any
+	phrases that have changed.</P>
+	<P STYLE="margin-bottom: 0in"></P>
+	<LI><P STYLE="margin-bottom: 0in">The ApplicationDemo.htm files have
+	not been changed.  
+	</P>
+	<P STYLE="margin-bottom: 0in"></P>
+	<LI><P STYLE="margin-bottom: 0in">The only popup windows that appear
+	are those for xxxxxxxxxxxxxxx.   The entire system is heavily
+	dependent on JavaScript, and some users may have to adjust their
+	browsers to allow scripting. 
+	</P>
+</UL>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; page-break-before: always">How Demo
+Data Works</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">If the variable called DemoData
+contains a file name, such as TwoByTwoDemo.htm, the file is loaded
+into the DemoData iFrame when APP is loaded.  It is not displayed
+because this iFrame refers to the CSS class, Panel, that keeps it
+hidden.  A Demo button is included in the Start screen if the file
+exists.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">What happens when you press the Enter
+Data button?</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">What happens when you press the Demo
+button?</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">Who is the custodian of the master data
+array(s)?  
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">How will data be saved and retrieved in
+a future version?</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+</BODY>
+</HTML>

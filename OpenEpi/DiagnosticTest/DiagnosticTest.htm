@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Diagnostic Test - OpenEpi module for performance evaluation of a diagnostic test</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+
+<script language="JavaScript" type="text/JavaScript">
+var basefilename="DiagnosticTest";
+demofile=basefilename+"Demo.htm";  //If you do not have a demo file, comment out this line. 
+                                   //The Load Demo Data button and the Demo toolbar button 
+								   //will be automatically omitted from the interface.
+//The other file names are derived automatically from the basefilename, 
+//at the beginning of the Apphelper.js file, 
+</script>
+<script language=JavaScript src="../js/IncludeFiles.js" type=text/JavaScript></script>
+<script language=JavaScript src="DiagnosticTest.js" type=text/JavaScript></script>
+<!-- This sample shell for developing OpenEpi applications contains the
+code for statistics for a simple binary proportion.  This should be removed
+and replaced with your own code for setting up the input table and for producing
+suitable output for your application.  Statistical code goes in the SHELL.js
+file, which should be renamed.  The images on this menu can be GIF or JPG
+screen grabs of input and output from your program, or other suitable
+images.  
+
+The OpenEpi Toolkit provides methods for configuring a data entry page and 
+for constructing HTML output to display statistical results.  The Etable
+directory containing Etable.htm, Settings.htm, and StdPage.css, and the sub-
+directory, ETable_Files, must be present for the input and output functions 
+to work. 
+
+
+This is an Open Source project to which the "MIT License" is applied. It was
+supported in part by a grant from the Bill and Melinda Gates Foundation to
+Emory University to enhance the statistical capabilities of Epi Info, a public
+domain software package produced by the Centers for Disease Control and 
+Prevention (CDC), Atlanta, Georgia, USA.
+
+The MIT License (from www.opensource.org)
+Copyright (C), 2003, by Andrew G. Dean, Kevin Sullivan, and Roger Mir, Atlanta,
+Georgia
+
+"Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights 
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom the Software is 
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in 
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+SOFTWARE."
+
+Amen.
+ 
+ -->
+<!-- This module for performance evaluation of diagnostic tests was
+developed by Hemant Kulkarni, Amit Amin, Manju Mamtani, Manik Amin for
+Lata Medical Research Foundation, Nagpur, India and was offered to be used in
+OpenEpi on June 9, 2003 -->
+                                   <!-- --------------------- -->
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="DiagnosticTest";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../Etable/Etable_files/IncludeFiles.js" type=text/JavaScript></SCRIPT>
+<!-- The two files that follow are for graphics -->
+<SCRIPT language=JavaScript src="../Etable/Etable_files/OEGraph.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../Etable/Etable_files/wz_jsgraphics.js" type=text/JavaScript></SCRIPT>
+								
+									<!-- --------------------- -->
+	
+
+<script language="JavaScript" type="text/JavaScript">
+
+var levels;
+//Other global variables mecessaru for ETable to work are defined in AppHelper.js
+var demo=false;  //If present, this boolean will be reset to true 
+sensitivity=new Array;
+specificity=new Array;
+    var auc1=new Array;
+    var auc2=new Array;
+    var auc3=new Array;
+    var auc4=new Array;
+    var auc5=new Array;
+    var auc6=new Array;
+    var auc7=new Array;
+var theta;
+var setheta;
+
+
+function configureInput()
+{//Indented sections are the ones to be changed to configure a new application
+		var promptstr='Enter the number of possible outcomes the diagnostic can report. ';
+		 promptstr+='For example, enter 2 for Positive/Negative, 3 for Mild/Moderate/Severe, etc';
+         promptstr=t(promptstr);
+		var msg1=t("There must be at least 2 levels. Please try again.")
+		do 
+		 {
+		  //Note this complex but effective way of getting user input
+		   levels=prompt(promptstr,5)
+		   if (!levels) 
+		     {
+			  //User hit cancel; bail out
+			  return false
+			 }
+		   levels=parseInt(levels) ;
+	      //number of rows down the table, not counting the header (title)
+		  
+		  if ( levels<2 || isNaN(levels) )
+		    {
+		    var choice= confirm(msg1);
+		     if (!choice) 
+			  {
+			    return false
+			  }
+		    }
+			//alert("levels="+levels+ " choice="+choice)
+		  }
+         while (levels<2 || choice || isNaN(levels)); 
+		 //Repeat as long as result is unsatisfactory
+		
+		
+		
+		
+		
+		var crows=levels+2; 
+		//number of rows down the table, not counting the header (title)
+		var ccols=5;
+		//number of cells or columns across the table
+		var x=150;
+		//pixels from the left side of the page where table starts
+		var y=100;
+		//pixels down from top of page where table starts
+		var w=450;
+		//width of table in pixels
+		var h=30*(crows);
+		//height of table in pixels
+                var xs;
+                var i;
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+with (intable)
+ { 
+         usetablesettings(false);
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable, generally cell by cell
+		 //rather than row by row.  
+		  newtable(crows,ccols,w,h,x,y);
+		  title("<b>Reference Test or Gold Standard</b>");
+		  //Note use of backslashes to remove meaning from single quotes that would
+		  //otherwise cause an error.
+          newrow("varname:","label:","valname:c:Positive","valname:c:Negative","valname:c:Total");
+		  if (levels==2) 
+		          {
+                      newrow("varname:<b>Diagnostic</b>",  "valname:b:Positive",  "data:", "data:","rowtot:");
+		              newrow("varname:<b>Test</b>", "valname:b:Negative",  "data:", "data:", "rowtot:");
+                      newrow("varname:","valname:b:Total","coltot:","coltot:","grandtot:");
+                  }
+           if (levels>2) 
+				  {
+                      newrow("varname:<b>Diagnostic</b>",  "valname:b:Level 1",  "data:", "data:", "rowtot:");
+		              newrow("varname:<b>Test</b>", "valname:b:Level 2",  "data:", "data:", "rowtot:");
+                      for (i=1; i<levels-1; i++) 
+					    {
+                          xs="valname:b:Level "+(i+2);
+                          newrow("label:", xs,"data:", "data:", "rowtot:");
+                        }   
+                      newrow("varname:","valname:b:Total","coltot:","coltot:","grandtot:");
+                  }  
+  //The following lines must be present to place the parsed commands
+  //into two arrays that are used by Etable to configure the input table.
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ 
+ } //end of with inTable
+}
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+  //alert("Row="+r+"  Col=" + c)
+  /* 
+   The following "if" statement acts on an entry in row 1 (the numerator in this
+   case).  It muliplies the entry by 43 and sets the cell in row 1, column 2, to
+  the result.  Then, to illustrate how to retrieve a value from the input table,
+  it retrieves the value just set and displays it in an alert box.  The routine
+  is nonsense, but it illustrates how to both get and set values from cells 
+  in the input table.  Note that the user's entry in the current cell, and the
+  row and column of the current cell are passed in the parameters of this
+  function, and that the value of the current cell has not yet been set. It 
+  will be set automatically to whatever value you return from the checkcode
+  function.  Hence, you can evaluate, massage, and alter the entered value,
+  and use the results to set the current cell (as the returned value) or other
+  cells(using EntryWin.setCellValue(row,col,value)).
+  if (r==0)
+    { 
+	 EntryWin.setCellValue(1,2,parseInt(entry)*43)
+	 alert(EntryWin.getCellValue(1,2))
+    }
+  */
+	
+	//The following code returns a blank string if the user enters anything other
+	//than a number in a data field.
+     var dt=0;
+     var nt=0;
+     var i;
+     var e=parseFloat(entry);
+     if (isNaN(e)) {e=""};
+     //EntryWin.setCellValue(r,c,e);
+     return e; 
+}
+function OECalculate(data)
+{
+//Called by the Calculate button in the ETable module.  
+//The data items entered reside in the dataMatrix variable in EntryWin.  They can be
+//retrieved here and used to populate the statistics module that is being constructed. 
+var results;
+
+//EntryWin.writeTable(EntryWin.dataMatrix[1])
+//Remove the comment from the line above to see a table of the contents of the dataMatrix
+//so that the correct correspondence between the dataMatrix and your stats routine
+//can be set up below.
+//In this section, write some code to extract the needed data from the standard
+//data array produced by the data input module.  Strata have indices starting with
+// 1, and table cells begin with the baseline (e.g., 0 or "no") values in the upper
+// left, in the "E0D0" cell.  Exposure is represented on the left margin and Disease
+// at the top, if this distinction is meaningful.  
+// For a simple proportion, the translation is easy:
+  
+  //  if (levels<2) return;
+	/*
+	if (levels==2) {
+          	    tp=parseFloat(data[1]["E0D0"]);
+		        //tp are the true positives
+		         
+                fp=parseFloat(data[1]["E0D1"]);
+                //fp are the false positives
+		
+		        fn = parseFloat(data[1]["E1D0"]);
+          	   //fn are the false negatives
+
+                tn = parseFloat(data[1]["E1D1"]);
+                //tn are true negatives
+          // alert("tp="+tp+ " fp="+fp+" fn="+fn+" tn="+tn)
+                D = tp+fn;
+                //D subjects have disease
+
+                nD = fp+tn;
+                //nD subjects are normal
+
+                Tpos = tp+fp;
+                //Tpos subjects are positive by the diagnostic test
+
+                Tneg = fn+tn;
+                //Tneg subjects are negative by the diagnostic test
+
+                N = D+nD;
+                //N are the total subjects
+         }
+	*/	 
+outObj=new Output(data);
+with (outObj)
+{   
+       //Define a table.  You can included extra columns to help with the formatting
+	   //and then use the span property to combine several cells and make a wider one.
+	    if(levels==null) 
+		  {
+		    //for example, after loading demo data
+		    levels=  outObj.data[0].rows-2
+		  }
+		
+			 newtable(4,150);
+			 //4columns and 180 pixels per column
+			 newrow()
+			 //blank line
+			 newrow()
+			 //blank line
+			 title("<h2>"+"<font name='Arial'>"+"Results</font></h2>");
+			 //Title goes across all cells.  Text can have HTML tags that make it
+			 //bold or give it particular styles.  These are optional.  Be sure to
+			 //include a closing tag for each one.
+			 line(6);
+			 title("<h2>Diagnostic or Screening Test Evaluation</h2>");
+			 line(6);
+			 endtable();
+			// combinedresults=outObj.s
+		
+			 tableAsHTML(1);  //Show the table values in the output
+		
+		     newtable(6,100)
+			 newrow("<br>");
+			 CalcBin(outObj);
+
+       //Tell output that we are done
+     		 endtable();
+
+
+
+
+//Retrieve the HTML string, "outTable.s", and make it valid HTML by adding a header
+//and ending tags.  In most cases you would also include a replica of the input
+//table, but Proportion is so simple that the input figures are just included
+//in the title.
+		combinedresults = '<font name="Arial">'+outObj.s+"</font>"
+       
+}
+
+if (levels>2) 
+ {
+    var graph = new OEGraph();
+    with (graph) 
+	  {
+         newgraph(300,300,150,150)
+		 var titlestr=t("Receiver Operator Characteristic (ROC) Curve");
+         title(titlestr)
+         vaxis("varname:TP", "vmin:0","vmax:1.0","tick:.1","labelevery:.1")
+         haxis("varname:FP", "hmin:0","hmax:1.0","tick:.1","labelevery:.1")
+         jg.setStroke(1)
+         line("color:#000000","0:0","1:1")
+         jg.setStroke(2)
+         line("color:#ff0000","hcoords:specificity","vcoords:sensitivity")
+         jg.setColor("#0099ff")
+         var footstr=t("TP - True positive rate, FP - False positive rate");
+		 footnote(footstr)
+         jg.setColor("#008800")
+		 var  sststr=t("Area under the ROC curve")
+         sst =sststr +"= <b>"+Fmt(theta)+" ("+Fmt(theta-1.96*setheta)+" - "+Fmt(theta+1.96*setheta)+")</b>"
+         footnote(sst)
+         endgraph()
+		 combinedresults+=graph.html
+		 combinedresults+="<table><tr><td><p>&nbsp;</p><p>&nbsp;</p></td></tr></table>"
+      }
+ }
+
+//The results should be an HTML string.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, IF THIS PROGRAM is
+//RUNNING UNDER THE OpenEpiMenu AND OpenEpiMenu is being run from OpenEpiSave.HTA.
+//If any of these conditions are not present, saving will not occur, but there should
+//be no errors.  If the file is saved successfully, a message appears with the filename
+// and location.  
+
+writeResults(combinedresults,basefilename,true,outObj)
+}
+
+writeFrontEnd ( Title,Authors,Description,demofile);
+  //write HTML from a string.  The fourth parameter is the name of the demofile; none is intended here.
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->
+

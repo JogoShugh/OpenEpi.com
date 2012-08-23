@@ -1,0 +1,419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>OpenEpi - Sample Size for Cross-Sectional, Cohort, and Clinical Trials</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META NAME="author" CONTENT="Kevin M. Sullivan, Roger A. Mir, and Andrew G. Dean">
+                                   <!-- --------------------- -->
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+       
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="SSCohort";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../js/IncludeFiles.js" type=text/JavaScript></SCRIPT>
+								
+									<!-- --------------------- -->
+
+<script language="JavaScript" type="text/JavaScript">
+demofile="";                        //Set demofile to null as if there were no demofile.
+//demofile=basefilename+"Demo.htm";  //If you do not have a demo file, comment out this line. 
+                                   //The Load Demo Data button and the Demo toolbar button 
+								   //will be automatically omitted from the interface.
+
+//Some global variables 
+var v11 = 0;
+var v22 = 0;
+var vorr = 0;
+var rrr = 0;
+var rdd = 0;
+
+function configureInput()
+{//Indented sections are the ones to be changed to configure a new application
+		var crows=9; 
+		//number of rows down the table, not counting the header (title)
+		var ccols=6;
+		//number of cells or columns across the table
+		var x=125;
+		//pixels from the left side of the page where table starts
+		var y=50;
+		//pixels down from top of page where table starts
+		var w=600;
+		//width of table in pixels
+		var h=400;
+		//height of table in pixels
+
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+with (intable)
+ { 
+	//HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+	//They are parsed by the corresponding functions in the Input class
+	//to produce a series of commands for Etable, generally one for each
+	//cell rather than row by row. 
+	// lock("labels"); 
+     newtable(crows,ccols,w,h,x,y);                
+     title("<h4>" + Title+ "</h4>");
+     newrow("label:l:span3:Two-sided confidence level(%)", "data:c:95","label:l:span2:(1-alpha) usually 95%");
+     newrow("label:l:span3:Power (1-beta or % chance of detecting )",  "span1:data:c:80","label:l:span2:Usually 80%");
+     newrow("label:l:span3:Ratio of Unexposed to Exposed in sample",  "data:c:1.0","label:l:span2:For equal samples, use 1.0");                     
+     newrow("label:l:span3:Percent of Unexposed with Outcome",  "data:c:5","label:l:span2:Between 0.0 and 99.9");
+     newrow("label:c:color#ffffaa:span6:Please fill in 1 of the following. The others will be calculated.");                                           
+     newrow("label:l:span3:Odds ratio",  "data:c:","span2:label:");
+     newrow("label:l:span3:Percent of Exposed with Outcome",  "data:c:","label:l:span2:Between 0.0 and 99.9");
+     newrow("label:l:span3:Risk/Prevalence Ratio","data:c:","span2:label:");
+     newrow("label:l:span3:Risk/Prevalence difference","data:c:","label:l:span2:Between -99.99 and 99.99");                                                
+
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+ 
+ }
+}
+
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+   //alert("Row="+r+"  Col=" + c + " Value: " + entry)
+
+   var temp;
+   var e=parseFloat(entry)
+   //alert("e="+e+"r="+r)
+   if (isNaN(e)) 
+     {
+	   return ("")
+	 }
+   //alert("e2="+e+"r="+r)
+   if (r==3 && c==3 && e !=0)
+     { 
+	   // New value for percent outcome in unexposed
+	   // Clear rows below
+		  EntryWin.setCellValue(r+2, 3, "");  
+		  EntryWin.setCellValue(r+3, 3, "");
+		  EntryWin.setCellValue(r+4, 3, "");
+		  EntryWin.setCellValue(r+5, 3, "");   
+	  } 
+	v22 = parseFloat(EntryWin.getCellValue(3, 3))/100;		
+	//alert("V11:" +v11+ " v22: " + v22 + " vorr: "+vorr)
+	 if ((r == 5 ) && ( c == 3) && ( e != 0))
+	 	{
+		vorr = e;		
+		v11 = 0;
+		rrr = 0;
+		rdd = 0;
+		
+	    if (vorr != 0)
+	   		{
+		    v11 = v22 * vorr / (1 + v22 * (vorr - 1));
+			}
+			//Make sure the above calculated values make sense;
+			if (calvalue(v11,r))
+				{
+			  	return e; 
+			  	}
+			temp = 100*Math.round(100000 * v11) / 100000;	//FOR Row 6
+			EntryWin.setCellValue(r+1, c, temp.toFixed(2));
+
+			temp = Math.round(100000 * v11/v22) / 100000;	//For row 7
+			//alert("R7:" + temp)
+			EntryWin.setCellValue(r+2, c, temp.toFixed(2));	
+
+			temp = 100*Math.round((v11-v22)*100000) / 100000;	//For row 8
+			//alert("R8:" + temp)			
+			EntryWin.setCellValue(r+3,c,temp.toFixed(2));
+		}
+			
+	 if ((r == 6 ) && ( c == 3) && ( e != 0))
+	 	{
+		vorr = 0;		
+		v11 = e/100;
+		rrr = 0;
+		rdd = 0;
+			//Make sure the above calculated values make sense;
+			if (calvalue(v11,r) )
+			{ 
+			return e; 
+			}
+			temp = Math.round(100000 * (v11 * (1 - v22)) / (v22 * (1 - v11))) / 100000;	//For row 5		
+		  	EntryWin.setCellValue(r-1, c, temp.toFixed(2));
+		
+			temp = Math.round(100000 * v11/v22) / 100000;	//For row 7
+			//alert("R7:" + temp)
+			EntryWin.setCellValue(r+1, c, temp.toFixed(2));	
+
+			temp = 100*Math.round((v11-v22)*100000) / 100000; //For Row 8
+			//alert("R8:" + temp)			
+			EntryWin.setCellValue(r+2,c,temp.toFixed(2));			
+	 	}
+		
+ 	if ((r == 7 ) && ( c == 3) && ( e != 0))
+	 	{
+		vorr = 0;		
+		v11 = 0;
+		rrr = e;
+		rdd = 0;
+		//alert("Vorr: " + e);
+		if (rrr != 0)
+			{
+			v11 = v22 * rrr;
+			}		
+		    //Make sure the above calculated values make sense;
+			if (calvalue(v11,r) )
+			{ 
+			return e; 
+			}
+
+			temp = 100*Math.round(100000 * v11) / 100000; // for row 6
+			EntryWin.setCellValue(r-1, c, temp.toFixed(2));
+
+			temp = Math.round(100000 * (v11 * (1 - v22)) / (v22 * (1 - v11))) / 100000; //for 5		
+		  	EntryWin.setCellValue(r-2, c, temp.toFixed(2));
+		
+			temp = 100*Math.round((v11-v22)*100000) / 100000; // for row 8			
+			EntryWin.setCellValue(r+1,c,temp.toFixed(2));
+		}
+		
+ 	if ((r == 8 ) && ( c == 3) && ( e != 0))
+	 	{
+		vorr = 0;		
+		v11 = 0;
+		rrr = 0;
+		rdd = e/100;
+		//alert("Rdd: " + e + " Row: " + r);
+		if (rdd != 0)
+			{
+			v11 = rdd + parseFloat(v22);
+			}
+			//Make sure the above calculated values make sense;
+			if (calvalue(v11,r)) 
+			{ 
+			return e; 
+			}				
+			//alert("V11: " + v11 + "RDD: " + rdd + " V22: " + v22);	
+			temp = Math.round(100000 * v11/v22) / 100000; // for row 7
+			EntryWin.setCellValue(r-1, c, temp.toFixed(2));
+
+			temp = 100*Math.round(100000 * v11) / 100000; // for row 6
+			EntryWin.setCellValue(r-2, c, temp.toFixed(2));
+		
+			temp = Math.round(100000 * (v11 * (1 - v22)) / (v22 * (1 - v11))) / 100000; //for 5		
+		  	EntryWin.setCellValue(r-3, c, temp.toFixed(2));		
+			EntryWin.myTable.moveUp=true;
+		}				
+
+     return e
+}
+var calval1=t("The calculated value for the percent with disease in the exposed group is less than zero; please double check your input to make sure it makes sense." );
+var calval2=t("The calculated value for the proportion with disease in the exposed group is greater than 99.99; please double check your input to make sure it makes sense." );
+function calvalue(v1,r)
+{
+var flag = false
+//Make sure the above calculated values make sense;
+if (v1 < 0) {
+  EntryWin.infoDialog (calval1);
+  flag = true;
+  }
+if (v1 > 99.99) {
+  EntryWin.infoDialog (calval2);
+  flag = true;
+  } 
+  if (flag)
+	  {
+	  switch (r){
+	  case 5:  
+		  EntryWin.setCellValue(r+1, 3, 0);  
+		  EntryWin.setCellValue(r+2, 3, 0);  
+		  EntryWin.setCellValue(r+3, 3, 0);          
+		  break;
+	  case 6:
+		  EntryWin.setCellValue(r-1, 3, 0);   		   
+		  EntryWin.setCellValue(r+1, 3, 0);  
+		  EntryWin.setCellValue(r+2, 3, 0);          
+		  break;
+	  case 7:
+		  EntryWin.setCellValue(r-2, 3, 0);  
+		  EntryWin.setCellValue(r-1, 3, 0);  
+		  EntryWin.setCellValue(r+1, 3, 0);          
+		  break;
+	  case 8:
+		  EntryWin.setCellValue(r-3, 3, 0);  
+		  EntryWin.setCellValue(r-2, 3, 0);  
+		  EntryWin.setCellValue(r-1, 3, 0);  		  
+		  break;
+		  }
+	  return true;  		  
+	  }	  
+  else
+  	  {
+  	  return false;
+	  }	
+}
+
+
+function OECalculate(dataArray)
+{
+//Called by the Calculate button in the ETable module.  
+//The data items entered reside in the dataMatrix variable in EntryWin.  They can be
+//retrieved here and used to populate the statistics module that is being constructed. 
+var results;
+
+//EntryWin.writeTable(EntryWin.dataMatrix[1])
+//Remove the comment from the line above to see a table of the contents of the dataMatrix
+//so that the correct correspondence between the dataMatrix and your stats routine
+//can be set up below.
+//In this section, write some code to extract the needed data from the standard
+//data array produced by the data input module.  Strata have indices starting with
+// 1, and table cells begin with the baseline (e.g., 0 or "no") values in the upper
+// left, in the "E0D0" cell.  Exposure is represented on the left margin and Disease
+// at the top, if this distinction is meaningful.  
+// For a simple proportion, the translation is easy:
+
+		//Calc() //Function in the ssizecc.js file for output calculation
+		//parseFloat(data[1]["E5D0"]);
+		//alert(parseFloat(data[1]["E0D0"]));
+		//vx is the numerator
+		
+		//vN = parseFloat(data[1]["E6D1"]);
+		
+		//vN is the denominator
+outTable=new Output(dataArray);
+with (outTable)
+{  		
+var v1;
+var v2;
+var vr;
+var vor;  //Odds ratio
+var rr;
+var rd;   
+var msg1=t( "The percentage with disease among the exposed group cannot be less than zero.");
+var msg2=t("The percentage with disease among the exposed group cannot be greater than 99.99.");
+
+var msg3=t( "The percent with disease in the Unexposed (comparison) group cannot be less than zero.");
+var msg4=t("The percent with disease in the Unexposed (comparison) group cannot be greater than 100.");
+var msg5=t("The percent with disease cannot be the same in the Exposed and Unexposed.");
+var msg6=t("The ratio of Unexposed to Exposed cannot be less than zero.");
+var msg7=t("The odds ratio cannot be equal to one.");
+var msg8=t("The odds ratio cannot be less than zero.");
+var msg9=t("The risk/prevalence ratio cannot be equal to one.");
+var msg10=t("The risk/prevalence ratio cannot be less than zero." );
+var msg11=t("The risk/prevalence difference cannot be less than -99.99." )
+var msg12=t("The risk/prevalence difference cannot be greater than 99.99." )
+var msg13=t("Please provide the percent with disease in the exposed group OR an odds ratio OR a risk/prevalence ratio OR a risk/prevalence difference.")
+
+vr =parseFloat(data[1]["E2D0"]);
+v2 =parseFloat(data[1]["E3D0"]);
+vor =parseFloat(data[1]["E5D0"]);
+v1 =parseFloat(data[1]["E6D0"]);
+rr = parseFloat(data[1]["E7D0"]);
+rd = parseFloat(data[1]["E8D0"]);
+	
+//Do some error checking;
+if (v1 < 0) {
+  EntryWin.infoDialog (msg1);
+  return;
+  }
+if (v1 > 99.99) {
+  EntryWin.infoDialog (msg2);
+  return;
+  }
+if (v2 < 0) {
+  EntryWin.infoDialog (msg3);
+  return;
+  }
+if (v2 > 99.99) {
+  EntryWin.infoDialog (msg4);
+  return;
+  }
+if (v1 == v2) {
+  EntryWin.infoDialog (msg5);
+  return;
+  }
+if (vr < 0) {
+  EntryWin.infoDialog (msg6);
+  return;
+  }
+if (vor == 1) {
+  EntryWin.infoDialog (msg7);
+  return;
+  } 
+if (vor < 0) {
+  EntryWin.infoDialog (msg8);
+  return;
+  }
+if (rr == 1) {
+  EntryWin.infoDialog (msg9);
+  return;
+  } 
+if (rr < 0) {
+  EntryWin.infoDialog (msg10);
+  return;
+  }
+if (rd < -99.99) {
+  EntryWin.infoDialog (msg11);
+  return;
+  } 
+if (rd > 99.99) {
+  EntryWin.infoDialog (msg12);
+  return;
+  } 
+if (rd == 0 && vor == 0 && rr == 0 && v1 == 0) {
+  EntryWin.infoDialog (msg13);
+  return;
+  }		
+v1=v1/100
+v2=v2/100
+rd=rd/100
+		
+
+ 
+       
+		//Here is the call to the javascript routine that does the calculations
+		//Note that it also writes results to the output.s object, and is therefore not
+		//a cleanly defined module, although this could be fixed by putting the results
+		//in an array and then writing to the res object from here after retrieving the
+		//array from the calculation module.
+
+		Calc(data);
+
+		//Tell output that we are done
+     	endtable();
+		
+     	
+}
+//Now open a window and use document.write to display the contents of the HTML
+//output from the statistical module, in this case, CalcBin();
+
+
+//The results should be an HTML string.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, IF THIS PROGRAM is
+//RUNNING UNDER THE OpenEpiMenu AND OpenEpiMenu is being run from OpenEpiSave.HTA.
+//If any of these conditions are not present, saving will not occur, but there should
+//be no errors.  If the file is saved successfully, a message appears with the filename
+// and location.  
+
+writeResults(outTable.s,basefilename,true,outTable)
+}
+
+writeFrontEnd(Title,Authors,Description,"");
+  //write HTML from a string.  The fourth parameter is the name of the demofile.  If there is none, it should be set to "".  If a demofile
+  //exists, substitute the variable name,  demofile    
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->

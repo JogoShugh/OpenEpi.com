@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+<HEAD>
+<TITLE>Open Epi Save-Output-to-Disk Module</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META NAME="author" CONTENT="Roger A. Mir, and Andrew G. Dean">
+ <HTA:APPLICATION
+ APPLICATIONNAME="OpenEpiSave" 
+ SINGLEINSTANCE = "yes"
+ MAXIMIZEBUTTON="yes"
+ SYSMENU = "yes"
+ SHOWINTASKBAR = "yes"
+  >
+
+
+<script type = "text/javascript">
+<!--  
+// JavaScript functions for saving a string as an HTM file
+
+var fName
+
+function findFilePath(fso)
+{
+var bFolder;
+var sFoldPath;
+var num=1;
+//var fs=window.location.pathname;  Mar 2007   IE 7 does not support pathname, apparently,
+var fs =new String(window.location);
+//alert("33 fs="+ fs);
+fs=fs.replace(/\%20/g," ")
+//alert("35 now we should have spaces  =" + fs);
+fs=fs.replace(/\//g,"\\");  //Converts forward slashes to backslashes
+fs=fs.replace(/file\:\\\\\\/,"");  //Takes out      'file:\\\'
+var ofs=fso.GetFile(fs)
+//alert("36 fs="+ fs);
+fs=ofs.ParentFolder;
+//alert("38 fs="+ fs);
+//The statements above are used to find the parent of the current directory.  It doesn't make sense but they take out the file name.
+//We are creating a directory called Results, in the OpenEpi directory,  which is our main application directory.
+sFoldPath=fs
+	
+//	sFoldPath='\"'+sFoldPath+'\\Results\\'+'\"';  //Apr 2007
+	sFoldPath=sFoldPath+'\\Results\\'; 
+//alert (44 + sFoldPath)
+	bFolder = fso.folderExists(sFoldPath);
+	if (!bFolder)
+		{
+		var f=fso.CreateFolder(sFoldPath);	
+		}
+		sFoldPath=findfile(sFoldPath,fso);		
+		return sFoldPath;	
+}
+
+function findfile(fp,fso)
+{
+var fullname
+var num=0;
+//Finds the next available number for the filename, starting with 1.
+	do 
+	{
+	num++;
+	fullname='\"'+fp+fName+num+'.htm'  +'\"'; //Apr 2007 mistake
+	fullname=fp+fName+num+".htm";
+	bFileExit=fso.FileExists(fullname);
+	} while (bFileExit);
+	//alert( 65 + fullname)
+return fullname;
+}	
+		
+function savingdata(caldata, fname)
+{
+var alternative="\nIf you run OpenEpiMenu.htm directly you will not get this message (but cannot save output)."
+//caldata is the entire results page, including the data arrays.  fname is the core name of the app, e.g., "SMR"
+try 
+  {
+      // alert("76 creating FSO")     
+		var fso=new ActiveXObject("Scripting.FileSystemObject"); 
+	   //alert(78+" FSO created")		
+		var sFile;
+		var ts;
+		var nWriting = 2;
+		var nReading = 1;
+		var bFileExist;
+		fName=fname;
+		
+		sFile = findFilePath(fso);
+		//alert(86 + " sFile="+sFile)
+		bFileExist = fso.FileExists(sFile);
+		//alert(88+"bFileExist="+bFileExist);
+		sFile=sFile.replace(/\"/g, '');
+		//alert(90 + " sFile="+sFile);
+		 if (bFileExist)
+			 {
+				ts = fso.OpenTextFile(sFile, nWriting, true);
+			 }	 
+			 else
+			 {
+				ts = fso.CreateTextFile(sFile, true);
+			 }
+	//	ts.Write("//OpenEpi Output file\n");  //Mar 2007	
+		 ts.Write(caldata)
+		 ts.Close();
+		 return(sFile);
+  }
+catch(e)
+ {
+		if (e.message=="Automation server can't create object")
+		{
+		 alert("Unable to save output with the Windows Scripting.FileSystemObject. \nIf the OpenEpiSave.HTA module and all OpenEpi files have been downloaded and are being run from your hard disk,\n a file called SCRRUN.DLL may not be registered in your system.\n Try searching for it.  If you find it, \nyou can right click and use SEND TO to call Regsvr32 to register it."+alternative)
+		}
+		else
+		{
+		 alert("Problem in saving output." +alternative + "\nThe error message is:\n"+e.message+ " The file name is "+ sFile+ ".")
+		}
+		return false;
+ }
+}
+function loadMessage()
+{
+  alert("This program, OpenEpiSave.HTA, is a special module for saving OpenEpi output if you are running OpenEpi from\n a local hard disk in a Microsoft Windows environment. \n\nIf this is not the case, run OpenEpiMenu.htm directly.  No files will be saved, but everything else should work.")
+}
+
+var EpiInfoName ='\\Epi_Info\\EpiInfo.exe'
+
+function execute(filename)
+{
+try {
+	if (document.all) 
+	{
+	var oShell = new ActiveXObject("Shell.Application");
+	if (oShell) oShell.ShellExecute(filename);
+	}
+	else if ((navigator.appName.indexOf("Netscape")!=-1) && navigator.javaEnabled()) 
+	{
+	netscape.security.PrivilegeManager.enablePrivilege('UniversalExecAccess');
+	java.lang.Runtime.getRuntime().execute(filename);
+	}
+   }
+catch(e)
+   {
+   alert(e)
+   }
+}
+//-->
+</script>
+</HEAD>
+<body>
+<iframe application="yes" src="menu/OpenEpiMenu.htm" frameborder="yes" id="SaveFrame" style="height:expression(document.body.clientHeight);width:expression(document.body.clientWidth)"></iframe>
+</body>
+</html>
+

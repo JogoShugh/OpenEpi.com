@@ -1,0 +1,282 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>OpenEpi - Toolkit Shell for Developing New Applications</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META NAME="author" CONTENT="Kevin M. Sullivan, Andrew G. Dean, and Roger A. Mir">
+                                   <!-- --------------------- -->
+<link rel="stylesheet" href="../CSS/TabbedUI.css" type="text/css" media="screen">
+<link rel="stylesheet" href="../CSS/TabbedUI-print.css" TYPE="text/css" MEDIA="print">
+<link rel="styleSheet" href="../CSS/dtree.css" type="text/css" >
+
+<script language="JavaScript" type="text/JavaScript">
+  var basefilename="SSMean";  //The name from which other filenames are constructed in AppHelper.js
+                              //******For a new application, change "Proportion" to a new, unique name********
+</script>
+								
+<!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+<SCRIPT language="JavaScript" src="../js/IncludeFiles.js" type=text/JavaScript></SCRIPT>
+								
+									<!-- --------------------- -->
+
+<script language="JavaScript" type="text/JavaScript">
+
+//Some global variables 
+
+var v11 = 0;
+var v22 = 0;
+var vorr = 0;
+
+function configureInput()
+{//Indented sections are the ones to be changed to configure a new application
+		var crows=7; 
+		//number of rows down the table, not counting the header (title)
+		var ccols=7;
+		//number of cells or columns across the table
+		var x=100;
+		//pixels from the left side of the page where table starts
+		var y=50;
+		//pixels down from top of page where table starts
+		var w=500;
+		//width of table in pixels
+		var h=320;
+		//height of table in pixels
+
+//"Input" is an object class found in OECommands.js, which must be in the list of js files
+// at the beginning of this module.
+//First create a new Input object called intable.
+intable=new Input;
+//Then using intable, parse the row-by-row commands and return the results
+//in the form of commands for Etable in the two arrays 
+with (intable)
+ {       
+		 //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+		 //They are parsed by the corresponding functions in the Input class
+		 //to produce a series of commands for Etable, generally one for each
+		 //cell rather than row by row.  
+		  lock("labels");
+		  newtable(crows,ccols,w,h,x,y);
+		  title("<b>Sample Size For Comparing Two Means</b>");
+		  newrow("label:span3:c:<b>Confidence Interval % &nbsp;(two-sided)","c:data:95","label:c:span3: <small><i> Enter a value between 0 and 100, usually 95%");
+		  newrow("label:span3:c:<b>Power","c:data:80","label:c:span3:  <small><i> Enter a value between 0 and 100, usually 80%");
+		  newrow("label:span3:c:<b>Ratio of sample size (Group 2/Group 1)","c:data:1","label:l:span3: ");
+		  
+		  newrow("label:span1:c:","label:span1:c:<b>Group 1 </b>","label:span1:c:","label:span1:c:<b>Group 2 </b>","label:c:span3:Enter means OR difference on next line");
+		  newrow("label:span1:c:<b>Mean","c:data:132.86","label:span1:c:and","c:data:127.44","label:span2:r:bold:or Difference","c:data:");
+		  newrow("label:span1:c:<b>Std. Dev.","c:data:15.34","label:span1:c:","c:data:18.23","label:c:span3:<small><i>Enter Std. Deviation OR Variance of each individual group");
+		  newrow("label:span1:c:<b>Variance", "c:data:","label:span1:c:","c:data:","label:span3:c:");
+				 
+		  
+		    
+  etablecmds1=precmds;
+  etablecmds2=postcmds;
+  }
+}
+
+
+function checkcode(r,c,entry)
+{
+  //This function, if it exists, is called by ETable after every entry into a data
+  //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+  //take some other action based upon it.  Here the function is set up to 
+  //insure that only numbers are put in the cells and that blank entries become 
+  //zeros.  Conditional statements, such as the switch statement can be used
+  //to write code that applies only to particular cells.
+  //To see what row and column entries are made in, uncomment the following line:
+  //alert("Row="+r+"  Col=" + c + " Value: " + entry)
+      
+   var temp; var temp1; var n;  var S;  var P; 
+   
+   var e=parseFloat(entry);
+   //EntryWin.myTable.moveUpDown=true; //to lower the cursor after the value of current cell was entered.
+   //The leftmost cell is column 0, and the span2 value of the first cell puts the 
+   //data in column 2, and the same priciple applies to the uppermost row of data field which is row '0'.
+   
+   
+   // if the cell is blank, ignore the cell;
+		if (isNaN(e)) 
+		{ return ("") }
+	
+		
+	// level of significance;
+	// (r, c, setting);
+		if ((r == 0 ) && ( c == 3) && (e!=20 && e!=25 && e!=30&& e!=35&& e!=40&& e!=45&& e!=50&& e!=55&& e!=60&& e!=65&& e!=70&& e!=75
+		&& e!=80 && e!=85&& e!=90&& e!=95&& e!=98&& e!=99&& e!=99.5&& e!=99.8&& e!=99.9&& e!=99.95&& e!=99.98&& e!=99.99 ))
+		{
+		alert("Ooh! The confidence interval you selected is not available. Please select others.");
+		return;
+		}
+		
+	// enter Power;
+	// (r, c, setting);
+		if ((r == 1 ) && ( c == 3) && (e!=60&& e!=70 && e!=80 && e!=90 && e!=95))
+		{
+		alert("Ooh! The available powers that can be selected are 95%, 90%, 80%, 70% or 60%.");
+		return;
+		}
+		
+		
+	//-------------if individuall means are entered;
+	if ( ((r == 4 ) && ( c == 1) && ( e != 0) ) || ((r == 4 ) && ( c == 3) && ( e != 0) )  ){
+	var temp="";
+	EntryWin.setCellValue(r, 5, temp);
+	}
+	
+	//-------------if difference of means are entered.  May 2007   c below changed from 5 to 6
+	if ((r == 4 ) && ( c == 6) && ( e != 0) ) 
+	{
+	var temp="";
+	EntryWin.setCellValue(r, 1, temp);
+	EntryWin.setCellValue(r, 3, temp);
+	}
+	
+	
+	//if SD is entered;
+	 if ( ((r == 5 ) && ( c == 1) && ( e != 0) ) || ((r == 5 ) && ( c == 3) && ( e != 0)) ) {
+		temp = ""; 
+	  	EntryWin.setCellValue(r+1, 1, temp);
+		EntryWin.setCellValue(r+1, 3, temp);
+		}	
+	
+	//if variance is entered;
+	 if ( ((r == 6 ) && ( c == 1) && ( e != 0) ) || ((r == 6 ) && ( c == 3) && ( e != 0)) ) {
+		temp = ""; 
+	  	EntryWin.setCellValue(r-1, 1, temp);
+		EntryWin.setCellValue(r-1, 3, temp);
+		}	
+
+}
+
+
+
+function OECalculate(dataArray)
+{
+//Called by the Calculate button in the ETable module.  
+//The data items entered reside in the dataMatrix variable in EntryWin.  They can be
+//retrieved here and used to populate the statistics module that is being constructed. 
+
+outTable=new Output(dataArray);
+with (outTable)
+{ 
+//EntryWin.writeTable(data)
+//Remove the comment from the line above to see a table of the contents of the dataMatrix
+//so that the correct correspondence between the dataMatrix and your stats routine
+//can be set up below.
+//In this section, write some code to extract the needed data from the standard
+//data array produced by the data input module.  Strata have indices starting with
+// 1, and table cells begin with the baseline (e.g., 0 or "no") values in the upper
+// left, in the "E0D0" cell.  Exposure is represented on the left margin and Disease
+// at the top, if this distinction is meaningful.  
+// For a simple proportion, the translation is easy:
+/*
+var mean=parseFloat(data[1]["E0D0"]);
+var SD= parseFloat(data[1]["E1D0"]);
+//var clx = parseFloat(data[1]["E2D0"]);
+var n= parseFloat(data[1]["E2D0"]);
+var popsize = parseFloat(data[1]["E3D0"]);	
+var cscrit = parseFloat(data[1]["E4D0"]);	
+//Do some error checking;
+
+var msg1=t( "The anticipated frequency of the factor under study must be greater than zero %.");
+var msg2=t("The anticipated frequency of the factor under study must be less than or equal to 99.99%.");
+var msg3=t("The level of absolute precision must be greater than zero." );
+var msg4=t("The level of absolute precision must be less than 50%." );
+var msg5=t("The design effect must be greater than zero." );
+var msg6=t("The design effect must be less than 30." );
+
+if (proportionx <= 0) {
+  alert (msg1);
+      window.EntryWin.focus();
+  return;
+  }
+if (proportionx >= 99.99) {
+  alert (msg2);
+    window.EntryWin.focus();
+  return;
+  }
+
+if (d_precisionx <= 0) {
+  alert (msg3);
+    window.EntryWin.focus();  
+  return;
+  }
+if (d_precisionx >= 50) {
+  alert (msg4);
+    window.EntryWin.focus();  
+  return;
+  }
+if (deffx <= 0) {
+  alert (msg5);
+    window.EntryWin.focus();  
+  return;
+  } 
+if (deffx >= 30) {
+  alert (msg6);
+    window.EntryWin.focus();  
+  return;
+  }		
+*/		
+        //var combinedresults
+  
+       //Define a table.  You can included extra columns to help with the formatting
+	   //and then use the span property to combine several cells and make a wider one.
+	   
+			// newtable(6,90);
+			 //6 columns and 100 pixels per column
+			// title("<h3>" + "Confidence Intervals for Sample Mean"+ "</h3>");			 
+			// line(6);
+			 //newrow("span3:l:Sample Mean", "span1:"+parseFloat(data[1]["E0D0"]), "c:span2:");
+		     //newrow("span3:l:Sample Standard Deviation","span1:"+parseFloat(data[1]["E1D0"]),"c:span2:");
+		  //newrow("label:span3:r:","label:","label:l:Confidence level(cl)::", "data:95","label:l:(Usually 95%)");
+		    // newrow("span3:l:Sample Size", "span1:"+parseFloat(data[1]["E2D0"]),"c:span2:");		  
+		    // newrow("span3:l:Population Size", "span1:"+parseFloat(data[1]["E3D0"]),"c:span2:");
+		    // newrow("span3:l:Confidence Level","span1:"+parseFloat(data[1]["E4D0"]),"c:span2:");
+			 //line(6);
+			// newrow();
+			 //blank line
+			 //blank line
+			// title("<h4>"+"Sample Size(<i>n</i>) for Various Confidence Levels"+"</h4>");			 
+			 //Title goes across all cells.  Text can have HTML tags that make it
+			 //bold or give it particular styles.  These are optional.  Be sure to
+			 //include a closing tag for each one.
+			// line(6);
+		//Here is the call to the javascript routine that does the calculations
+		//Note that it also writes results to the output.s object, and is therefore not
+		//a cleanly defined module, although this could be fixed by putting the results
+		//in an array and then writing to the res object from here after retrieving the
+		//array from the calculation module.
+
+			 CalcPower(data);
+
+//Tell output that we are done
+endtable();
+
+//Retrieve the HTML string, "outTable.s", and make it valid HTML by adding a header
+//and ending tags.  In most cases you would also include a replica of the input
+//table, but Proportion is so simple that the input figures are just included
+//in the title.
+     		//combinedresults = outTable.s;
+}
+//Make a complete page with the input table and the results by combining several strings;
+
+//The results should be an HTML string.  The following function (found in appHelper.js)
+// will add an HTML header, the data table, and ending tags if they are not already present.
+//It then displays the results in a new browser window.  If the third parameter (saveifpossible)
+//is "true", the html output will be saved in a file on the local disk, IF THIS PROGRAM is
+//RUNNING UNDER THE OpenEpiMenu AND OpenEpiMenu is being run from OpenEpiSave.HTA.
+//If any of these conditions are not present, saving will not occur, but there should
+//be no errors.  If the file is saved successfully, a message appears with the filename
+// and location.  
+
+
+writeResults(outTable.s)//,basefilename,true,outTable) <------optional;
+}
+
+writeFrontEnd(Title,Authors,Description,"");
+  //write HTML from a string.  The fourth parameter is the name of the demofile (demonstration file).  If there is none, it should be set to "".  If a demofile
+  //exists, substitute the variable name,  demofile    
+</script>
+<!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->

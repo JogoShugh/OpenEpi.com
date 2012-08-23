@@ -1,0 +1,128 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>OpenEpi - Toolkit Shell for Developing New Applications</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="Kevin M. Sullivan, Andrew G. Dean, and Roger A. Mir">
+    <!-- --------------------- -->
+    <script language="JavaScript" type="text/JavaScript">
+        var basefilename = "CIMedian";  //The name from which other filenames are constructed in AppHelper.js
+        //******For a new application, change "Proportion" to a new, unique name********
+    </script>
+
+    <!-- From the IncludeFiles.js section, ancillary modules are included that contain necessary code.  Generally you will not
+have to alter code in these modules, but they are all available as part of the source, and are listed in IncludeFiles.js. -->
+
+    <script language="JavaScript" src="../Etable/Etable_files/IncludeFiles.js" type="text/JavaScript"></script>
+
+    <!-- --------------------- -->
+
+    <script language="JavaScript" type="text/JavaScript">
+
+        //Some global variables 
+
+        var v11 = 0;
+        var v22 = 0;
+        var vorr = 0;
+
+        var Module = CalcCIMedian;
+
+        function configureInput() {//Indented sections are the ones to be changed to configure a new application
+            var crows = 3;
+            //number of rows down the table, not counting the header (title)
+            var ccols = 6;
+            //number of cells or columns across the table
+            var x = 100;
+            //pixels from the left side of the page where table starts
+            var y = 50;
+            //pixels down from top of page where table starts
+            var w = 540;
+            //width of table in pixels
+            var h = 350;
+            //height of table in pixels
+
+            //"Input" is an object class found in OECommands.js, which must be in the list of js files
+            // at the beginning of this module.
+            //First create a new Input object called intable.
+            intable = new Input;
+            //Then using intable, parse the row-by-row commands and return the results
+            //in the form of commands for Etable in the two arrays 
+            with (intable) {
+                //HERE ARE THE COMMANDS THAT SET UP THE DATA ENTRY TABLE.
+                //They are parsed by the corresponding functions in the Input class
+                //to produce a series of commands for Etable, generally one for each
+                //cell rather than row by row.  
+                lock("labels");
+                newtable(crows, ccols, w, h, x, y);
+                title("<b>Confidence Interval of median or other percentile for a sample size</b>");
+                newrow("label:span3:l:Sample Size", "c:data:100", "c:span2:");
+                newrow("label:span3:l:Desired percentile", "c:data:50", "label:c:span2:e.g. enter '50' for Median(50<SUP>th</SUP> percentile)");
+                //newrow("label:span3:l:Sample Size", "c:data:268","label:c:span2:");		  
+                //newrow("label:span3:l:Population Size", "c:data:999999999","label:c:span2:");
+                newrow("label:span3:l:Confidence Level (%)", "c:data:95", "label:c:span2:% (of 100)");
+
+                etablecmds1 = precmds;
+                etablecmds2 = postcmds;
+            }
+        }
+
+
+        function checkcode(r, c, entry) {
+            //This function, if it exists, is called by ETable after every entry into a data
+            //cell, giving an opportunity to evaluate and possibly modify the entry, or to
+            //take some other action based upon it.  Here the function is set up to 
+            //insure that only numbers are put in the cells and that blank entries become 
+            //zeros.  Conditional statements, such as the switch statement can be used
+            //to write code that applies only to particular cells.
+            //To see what row and column entries are made in, uncomment the following line:
+            //alert("Row="+r+"  Col=" + c + " Value: " + entry)
+            var e = parseFloat(entry)
+            if (isNaN(e)) { e = "" }
+            return e
+        }
+
+        function OECalculate(dataArray) {
+            //Called by the Calculate button in the ETable module.  
+            //The data items entered reside in the dataMatrix variable in EntryWin.  They can be
+            //retrieved here and used to populate the statistics module that is being constructed. 
+
+            //var input = [{}, { "E0D0": 100, "E1D0": 50, "E2D0": 95 }];
+            //var median = new CalcCIMedian(input, null);
+            //median.Execute();
+
+            //var lowerLimitIsCorrect = median.ResultData.lowerLimit == 40;
+            //var medianValueIsCorrect = median.ResultData.median == 50;
+
+            //alert(lowerLimitIsCorrect && medianValueIsCorrect);
+
+            outTable = new Output(dataArray);
+            var median = new CalcCIMedian(outTable.data, outTable);
+            with (outTable) {
+                var calcOK = median.Execute();
+
+                // Complete the table generation, captured in this closure function from the 
+                // execution...
+                median.ResultData.tableGenerationFunc();
+
+                if (!calcOK) {
+                    alert("Fail: " + median.FailureMessage);
+                }
+
+                //Tell output that we are done
+
+                if (calcOK != false) {
+                    endtable();
+                    writeResults(outTable.s)
+                }
+                else {
+                    EntryWin.timerStop(5);    //Mar 2007 solution to error checking within calcStat rather than beforehand in Checkcode.  
+                    outTable.s = "";
+                }
+            } //with outTable
+        }
+
+        writeFrontEnd(Module.Title, Module.Authors, Module.Description, "");
+        //write HTML from a string.  The fourth parameter is the name of the demofile (demonstration file).  If there is none, it should be set to "".  If a demofile
+        //exists, substitute the variable name,  demofile    
+    </script>
+    <!-- This is the end of the HTML page, believe it or not.  All the tags are written dynamically by writeFrontEnd -->
