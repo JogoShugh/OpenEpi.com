@@ -1,0 +1,82 @@
+doctype 5
+html(lang='en')
+  head
+    title OpenEpi -- Epidemiologic Calculators
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='Content/jquery.mobile-1.2.0.min.css', rel='stylesheet')
+    link(href='Content/toastr.css', rel='stylesheet')
+    link(href='Content/app.css', rel='stylesheet')
+    script(src='Scripts/jquery-1.8.3.js', type='text/javascript')
+    script(src='Scripts/jquery.mobile-1.2.0.min.js', type='text/javascript')
+    script(src='Scripts/toastr.js', type='text/javascript')  
+    script(src='Scripts/underscore.js', type='text/javascript')
+    script(src='Scripts/backbone-min.js', type='text/javascript')
+    script(src='Scripts/knockout-2.0.0.js', type='text/javascript')
+    script(src='Scripts/knockback.min.js', type='text/javascript')
+    script(src='Scripts/jade.js', type='text/javascript')
+    script(src='Scripts/jquery.jade.min.js', type='text/javascript')    
+    script(type='text/coffeescript', src='app.coffee')
+    script(type='text/javascript', src='modules.js')
+    script(src='Scripts/coffee-script.js', type='text/javascript')
+
+  body
+    //
+      TODO: these should be dynamically loaded, not hard-coded...
+    script(id='input-text-tmpl', class='field-tmpl', type='text/x-jade', src='templates/input-text-tmpl.jade')
+
+    div(data-role='page', id='splash')
+      div(data-role='content', style='text-align:center;background:#ffffff;')
+        div
+          img(src='content/images/logo.png', style="width:209px;height:55px")
+        div
+          img(src='content/images/splash.png', style="width:216px;height:287px")
+
+    div(data-role='page', id='home')
+      div(data-role='content', data-theme='b')
+        include modules
+        ul(
+         data-role="listview"
+         data-filter="true"
+         data-filter-placeholder="Search for module..."
+         ).moduleList
+          moduleGroup = ''
+          for module, moduleName in modules
+            name = moduleName.replace(/ /g, '')
+            currentGroup = module.group
+            if currentGroup != moduleGroup
+              moduleGroup = currentGroup
+              li(data-role='list-divider')=moduleGroup
+            li(data-theme='d', data-moduleName=moduleName).moduleItem
+              a(href="#", style='padding-top: 0px;padding-bottom: 0px;padding-right: 0px;padding-left: 0px;', data-moduleName=moduleName)
+                span=module.titleShort
+          li(data-role='list-divider')='Hard Coded Testing Group'
+          li(data-moduleName='ErrorNotFound', data-theme='d').moduleItem 
+              a(href="#", style='padding-top: 0px;padding-bottom: 0px;padding-right: 0px;padding-left: 0px;', data-moduleName='ErrorNotFound')
+                span Should pop up an error
+
+    div(data-role='page', id='module')
+      include moduleHeader
+
+      div(data-role='content')
+        div(class='fields')
+  
+        fieldset.ui-grid-a
+          div.ui-block-a
+            a(href='#', data-role='button', data-icon='arrow-r', class='calculate') Calculate
+          div.ui-block-b
+            a(href='#', data-role='button', data-icon='arrow-u', class='clear') Clear
+
+      include moduleFooter
+
+    div(data-role='page', id='results')
+      include moduleHeader
+
+      div(data-role='content')
+        div#resultsMissing No results yet...
+        div#resultsPane
+          span And the result is:
+          span &nbsp;
+          span#drumRoll (drum roll please...)
+          span#resultData(style='font-weight:bold;font-style:italics')
+
+      include moduleFooter

@@ -1,0 +1,18 @@
+            //
+              #displayFieldsPreview            
+                h1 Report Preview
+                div(style="padding:5px;border:1px solid black;background:#fdfdfd")
+                  for fieldGroup in fieldGroups
+                    if fieldGroup.name === 'Preview'
+                      // do nothing, again!
+                    else
+                      rawName = fieldGroup.name
+                      name = fieldGroup.name.replace(/ /g, '')
+                      id = 'display'+name
+                      div(id=id, data-id=name, class='displayGroup')
+                        h2=rawName
+                        //
+                          Fields will be injected dynamically here at first load          
+
+
+

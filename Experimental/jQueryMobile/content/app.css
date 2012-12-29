@@ -1,0 +1,47 @@
+body 
+{
+  padding: 0;
+  margin: 0;
+}
+
+#fieldsRequired .ui-btn-inner
+{
+  /*padding: .6em 20px;*/
+}
+.fieldLabel {
+  font-weight: bold;
+}
+
+.cbLabel
+{
+  border-top-width: 0px;
+  margin-top: 0px;
+  border-bottom-width: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+
+.catList li[data-role='list-divider'] {
+  padding: 0px;
+}
+.catList label[data-corners='false'] {
+  border-top-width: 0px;
+  margin-top: 0px;
+  border-bottom-width: 0px;
+  margin-bottom: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+.catList li a {
+  padding: 0px;
+  text-decoration:none;
+}
+
+.moduleItem {
+  padding: 5px;
+}
+
+.moduleItem a {
+  text-decoration:none;
+}

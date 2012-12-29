@@ -1,0 +1,12 @@
+label(for=id)
+	span.fieldLabel=label+':'
+input(
+	type='text'
+	class='fieldInput'
+	maxlength=maxlength
+	required=required
+	data-id=id
+	data-bind="valueUpdate: 'keyup', value: #{id}"
+	data-mini='true'
+	value=defaultValue
+)
